@@ -9,7 +9,8 @@
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "build-static-webapp":"expo build:web"
+    "build-static-webapp": "expo build:web",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "class-variance-authority": "^0.7.0",

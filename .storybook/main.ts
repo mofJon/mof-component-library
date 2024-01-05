@@ -11,10 +11,12 @@ const config: StorybookConfig = {
     "@storybook/addon-onboarding",
     "@storybook/addon-interactions",
   ],
-  docs: { autodocs: 'tag' },
   framework: {
     name: "@storybook/nextjs",
     options: {},
-  }
+  },
+  docs: {
+    autodocs: "tag",
+  },
 };
 export default config;

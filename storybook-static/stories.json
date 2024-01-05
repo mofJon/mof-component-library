@@ -1,1 +1,244 @@
-{"v":3,"stories":{"configure-your-project--docs":{"id":"configure-your-project--docs","title":"Configure your project","name":"Docs","importPath":"./stories/Configure.mdx","storiesImports":[],"tags":["unattached-mdx","docs"],"kind":"Configure your project","story":"Docs","parameters":{"__id":"configure-your-project--docs","docsOnly":true,"fileName":"./stories/Configure.mdx"}},"components-box--plain-box":{"id":"components-box--plain-box","name":"Plain Box","title":"components/Box","importPath":"./components/Box/Box.stories.tsx","tags":["story"],"kind":"components/Box","story":"Plain Box","parameters":{"__id":"components-box--plain-box","docsOnly":false,"fileName":"./components/Box/Box.stories.tsx"}},"components-box--animated-box":{"id":"components-box--animated-box","name":"Animated Box","title":"components/Box","importPath":"./components/Box/Box.stories.tsx","tags":["story"],"kind":"components/Box","story":"Animated Box","parameters":{"__id":"components-box--animated-box","docsOnly":false,"fileName":"./components/Box/Box.stories.tsx"}},"components-button--primary":{"id":"components-button--primary","name":"Primary","title":"components/Button","importPath":"./components/Button/Button.stories.tsx","tags":["story"],"kind":"components/Button","story":"Primary","parameters":{"__id":"components-button--primary","docsOnly":false,"fileName":"./components/Button/Button.stories.tsx"}},"components-button--secondary":{"id":"components-button--secondary","name":"Secondary","title":"components/Button","importPath":"./components/Button/Button.stories.tsx","tags":["story"],"kind":"components/Button","story":"Secondary","parameters":{"__id":"components-button--secondary","docsOnly":false,"fileName":"./components/Button/Button.stories.tsx"}},"components-stack--vertical-stack":{"id":"components-stack--vertical-stack","name":"Vertical Stack","title":"components/Stack","importPath":"./components/Stack/Stack.stories.tsx","tags":["story"],"kind":"components/Stack","story":"Vertical Stack","parameters":{"__id":"components-stack--vertical-stack","docsOnly":false,"fileName":"./components/Stack/Stack.stories.tsx"}},"components-stack--horizontal-stack":{"id":"components-stack--horizontal-stack","name":"Horizontal Stack","title":"components/Stack","importPath":"./components/Stack/Stack.stories.tsx","tags":["story"],"kind":"components/Stack","story":"Horizontal Stack","parameters":{"__id":"components-stack--horizontal-stack","docsOnly":false,"fileName":"./components/Stack/Stack.stories.tsx"}},"components-stack--animated-vertical-stack":{"id":"components-stack--animated-vertical-stack","name":"Animated Vertical Stack","title":"components/Stack","importPath":"./components/Stack/Stack.stories.tsx","tags":["story"],"kind":"components/Stack","story":"Animated Vertical Stack","parameters":{"__id":"components-stack--animated-vertical-stack","docsOnly":false,"fileName":"./components/Stack/Stack.stories.tsx"}},"components-stack--animated-horizontal-stack":{"id":"components-stack--animated-horizontal-stack","name":"Animated Horizontal Stack","title":"components/Stack","importPath":"./components/Stack/Stack.stories.tsx","tags":["story"],"kind":"components/Stack","story":"Animated Horizontal Stack","parameters":{"__id":"components-stack--animated-horizontal-stack","docsOnly":false,"fileName":"./components/Stack/Stack.stories.tsx"}},"components-stack--animated-horizontal-stack-spring-in":{"id":"components-stack--animated-horizontal-stack-spring-in","name":"Animated Horizontal Stack Spring In","title":"components/Stack","importPath":"./components/Stack/Stack.stories.tsx","tags":["story"],"kind":"components/Stack","story":"Animated Horizontal Stack Spring In","parameters":{"__id":"components-stack--animated-horizontal-stack-spring-in","docsOnly":false,"fileName":"./components/Stack/Stack.stories.tsx"}},"components-text--heading-1":{"id":"components-text--heading-1","name":"Heading 1","title":"components/Text","importPath":"./components/Text/Text.stories.tsx","tags":["story"],"kind":"components/Text","story":"Heading 1","parameters":{"__id":"components-text--heading-1","docsOnly":false,"fileName":"./components/Text/Text.stories.tsx"}},"components-text--heading-2":{"id":"components-text--heading-2","name":"Heading 2","title":"components/Text","importPath":"./components/Text/Text.stories.tsx","tags":["story"],"kind":"components/Text","story":"Heading 2","parameters":{"__id":"components-text--heading-2","docsOnly":false,"fileName":"./components/Text/Text.stories.tsx"}},"components-text--heading-3":{"id":"components-text--heading-3","name":"Heading 3","title":"components/Text","importPath":"./components/Text/Text.stories.tsx","tags":["story"],"kind":"components/Text","story":"Heading 3","parameters":{"__id":"components-text--heading-3","docsOnly":false,"fileName":"./components/Text/Text.stories.tsx"}},"components-text--heading-4":{"id":"components-text--heading-4","name":"Heading 4","title":"components/Text","importPath":"./components/Text/Text.stories.tsx","tags":["story"],"kind":"components/Text","story":"Heading 4","parameters":{"__id":"components-text--heading-4","docsOnly":false,"fileName":"./components/Text/Text.stories.tsx"}},"components-text--heading-5":{"id":"components-text--heading-5","name":"Heading 5","title":"components/Text","importPath":"./components/Text/Text.stories.tsx","tags":["story"],"kind":"components/Text","story":"Heading 5","parameters":{"__id":"components-text--heading-5","docsOnly":false,"fileName":"./components/Text/Text.stories.tsx"}},"components-text--heading-6":{"id":"components-text--heading-6","name":"Heading 6","title":"components/Text","importPath":"./components/Text/Text.stories.tsx","tags":["story"],"kind":"components/Text","story":"Heading 6","parameters":{"__id":"components-text--heading-6","docsOnly":false,"fileName":"./components/Text/Text.stories.tsx"}},"components-text--copy":{"id":"components-text--copy","name":"Copy","title":"components/Text","importPath":"./components/Text/Text.stories.tsx","tags":["story"],"kind":"components/Text","story":"Copy","parameters":{"__id":"components-text--copy","docsOnly":false,"fileName":"./components/Text/Text.stories.tsx"}}}}
+{
+  "v": 3,
+  "stories": {
+    "configure-your-project--docs": {
+      "id": "configure-your-project--docs",
+      "title": "Configure your project",
+      "name": "Docs",
+      "importPath": "./stories/Configure.mdx",
+      "storiesImports": [],
+      "tags": ["unattached-mdx", "docs"],
+      "kind": "Configure your project",
+      "story": "Docs",
+      "parameters": {
+        "__id": "configure-your-project--docs",
+        "docsOnly": true,
+        "fileName": "./stories/Configure.mdx"
+      }
+    },
+    "components-box--plain-box": {
+      "id": "components-box--plain-box",
+      "name": "Plain Box",
+      "title": "components/Box",
+      "importPath": "./components/Box/Box.stories.tsx",
+      "tags": ["story"],
+      "kind": "components/Box",
+      "story": "Plain Box",
+      "parameters": {
+        "__id": "components-box--plain-box",
+        "docsOnly": false,
+        "fileName": "./components/Box/Box.stories.tsx"
+      }
+    },
+    "components-box--animated-box": {
+      "id": "components-box--animated-box",
+      "name": "Animated Box",
+      "title": "components/Box",
+      "importPath": "./components/Box/Box.stories.tsx",
+      "tags": ["story"],
+      "kind": "components/Box",
+      "story": "Animated Box",
+      "parameters": {
+        "__id": "components-box--animated-box",
+        "docsOnly": false,
+        "fileName": "./components/Box/Box.stories.tsx"
+      }
+    },
+    "components-button--primary": {
+      "id": "components-button--primary",
+      "name": "Primary",
+      "title": "components/Button",
+      "importPath": "./components/Button/Button.stories.tsx",
+      "tags": ["story"],
+      "kind": "components/Button",
+      "story": "Primary",
+      "parameters": {
+        "__id": "components-button--primary",
+        "docsOnly": false,
+        "fileName": "./components/Button/Button.stories.tsx"
+      }
+    },
+    "components-button--secondary": {
+      "id": "components-button--secondary",
+      "name": "Secondary",
+      "title": "components/Button",
+      "importPath": "./components/Button/Button.stories.tsx",
+      "tags": ["story"],
+      "kind": "components/Button",
+      "story": "Secondary",
+      "parameters": {
+        "__id": "components-button--secondary",
+        "docsOnly": false,
+        "fileName": "./components/Button/Button.stories.tsx"
+      }
+    },
+    "components-stack--vertical-stack": {
+      "id": "components-stack--vertical-stack",
+      "name": "Vertical Stack",
+      "title": "components/Stack",
+      "importPath": "./components/Stack/Stack.stories.tsx",
+      "tags": ["story"],
+      "kind": "components/Stack",
+      "story": "Vertical Stack",
+      "parameters": {
+        "__id": "components-stack--vertical-stack",
+        "docsOnly": false,
+        "fileName": "./components/Stack/Stack.stories.tsx"
+      }
+    },
+    "components-stack--horizontal-stack": {
+      "id": "components-stack--horizontal-stack",
+      "name": "Horizontal Stack",
+      "title": "components/Stack",
+      "importPath": "./components/Stack/Stack.stories.tsx",
+      "tags": ["story"],
+      "kind": "components/Stack",
+      "story": "Horizontal Stack",
+      "parameters": {
+        "__id": "components-stack--horizontal-stack",
+        "docsOnly": false,
+        "fileName": "./components/Stack/Stack.stories.tsx"
+      }
+    },
+    "components-stack--animated-vertical-stack": {
+      "id": "components-stack--animated-vertical-stack",
+      "name": "Animated Vertical Stack",
+      "title": "components/Stack",
+      "importPath": "./components/Stack/Stack.stories.tsx",
+      "tags": ["story"],
+      "kind": "components/Stack",
+      "story": "Animated Vertical Stack",
+      "parameters": {
+        "__id": "components-stack--animated-vertical-stack",
+        "docsOnly": false,
+        "fileName": "./components/Stack/Stack.stories.tsx"
+      }
+    },
+    "components-stack--animated-horizontal-stack": {
+      "id": "components-stack--animated-horizontal-stack",
+      "name": "Animated Horizontal Stack",
+      "title": "components/Stack",
+      "importPath": "./components/Stack/Stack.stories.tsx",
+      "tags": ["story"],
+      "kind": "components/Stack",
+      "story": "Animated Horizontal Stack",
+      "parameters": {
+        "__id": "components-stack--animated-horizontal-stack",
+        "docsOnly": false,
+        "fileName": "./components/Stack/Stack.stories.tsx"
+      }
+    },
+    "components-stack--animated-horizontal-stack-spring-in": {
+      "id": "components-stack--animated-horizontal-stack-spring-in",
+      "name": "Animated Horizontal Stack Spring In",
+      "title": "components/Stack",
+      "importPath": "./components/Stack/Stack.stories.tsx",
+      "tags": ["story"],
+      "kind": "components/Stack",
+      "story": "Animated Horizontal Stack Spring In",
+      "parameters": {
+        "__id": "components-stack--animated-horizontal-stack-spring-in",
+        "docsOnly": false,
+        "fileName": "./components/Stack/Stack.stories.tsx"
+      }
+    },
+    "components-text--heading-1": {
+      "id": "components-text--heading-1",
+      "name": "Heading 1",
+      "title": "components/Text",
+      "importPath": "./components/Text/Text.stories.tsx",
+      "tags": ["story"],
+      "kind": "components/Text",
+      "story": "Heading 1",
+      "parameters": {
+        "__id": "components-text--heading-1",
+        "docsOnly": false,
+        "fileName": "./components/Text/Text.stories.tsx"
+      }
+    },
+    "components-text--heading-2": {
+      "id": "components-text--heading-2",
+      "name": "Heading 2",
+      "title": "components/Text",
+      "importPath": "./components/Text/Text.stories.tsx",
+      "tags": ["story"],
+      "kind": "components/Text",
+      "story": "Heading 2",
+      "parameters": {
+        "__id": "components-text--heading-2",
+        "docsOnly": false,
+        "fileName": "./components/Text/Text.stories.tsx"
+      }
+    },
+    "components-text--heading-3": {
+      "id": "components-text--heading-3",
+      "name": "Heading 3",
+      "title": "components/Text",
+      "importPath": "./components/Text/Text.stories.tsx",
+      "tags": ["story"],
+      "kind": "components/Text",
+      "story": "Heading 3",
+      "parameters": {
+        "__id": "components-text--heading-3",
+        "docsOnly": false,
+        "fileName": "./components/Text/Text.stories.tsx"
+      }
+    },
+    "components-text--heading-4": {
+      "id": "components-text--heading-4",
+      "name": "Heading 4",
+      "title": "components/Text",
+      "importPath": "./components/Text/Text.stories.tsx",
+      "tags": ["story"],
+      "kind": "components/Text",
+      "story": "Heading 4",
+      "parameters": {
+        "__id": "components-text--heading-4",
+        "docsOnly": false,
+        "fileName": "./components/Text/Text.stories.tsx"
+      }
+    },
+    "components-text--heading-5": {
+      "id": "components-text--heading-5",
+      "name": "Heading 5",
+      "title": "components/Text",
+      "importPath": "./components/Text/Text.stories.tsx",
+      "tags": ["story"],
+      "kind": "components/Text",
+      "story": "Heading 5",
+      "parameters": {
+        "__id": "components-text--heading-5",
+        "docsOnly": false,
+        "fileName": "./components/Text/Text.stories.tsx"
+      }
+    },
+    "components-text--heading-6": {
+      "id": "components-text--heading-6",
+      "name": "Heading 6",
+      "title": "components/Text",
+      "importPath": "./components/Text/Text.stories.tsx",
+      "tags": ["story"],
+      "kind": "components/Text",
+      "story": "Heading 6",
+      "parameters": {
+        "__id": "components-text--heading-6",
+        "docsOnly": false,
+        "fileName": "./components/Text/Text.stories.tsx"
+      }
+    },
+    "components-text--copy": {
+      "id": "components-text--copy",
+      "name": "Copy",
+      "title": "components/Text",
+      "importPath": "./components/Text/Text.stories.tsx",
+      "tags": ["story"],
+      "kind": "components/Text",
+      "story": "Copy",
+      "parameters": {
+        "__id": "components-text--copy",
+        "docsOnly": false,
+        "fileName": "./components/Text/Text.stories.tsx"
+      }
+    }
+  }
+}
