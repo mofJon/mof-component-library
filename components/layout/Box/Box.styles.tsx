@@ -7,6 +7,7 @@ export const box = cva("box", {
     intent: {
       flex: ["flex flex-1"],
       block: ["block"],
+      container: ["w-screen m-auto max-w-lg"],
     },
   },
   defaultVariants: {

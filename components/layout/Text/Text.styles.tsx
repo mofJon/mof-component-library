@@ -5,8 +5,10 @@ import { TextVars } from "./Text.types";
 export const text = cva("text", {
   variants: {
     intent: {
-      primary: ["text-white-800"],
+      primary: ["text-gray-500"],
       secondary: ["text-gray-800"],
+      primaryButton: ["text-white"],
+      secondaryButton: ["text-green-900"],
     },
     // would possibly prefer these were defined in config, but for demonstration purposes
     size: {

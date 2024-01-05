@@ -45,3 +45,10 @@ export const AnimatedBox: Story = {
     },
   },
 };
+
+export const Container: Story = {
+  args: {
+    variant: "container",
+    className: "bg-gray-500 h-screen",
+  },
+};

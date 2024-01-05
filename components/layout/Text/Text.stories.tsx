@@ -4,6 +4,9 @@ import { Text } from "@components";
 const meta: Meta<typeof Text> = {
   component: Text,
   tags: ["autodocs"],
+  parameters: {
+    layout: "centered",
+  },
   argTypes: {
     intent: {
       table: {

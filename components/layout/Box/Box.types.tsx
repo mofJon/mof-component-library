@@ -12,4 +12,6 @@ export interface BoxProps extends HTMLAndMotionProps, VariantProps<typeof box> {
 export type BoxVars = (
   intent: BoxProps["intent"],
   className: BoxProps["className"],
+  colSpan?: number,
+  rowSpan?: number,
 ) => Record<any, any>;

@@ -19,6 +19,23 @@ export const animController = (
   },
 });
 
+export const animControllerInView = (delay = 0, staggerChildren = 0.2) => ({
+  initial: "inactive",
+  whileInView: "active",
+  variants: {
+    inactive: {
+      opacity: 0,
+    },
+    active: {
+      opacity: 1,
+      transition: {
+        delay,
+        staggerChildren,
+      },
+    },
+  },
+});
+
 const easeIn = {
   type: "spring",
   damping: 25,

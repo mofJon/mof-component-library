@@ -1,6 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Box, Button, Stack, Text } from "@components";
-import { animController, fadeInLeft, fadeInUp, springIn } from "@animations";
+import {
+  animControllerInView,
+  fadeInLeft,
+  fadeInUp,
+  springIn,
+} from "@animations";
 
 const mockCopy =
   "Example of a block of copy. Have added 'my-10' to this block to get more aesthetical spacing above and below, but generally you'd set the gap on the encasing stack for consistency.";
@@ -74,7 +79,7 @@ export const AnimatedVerticalStack: Story = {
       />,
       <Button key="vStack3" text="Click here" {...fadeInUp} />,
     ],
-    ...animController(true),
+    ...animControllerInView(),
   },
 };
 
@@ -105,7 +110,7 @@ export const AnimatedHorizontalStack: Story = {
       />,
     ],
     className: "overflow-visible",
-    ...animController(true),
+    ...animControllerInView(),
   },
 };
 
@@ -136,6 +141,6 @@ export const AnimatedHorizontalStack_SpringIn: Story = {
       />,
     ],
     className: "overflow-visible",
-    ...animController(true),
+    ...animControllerInView(),
   },
 };
