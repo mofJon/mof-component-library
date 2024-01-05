@@ -7,6 +7,7 @@ const mockCopy =
 
 const meta: Meta<typeof Stack> = {
   component: Stack,
+  tags: ["autodocs"],
   argTypes: {
     intent: {
       table: {
@@ -52,9 +53,25 @@ export const AnimatedVerticalStack: Story = {
     direction: "column",
     gap: 2,
     children: [
-      <Text key="vStack0" text="Example heading" textStyle="h1" {...fadeInUp} />,
-      <Text key="vStack1" text="Example of a subheading" textStyle="h5" {...fadeInUp} />,
-      <Text key="vStack2" text={mockCopy} textStyle="copy" className="my-10" {...fadeInUp} />,
+      <Text
+        key="vStack0"
+        text="Example heading"
+        textStyle="h1"
+        {...fadeInUp}
+      />,
+      <Text
+        key="vStack1"
+        text="Example of a subheading"
+        textStyle="h5"
+        {...fadeInUp}
+      />,
+      <Text
+        key="vStack2"
+        text={mockCopy}
+        textStyle="copy"
+        className="my-10"
+        {...fadeInUp}
+      />,
       <Button key="vStack3" text="Click here" {...fadeInUp} />,
     ],
     ...animController(true),
@@ -66,10 +83,26 @@ export const AnimatedHorizontalStack: Story = {
     direction: "row",
     gap: 2,
     children: [
-      <Box key="hStack0" className="rounded-3xl h-40 bg-blue-500" {...fadeInLeft} />,
-      <Box key="hStack1" className="rounded-3xl h-40 bg-pink-500" {...fadeInLeft} />,
-      <Box key="hStack2" className="rounded-3xl h-40 bg-purple-500" {...fadeInLeft} />,
-      <Box key="hStack3" className="rounded-3xl h-40 bg-teal-500" {...fadeInLeft} />,
+      <Box
+        key="hStack0"
+        className="rounded-3xl h-40 bg-blue-500"
+        {...fadeInLeft}
+      />,
+      <Box
+        key="hStack1"
+        className="rounded-3xl h-40 bg-pink-500"
+        {...fadeInLeft}
+      />,
+      <Box
+        key="hStack2"
+        className="rounded-3xl h-40 bg-purple-500"
+        {...fadeInLeft}
+      />,
+      <Box
+        key="hStack3"
+        className="rounded-3xl h-40 bg-teal-500"
+        {...fadeInLeft}
+      />,
     ],
     className: "overflow-visible",
     ...animController(true),
@@ -81,10 +114,26 @@ export const AnimatedHorizontalStack_SpringIn: Story = {
     direction: "row",
     gap: 2,
     children: [
-      <Box key="hStack0" className="rounded-3xl h-40 bg-blue-500" {...fadeInLeft} />,
-      <Box key="hStack1" className="rounded-3xl h-40 bg-pink-500" {...fadeInLeft} />,
-      <Box key="hStack2" className="rounded-3xl h-40 bg-purple-500" {...springIn} />,
-      <Box key="hStack3" className="rounded-3xl h-40 bg-teal-500" {...springIn} />,
+      <Box
+        key="hStack0"
+        className="rounded-3xl h-40 bg-blue-500"
+        {...fadeInLeft}
+      />,
+      <Box
+        key="hStack1"
+        className="rounded-3xl h-40 bg-pink-500"
+        {...fadeInLeft}
+      />,
+      <Box
+        key="hStack2"
+        className="rounded-3xl h-40 bg-purple-500"
+        {...springIn}
+      />,
+      <Box
+        key="hStack3"
+        className="rounded-3xl h-40 bg-teal-500"
+        {...springIn}
+      />,
     ],
     className: "overflow-visible",
     ...animController(true),

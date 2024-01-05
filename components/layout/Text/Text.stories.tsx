@@ -3,6 +3,7 @@ import { Text } from "@components";
 
 const meta: Meta<typeof Text> = {
   component: Text,
+  tags: ["autodocs"],
   argTypes: {
     intent: {
       table: {

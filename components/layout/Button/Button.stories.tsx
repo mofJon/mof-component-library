@@ -3,6 +3,7 @@ import { Button } from "@components";
 
 const meta: Meta<typeof Button> = {
   component: Button,
+  tags: ["autodocs"],
   argTypes: {
     intent: {
       table: {
