@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { action } from "@storybook/addon-actions";
 import { Box, Button, Stack, Text } from "@components";
 import {
   animControllerInView,
@@ -13,17 +14,19 @@ const mockCopy =
 const meta: Meta<typeof Stack> = {
   component: Stack,
   tags: ["autodocs"],
-  argTypes: {
-    intent: {
-      table: {
-        disable: true,
-      },
-    },
-  },
+  // argTypes: {
+  //   intent: {
+  //     table: {
+  //       disable: true,
+  //     },
+  //   },
+  // },
 };
 
 export default meta;
 type Story = StoryObj<typeof Stack>;
+
+const handleStackClick = action("stack CTA clicked");
 
 export const VerticalStack: Story = {
   args: {
@@ -34,7 +37,7 @@ export const VerticalStack: Story = {
       <Text key="vStack0" text="Example heading" textStyle="h1" />,
       <Text key="vStack1" text="Example of a subheading" textStyle="h5" />,
       <Text key="vStack2" text={mockCopy} textStyle="copy" className="my-10" />,
-      <Button key="vStack3" text="Click here" />,
+      <Button key="vStack3" text="Click here" onClick={handleStackClick} />,
     ],
   },
 };
@@ -77,7 +80,12 @@ export const AnimatedVerticalStack: Story = {
         className="my-10"
         {...fadeInUp}
       />,
-      <Button key="vStack3" text="Click here" {...fadeInUp} />,
+      <Button
+        key="vStack3"
+        text="Click here"
+        onClick={handleStackClick}
+        {...fadeInUp}
+      />,
     ],
     ...animControllerInView(),
   },

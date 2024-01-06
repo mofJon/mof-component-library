@@ -9,12 +9,10 @@ export interface TextProps
   extends HTMLAndMotionProps,
     VariantProps<typeof text> {
   text: string;
-  variant?: Exclude<VariantProps<typeof text>["intent"], null>;
-  textStyle?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "button" | "copy";
 }
 
 export type TextVars = (
-  intent: TextProps["intent"],
-  size: TextProps["size"],
+  variant: TextProps["variant"],
+  textStyle: TextProps["textStyle"],
   className: TextProps["className"],
 ) => Record<any, any>;

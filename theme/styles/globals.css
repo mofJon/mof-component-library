@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  @import "typography.css";
+
+  html {
+    @apply font-light tracking-[0.01em];
+  }
+}
+
+@layer components {
+  @import "btn.css";
+}

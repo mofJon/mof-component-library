@@ -10,11 +10,11 @@ export interface ButtonProps
   extends HTMLAndMotionProps,
     VariantProps<typeof button> {
   text: string;
-  variant?: Exclude<VariantProps<typeof button>["intent"], null>;
+  onClick: () => void;
 }
 
 export type ButtonVars = (
-  intent: ButtonProps["intent"],
+  variant: ButtonProps["variant"],
   size: ButtonProps["size"],
   className: ButtonProps["className"],
 ) => Record<any, any>;

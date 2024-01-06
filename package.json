@@ -10,9 +10,12 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "build-static-webapp": "expo build:web",
-    "format": "prettier --write ."
+    "storybook-docs": "storybook dev --docs",
+    "format": "prettier --write .",
+    "chromatic": "npx chromatic --project-token=chpt_1884b5e48422bd0"
   },
   "dependencies": {
+    "@storybook/addon-actions": "^7.6.7",
     "class-variance-authority": "^0.7.0",
     "framer-motion": "^10.17.4",
     "next": "14.0.4",
@@ -23,7 +26,6 @@
     "@storybook/addon-essentials": "^7.6.7",
     "@storybook/addon-interactions": "^7.6.7",
     "@storybook/addon-links": "^7.6.7",
-    "@storybook/addon-onboarding": "^1.0.10",
     "@storybook/blocks": "^7.6.7",
     "@storybook/nextjs": "^7.6.7",
     "@storybook/react": "^7.6.7",
@@ -49,5 +51,7 @@
     "node": ">=20.0.0"
   },
   "module": "index.ts",
-  "type": "module"
+  "type": "module",
+  "readme": "ERROR: No README data found!",
+  "_id": "component-library@0.1.0"
 }

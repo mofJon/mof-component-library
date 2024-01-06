@@ -9,12 +9,11 @@ export interface StackProps
   extends HTMLAndMotionProps,
     VariantProps<typeof stack> {
   gap: number;
-  direction?: Exclude<VariantProps<typeof stack>["intent"], null>;
-  props?: any;
 }
 
 export type StackVars = (
-  intent: StackProps["intent"],
+  direction: StackProps["direction"],
+  align: StackProps["align"],
   gap: StackProps["gap"],
   className: StackProps["className"],
 ) => Record<any, any>;

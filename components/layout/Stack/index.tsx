@@ -4,18 +4,20 @@ import { stackVars } from "./Stack.styles";
 import { motion } from "framer-motion";
 
 export const Stack = forwardRef(
-  ({ 
+  (
+    {
       className,
       direction = "row",
+      align = "start",
       gap = 2,
       ...props
     }: StackProps,
-    ref: Ref<StackProps>
+    ref: Ref<StackProps>,
   ) => {
     const isAnimated = props.animate || props.variants; // do framer motion props exist on parent
-    const allProps = { 
-      ...stackVars(direction, gap, className), // pass all styling defaults to decoupled styles file to future-proof modularity
-      ...props // pass down remaining props 
+    const allProps = {
+      ...stackVars(direction, align, gap, className), // pass all styling defaults to decoupled styles file to future-proof modularity
+      ...props, // pass down remaining props
     };
 
     return createElement(

@@ -4,43 +4,40 @@ import { TextVars } from "./Text.types";
 // Text Base and Variant Styles
 export const text = cva("text", {
   variants: {
-    intent: {
-      primary: ["text-gray-500"],
-      secondary: ["text-gray-800"],
-      primaryButton: ["text-white"],
-      secondaryButton: ["text-green-900"],
+    variant: {
+      primary: ["text-primary"],
+      secondary: ["text-secondary"],
+      alternate: ["text-alternate"],
     },
-    // would possibly prefer these were defined in config, but for demonstration purposes
-    size: {
-      h1: "font-bold leading-tight text-4xl uppercase",
-      h2: "font-bold leading-tight text-3xl",
-      h3: "font-bold leading-tight text-2xl",
-      h4: "font-medium leading-tight text-xl",
-      h5: "font-medium leading-tight text-lg",
-      h6: "font-medium leading-tight text-md",
-      button: "font-medium leading-tight text-sm",
-      copy: "leading-normal text-sm lh-2",
+    textStyle: {
+      h1: "text-h1",
+      h2: "text-h2",
+      h3: "text-h3",
+      h4: "text-h4",
+      h5: "text-h5",
+      h6: "text-h6",
+      copy: "text-copy",
+      main: "text-mainheading",
+      sub: "text-mainheading",
+      button: "",
     },
   },
-  compoundVariants: [
-    { intent: "primary", size: "copy", class: "text-white-600" },
-  ],
   defaultVariants: {
-    intent: "primary",
-    size: "copy",
+    variant: "primary",
+    textStyle: "copy",
   },
 });
 
 // Text Props
-export const textVars: TextVars = (intent, size, classes) => {
+export const textVars: TextVars = (variant, textStyle, classes) => {
   const baseStyles = `
         ${classes ? classes : ""}
     `;
 
   return {
     className: text({
-      intent,
-      size,
+      variant,
+      textStyle,
       className: baseStyles,
     }),
   };

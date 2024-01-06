@@ -4,45 +4,39 @@ import { ButtonVars } from "./Button.types";
 // Button Base and Variant Styles
 export const button = cva("button", {
   variants: {
-    intent: {
-      primary: [
-        "bg-blue-500",
-        "text-white",
-        "border-transparent",
-        "hover:bg-blue-600",
-      ],
-      secondary: [
-        "bg-green-300",
-        "text-gray-800",
-        "border-green-800",
-        "hover:bg-green-400",
-      ],
+    variant: {
+      primary: ["primary"],
+      secondary: ["secondary"],
+      primaryCircle: ["primary circle"],
+      secondaryCircle: ["secondary circle"],
     },
     size: {
-      sm: ["text-sm", "py-1", "px-2"],
-      md: ["text-base", "py-2", "px-4"],
-      full: ["py-2", "w-full"],
+      sm: ["small"],
+      md: ["medium"],
+      lg: ["large"],
+      full: ["full"],
     },
   },
+  // example compond variant
   compoundVariants: [
-    { intent: "primary", size: ["md", "full"], class: "uppercase" },
+    { variant: "primary", size: ["md", "full"], class: "uppercase" },
   ],
   defaultVariants: {
-    intent: "primary",
+    variant: "primary",
     size: "md",
   },
 });
 
 // Button Props
-export const buttonVars: ButtonVars = (intent, size, classes) => {
+export const buttonVars: ButtonVars = (variant, size, classes) => {
   const baseStyles = `
-        rounded mr-auto
+        btn
          ${classes ? classes : ""}
     `;
 
   return {
     className: button({
-      intent,
+      variant,
       size,
       className: baseStyles,
     }),

@@ -4,13 +4,6 @@ import { Box } from "@components";
 const meta: Meta<typeof Box> = {
   component: Box,
   tags: ["autodocs"],
-  argTypes: {
-    intent: {
-      table: {
-        disable: true,
-      },
-    },
-  },
 };
 
 export default meta;

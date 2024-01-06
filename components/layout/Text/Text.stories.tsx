@@ -8,12 +8,7 @@ const meta: Meta<typeof Text> = {
     layout: "centered",
   },
   argTypes: {
-    intent: {
-      table: {
-        disable: true,
-      },
-    },
-    size: {
+    textStyle: {
       table: {
         disable: true,
       },

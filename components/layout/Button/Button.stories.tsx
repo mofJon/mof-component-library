@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { action } from "@storybook/addon-actions";
 import { Button } from "@components";
 
 const meta: Meta<typeof Button> = {
@@ -6,13 +7,7 @@ const meta: Meta<typeof Button> = {
   tags: ["autodocs"],
   parameters: {
     layout: "centered",
-  },
-  argTypes: {
-    intent: {
-      table: {
-        disable: true,
-      },
-    },
+    fullscreen: true,
   },
 };
 
@@ -22,13 +17,34 @@ type Story = StoryObj<typeof Button>;
 export const Primary: Story = {
   args: {
     variant: "primary",
-    text: "Button",
+    text: "Primary Button",
+    onClick: action("primary clicked"),
   },
 };
 
 export const Secondary: Story = {
+  parameters: {
+    backgrounds: { default: "copy" },
+  },
   args: {
-    ...Primary.args,
     variant: "secondary",
+    text: "Secondary Button",
+    onClick: action("secondary clicked"),
+  },
+};
+
+export const PrimaryCircle: Story = {
+  args: {
+    variant: "primaryCircle",
+    text: "Primary Circle Button",
+    onClick: action("primary circle clicked"),
+  },
+};
+
+export const SecondaryCircle: Story = {
+  args: {
+    variant: "secondaryCircle",
+    text: "Secondary Circle Button",
+    onClick: action("secondary circle clicked"),
   },
 };

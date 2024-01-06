@@ -5,12 +5,12 @@ import { MotionProps } from "framer-motion";
 
 type HTMLAndMotionProps = React.HTMLAttributes<HTMLElement> & MotionProps;
 
-export interface BoxProps extends HTMLAndMotionProps, VariantProps<typeof box> {
-  variant?: Exclude<VariantProps<typeof box>["intent"], null>;
-}
+export interface BoxProps
+  extends HTMLAndMotionProps,
+    VariantProps<typeof box> {}
 
 export type BoxVars = (
-  intent: BoxProps["intent"],
+  variant: BoxProps["variant"],
   className: BoxProps["className"],
   colSpan?: number,
   rowSpan?: number,
