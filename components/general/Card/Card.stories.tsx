@@ -1,12 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Card, Image } from "@components";
+import { Card } from "@components";
 import { CardProps } from "./Card.types";
 import mockImg from "@assets/images/mockImage1.webp";
 
-const media = <Image src={mockImg.src} alt="mock image" className="w-full" />;
-
 const data: CardProps["data"] = {
-  media,
+  media: mockImg.src,
   preHeading: "Editorial",
   headingTitle: "Blog Article Title",
   subHeading: "07.07.2023 &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; 15 minutes",

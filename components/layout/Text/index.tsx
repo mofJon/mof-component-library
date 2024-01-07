@@ -8,7 +8,7 @@ export const Text = forwardRef(
   (
     {
       className,
-      variant = "primary",
+      variant,
       text = "Text",
       textStyle = "copy",
       ...props

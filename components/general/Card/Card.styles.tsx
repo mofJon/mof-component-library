@@ -5,12 +5,12 @@ import { CardVars } from "./Card.types";
 export const card = cva("card", {
   variants: {
     variant: {
-      generic: "p-5 bg-white",
+      generic: "card-generic",
     },
     size: {
-      sm: "w-[10rem] md:w-[23rem] lg:w-[56rem] flex-col gap-5",
-      md: "w-[15rem] md:w-[33rem] lg:w-[66rem] flex-col gap-8",
-      lg: "w-[20rem] md:w-[43rem] lg:w-[76rem] flex-row gap-10",
+      sm: "card-sm",
+      md: "card-md",
+      lg: "card-lg",
     },
   },
   compoundVariants: [],
@@ -22,10 +22,7 @@ export const card = cva("card", {
 
 // card Props
 export const cardVars: CardVars = (variant, size, classes) => {
-  const baseStyles = `
-       
-        ${classes ? classes : ""}
-    `;
+  const baseStyles = `${classes ? classes : ""}`;
 
   return {
     className: card({
@@ -37,21 +34,17 @@ export const cardVars: CardVars = (variant, size, classes) => {
 };
 
 export const mediaHolder = (size: any) => {
-  const flex = size === "lg" ? "flex-[0.45]" : "flex-1";
-
   return {
-    className: `gap-4 ${flex} w-full h-full`,
+    className: `card-media-holder ${size}`,
   };
 };
 
 export const content = (size: any) => {
-  const flex = size === "lg" ? "flex-[0.55]" : "flex-1";
-
   return {
-    className: `gap-5 h-full ${flex}`,
+    className: `card-content ${size}`,
   };
 };
 
 export const cta = {
-  className: "align-self-baseline mt-8 flex",
+  className: "card-cta",
 };

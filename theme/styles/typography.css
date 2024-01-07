@@ -44,5 +44,5 @@
 }
 
 .text-copy-bold {
-  @apply leading-normal text-[0.75rem] md:text-[0.875rem] font-semibold tracking-[0.01em] text-grey4;
+  @apply leading-normal text-[0.75rem] md:text-[0.875rem] font-semibold tracking-[0.01em] !text-grey3;
 }

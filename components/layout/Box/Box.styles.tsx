@@ -16,12 +16,17 @@ export const box = cva("box", {
 });
 
 // box Props
-export const boxVars: BoxVars = (variant, classes) => {
+export const boxVars: BoxVars = (variant, src, classes) => {
+  const fetchedImage = src ? { "--image-url": `url(${src})` } : "";
+  const bgImage = src ? `bg-[image:var(--image-url)]` : "";
+
   const baseStyles = `
+        ${bgImage}
         ${classes ? classes : ""}
     `;
 
   return {
+    style: fetchedImage,
     className: box({
       variant,
       className: baseStyles,

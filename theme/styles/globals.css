@@ -10,5 +10,6 @@
 }
 
 @layer components {
-  @import "btn.css";
+  @import "components/btn.css";
+  @import "components/card.css";
 }

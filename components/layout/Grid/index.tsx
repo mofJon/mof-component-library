@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export const Grid = forwardRef(
   (
-    { className, rows = 2, cols = 2, gap = 2, ...props }: GridProps,
+    { className, rows, cols, gap, ...props }: GridProps,
     ref: Ref<GridProps>,
   ) => {
     const isAnimated = props.animate || props.variants; // do framer motion props exist on parent
