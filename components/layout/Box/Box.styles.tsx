@@ -17,7 +17,7 @@ export const box = cva("box", {
 
 // box Props
 export const boxVars: BoxVars = (variant, src, classes) => {
-  const fetchedImage = src ? { "--image-url": `url(${src})` } : "";
+  const fetchedImage = src ? { "--image-url": `url(${src})` } : {};
   const bgImage = src ? `bg-[image:var(--image-url)]` : "";
 
   const baseStyles = `
