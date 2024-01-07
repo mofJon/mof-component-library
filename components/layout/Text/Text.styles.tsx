@@ -17,6 +17,7 @@ export const text = cva("text", {
       h5: "text-h5",
       h6: "text-h6",
       copy: "text-copy",
+      copyBold: "text-copy-bold",
       main: "text-mainheading",
       sub: "text-mainheading",
       button: "",

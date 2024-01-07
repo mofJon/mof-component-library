@@ -67,3 +67,17 @@ export const Copy: Story = {
     text: "Lorem ipsum lamat salmat, etc...",
   },
 };
+
+export const Main: Story = {
+  args: {
+    textStyle: "main",
+    text: "Main Heading",
+  },
+};
+
+export const Sub: Story = {
+  args: {
+    textStyle: "sub",
+    text: "this is an example of a subheading",
+  },
+};

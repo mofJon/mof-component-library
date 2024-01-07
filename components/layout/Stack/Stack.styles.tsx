@@ -9,10 +9,10 @@ export const stack = cva("stack", {
       column: ["flex", "flex-col"],
     },
     align: {
-      start: ["items-start flex-none"],
-      end: ["items-end flex-none te"],
-      center: ["items-center flex-none"],
-      stretch: ["items-stretch flex-none"],
+      start: ["items-start "],
+      end: ["items-end  "],
+      center: ["items-center "],
+      stretch: ["items-stretch "],
       full: ["w-full flex"],
     },
   },
@@ -41,8 +41,10 @@ export const stack = cva("stack", {
 
 // stack Props
 export const stackVars: StackVars = (direction, align, gap, classes) => {
+  const inheritedGap = gap ? `gap-${gap}` : "";
+
   const baseStyles = `
-        gap-${gap}
+        ${inheritedGap}
         ${classes ? classes : ""}
     `;
 

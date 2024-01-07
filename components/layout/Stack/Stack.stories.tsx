@@ -14,13 +14,6 @@ const mockCopy =
 const meta: Meta<typeof Stack> = {
   component: Stack,
   tags: ["autodocs"],
-  // argTypes: {
-  //   intent: {
-  //     table: {
-  //       disable: true,
-  //     },
-  //   },
-  // },
 };
 
 export default meta;

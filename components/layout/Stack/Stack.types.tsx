@@ -8,7 +8,7 @@ type HTMLAndMotionProps = React.HTMLAttributes<HTMLElement> & MotionProps;
 export interface StackProps
   extends HTMLAndMotionProps,
     VariantProps<typeof stack> {
-  gap: number;
+  gap?: number;
 }
 
 export type StackVars = (

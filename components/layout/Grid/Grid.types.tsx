@@ -5,7 +5,7 @@ import { MotionProps } from "framer-motion";
 type HTMLAndMotionProps = React.HTMLAttributes<HTMLElement> & MotionProps;
 
 export interface GridProps extends HTMLAndMotionProps {
-  className: string;
+  className?: string;
   gap?: number;
   rows?: number;
   cols?: number;

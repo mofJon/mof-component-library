@@ -9,7 +9,7 @@ export const Stack = forwardRef(
       className,
       direction = "row",
       align = "start",
-      gap = 2,
+      gap,
       ...props
     }: StackProps,
     ref: Ref<StackProps>,

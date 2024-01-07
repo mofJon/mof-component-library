@@ -40,5 +40,9 @@
 }
 
 .text-copy {
-  @apply text-[0.875rem] leading-normal lg:text-[1rem] lg:leading-[1.5rem] font-medium tracking-[0.01em];
+  @apply leading-normal text-[0.75rem] md:text-[0.875rem] font-normal;
+}
+
+.text-copy-bold {
+  @apply leading-normal text-[0.75rem] md:text-[0.875rem] font-semibold tracking-[0.01em] text-grey4;
 }
