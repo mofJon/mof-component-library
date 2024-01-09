@@ -6,16 +6,12 @@ import { motion } from "framer-motion";
 
 export const Text = forwardRef(
   (
-    {
-      className,
-      variant,
-      text = "Text",
-      textStyle = "copy",
-      ...props
-    }: TextProps,
+    { className, variant, text, textStyle = "copy", ...props }: TextProps,
     ref: Ref<TextProps>,
   ) => {
     const isAnimated = props.animate || props.variants; // do framer motion props exist on parent
+
+    if (!text) return null;
 
     // HTML string - unwanted tags stripping
     const cleanedText = DOMPurify.sanitize(text, {

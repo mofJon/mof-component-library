@@ -1,10 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Card } from "@components";
-import { CardProps } from "./Card.types";
-import mockImg from "@assets/images/mockImage1.webp";
+import { ContentBlock } from "@components";
+import { ContentBlockProps } from "./ContentBlock.types";
 
-const data: CardProps["data"] = {
-  media: mockImg.src,
+const data: ContentBlockProps["data"] = {
   preHeading: "Editorial",
   headingTitle: "Blog Article Title",
   subHeading: "07.07.2023 &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; 15 minutes",
@@ -14,29 +12,15 @@ const data: CardProps["data"] = {
   variant: "primary",
 };
 
-const meta: Meta<typeof Card> = {
-  component: Card,
+const meta: Meta<typeof ContentBlock> = {
+  component: ContentBlock,
   tags: ["autodocs"],
-  parameters: {
-    layout: "centered",
-    mode: "dark",
-  },
-  argTypes: {
-    size: {
-      option: ["sm", "md", "lg"],
-      defaultValue: "lg",
-    },
-    variant: {
-      options: ["primary"],
-      defaultValue: "primary",
-    },
-  },
 };
 
 export default meta;
-type Story = StoryObj<typeof Card>;
+type Story = StoryObj<typeof ContentBlock>;
 
-export const CardGeneric: Story = {
+export const ContentBlockGeneric: Story = {
   args: {
     data,
   },

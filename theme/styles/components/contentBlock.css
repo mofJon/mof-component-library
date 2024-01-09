@@ -1,0 +1,8 @@
+/* content variants */
+.content-block {
+  @apply gap-5;
+}
+
+.content-block .cta {
+  @apply self-baseline mt-6;
+}

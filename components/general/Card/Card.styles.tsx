@@ -5,17 +5,17 @@ import { CardVars } from "./Card.types";
 export const card = cva("card", {
   variants: {
     variant: {
-      generic: "card-generic",
+      primary: "primary",
     },
     size: {
-      sm: "card-sm",
-      md: "card-md",
-      lg: "card-lg",
+      sm: "sm",
+      md: "md",
+      lg: "lg",
     },
   },
   compoundVariants: [],
   defaultVariants: {
-    variant: "generic",
+    variant: "primary",
     size: "sm",
   },
 });
@@ -39,7 +39,7 @@ export const mediaHolder = (size: any) => {
   };
 };
 
-export const content = (size: any) => {
+export const cardContent = (size: any) => {
   return {
     className: `card-content ${size}`,
   };

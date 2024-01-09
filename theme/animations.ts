@@ -1,3 +1,5 @@
+import { CarouselProps } from "@components/general/Carousel/Carousel.types";
+
 export const animController = (
   active = false,
   delay = 0,
@@ -115,3 +117,48 @@ export const springIn = {
     },
   },
 };
+
+// carousel animations
+
+export const carouselAnimationDefault = {
+  type: "spring",
+  stiffness: 500,
+  damping: 30,
+};
+
+export const carouselAnimationElegant = {
+  type: "spring",
+  damping: 20,
+  stiffness: 90,
+};
+
+export const carouselAnimationBouncy = {
+  type: "spring",
+  damping: 10,
+  stiffness: 200,
+};
+
+const focusTransition = {
+  default: carouselAnimationDefault,
+  elegant: carouselAnimationElegant,
+  bouncy: carouselAnimationBouncy,
+};
+
+export const carouselFocusAnimation = (
+  animStyle: CarouselProps["animationStyle"],
+  isActive: boolean,
+) => ({
+  initial: "inactive",
+  animate: isActive ? "active" : "inactive",
+  variants: {
+    inactive: {
+      opacity: 0.5,
+      scale: 0.5,
+    },
+    active: {
+      opacity: 1,
+      scale: 1,
+    },
+  },
+  transition: focusTransition[animStyle],
+});

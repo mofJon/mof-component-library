@@ -1,33 +1,33 @@
 /* card variants */
-.card-generic {
+.card.primary {
   @apply p-5 bg-white;
 }
 
-.card-sm {
+.card.sm {
   @apply w-[18rem] md:w-[28rem] lg:w-[56rem] gap-5;
 }
 
-.card-md {
+.card.md {
   @apply w-[22rem] md:w-[33rem] lg:w-[66rem] gap-8;
 }
 
-.card-lg {
+.card.lg {
   @apply w-[20rem] md:w-[43rem] lg:w-[76rem] gap-10 grid-cols-5;
 }
 
-.card-media-holder {
+.card .media-holder {
   @apply w-full bg-cover bg-center;
 }
 
-.card-media-holder.sm {
+.card .media-holder.sm {
   @apply h-[12rem] md:h-[20rem] lg:h-[25rem];
 }
 
-.card-media-holder.md {
+.card .media-holder.md {
   @apply h-[14rem] md:h-[22rem] lg:h-[35rem];
 }
 
-.card-media-holder.lg {
+.card .media-holder.lg {
   @apply h-[14rem] md:h-full lg:h-full col-span-5 md:col-span-2 lg:col-span-2;
 }
 
@@ -39,6 +39,6 @@
   @apply col-span-5 md:col-span-3 lg:col-span-3;
 }
 
-.card-cta {
+.card .content-block .cta {
   @apply self-baseline mt-6 lg:mt-auto flex;
 }

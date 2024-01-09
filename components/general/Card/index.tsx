@@ -1,9 +1,7 @@
 import { forwardRef, Ref } from "react";
 import { CardProps } from "./Card.types";
-import { cardVars } from "./Card.styles";
-import { Grid } from "@components";
-import CardMedia from "./CardMedia";
-import Content from "./Content";
+import { cardContent, cardVars, mediaHolder } from "./Card.styles";
+import { ContentBlock, Grid, Media } from "@components";
 
 export const Card = forwardRef(
   ({ className, size, data, ...props }: CardProps, ref: Ref<CardProps>) => {
@@ -14,8 +12,8 @@ export const Card = forwardRef(
 
     return (
       <Grid ref={ref} {...allProps}>
-        <CardMedia data={data.media} size={size} />
-        <Content data={data} size={size} />
+        <Media data={data.media} size={size} {...mediaHolder(size)} />
+        <ContentBlock data={data} {...cardContent(size)} />
       </Grid>
     );
   },

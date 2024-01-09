@@ -14,6 +14,15 @@ const mockCopy =
 const meta: Meta<typeof Stack> = {
   component: Stack,
   tags: ["autodocs"],
+  argTypes: {
+    gap: {
+      control: {
+        type: "range",
+        min: 0,
+        max: 20,
+      },
+    },
+  },
 };
 
 export default meta;

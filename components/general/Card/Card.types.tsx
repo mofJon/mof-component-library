@@ -24,3 +24,15 @@ export type CardVars = (
   size: CardProps["size"],
   className: CardProps["className"],
 ) => Record<any, any>;
+
+export interface CardGenericProps {
+  className?: Record<string, string>;
+  size: CardProps["size"];
+  data: {
+    preHeading: string;
+    headingTitle: string;
+    subHeading: string;
+    description: string;
+    primaryCta: string;
+  };
+}

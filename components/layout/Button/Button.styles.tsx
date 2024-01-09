@@ -5,16 +5,16 @@ import { ButtonVars } from "./Button.types";
 export const button = cva("button", {
   variants: {
     variant: {
-      primary: ["primary"],
-      secondary: ["secondary"],
-      primaryCircle: ["primary circle"],
-      secondaryCircle: ["secondary circle"],
+      primary: "primary",
+      secondary: "secondary",
+      primaryCircle: "primary circle",
+      secondaryCircle: "secondary circle",
     },
     size: {
-      sm: ["small"],
-      md: ["medium"],
-      lg: ["large"],
-      full: ["full"],
+      sm: "sm",
+      md: "md",
+      lg: "lg",
+      full: "full",
     },
   },
   // example compond variant

@@ -8,7 +8,7 @@ type HTMLAndMotionProps = React.HTMLAttributes<HTMLElement> & MotionProps;
 export interface TextProps
   extends HTMLAndMotionProps,
     VariantProps<typeof text> {
-  text: string;
+  text?: string;
 }
 
 export type TextVars = (

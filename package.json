@@ -15,6 +15,7 @@
     "chromatic": "npx chromatic --project-token=chpt_1884b5e48422bd0"
   },
   "dependencies": {
+    "@preact/signals": "^1.2.2",
     "@storybook/addon-actions": "^7.6.7",
     "class-variance-authority": "^0.7.0",
     "dompurify": "^3.0.8",
@@ -32,6 +33,7 @@
     "@storybook/nextjs": "^7.6.7",
     "@storybook/react": "^7.6.7",
     "@storybook/test": "^7.6.7",
+    "@svgr/webpack": "^8.1.0",
     "@types/bun": "latest",
     "@types/dompurify": "^3.0.5",
     "@types/node": "^20",

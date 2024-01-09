@@ -10,3 +10,6 @@ export * from "./layout/Text";
 
 // general components
 export * from "./general/Card";
+export * from "./general/Carousel";
+export * from "./general/ContentBlock";
+export * from "./general/Media";

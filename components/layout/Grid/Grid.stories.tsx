@@ -5,6 +5,15 @@ import { animControllerInView, fadeInUp } from "@animations";
 const meta: Meta<typeof Grid> = {
   component: Grid,
   tags: ["autodocs"],
+  argTypes: {
+    gap: {
+      control: {
+        type: "range",
+        min: 0,
+        max: 20,
+      },
+    },
+  },
 };
 
 export default meta;
