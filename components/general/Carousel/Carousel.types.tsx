@@ -16,7 +16,7 @@ export interface CarouselProps
   height: number;
   controls: {
     show?: boolean;
-    svg: ReactNode;
+    directionComponent: ReactNode;
   };
   showPagination: boolean;
   align: "left" | "center";
@@ -36,10 +36,10 @@ export interface ICarouselWrapper {
   items: CarouselProps["items"];
   animationStyle: CarouselProps["animationStyle"];
   currItem: any;
-  isAnimating: any;
   dragWidth: number;
   gap: number;
   crop: boolean;
+  loop?: boolean;
   variant: CarouselProps["variant"];
 }
 
@@ -47,8 +47,11 @@ export interface ICarouselItem {
   index: number;
   item: any;
   width: number;
-  onClick?: () => void;
-  isActive?: boolean;
+  slideWidth: number;
+  currentItem: number;
+  length: number;
+  loop?: boolean;
+  onClick: (index: number) => void;
   animationStyle: CarouselProps["animationStyle"];
   variant: CarouselProps["variant"];
 }
@@ -58,13 +61,11 @@ export type CarouselDirection = "prev" | "next";
 export interface ICarouselControls {
   controls: CarouselProps["controls"];
   currItem: any;
-  isAnimating: any;
   length: number;
   width: number;
 }
 
 export interface ICarouselPagination {
   currItem: any;
-  isAnimating: any;
   length: number;
 }

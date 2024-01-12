@@ -11,38 +11,45 @@ import { carouselCanvas, carouselWrapper } from "../Carousel.styles";
 const CarouselWrapper: FC<ICarouselWrapper> = ({
   items,
   currItem,
-  isAnimating,
   dragWidth,
   gap,
   animationStyle,
   crop,
+  loop,
   variant,
   ...props
 }) => {
   const length = items.length - 1;
-  const origin = 0;
   const { currItem: currentItem, setCurrItem } = currItem;
-  const { setIsAnimating } = isAnimating;
+  const slideWidth = dragWidth + (gap || 0);
 
-  const renderItems = items.map((val: any, i: number) => {
+  const carouselItems = loop ? [...items, ...items] : items;
+
+  const handleItemClick = (itemIndex: number) => {
+    console.log(itemIndex, currentItem);
+
+    setCurrItem(itemIndex);
+  };
+
+  const renderItems = carouselItems.map((val: any, i: number) => {
     return (
       <CarouselItem
         key={`carouselItem_${i}`}
         item={val.media}
         index={i}
         width={dragWidth}
-        isActive={i === currentItem}
+        slideWidth={slideWidth}
+        currentItem={currentItem}
+        length={length}
         animationStyle={animationStyle}
         variant={variant}
-        onClick={() => {
-          setCurrItem(i);
-        }}
+        loop={loop}
+        onClick={handleItemClick}
       />
     );
   });
 
   const startDrag = () => {
-    setIsAnimating(true);
     // html.style.touchAction = "none";
   };
 
@@ -59,25 +66,18 @@ const CarouselWrapper: FC<ICarouselWrapper> = ({
       const next = currentItem + delta;
 
       if (next !== currentItem) {
-        const clampedValue = Math.max(0, Math.min(length, next));
-        setCurrItem(clampedValue);
+        const croppedVal = loop ? next : Math.max(0, Math.min(length, next));
+
+        setCurrItem(croppedVal);
       }
     }
 
     // html.style.touchAction = "auto";
   };
 
-  const startAnimate = () => {
-    setIsAnimating(true);
-  };
-
-  const endAnimate = () => {
-    setIsAnimating(false);
-  };
-
-  let x;
+  let x = 0;
   if (typeof currentItem === "number") {
-    x = origin - currentItem * (dragWidth + gap);
+    x = -currentItem * slideWidth;
   }
 
   return (
@@ -87,8 +87,6 @@ const CarouselWrapper: FC<ICarouselWrapper> = ({
         drag="x"
         onDragEnd={endDrag}
         onDragStart={startDrag}
-        onAnimationStart={startAnimate}
-        onAnimationComplete={endAnimate}
         animate={{ x }}
         dragConstraints={{ left: x, right: x, top: 0, bottom: 0 }}
         {...carouselWrapper(gap, animationStyle)}

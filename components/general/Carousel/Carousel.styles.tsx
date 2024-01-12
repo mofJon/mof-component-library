@@ -12,6 +12,7 @@ export const carousel = cva("carousel", {
     variant: {
       primary: "primary",
       focus: "focus",
+      bookcase: "bookcase",
     },
     size: {
       sm: "sm",
@@ -75,11 +76,12 @@ export const carouselWrapper = (
   };
 };
 
-export const itemHolder = (width: number) => {
+export const itemHolder = (width: number, offset: number) => {
   return {
     className: `carousel-item`,
     style: {
       width: `${width}px`,
+      transform: `translateX(${offset}px)`,
     },
   };
 };

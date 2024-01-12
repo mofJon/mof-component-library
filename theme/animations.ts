@@ -144,21 +144,52 @@ const focusTransition = {
   bouncy: carouselAnimationBouncy,
 };
 
+const disableCarouselX = {
+  x: {
+    duration: 0,
+  },
+};
+
 export const carouselFocusAnimation = (
   animStyle: CarouselProps["animationStyle"],
   isActive: boolean,
+  offset: number,
 ) => ({
   initial: "inactive",
   animate: isActive ? "active" : "inactive",
   variants: {
     inactive: {
+      x: offset,
       opacity: 0.5,
       scale: 0.5,
     },
     active: {
+      x: offset,
       opacity: 1,
       scale: 1,
     },
   },
-  transition: focusTransition[animStyle],
+  transition: { ...focusTransition[animStyle], ...disableCarouselX },
+});
+
+export const carouselBookcaseAnimation = (
+  animStyle: CarouselProps["animationStyle"],
+  isActive: boolean,
+  offset: number,
+) => ({
+  initial: "inactive",
+  animate: isActive ? "active" : "inactive",
+  variants: {
+    inactive: {
+      x: offset,
+      scale: 0.85,
+      opacity: 1,
+    },
+    active: {
+      x: offset,
+      scale: 1,
+      opacity: 1,
+    },
+  },
+  transition: { ...focusTransition[animStyle], ...disableCarouselX },
 });

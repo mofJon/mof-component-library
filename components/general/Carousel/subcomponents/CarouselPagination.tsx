@@ -9,17 +9,13 @@ import {
 
 const CarouselPagination: FC<ICarouselPagination> = ({
   currItem,
-  isAnimating,
   length,
   ...props
 }) => {
-  const { isAnimating: isLocked } = isAnimating;
   const { currItem: currentItem, setCurrItem } = currItem;
 
   const handleClick = (index: number) => {
-    if (!isLocked) {
-      setCurrItem(index);
-    }
+    setCurrItem(index);
   };
 
   const indexer = Array.from({ length }, (v, i) => i);

@@ -6,28 +6,23 @@ import { CarouselDirection } from "../Carousel.types";
 const CarouselControls: FC<any> = ({
   controls,
   currItem,
-  isAnimating,
   width,
   length,
+  loop,
   ...props
 }) => {
   const { currItem: currentItem, setCurrItem } = currItem;
-  const isLocked = isAnimating.isAnimating;
 
   const handleSwitch = (dir: CarouselDirection) => {
-    if (!isLocked) {
-      let switchVal = dir === "next" ? currentItem + 1 : currentItem - 1;
-      if (switchVal > length - 1) {
-        switchVal = currentItem;
-      } else if (switchVal < 0) {
-        switchVal = 0;
-      }
+    let switchVal = (dir === "next" ? 1 : -1) + currentItem;
 
-      setCurrItem(switchVal);
-    }
+    const croppedVal = loop
+      ? switchVal
+      : Math.max(0, Math.min(length - 1, switchVal));
+
+    setCurrItem(croppedVal);
   };
 
-  const Arrow = controls.svg;
   const allProps = {
     ...carouselControlsHolder(width),
     ...props,
@@ -35,8 +30,8 @@ const CarouselControls: FC<any> = ({
 
   const renderControls = ["prev", "next"].map((val: any, i: number) => {
     const hide =
-      (val === "prev" ? currentItem === 0 : currentItem === length - 1) ||
-      isLocked;
+      (val === "prev" ? currentItem === 0 : currentItem === length - 1) &&
+      !loop;
 
     return (
       <Box
@@ -44,7 +39,7 @@ const CarouselControls: FC<any> = ({
         onClick={() => handleSwitch(val)}
         {...carouselControl(val, hide)}
       >
-        <Arrow />
+        {controls.directionComponent}
       </Box>
     );
   });

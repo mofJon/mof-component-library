@@ -29,7 +29,6 @@ export const Carousel = forwardRef(
     ref: Ref<CarouselProps>,
   ) => {
     const [currItem, setCurrItem] = useState(0);
-    const [isAnimating, setIsAnimating] = useState(false);
 
     if (items.length === 0) return null;
 
@@ -55,22 +54,21 @@ export const Carousel = forwardRef(
           gap={gap}
           dragWidth={carouselWidth}
           currItem={{ currItem, setCurrItem }}
-          isAnimating={{ isAnimating, setIsAnimating }}
           animationStyle={animationStyle}
           crop={crop}
+          loop={loop}
           variant={variant}
         />
         <CarouselControls
           controls={controls}
           currItem={{ currItem, setCurrItem }}
-          isAnimating={{ isAnimating, setIsAnimating }}
           length={items.length}
           width={carouselWidth}
+          loop={loop}
         />
-        {showPagination && (
+        {showPagination && !loop && (
           <CarouselPagination
             currItem={{ currItem, setCurrItem }}
-            isAnimating={{ isAnimating, setIsAnimating }}
             length={items.length}
           />
         )}

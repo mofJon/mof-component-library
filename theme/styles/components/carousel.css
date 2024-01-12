@@ -12,7 +12,11 @@
 }
 
 .carousel-item {
-  @apply h-full bg-gray-300;
+  @apply h-full;
+}
+
+.carousel.bookcase .carousel-item {
+  @apply origin-bottom;
 }
 
 .carousel-item img {

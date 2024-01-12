@@ -32,7 +32,7 @@ const meta: Meta<typeof Carousel> = {
       },
     },
     variant: {
-      options: ["primary", "focus"],
+      options: ["primary", "focus", "bookcase"],
     },
   },
 };
@@ -45,7 +45,7 @@ export const DefaultCarousel: Story = {
     items,
     controls: {
       show: true,
-      svg: Arrow,
+      directionComponent: <Arrow />,
     },
     showPagination: true,
     crop: true,
@@ -58,7 +58,7 @@ export const UncroppedCarousel: Story = {
     items,
     controls: {
       show: true,
-      svg: Arrow,
+      directionComponent: <Arrow />,
     },
     showPagination: true,
     crop: false,
@@ -71,11 +71,25 @@ export const FocusCarousel: Story = {
     items,
     controls: {
       show: true,
-      svg: Arrow,
+      directionComponent: <Arrow />,
     },
     showPagination: true,
     crop: false,
     gap: 0,
     variant: "focus",
+  },
+};
+
+export const BookcaseCarousel: Story = {
+  args: {
+    items,
+    controls: {
+      show: true,
+      directionComponent: <Arrow />,
+    },
+    showPagination: true,
+    crop: false,
+    loop: true,
+    variant: "bookcase",
   },
 };
