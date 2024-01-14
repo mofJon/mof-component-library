@@ -6,11 +6,13 @@ export const card = cva("card", {
   variants: {
     variant: {
       primary: "primary",
+      overlay: "overlay",
     },
     size: {
       sm: "sm",
       md: "md",
       lg: "lg",
+      full: "full",
     },
   },
   compoundVariants: [],

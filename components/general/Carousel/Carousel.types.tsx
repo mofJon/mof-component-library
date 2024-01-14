@@ -10,16 +10,16 @@ export interface CarouselProps
     VariantProps<typeof carousel> {
   items: any;
   loop: boolean;
-  animationStyle: "default" | "elegant" | "bouncy";
+  animationStyle?: "default" | "elegant" | "bouncy";
   gap: number;
-  width: number;
-  height: number;
+  width?: number;
+  height?: number;
   controls: {
     show?: boolean;
     directionComponent: ReactNode;
   };
   showPagination: boolean;
-  align: "left" | "center";
+  align?: "left" | "center";
   crop: boolean;
 }
 

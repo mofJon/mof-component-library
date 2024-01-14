@@ -16,20 +16,25 @@ export const box = cva("box", {
 });
 
 // box Props
-export const boxVars: BoxVars = (variant, src, classes) => {
-  const fetchedImage = src ? { "--image-url": `url(${src})` } : {};
-  const bgImage = src ? `bg-[image:var(--image-url)]` : "";
-
+export const boxVars: BoxVars = (variant, bgSrc, classes, styleProps) => {
   const baseStyles = `
-        ${bgImage}
         ${classes ? classes : ""}
     `;
 
+  let bg = {};
+  if (bgSrc) {
+    bg = {
+      backgroundImage: `url(${bgSrc})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center center",
+    };
+  }
+
   return {
-    style: fetchedImage,
     className: box({
       variant,
       className: baseStyles,
     }),
+    style: { ...styleProps, ...bg },
   };
 };

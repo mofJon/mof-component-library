@@ -154,42 +154,78 @@ export const carouselFocusAnimation = (
   animStyle: CarouselProps["animationStyle"],
   isActive: boolean,
   offset: number,
-) => ({
-  initial: "inactive",
-  animate: isActive ? "active" : "inactive",
-  variants: {
-    inactive: {
+  loop: boolean,
+) => {
+  let xOffset = {};
+  if (loop)
+    xOffset = {
       x: offset,
-      opacity: 0.5,
-      scale: 0.5,
+    };
+
+  return {
+    initial: "inactive",
+    animate: isActive ? "active" : "inactive",
+    variants: {
+      inactive: {
+        ...xOffset,
+        opacity: 0.5,
+        scale: 0.5,
+      },
+      active: {
+        ...xOffset,
+        opacity: 1,
+        scale: 1,
+      },
     },
-    active: {
-      x: offset,
-      opacity: 1,
-      scale: 1,
+    transition: {
+      ...focusTransition[animStyle as "default"],
+      ...disableCarouselX,
     },
-  },
-  transition: { ...focusTransition[animStyle], ...disableCarouselX },
-});
+  };
+};
 
 export const carouselBookcaseAnimation = (
   animStyle: CarouselProps["animationStyle"],
   isActive: boolean,
   offset: number,
-) => ({
-  initial: "inactive",
-  animate: isActive ? "active" : "inactive",
-  variants: {
-    inactive: {
+  loop: boolean,
+) => {
+  let xOffset = {};
+  if (loop)
+    xOffset = {
       x: offset,
-      scale: 0.85,
-      opacity: 1,
+    };
+
+  return {
+    initial: "inactive",
+    animate: isActive ? "active" : "inactive",
+    variants: {
+      inactive: {
+        ...xOffset,
+        scale: 0.85,
+        opacity: 1,
+      },
+      active: {
+        ...xOffset,
+        scale: 1,
+        opacity: 1,
+      },
     },
-    active: {
-      x: offset,
-      scale: 1,
-      opacity: 1,
+    transition: {
+      ...focusTransition[animStyle as "default"],
+      ...disableCarouselX,
     },
-  },
-  transition: { ...focusTransition[animStyle], ...disableCarouselX },
-});
+  };
+};
+
+export const emptyContentBlockAnim = {
+  contentBlock: {},
+  preContent: {},
+  preHeading: {},
+  info: {},
+  headingTitle: {},
+  subHeading: {},
+  description: {},
+  primaryCta: {},
+  secondaryCta: {},
+};

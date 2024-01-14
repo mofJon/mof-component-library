@@ -4,6 +4,8 @@ import { textVars } from "./Text.styles";
 import DOMPurify from "isomorphic-dompurify";
 import { motion } from "framer-motion";
 
+//  Work in progress!!!
+
 export const Text = forwardRef(
   (
     { className, variant, text, textStyle = "copy", ...props }: TextProps,

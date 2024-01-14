@@ -3,6 +3,10 @@
   touch-action: pan-y;
 }
 
+.carousel-canvas {
+  @apply h-full;
+}
+
 .carousel-canvas.crop {
   @apply overflow-hidden;
 }

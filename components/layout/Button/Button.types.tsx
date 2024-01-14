@@ -9,7 +9,7 @@ type HTMLAndMotionProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
 export interface ButtonProps
   extends HTMLAndMotionProps,
     VariantProps<typeof button> {
-  text: string;
+  text?: string;
   onClick: () => void;
 }
 

@@ -29,3 +29,31 @@ export const contentBlockVars: ContentBlockVars = (variant, classes) => {
 export const cta = {
   className: "cta",
 };
+
+export const preContent: any = {
+  className: "pre-content",
+};
+
+export const preHeading: any = {
+  className: "pre-heading",
+  textStyle: "copyBold",
+};
+
+export const info: any = {
+  className: "info",
+  textStyle: "copyBold",
+};
+
+export const headingTitle: any = {
+  className: "heading-title",
+  textStyle: "h5",
+};
+
+export const subHeading: any = {
+  className: "sub-heading",
+  textStyle: "copyBold",
+};
+
+export const description = {
+  className: "description",
+};

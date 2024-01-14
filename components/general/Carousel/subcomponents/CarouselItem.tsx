@@ -5,7 +5,6 @@ import { itemHolder } from "../Carousel.styles";
 import { carouselFocusAnimation, carouselBookcaseAnimation } from "@animations";
 
 let offset = 0;
-let itemIndex = 0;
 
 const CarouselItem: FC<ICarouselItem> = ({
   index,
@@ -13,54 +12,39 @@ const CarouselItem: FC<ICarouselItem> = ({
   width,
   currentItem = 0,
   length,
-  loop,
+  loop = false,
   animationStyle,
   slideWidth,
   variant,
-  onClick,
   ...props
 }) => {
   let isActive = currentItem === index;
-  itemIndex = index;
 
   if (loop) {
     const itemsLength = length + 1;
     const fullLength = itemsLength * 2;
     const groupOffset = Math.floor((currentItem - index - 1) / fullLength);
 
+    // reorders stack to faux infinte scroll
     offset = slideWidth * (fullLength * groupOffset + itemsLength);
     isActive = currentItem - fullLength * groupOffset - itemsLength === index;
-    itemIndex = index + index * groupOffset;
   }
 
   const itemAnimation = {
     primary: {},
-    focus: carouselFocusAnimation(animationStyle, isActive, offset),
-    bookcase: carouselBookcaseAnimation(animationStyle, isActive, offset),
-  };
-
-  const handleClick = () => {
-    onClick(itemIndex);
+    focus: carouselFocusAnimation(animationStyle, isActive, offset, loop),
+    bookcase: carouselBookcaseAnimation(animationStyle, isActive, offset, loop),
   };
 
   const allProps = {
-    ...itemHolder(width, offset),
+    ...itemHolder(width, offset, (props as any).style, loop),
     ...props,
-    src: item.src,
+    bgSrc: typeof item === "string" ? item : "",
     // @ts-ignore
     ...itemAnimation[variant],
   };
 
-  return (
-    <Box {...allProps} onClick={handleClick}>
-      <Text
-        text={`${index}`}
-        textStyle="h3"
-        className="absolute z-10 p-4 !text-white"
-      />
-      <Image src={item.src} alt={`slide${index}`} />
-    </Box>
-  );
+  return <Box {...allProps}>{item.type ? item : null}</Box>;
 };
 
 export default CarouselItem;

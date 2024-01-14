@@ -6,13 +6,12 @@ import { MotionProps } from "framer-motion";
 type HTMLAndMotionProps = React.HTMLAttributes<HTMLElement> & MotionProps;
 
 export interface BoxProps extends HTMLAndMotionProps, VariantProps<typeof box> {
-  src?: string;
+  bgSrc?: string;
 }
 
 export type BoxVars = (
   variant: BoxProps["variant"],
-  src: BoxProps["src"],
+  bgSrc: BoxProps["bgSrc"],
   className: BoxProps["className"],
-  colSpan?: number,
-  rowSpan?: number,
+  styleProps: any,
 ) => Record<any, any>;

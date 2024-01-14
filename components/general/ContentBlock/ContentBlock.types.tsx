@@ -6,6 +6,7 @@ import { MotionProps } from "framer-motion";
 export interface ContentBlockProps {
   variant?: "primary" | null;
   data: any;
+  childAnims?: Record<string, any>;
 }
 
 type HTMLAndMotionProps = React.HTMLAttributes<HTMLElement> & MotionProps;
@@ -17,10 +18,13 @@ export interface ContentBlockContentProps
     // variant: ContentBlockProps["variant"];
     preHeading?: string;
     headingTitle?: string;
-    subHeading: string;
-    description: string;
-    primaryCta: string;
+    info?: string;
+    subHeading?: string;
+    description?: string;
+    primaryCta?: string;
+    secondaryCta?: string;
   };
+  childAnims?: Record<string, any>;
 }
 
 export type ContentBlockVars = (

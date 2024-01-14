@@ -25,17 +25,15 @@ const CarouselWrapper: FC<ICarouselWrapper> = ({
 
   const carouselItems = loop ? [...items, ...items] : items;
 
-  const handleItemClick = (itemIndex: number) => {
-    console.log(itemIndex, currentItem);
-
-    setCurrItem(itemIndex);
+  const handleItemClick = (index: number) => {
+    !loop && setCurrItem(index);
   };
 
   const renderItems = carouselItems.map((val: any, i: number) => {
     return (
       <CarouselItem
         key={`carouselItem_${i}`}
-        item={val.media}
+        item={val}
         index={i}
         width={dragWidth}
         slideWidth={slideWidth}
@@ -44,7 +42,7 @@ const CarouselWrapper: FC<ICarouselWrapper> = ({
         animationStyle={animationStyle}
         variant={variant}
         loop={loop}
-        onClick={handleItemClick}
+        onClick={() => handleItemClick(i)}
       />
     );
   });

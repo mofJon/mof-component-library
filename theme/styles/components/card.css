@@ -3,6 +3,10 @@
   @apply p-5 bg-white;
 }
 
+.card.overlay {
+  @apply relative;
+}
+
 .card.sm {
   @apply w-[18rem] md:w-[28rem] lg:w-[56rem] gap-5;
 }
@@ -13,6 +17,10 @@
 
 .card.lg {
   @apply w-[20rem] md:w-[43rem] lg:w-[76rem] gap-10 grid-cols-5;
+}
+
+.full {
+  @apply w-full h-full;
 }
 
 .card .media-holder {
@@ -41,4 +49,12 @@
 
 .card .content-block .cta {
   @apply self-baseline mt-6 lg:mt-auto flex;
+}
+
+.card.overlay .media-holder {
+  @apply absolute top-0 left-0;
+}
+
+.card.overlay .content-block {
+  @apply relative z-[1];
 }

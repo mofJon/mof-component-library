@@ -11,12 +11,15 @@ export interface CardProps
   data: {
     variant: CardProps["variant"];
     media: ReactNode;
-    preHeading: string;
-    headingTitle: string;
-    subHeading: string;
-    description: string;
-    primaryCta: string;
+    preHeading?: string;
+    headingTitle?: string;
+    subHeading?: string;
+    description?: string;
+    info?: string;
+    primaryCta?: string;
+    secondaryCta?: string;
   };
+  childAnims?: Record<string, any>;
 }
 
 export type CardVars = (

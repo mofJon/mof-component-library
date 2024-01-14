@@ -3,8 +3,8 @@
 }
 /* primary button */
 .button.primary {
-  @apply text-white bg-primary border-0 duration-200 [&_svg]:stroke-white 
-    hover:border hover:bg-transparent hover:text-primary
+  @apply text-white bg-primary duration-200 [&_svg]:stroke-white 
+     hover:bg-transparent hover:text-primary
     active:bg-primary active:text-black 
     disabled:bg-grey5 disabled:text-white;
 }

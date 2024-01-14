@@ -3,7 +3,8 @@ import { ImageProps } from "./Image.types";
 import { imageVars } from "./Image.styles";
 import { motion } from "framer-motion";
 
-// basic image component for now - WIP
+//  Work in progress!!!
+
 export const Image = forwardRef(
   (
     { className, variant = "static", src, alt = "image", ...props }: ImageProps,

@@ -5,13 +5,14 @@ import { motion } from "framer-motion";
 
 export const Box = forwardRef(
   (
-    { className, variant = "flex", src, ...props }: BoxProps,
+    { className, variant = "flex", bgSrc, ...props }: BoxProps,
     ref: Ref<BoxProps>,
   ) => {
     const isAnimated = props.animate || props.variants; // do framer motion props exist on parent
     const allProps = {
-      ...boxVars(variant, src, className), // pass all styling defaults to decoupled styles file to future-proof modularity
-      ...props, // pass down remaining props
+      ...props,
+      ...boxVars(variant, bgSrc, className, props.style), // pass all styling defaults to decoupled styles file to future-proof modularity
+      // pass down remaining props
     };
 
     return createElement(

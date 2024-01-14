@@ -59,10 +59,7 @@ export const carouselCanvas = (crop: boolean) => ({
   className: `carousel-canvas ${crop ? "crop" : ""}`,
 });
 
-export const carouselWrapper = (
-  gap: number,
-  animationStyle: CarouselProps["animationStyle"],
-) => {
+export const carouselWrapper = (gap: number, animationStyle = "default") => {
   const transition = {
     default: carouselAnimationDefault,
     elegant: carouselAnimationElegant,
@@ -72,16 +69,28 @@ export const carouselWrapper = (
   return {
     className: `carousel-wrapper`,
     style: { gap: `${gap}px` },
-    transition: transition[animationStyle],
+    transition: transition[animationStyle as "default"],
   };
 };
 
-export const itemHolder = (width: number, offset: number) => {
+export const itemHolder: any = (
+  width: number,
+  offset: number,
+  style: any,
+  loop: boolean,
+) => {
+  const addOffset = loop
+    ? {
+        transform: `translateX(${offset}px)`,
+      }
+    : "";
+
   return {
     className: `carousel-item`,
     style: {
+      ...style,
       width: `${width}px`,
-      transform: `translateX(${offset}px)`,
+      ...addOffset,
     },
   };
 };
