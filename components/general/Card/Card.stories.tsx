@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Card } from "@components";
+import { Card } from "#mof-components";
 import { CardProps } from "./Card.types";
-import mockImg from "@assets/images/mockImage1.webp";
-import zha from "@assets/images/zhaCarousel1.jpg";
+import mockImg from "#mof-assets/images/mockImage1.webp";
+import zha from "#mof-assets/images/zhaCarousel1.jpg";
 
 const data: CardProps["data"] = {
   media: mockImg.src,

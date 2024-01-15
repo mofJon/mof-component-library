@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Box } from "@components";
+import { Box, ContentBlock } from "#mof-components";
 
 const meta: Meta<typeof Box> = {
   component: Box,
@@ -39,9 +39,26 @@ export const AnimatedBox: Story = {
   },
 };
 
+const data: any = {
+  preHeading: "Editorial",
+  headingTitle: "Blog Article Title",
+  subHeading: "07.07.2023 &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; 15 minutes",
+  description:
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec vestibulum eros. Curabitur ac libero malesuada, feugiat ligula quis, sodales diam. <br/><br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec vestibulum eros. Curabitur ac libero malesuada, feugiat ligula quis, sodales diam. ",
+  primaryCta: "View article",
+  variant: "primary",
+};
+
 export const Container: Story = {
+  parameters: {
+    backgrounds: {
+      default: "dark",
+    },
+  },
   args: {
     variant: "container",
-    className: "bg-gray-500 h-screen",
+    className:
+      "bg-white h-screen pt-10 border-dashed border-blue-400 border-r-4 border-l-4",
+    children: <ContentBlock data={data} />,
   },
 };

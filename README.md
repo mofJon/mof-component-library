@@ -1,15 +1,23 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Getting Started in Storybook
 
 ```bash
 bun install
 
-bun dev
+bun storybook
 ```
 
-## View components in Storybook
+## Build to Chromatic (cloud storybook and testing)
 
 ```bash
-bun storybook
+bun chromatic
+```
+
+## Bundle for NPM
+
+```bash
+bun bundle
+
+npm publish
 ```

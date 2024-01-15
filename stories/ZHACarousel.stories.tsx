@@ -1,10 +1,10 @@
 import { FC } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Card, Carousel } from "@components";
-import Arrow from "@assets/icons/zhaArrow.svg";
-import zha1 from "@assets/images/zhaCarousel1.jpg";
-import zha2 from "@assets/images/zhaCarousel2.jpg";
-import zha3 from "@assets/images/zhaCarousel3.jpg";
+import { Card, Carousel } from "#mof-components";
+import Arrow from "#mof-assets/icons/zhaArrow.svg";
+import zha1 from "#mof-assets/images/zhaCarousel1.jpg";
+import zha2 from "#mof-assets/images/zhaCarousel2.jpg";
+import zha3 from "#mof-assets/images/zhaCarousel3.jpg";
 import { childAnims, zhaCardAnim } from "./animations";
 
 const zhaData: any = [
@@ -87,6 +87,7 @@ const items = zhaData.map((val: any, i: number) => {
 });
 
 export const ZHACarousel: FC = () => {
+  styleViewport();
   // @ts-ignore
   const width = window ? window.innerWidth * 0.8 : 800;
   const height = width / 1.7777; //aspect ratio
@@ -108,4 +109,18 @@ export const ZHACarousel: FC = () => {
   };
 
   return <Carousel {...args} />;
+};
+
+const styleViewport = () => {
+  // @ts-ignore
+  const viewport = document && document.getElementById("storybook-root");
+
+  if (viewport) {
+    viewport.style.width = "100vw";
+    viewport.style.height = "100vh";
+    viewport.style.background = "black";
+    viewport.style.display = "flex";
+    viewport.style.justifyContent = "center";
+    viewport.style.alignItems = "center";
+  }
 };

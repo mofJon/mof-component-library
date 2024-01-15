@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
-import { Button } from "@components";
+import { Button } from "#mof-components";
 
 const meta: Meta<typeof Button> = {
   component: Button,
@@ -24,7 +24,9 @@ export const Primary: Story = {
 
 export const Secondary: Story = {
   parameters: {
-    backgrounds: { default: "copy" },
+    backgrounds: {
+      default: "dark",
+    },
   },
   args: {
     variant: "secondary",
@@ -42,6 +44,11 @@ export const PrimaryCircle: Story = {
 };
 
 export const SecondaryCircle: Story = {
+  parameters: {
+    backgrounds: {
+      default: "dark",
+    },
+  },
   args: {
     variant: "secondaryCircle",
     text: "Secondary Circle Button",

@@ -1,7 +1,7 @@
-import { capitalise } from "@utils/formatting";
+import { capitalise } from "#mof-utils/formatting";
 import { forwardRef, Ref } from "react";
 import { ContentBlockProps } from "./ContentBlock.types";
-import { emptyContentBlockAnim } from "@animations";
+import { emptyContentBlockAnim } from "#mof-animations";
 
 export const ContentBlock = forwardRef(
   (

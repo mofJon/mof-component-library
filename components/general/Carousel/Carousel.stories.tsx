@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Card, Carousel } from "@components";
-import Arrow from "@assets/icons/chevron.svg";
+import { Card, Carousel } from "#mof-components";
+import Arrow from "#mof-assets/icons/chevron.svg";
 
 const items: any = [
   "https://base.matterofform.com/media/1zudodgf/frans-ruiter-phnfcr2eh00-unsplash.jpg?width=1600&format=webp",

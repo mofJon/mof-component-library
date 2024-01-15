@@ -32,7 +32,7 @@
 }
 
 .carousel-control {
-  @apply w-9 h-9 justify-end !flex-none opacity-70 hover:opacity-100 duration-100 transition-opacity cursor-pointer pointer-events-auto;
+  @apply w-9 h-9 justify-end !flex-none opacity-70 hover:opacity-100 duration-100 transition-opacity cursor-pointer pointer-events-auto text-white;
 }
 
 .carousel-control.prev {

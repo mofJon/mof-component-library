@@ -2,7 +2,7 @@ import { createElement, forwardRef, Ref, useCallback } from "react";
 import { ButtonProps } from "./Button.types";
 import { buttonVars } from "./Button.styles";
 import { motion } from "framer-motion";
-import { Text } from "@components";
+import { Text } from "#mof-components";
 
 export const Button = forwardRef(
   (

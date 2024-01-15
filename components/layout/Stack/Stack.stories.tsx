@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
-import { Box, Button, Stack, Text } from "@components";
+import { Box, Button, Stack, Text } from "#mof-components";
 import {
   animControllerInView,
   fadeInLeft,
   fadeInUp,
   springIn,
-} from "@animations";
+} from "#mof-animations";
 
 const mockCopy =
   "Example of a block of copy. Have added 'my-10' to this block to get more aesthetical spacing above and below, but generally you'd set the gap on the encasing stack for consistency.";

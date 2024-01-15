@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { MediaProps } from "./Media.types";
 import { mediaHolder } from "./Media.styles";
-import { Box } from "@components";
+import { Box } from "#mof-components";
 
 //  Work in progress!!!
 

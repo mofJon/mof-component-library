@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Box, Stack } from "@components";
+import { Box, Stack } from "#mof-components";
 import CarouselItem from "./CarouselItem";
 import { ICarouselWrapper } from "../Carousel.types";
 import { PanInfo } from "framer-motion";

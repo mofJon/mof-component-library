@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Box, Stack } from "@components";
+import { Box, Stack } from "#mof-components";
 import { carouselControl, carouselControlsHolder } from "../Carousel.styles";
 import { CarouselDirection } from "../Carousel.types";
 

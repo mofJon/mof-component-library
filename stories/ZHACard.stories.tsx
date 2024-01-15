@@ -1,7 +1,7 @@
 import { FC } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Card } from "@components";
-import zha1 from "@assets/images/zhaCarousel1.jpg";
+import { Card } from "#mof-components";
+import zha1 from "#mof-assets/images/zhaCarousel1.jpg";
 import { childAnims, zhaCardAnim } from "./animations";
 
 const data = {
