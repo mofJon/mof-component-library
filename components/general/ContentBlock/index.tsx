@@ -2,6 +2,7 @@ import { capitalise } from "#mof-utils/formatting";
 import { forwardRef, Ref } from "react";
 import { ContentBlockProps } from "./ContentBlock.types";
 import { emptyContentBlockAnim } from "#mof-animations";
+import Primary from "./variants/Primary";
 
 export const ContentBlock = forwardRef(
   (
@@ -14,7 +15,11 @@ export const ContentBlock = forwardRef(
     ref: Ref<ContentBlockProps>,
   ) => {
     if (!data || !data.variant || !variant) return null;
-    const Content = require(`./variants/${capitalise(variant)}`).default;
+
+    // not detected by build step - will work out later
+    // const Content = require(`./variants/${capitalise(variant)}`).default;
+
+    const Content = Primary;
 
     return (
       <Content
