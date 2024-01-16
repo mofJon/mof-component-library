@@ -1,0 +1,7 @@
+.nav {
+    @apply relative w-full justify-between;
+}
+
+.nav-panel {
+    @apply absolute w-full justify-between flex-col min-h-[500px] border-green-800 border top-[100%];
+}
