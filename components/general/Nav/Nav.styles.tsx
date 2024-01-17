@@ -9,43 +9,92 @@ export const nav = cva("nav", {
     variant: {
       primary: "primary",
       secondary: "secondary",
-      flyout: "flyout"
+      flyout: "flyout",
     },
-    direction: {
-      row: "row",
-      column: "column"
+    persistOn: {
+      all: "",
+      hover: "persist-hover",
+      click: "persist-click",
     },
   },
   defaultVariants: {
     variant: "primary",
-    direction: "row",
+    persistOn: "all",
   },
 });
 
 // nav Props
 // @ts-ignore
-export const navVars: NavVars = (variant, direction, classes) => {
+export const navVars: NavVars = (variant, persistOn, classes) => {
   const baseStyles = `${classes ? classes : ""}`;
 
   return {
     className: nav({
       variant,
-      direction,
+      persistOn,
       className: baseStyles,
     }),
   };
 };
 
+export const navPanelWrapper = (isActive: boolean, height = 0) => {
+  return {
+    className: `nav-panel-wrapper ${isActive}`,
+    variants: {
+      inactive: {
+        height: 0,
+      },
+      active: {
+        height,
+      },
+    },
+  };
+};
+
 export const navPanel = (isActive: boolean) => ({
   className: `nav-panel ${isActive ? "active" : ""}`,
-  whileHover: "hovered"
+  variants: {
+    inactive: {
+      opacity: 0,
+    },
+    active: {
+      opacity: 1,
+      transition: {
+        delay: 0.2,
+        when: "beforeChildren",
+        delayChildren: 0.5,
+        staggerChildren: 0.2,
+      },
+    },
+  },
 });
 
-export const navItem = (isActive: boolean) => ({
-  className: `nav-item ${isActive ? "active" : ""}`,
-  whileHover: "hovered"
-});
+export const navItem = (isActive: boolean, itemIcons: any) => {
+  return {
+    className: `nav-item 
+    ${isActive ? "active" : ""}
+    ${itemIcons?.iconPre ? "with-icon-pre" : ""}
+    ${itemIcons?.iconPost ? "with-icon-post" : ""}
+    `,
+    variants: {
+      inactive: {
+        opacity: 0,
+      },
+      active: {
+        opacity: 1,
+        transition: {
+          type: "spring",
+          duration: 1,
+          delay: 0.5,
+        },
+      },
+    },
+    whileHover: "hovered",
+  };
+};
 
-export const navItemWrapper = {
-  className: "nav-item-wrapper"
-}
+export const navItemWrapper = (isActive: boolean) => ({
+  className: "nav-item-wrapper",
+  initial: "inactive",
+  animate: isActive ? "active" : "inactive",
+});

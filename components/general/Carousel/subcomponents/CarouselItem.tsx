@@ -1,11 +1,11 @@
 import { FC } from "react";
-import { Box, Image, Text } from "#mof-components";
+import { Box, Image, Text } from "@/components";
 import { ICarouselItem } from "../Carousel.types";
 import { itemHolder } from "../Carousel.styles";
 import {
   carouselFocusAnimation,
   carouselBookcaseAnimation,
-} from "#mof-animations";
+} from "@/animations";
 
 let offset = 0;
 

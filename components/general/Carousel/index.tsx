@@ -1,7 +1,7 @@
 import { forwardRef, Ref, useState } from "react";
 import { CarouselProps } from "./Carousel.types";
 import { carouselVars } from "./Carousel.styles";
-import { Stack } from "#mof-components";
+import { Stack } from "@/components";
 import {
   CarouselControls,
   CarouselPagination,

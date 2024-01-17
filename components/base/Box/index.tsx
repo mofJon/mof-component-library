@@ -8,7 +8,7 @@ export const Box = forwardRef(
     { className, variant = "flex", bgSrc, ...props }: BoxProps,
     ref: Ref<BoxProps>,
   ) => {
-    const isAnimated = props.animate || props.variants; // do framer motion props exist on parent
+    const isAnimated = props.initial || props.animate || props.variants; // do framer motion props exist on parent
     const allProps = {
       ...props,
       ...boxVars(variant, bgSrc, className, props.style), // pass all styling defaults to decoupled styles file to future-proof modularity

@@ -9,6 +9,7 @@ export const button = cva("button", {
       secondary: "secondary",
       primaryCircle: "primary circle",
       secondaryCircle: "secondary circle",
+      nav: "nav-button"
     },
     size: {
       sm: "sm",
@@ -18,9 +19,9 @@ export const button = cva("button", {
     },
   },
   // example compond variant
-  compoundVariants: [
-    { variant: "primary", size: ["md", "full"], class: "uppercase" },
-  ],
+  // compoundVariants: [
+  //   { variant: "primary", size: ["md", "full"], class: "uppercase" },
+  // ],
   defaultVariants: {
     variant: "primary",
     size: "md",
@@ -29,10 +30,7 @@ export const button = cva("button", {
 
 // Button Props
 export const buttonVars: ButtonVars = (variant, size, classes) => {
-  const baseStyles = `
-        btn
-         ${classes ? classes : ""}
-    `;
+  const baseStyles = `${classes ? classes : ""}`;
 
   return {
     className: button({

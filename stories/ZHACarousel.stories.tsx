@@ -1,10 +1,10 @@
 import { FC } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Card, Carousel } from "#mof-components";
-import Arrow from "#mof-assets/icons/zhaArrow.svg";
-import zha1 from "#mof-assets/images/zhaCarousel1.jpg";
-import zha2 from "#mof-assets/images/zhaCarousel2.jpg";
-import zha3 from "#mof-assets/images/zhaCarousel3.jpg";
+import { Card, Carousel } from "@/components";
+import Arrow from "@/assets/icons/zhaArrow.svg";
+import zha1 from "@/assets/images/zhaCarousel1.jpg";
+import zha2 from "@/assets/images/zhaCarousel2.jpg";
+import zha3 from "@/assets/images/zhaCarousel3.jpg";
 import { childAnims, zhaCardAnim } from "./animations";
 
 const zhaData: any = [

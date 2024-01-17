@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Box, Stack } from "#mof-components";
+import { Box, Stack } from "@/components";
 import { ICarouselPagination } from "../Carousel.types";
 import {
   carouselPagination,

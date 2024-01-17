@@ -4,7 +4,7 @@ import {
   carouselAnimationDefault,
   carouselAnimationElegant,
   carouselAnimationBouncy,
-} from "#mof-animations";
+} from "@/animations";
 
 // Carousel Variant Styles
 export const carousel = cva("carousel", {

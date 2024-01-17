@@ -1,10 +1,20 @@
 .button {
-  @apply h-10 sm:h-12 cursor-pointer font-primary font-semibold sm:font-medium inline-flex uppercase duration-200 py-[14px] px-6 text-[14px] sm:text-[16px] leading-5 justify-center items-center;
+  @apply h-10 sm:h-12 cursor-pointer font-primary font-semibold
+   sm:font-medium inline-flex duration-200
+   px-10 text-[14px] sm:text-[16px] leading-none items-center
+   justify-between gap-5;
 }
+
+/* if button only contains text - center, otherwise space between */
+.button:only-child {
+  @apply justify-center;
+}
+
 /* primary button */
 .button.primary {
-  @apply text-white bg-primary duration-200 [&_svg]:stroke-white 
-     hover:bg-transparent hover:text-primary
+  @apply text-white bg-primary duration-200 
+     hover:bg-transparent hover:text-primary 
+     hover:border hover:border-primary 
     active:bg-primary active:text-black 
     disabled:bg-grey5 disabled:text-white;
 }
@@ -19,27 +29,27 @@
 
 /* button modifiers */
 .button.sm {
-  @apply h-8 p-[7px];
+  @apply h-8 px-5 text-[14px];
 }
 
 .button.md {
-  @apply h-10 p-[11px];
+  @apply h-10 px-7;
 }
 .button.lg {
-  @apply h-12 p-[15px];
+  @apply h-12 px-10;
 }
 
 .button.full {
-  @apply py-2 w-full;
+  @apply min-h-12 h-full w-full flex;
 }
 
 .button.circle {
-  @apply rounded-full px-5;
+  @apply rounded-full;
 }
 
-.button svg {
+/* .button svg {
   @apply first:mr-3 last:ml-3 only:mx-0;
-}
+} */
 
 /* text button */
 .button.text {
@@ -69,9 +79,9 @@
   @apply opacity-25 duration-200;
 }
 
-.button.link:hover svg {
+/* .button.link:hover svg {
   @apply stroke-grey3 duration-200;
-}
+} */
 
 /* action buttons */
 /* circle */
@@ -95,4 +105,8 @@
 
 .button.secondary.circle:active svg {
   @apply stroke-grey4;
+}
+
+.button .stack {
+  @apply w-full justify-between items-center;
 }

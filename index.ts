@@ -1,1 +1,1 @@
-export * from "#mof-components";
+export * from "@/components";

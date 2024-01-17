@@ -20,8 +20,8 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "#mof-*": ["./*"],
-      "#mof-animations": ["./theme/animations.ts"]
+      "@/*": ["./*"],
+      "@/animations": ["./theme/animations.ts"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

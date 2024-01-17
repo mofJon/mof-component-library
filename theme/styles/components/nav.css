@@ -1,7 +1,37 @@
 .nav {
-    @apply relative w-full justify-between;
+  @apply relative w-full justify-between;
+}
+
+.nav-item-wrapper {
+  @apply relative;
+}
+
+.nav-item {
+  @apply relative w-full normal-case border-b text-copy bg-white
+   border-gray-200 justify-between text-left leading-snug min-h-20 h-full
+   hover:bg-gray-100 transition-colors duration-200;
+}
+
+.nav-panel-wrapper {
+  @apply border w-full origin-top overflow-y-hidden;
 }
 
 .nav-panel {
-    @apply absolute w-full justify-between flex-col min-h-[500px] border-green-800 border top-[100%];
+  @apply w-full min-w-[20rem] border-green-800 block;
+}
+
+.nav-item svg {
+  @apply h-3 flex justify-self-end;
+}
+
+.nav-item.active svg {
+  @apply rotate-90;
+}
+
+.nav.flex-col > .stack {
+  @apply w-full bg-gray-200;
+}
+
+.nav.flex-col > .nav-panel {
+  @apply shadow-none;
 }

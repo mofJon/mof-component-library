@@ -1,16 +1,17 @@
-import React from "react";
+import { ButtonHTMLAttributes, ReactNode } from "react";
 import { type VariantProps } from "class-variance-authority";
 import { button } from "./Button.styles";
 import { MotionProps } from "framer-motion";
 
-type HTMLAndMotionProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
-  MotionProps;
+type HTMLAndMotionProps = ButtonHTMLAttributes<HTMLButtonElement> & MotionProps;
 
 export interface ButtonProps
   extends HTMLAndMotionProps,
     VariantProps<typeof button> {
   text?: string;
-  onClick: () => void;
+  onClick?: () => void;
+  iconPre?: ReactNode | null;
+  iconPost?: ReactNode | null;
 }
 
 export type ButtonVars = (

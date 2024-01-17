@@ -1,4 +1,4 @@
-import { CarouselProps } from "#mof-components/general/Carousel/Carousel.types";
+import { CarouselProps } from "@/components/general/Carousel/Carousel.types";
 
 export const animController = (
   active = false,
