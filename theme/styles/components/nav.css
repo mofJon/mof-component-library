@@ -12,12 +12,20 @@
    hover:bg-gray-100 transition-colors duration-200;
 }
 
+.nav-item.main-nav {
+  @apply !font-semibold;
+}
+
+.nav-item.sub-nav {
+  @apply font-sans font-light text-sm;
+}
+
 .nav-panel-wrapper {
-  @apply border w-full origin-top overflow-y-hidden;
+  @apply relative w-full origin-top overflow-y-hidden shadow-lg;
 }
 
 .nav-panel {
-  @apply w-full min-w-[20rem] border-green-800 block;
+  @apply w-full min-w-[20rem] block;
 }
 
 .nav-item svg {
@@ -29,9 +37,30 @@
 }
 
 .nav.flex-col > .stack {
-  @apply w-full bg-gray-200;
+  @apply w-full;
+}
+
+.nav.flex-col .nav-panel-wrapper {
+  @apply shadow-none;
 }
 
 .nav.flex-col > .nav-panel {
   @apply shadow-none;
+}
+
+.nav-item-wrapper.attach-to {
+  @apply w-full;
+  position: initial;
+}
+
+.nav-panel-wrapper[class*="attach-"] {
+  @apply absolute w-full top-full left-0 opacity-0;
+}
+
+.nav-panel-wrapper[class*="attach-"].active {
+  @apply opacity-100;
+}
+
+.nav-panel-wrapper[class*="attach-"] .nav-item {
+  @apply border-none;
 }

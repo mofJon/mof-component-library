@@ -5,7 +5,6 @@ import { navPanel, navPanelWrapper } from "../Nav.styles";
 import { NavPanelProps } from "../Nav.types";
 import { splitArrayIntoChunks } from "@/utils";
 import { useDimensions } from "@/hooks";
-import { AnimatePresence } from "framer-motion";
 
 const NavPanel: FC<NavPanelProps> = ({
   data,
@@ -21,7 +20,7 @@ const NavPanel: FC<NavPanelProps> = ({
   if (!Array.isArray(data)) return null;
 
   return (
-    <Box variant="block" {...navPanelWrapper(isActive, height)}>
+    <Box variant="block" {...navPanelWrapper(isActive, height, attach)}>
       <Stack
         ref={itemWrapperRef}
         direction={itemsPerColumn ? "row" : "column"}

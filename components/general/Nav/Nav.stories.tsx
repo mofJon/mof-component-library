@@ -44,8 +44,6 @@ export const HorizontalNav: Story = {
     isActive: true,
     persistOn: "hover",
     direction: "row",
-    attach: "bottom",
-
     itemIcons: {
       iconPost: IconHolder,
     },
@@ -67,7 +65,7 @@ export const HorizontalNavWidthPanelColumns: Story = {
     persistOn: "hover",
     direction: "row",
     attach: "bottom",
-    itemsPerColumn: 8,
+    itemsPerColumn: 4,
     itemIcons: {
       iconPost: IconHolder,
     },
@@ -100,8 +98,4 @@ export const VerticalNav: Story = {
       },
     },
   },
-};
-
-export const NavigationItem = () => {
-  return <NavItem data={data[0]} iconPost={IconHolder} />;
 };

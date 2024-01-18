@@ -34,3 +34,34 @@ export const splitArrayIntoChunks = (arr, chunkSize) => {
     arr.slice(index * chunkSize, index * chunkSize + chunkSize),
   );
 };
+
+export const remapNavData = (data, state = true, level = 0) => {
+  const newContent = {
+    isVisible: state,
+    isActive: false,
+    navStyle: level === 0 ? "main-nav" : "sub-nav",
+  };
+
+  return data.map((item, index) => {
+    const newItem = { ...item, ...newContent, level, index };
+
+    if (item.navItems.length > 0) {
+      return {
+        ...newItem,
+        navItems: remapNavData(item.navItems, false, level + 1),
+      };
+    } else {
+      return newItem;
+    }
+  });
+};
+
+export const updateNavState = (array, key, index) => {
+  return array.map((item, i) => {
+    if (i === index && item[key] === false) {
+      return { ...item, [key]: true };
+    } else {
+      return { ...item, [key]: false };
+    }
+  });
+};

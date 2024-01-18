@@ -1,5 +1,5 @@
 import { cva } from "class-variance-authority";
-// import { navVars } from "./nav.types";
+import { NavProps } from "./nav.types";
 
 type NavVars = any;
 
@@ -26,7 +26,9 @@ export const nav = cva("nav", {
 // nav Props
 // @ts-ignore
 export const navVars: NavVars = (variant, persistOn, classes) => {
-  const baseStyles = `${classes ? classes : ""}`;
+  const baseStyles = `
+    
+  ${classes ? classes : ""}`;
 
   return {
     className: nav({
@@ -37,9 +39,15 @@ export const navVars: NavVars = (variant, persistOn, classes) => {
   };
 };
 
-export const navPanelWrapper = (isActive: boolean, height = 0) => {
+export const navPanelWrapper = (
+  isActive: boolean,
+  height = 0,
+  attach: NavProps["attach"],
+) => {
   return {
-    className: `nav-panel-wrapper ${isActive}`,
+    className: `nav-panel-wrapper ${isActive ? "active" : ""} ${
+      attach ? `attach-${attach}` : ""
+    }`,
     variants: {
       inactive: {
         height: 0,
@@ -69,9 +77,14 @@ export const navPanel = (isActive: boolean) => ({
   },
 });
 
-export const navItem = (isActive: boolean, itemIcons: any) => {
+export const navItem = (
+  isActive: boolean,
+  itemIcons: any,
+  navStyles: string,
+) => {
   return {
     className: `nav-item 
+    ${navStyles}
     ${isActive ? "active" : ""}
     ${itemIcons?.iconPre ? "with-icon-pre" : ""}
     ${itemIcons?.iconPost ? "with-icon-post" : ""}
@@ -93,8 +106,11 @@ export const navItem = (isActive: boolean, itemIcons: any) => {
   };
 };
 
-export const navItemWrapper = (isActive: boolean) => ({
-  className: "nav-item-wrapper",
+export const navItemWrapper = (
+  isActive: boolean,
+  attach: NavProps["attach"],
+) => ({
+  className: `nav-item-wrapper ${attach ? "attach-to" : ""}`,
   initial: "inactive",
   animate: isActive ? "active" : "inactive",
 });
