@@ -1,30 +1,32 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Box, Nav } from "@/components";
 import NavItem from "./chunks/NavItem";
-import data from './__mock__.json';
+import NavPanel from "./chunks/NavItem";
+import data from "./__mock__.json";
 // @ts-ignore
-import Arrow from '@/assets/icons/chevron.svg';
+import Arrow from "@/assets/icons/chevron.svg";
 
 const buttonHover = {
   variants: {
     inactive: {
-      x: 0
+      x: 0,
     },
     hovered: {
-      x: 10
-    }
-  }
-}
+      x: 10,
+    },
+  },
+};
 
-const IconHolder = (<Box {...buttonHover}>
-  <Arrow />
-</Box>);
+const IconHolder = (
+  <Box variant="block" {...buttonHover}>
+    <Arrow />
+  </Box>
+);
 
 const meta: Meta<typeof Nav> = {
   component: Nav,
   tags: ["autodocs"],
   parameters: {
-    layout: "centered",
     mode: "dark",
     nextjs: {
       appDirectory: true,
@@ -40,22 +42,60 @@ export const HorizontalNav: Story = {
   args: {
     data,
     isActive: true,
+    persistOn: "hover",
+    direction: "row",
     itemIcons: {
-      iconPost: IconHolder
-    }
+      iconPost: IconHolder,
+    },
+  },
+  argTypes: {
+    direction: {
+      options: ["row", "column"],
+      control: {
+        type: "select",
+      },
+    },
   },
 };
 
-
-
-export const NavigationItem = () => {
-
-  return (
-    <NavItem
-      data={data[0]}
-      iconPost={IconHolder}
-      variant="nav"
-    />
-  );
+export const HorizontalNavWidthPanelColumns: Story = {
+  args: {
+    data,
+    isActive: true,
+    persistOn: "hover",
+    direction: "row",
+    attach: "bottom",
+    itemsPerColumn: 4,
+    itemIcons: {
+      iconPost: IconHolder,
+    },
+  },
+  argTypes: {
+    direction: {
+      options: ["row", "column"],
+      control: {
+        type: "select",
+      },
+    },
+  },
 };
 
+export const VerticalNav: Story = {
+  args: {
+    data,
+    isActive: true,
+    persistOn: "hover",
+    direction: "column",
+    itemIcons: {
+      iconPost: IconHolder,
+    },
+  },
+  argTypes: {
+    direction: {
+      options: ["row", "column"],
+      control: {
+        type: "select",
+      },
+    },
+  },
+};

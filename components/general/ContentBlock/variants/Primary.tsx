@@ -10,8 +10,8 @@ import {
   subHeading,
 } from "../ContentBlock.styles";
 import { ContentBlockContentProps } from "../ContentBlock.types";
-import { Button, Stack, Text } from "#mof-components";
-import { emptyContentBlockAnim } from "#mof-animations";
+import { Button, Stack, Text } from "@/components";
+import { emptyContentBlockAnim } from "@/animations";
 
 // Work in progress
 

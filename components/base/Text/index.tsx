@@ -40,7 +40,6 @@ export const Text = forwardRef(
     return createElement(
       isAnimated ? motion(textTag) : textTag, // if motion props exist on component, make this component animatable, otherwise render static Text
       { ...allProps, ref },
-      props.children,
     );
   },
 );

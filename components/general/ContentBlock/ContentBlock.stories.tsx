@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ContentBlock } from "#mof-components";
+import { ContentBlock } from "@/components";
 import { ContentBlockProps } from "./ContentBlock.types";
 
 const data: ContentBlockProps["data"] = {

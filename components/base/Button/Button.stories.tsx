@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
-import { Button } from "#mof-components";
+import { Button } from "@/components";
 
 const meta: Meta<typeof Button> = {
   component: Button,
@@ -9,6 +9,21 @@ const meta: Meta<typeof Button> = {
     layout: "centered",
     fullscreen: true,
   },
+  argTypes: {
+    iconPre: {
+      table: {
+        display: false
+      }
+    },
+    iconPost: {
+      table: {
+        display: false
+      }
+    }
+  },
+  args: {
+    size: "lg"
+  }
 };
 
 export default meta;

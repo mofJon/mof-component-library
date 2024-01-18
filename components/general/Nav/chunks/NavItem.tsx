@@ -1,31 +1,60 @@
-import { FC } from 'react';
-import { Box, Button } from '@/components';
-import { useRouter } from 'next/navigation';
-import NavPanel from './NavPanel'
-import { navItem, navItemWrapper } from '../Nav.styles'
+import { FC, useCallback, useContext, useState } from "react";
+import { Button, Stack } from "@/components";
+import { useRouter } from "next/navigation";
+import { NavContext, NavPanel } from "./";
+import { navItem, navItemWrapper } from "../Nav.styles";
+import { NavItemProps } from "../Nav.types";
+import { updateNavState } from "@/utils";
 
-const NavItem: FC<any> = ({ data, isActive = false, itemIcons, ...props }) => {
-    const { navTitle, navLink, navItems } = data;
-    const router = useRouter()
+const NavItem: FC<NavItemProps> = ({
+  data,
+  level = 0,
+  itemIcons,
+  itemIndex,
+  ...props
+}) => {
+  const { navState, setNavState, attach } = useContext(NavContext);
+  const { isGroup, navTitle, navLink, navItems, isActive, navStyle } = data;
+  const router = useRouter();
 
-    const handleClick = () => {
-        navLink && router.push(navLink)
+  const handleClick = useCallback(() => {
+    console.log(data);
+    if (data.isGroup) {
+      const newState = updateNavState(navState, "isActive", data.index);
+      setNavState(newState);
+    } else {
+      navLink && router.push(navLink);
     }
+  }, [navState, setNavState, data, router]);
 
-    const item = <Button text={navTitle} onClick={handleClick} variant="nav" iconPre={itemIcons?.iconPre} iconPost={itemIcons?.iconPost} {...navItem(isActive)} {...props} />
+  const item = (
+    <Button
+      text={navTitle}
+      onClick={handleClick}
+      variant="nav"
+      iconPre={itemIcons?.iconPre}
+      iconPost={itemIcons?.iconPost}
+      {...navItem(isActive, itemIcons, navStyle)}
+      {...props}
+    />
+  );
 
-    console.log('items', navItems.length, navItems && navItems.length > 0)
+  if (navItems && navItems.length > 0) {
+    return (
+      <Stack direction="column" {...navItemWrapper(isActive, attach)}>
+        {item}
+        <NavPanel
+          data={navItems}
+          level={level + 1}
+          itemIcons={itemIcons}
+          itemIndex={itemIndex}
+          isActive={isActive}
+        />
+      </Stack>
+    );
+  }
 
-    if (navItems && navItems.length > 0){
-        return (
-            <Box {...navItemWrapper}>
-                {item}
-                <NavPanel data={navItems} itemIcons={itemIcons} />
-            </Box>
-        )
-    }
-
-    return item
-}
+  return item;
+};
 
 export default NavItem;

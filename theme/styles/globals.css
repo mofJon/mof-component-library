@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 @layer base {
-  @import "typography.css";
+  @import "./typography.css";
 
   html {
     @apply font-light tracking-[0.01em];
@@ -14,5 +14,12 @@
   @import "components/carousel.css";
   @import "components/card.css";
   @import "components/contentBlock.css";
+  @import "components/nav.css";
+
+  /* custom */
   @import "custom/index.css";
+}
+
+@layer utilities {
+  @import "utilities/index.css";
 }
