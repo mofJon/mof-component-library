@@ -2,6 +2,7 @@ import { createElement, forwardRef, Ref } from "react";
 import { StackProps } from "./Stack.types";
 import { stackVars } from "./Stack.styles";
 import { motion } from "framer-motion";
+import { containsMotionProps } from "@/utils";
 
 export const Stack = forwardRef(
   (
@@ -14,7 +15,7 @@ export const Stack = forwardRef(
     }: StackProps,
     ref: Ref<StackProps>,
   ) => {
-    const isAnimated = props.animate || props.variants; // do framer motion props exist on parent
+    const isAnimated = containsMotionProps(props); //contains framer motion props?
     const allProps = {
       ...stackVars(direction, align, gap, className), // pass all styling defaults to decoupled styles file to future-proof modularity
       ...props, // pass down remaining props

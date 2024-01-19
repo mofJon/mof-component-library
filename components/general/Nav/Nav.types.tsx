@@ -4,16 +4,16 @@ import { StackProps, BoxProps, ButtonProps } from "@/components";
 import { nav } from "./Nav.styles";
 
 export interface NavProps extends StackProps, VariantProps<typeof nav> {
-  data: any;
+  data?: any;
   itemIcons?: {
     iconPre?: ReactNode;
     iconPost?: ReactNode;
   };
   direction?: "row" | "column";
   attach?: string | string[];
-  isActive: boolean;
-  itemsPerColumn?: boolean;
-  displayName: string;
+  isActive?: boolean;
+  itemsPerColumn?: number;
+  displayName?: string;
 }
 
 export type NavVars = (

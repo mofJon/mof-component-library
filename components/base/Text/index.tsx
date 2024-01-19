@@ -3,6 +3,7 @@ import { TextProps } from "./Text.types";
 import { textVars } from "./Text.styles";
 import DOMPurify from "isomorphic-dompurify";
 import { motion } from "framer-motion";
+import { containsMotionProps } from "@/utils";
 
 //  Work in progress!!!
 
@@ -11,7 +12,7 @@ export const Text = forwardRef(
     { className, variant, text, textStyle = "copy", ...props }: TextProps,
     ref: Ref<TextProps>,
   ) => {
-    const isAnimated = props.animate || props.variants; // do framer motion props exist on parent
+    const isAnimated = containsMotionProps(props); //contains framer motion props?
 
     if (!text) return null;
 

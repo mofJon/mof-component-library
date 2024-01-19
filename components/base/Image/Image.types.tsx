@@ -10,6 +10,8 @@ export interface ImageProps
     VariantProps<typeof image> {
   src: string;
   alt: string;
+  width?: number;
+  height?: number;
 }
 
 export type ImageVars = (

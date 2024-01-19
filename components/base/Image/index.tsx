@@ -1,24 +1,54 @@
-import { createElement, forwardRef, Ref } from "react";
+import { FC, forwardRef, Ref, useRef } from "react";
+import { Box } from "@/components";
+import NextImage from "next/image";
 import { ImageProps } from "./Image.types";
 import { imageVars } from "./Image.styles";
 import { motion } from "framer-motion";
+import { containsMotionProps } from "@/utils";
+import { useImageOptimiser } from "@/hooks";
 
-//  Work in progress!!!
-
-export const Image = forwardRef(
+export const Image: FC<any> = forwardRef(
   (
-    { className, variant = "static", src, alt = "image", ...props }: ImageProps,
+    {
+      className,
+      variant = "static",
+      src: propSrc,
+      alt = "image",
+      width: propWidth,
+      height: propHeight,
+      priority = false,
+      responsive = false,
+      ...props
+    }: ImageProps,
     ref: Ref<ImageProps>,
   ) => {
-    const isAnimated = props.animate || props.variants; // do framer motion props exist on parent
+    const imageRef = useRef();
+    const isAnimated = containsMotionProps(props);
+    const { width, height, src } = useImageOptimiser(
+      propSrc,
+      propWidth,
+      propHeight,
+      imageRef,
+    );
+
     const allProps = {
-      ...imageVars(variant, className), // pass all styling defaults to decoupled styles file to future-proof modularity
-      ...props, // pass down remaining props
+      ...imageVars(variant, className),
+      ...props,
+      src,
+      width,
+      height,
+      alt,
+      priority,
     };
 
-    return createElement(
-      isAnimated ? motion.img : "img", // if motion props exist on component, make this component animatable, otherwise render static div
-      { ...allProps, ref, src },
+    if (!src || !width || !height) {
+      return <Box className="w-full h-full border" ref={imageRef} />;
+    }
+
+    return isAnimated ? (
+      motion(NextImage, { ...allProps, ref })
+    ) : (
+      <NextImage {...allProps} ref={ref} />
     );
   },
 );

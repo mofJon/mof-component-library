@@ -2,13 +2,14 @@ import { createElement, forwardRef, Ref } from "react";
 import { BoxProps } from "./Box.types";
 import { boxVars } from "./Box.styles";
 import { motion } from "framer-motion";
+import { containsMotionProps } from "@/utils";
 
 export const Box = forwardRef(
   (
     { className, variant = "flex", bgSrc, ...props }: BoxProps,
     ref: Ref<BoxProps>,
   ) => {
-    const isAnimated = props.initial || props.animate || props.variants; // do framer motion props exist on parent
+    const isAnimated = containsMotionProps(props); //contains framer motion props?
     const allProps = {
       ...props,
       ...boxVars(variant, bgSrc, className, props.style), // pass all styling defaults to decoupled styles file to future-proof modularity

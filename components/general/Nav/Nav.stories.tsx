@@ -1,7 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Box, Nav } from "@/components";
-import NavItem from "./chunks/NavItem";
-import NavPanel from "./chunks/NavItem";
 import data from "./__mock__.json";
 // @ts-ignore
 import Arrow from "@/assets/icons/chevron.svg";
@@ -24,28 +22,12 @@ const IconHolder = (
 );
 
 const meta: Meta<typeof Nav> = {
-  component: Nav,
+  component: Nav as any,
   tags: ["autodocs"],
   parameters: {
     mode: "dark",
     nextjs: {
       appDirectory: true,
-    },
-  },
-};
-
-export default meta;
-type Story = StoryObj<typeof Nav>;
-type ItemStory = StoryObj<typeof NavItem>;
-
-export const HorizontalNav: Story = {
-  args: {
-    data,
-    isActive: true,
-    persistOn: "hover",
-    direction: "row",
-    itemIcons: {
-      iconPost: IconHolder,
     },
   },
   argTypes: {
@@ -55,13 +37,41 @@ export const HorizontalNav: Story = {
         type: "select",
       },
     },
+    persistOn: {
+      options: ["all", "hover", "click"],
+      control: {
+        type: "select",
+      },
+    },
+    attach: {
+      options: ["bottom", "right", null],
+      control: {
+        type: "select",
+      },
+    },
+  },
+  args: {
+    direction: "row",
   },
 };
 
-export const HorizontalNavWidthPanelColumns: Story = {
+export default meta;
+type Story = StoryObj<typeof Nav>;
+
+export const HorizontalDropdownNav: Story = {
   args: {
     data,
-    isActive: true,
+    persistOn: "hover",
+    direction: "row",
+    itemIcons: {
+      iconPost: IconHolder,
+    },
+  },
+};
+
+export const HorizontalMegaNavWithColumns: Story = {
+  args: {
+    data,
     persistOn: "hover",
     direction: "row",
     attach: "bottom",
@@ -70,32 +80,29 @@ export const HorizontalNavWidthPanelColumns: Story = {
       iconPost: IconHolder,
     },
   },
-  argTypes: {
-    direction: {
-      options: ["row", "column"],
-      control: {
-        type: "select",
-      },
-    },
-  },
 };
 
-export const VerticalNav: Story = {
+export const AccordionNav: Story = {
   args: {
     data,
-    isActive: true,
-    persistOn: "hover",
+    persistOn: "click",
     direction: "column",
     itemIcons: {
       iconPost: IconHolder,
     },
+    className: "w-[30rem]",
   },
-  argTypes: {
-    direction: {
-      options: ["row", "column"],
-      control: {
-        type: "select",
-      },
+};
+
+export const FlyoutNav: Story = {
+  args: {
+    data,
+    persistOn: "hover",
+    direction: "column",
+    attach: "right",
+    itemIcons: {
+      iconPost: IconHolder,
     },
+    className: "w-[30rem]",
   },
 };

@@ -29,6 +29,12 @@ export default function useDimensions(ref?: any): any {
   };
 
   useEffect(() => {
+    if (ref.current) {
+      handleResize();
+    }
+  }, [ref]);
+
+  useEffect(() => {
     window.addEventListener("resize", handleResize);
     handleResize();
     return () => {

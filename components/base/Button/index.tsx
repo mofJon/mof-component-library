@@ -3,6 +3,7 @@ import { ButtonProps } from "./Button.types";
 import { buttonVars } from "./Button.styles";
 import { motion } from "framer-motion";
 import { Stack, Text } from "@/components";
+import { containsMotionProps } from "@/utils";
 
 export const Button = forwardRef(
   (
@@ -18,7 +19,7 @@ export const Button = forwardRef(
     }: ButtonProps,
     ref: Ref<ButtonProps>,
   ) => {
-    const isAnimated = props.animate || props.variants || props.whileHover; // do framer motion props exist on parent
+    const isAnimated = containsMotionProps(props); //contains framer motion props?
 
     const handleClick = useCallback(() => onClick && onClick(), [onClick]);
 

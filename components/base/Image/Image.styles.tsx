@@ -7,7 +7,6 @@ export const image = cva("Image", {
     variant: {
       static: [],
       responsive: [],
-      background: [],
     },
   },
   defaultVariants: {

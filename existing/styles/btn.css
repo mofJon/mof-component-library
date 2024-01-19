@@ -1,0 +1,96 @@
+.btn {
+  @apply h-10 sm:h-12 cursor-pointer font-primary font-semibold sm:font-medium inline-flex uppercase duration-200 py-[14px] px-6 text-[14px] sm:text-[16px] leading-5 justify-center items-center;
+}
+
+.large {
+  @apply w-12 h-12 p-[15px];
+}
+
+.small {
+  @apply w-10 h-10 p-[11px];
+}
+
+.circle {
+  @apply rounded-full;
+}
+
+.btn svg {
+  @apply first:mr-3 last:ml-3 only:mx-0;
+}
+
+.btn.primary {
+  @apply text-white bg-baseColor border-0 duration-200 [&_svg]:stroke-white 
+  hover:border hover:bg-transparent hover:text-baseColor
+  active:bg-baseColor active:text-black 
+  disabled:bg-grey5 disabled:text-white;
+}
+
+/* secondary button */
+.btn.secondary {
+  @apply border border-white duration-200 [&_svg]:stroke-black text-white
+  hover:bg-baseColor hover:text-lightColor hover:border-transparent 
+  active:bg-baseColor active:text-white 
+  disabled:bg-grey5 disabled:text-white disabled:border-grey5 [&_svg]:disabled:stroke-white;
+}
+
+.btn.secondary.small {
+  @apply h-10;
+}
+
+/* text button */
+.btn.text {
+  @apply duration-200 [&_svg]:stroke-black 
+  hover:bg-grey6 
+  active:bg-grey3 active:text-white 
+  disabled:opacity-25;
+}
+
+/* link button */
+.btn.link {
+  @apply relative px-0 pb-0 duration-200 [&_svg]:stroke-black [&_svg]:duration-200
+  hover:text-grey3 [&_svg]:hover:stroke-grey3 
+  active:opacity-25 
+  disabled:opacity-25;
+}
+
+.btn.link::after {
+  @apply absolute content-[''] w-full h-[1px] bottom-[1px] left-0 bg-black hover:bg-grey3;
+}
+
+.btn.link:hover::after {
+  @apply bg-grey3 duration-200;
+}
+
+.btn.link:active::after {
+  @apply opacity-25 duration-200;
+}
+
+.btn.link:hover svg {
+  @apply stroke-grey3 duration-200;
+}
+
+/* action buttons */
+/* circle */
+.btn.primary.circle {
+  @apply hover:bg-grey3 active:opacity-10 active:border-none;
+}
+
+.btn.secondary.circle {
+  @apply hover:bg-black 
+  active:bg-white active:border-grey4 
+  disabled:hover:bg-white disabled:hover:border-black;
+}
+
+.btn.secondary.circle:hover svg {
+  @apply stroke-white;
+}
+
+.btn.secondary.circle:hover:disabled svg {
+  @apply stroke-black;
+}
+
+.btn.secondary.circle:active svg {
+  @apply stroke-grey4;
+}
+
+/* square */

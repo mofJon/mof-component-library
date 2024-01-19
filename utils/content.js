@@ -29,6 +29,25 @@ export const loadLazyImage = (element) => {
   }
 };
 
+export const containsMotionProps = (props) => {
+  let containsMotionProps = false;
+  if (
+    props.initial ||
+    props.animate ||
+    props.variants ||
+    props.transition ||
+    props.whileHover ||
+    props.whileTap ||
+    props.whileFocus ||
+    props.whileDrag ||
+    props.whileInView
+  ) {
+    containsMotionProps = true;
+  }
+
+  return containsMotionProps;
+};
+
 export const splitArrayIntoChunks = (arr, chunkSize) => {
   return Array.from({ length: Math.ceil(arr.length / chunkSize) }, (_, index) =>
     arr.slice(index * chunkSize, index * chunkSize + chunkSize),
@@ -56,7 +75,13 @@ export const remapNavData = (data, state = true, level = 0) => {
   });
 };
 
-export const updateNavState = (array, key, index) => {
+export const updateNavState = (array, key, index, persistOn) => {
+  if (key === "isActive" && persistOn === "all") {
+    const newArray = [...array];
+    newArray[index][key] = !array[index][key];
+    return newArray;
+  }
+
   return array.map((item, i) => {
     if (i === index && item[key] === false) {
       return { ...item, [key]: true };
