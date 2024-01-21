@@ -18,6 +18,8 @@ export const Image: FC<any> = forwardRef(
       height: propHeight,
       priority = false,
       responsive = false,
+      blurDataURL,
+      placeholder,
       ...props
     }: ImageProps,
     ref: Ref<ImageProps>,
@@ -39,6 +41,8 @@ export const Image: FC<any> = forwardRef(
       height,
       alt,
       priority,
+      blurDataURL,
+      placeholder,
     };
 
     if (!src || !width || !height) {
