@@ -53,7 +53,8 @@
     "storybook": "^7.6.8",
     "tailwind-scrollbar-hide": "^1.1.7",
     "tailwindcss": "^3.3.0",
-    "typescript": "^5"
+    "typescript": "^5",
+    "use-device-pixel-ratio": "^1.1.2"
   },
   "peerDependencies": {
     "next": "14.0.4",

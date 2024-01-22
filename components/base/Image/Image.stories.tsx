@@ -6,9 +6,9 @@ import ResponsiveImage from "@/existing/components/general/ResponsiveImage";
 import { wrapper } from "@/existing/store";
 
 const imageUrlWithQuery =
-  "https://base.matterofform.com/media/1gzl5kwa/420d532b02bcbb6b7b40401e9c74cefa.jpg?width=696&height=464&format=webp";
+  "https://media.idorchester.com/api/v1/media/ox4khfi1/le-meurice-facade-5.jpg?width=696&height=464&format=webp";
 const imageUrlWithoutQuery =
-  "https://base.matterofform.com/media/1gzl5kwa/420d532b02bcbb6b7b40401e9c74cefa.jpg";
+  "https://media.idorchester.com/api/v1/media/ox4khfi1/le-meurice-facade-5.jpg";
 
 const meta: Meta<typeof Image> = {
   component: Image,
@@ -40,30 +40,38 @@ export const DimensionsFromExplicitValues: Story = {
   },
 };
 
-export const ResponsiveFallback = () => {
-  const responsiveImageRef = useRef();
-  const [imageSrc, setImageSrc] = useState("");
+export const ResponsiveFallback: Story = {
+  decorators: [
+    (Story) => {
+      const { store } = wrapper.useWrappedStore({});
+      const responsiveImageRef = useRef();
+      const [imageSrc, setImageSrc] = useState("");
 
-  useEffect(() => {
-    if (responsiveImageRef.current) {
-      const imageEl: any = responsiveImageRef.current;
-      setImageSrc(imageEl.src);
-      console.log(responsiveImageRef, "responsive", imageEl.src);
-    }
-  }, [responsiveImageRef]);
+      useEffect(() => {
+        if (responsiveImageRef.current) {
+          const imageEl: any = responsiveImageRef.current;
+          setImageSrc(imageEl.src);
+          console.log(responsiveImageRef, "responsive", imageEl.src);
+        }
+      }, [responsiveImageRef]);
 
-  return (
-    <Stack direction="column" gap={5}>
-      <Text
-        text="Image dimensions set by container.<br/>Here, 400 x 400"
-        textStyle="h6"
-      />
-      <Box className="w-[400px] h-[400px] bg-gray-200">
-        <Image responsive ref={responsiveImageRef} src={imageUrlWithoutQuery} />
-      </Box>
-      <Text text={imageSrc} textStyle="copy" />
-    </Stack>
-  );
+      return (
+        <Stack direction="column" gap={5}>
+          <Text
+            text="Image dimensions set by container.<br/>Here, 400 x 400"
+            textStyle="h6"
+          />
+          <Box className="w-[400px] h-[400px] bg-gray-200">
+            <Story ref={responsiveImageRef} />
+          </Box>
+          <Text text={imageSrc} textStyle="copy" />
+        </Stack>
+      );
+    },
+  ],
+  args: {
+    src: imageUrlWithoutQuery,
+  },
 };
 
 export const ComparisonBetweenImageComponents: Story = {
@@ -72,7 +80,7 @@ export const ComparisonBetweenImageComponents: Story = {
   },
   args: {
     src: imageUrlWithoutQuery,
-    // sizes: "(min-width: 808px) 50vw, 100vw",
+    sizes: "(min-width: 808px) 50vw, 100vw",
   },
   decorators: [
     (Story) => {
@@ -80,7 +88,7 @@ export const ComparisonBetweenImageComponents: Story = {
 
       return (
         <Provider store={store}>
-          <Stack direction="column" gap={5}>
+          <Stack direction="column" gap={5} className="mb-10">
             <Stack direction="column" className="w-full max-w-[1000px]">
               <Text text="Existing" textStyle="h6" />
               <ResponsiveImage
@@ -104,4 +112,12 @@ export const ComparisonBetweenImageComponents: Story = {
       );
     },
   ],
+};
+
+export const Full: Story = {
+  args: {
+    src: imageUrlWithQuery,
+    priority: true,
+    responsive: true,
+  },
 };

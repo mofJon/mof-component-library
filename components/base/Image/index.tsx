@@ -1,5 +1,5 @@
-import { FC, forwardRef, Ref, useRef } from "react";
-import { Box } from "@/components";
+import { FC, forwardRef, Ref, useRef, useState } from "react";
+import { Box, Text, Stack } from "@/components";
 import NextImage from "next/image";
 import { ImageProps } from "./Image.types";
 import { imageVars } from "./Image.styles";
@@ -16,43 +16,53 @@ export const Image: FC<any> = forwardRef(
       alt = "image",
       width: propWidth,
       height: propHeight,
-      priority = false,
+      priority = true,
       responsive = false,
-      blurDataURL,
       placeholder,
+      sizes,
       ...props
     }: ImageProps,
     ref: Ref<ImageProps>,
   ) => {
     const imageRef = useRef();
     const isAnimated = containsMotionProps(props);
-    const { width, height, src } = useImageOptimiser(
-      propSrc,
-      propWidth,
-      propHeight,
-      imageRef,
-    );
+    const { width, height, src, dpr, quality, optimiserProps, fallbackURL } =
+      useImageOptimiser(
+        propSrc,
+        propWidth,
+        propHeight,
+        responsive,
+        sizes,
+        imageRef,
+      );
+
+    if (!src || width === 0 || height === 0) {
+      return <Box className="w-full h-full" ref={imageRef} />;
+    }
 
     const allProps = {
       ...imageVars(variant, className),
       ...props,
-      src,
-      width,
-      height,
       alt,
       priority,
-      blurDataURL,
-      placeholder,
+      ...optimiserProps,
+      onError: () => handleFallback(),
     };
 
-    if (!src || !width || !height) {
-      return <Box className="w-full h-full border" ref={imageRef} />;
-    }
+    const handleFallback = () => {
+      console.log("ERROR", fallbackURL);
+      allProps.src = fallbackURL;
+    };
 
     return isAnimated ? (
       motion(NextImage, { ...allProps, ref })
     ) : (
-      <NextImage {...allProps} ref={ref} />
+      <Stack direction="column" gap={4}>
+        <NextImage {...allProps} ref={ref} />
+        <Text
+          text={`<b>width: </b> ${width} <b>height: </b> ${height} <b>DPR: </b> ${dpr} <b>Quality: </b> ${quality}`}
+        />
+      </Stack>
     );
   },
 );

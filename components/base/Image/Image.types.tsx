@@ -1,9 +1,10 @@
 import React from "react";
 import { type VariantProps } from "class-variance-authority";
+import { ImageProps as NextImageProps } from "next/image";
 import { image } from "./Image.styles";
 import { MotionProps } from "framer-motion";
 
-type HTMLAndMotionProps = React.HTMLAttributes<HTMLElement> & MotionProps;
+type HTMLAndMotionProps = NextImageProps & MotionProps;
 
 export interface ImageProps
   extends HTMLAndMotionProps,
