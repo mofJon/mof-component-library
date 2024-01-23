@@ -1,11 +1,13 @@
-import { FC } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Card } from "@/components";
-import zha1 from "@/assets/images/zhaCarousel1.jpg";
-import { childAnims, zhaCardAnim } from "./animations";
+import { Box, Card } from "@/components";
+import { cardChildAnims, zhaCardAnim } from "./animations";
 
-const data = {
-  media: zha1.src,
+const data: any = {
+  image: {
+    imageUrl:
+      "https://qa-cms.zaha-hadid.com/media/wotgyell/adrian-cuj-o_9ymcy0bag-unsplash.jpg",
+    alt: "zaha",
+  },
   preHeading: "Transport",
   headingTitle: "BMW Central Building",
   info: "<span>Leipzig, Germany</span><span>2001-2005</span><span>BMW AG</span>",
@@ -19,8 +21,10 @@ const meta: Meta<typeof Card> = {
   component: Card,
   tags: ["autodocs"],
   parameters: {
-    layout: "fullscreen",
-    mode: "dark",
+    layout: "centered",
+    backgrounds: {
+      default: "dark",
+    },
   },
   argTypes: {
     size: {
@@ -44,27 +48,22 @@ const meta: Meta<typeof Card> = {
 export default meta;
 type Story = StoryObj<typeof Card>;
 
-export const ZHACard: FC = () => {
-  // only relevant for Storybook
-  styleViewport();
-
-  const args: any = {
+export const ZHACard: Story = {
+  decorators: [
+    (Story) => {
+      return (
+        <Box className="w-screen h-screen" style={{ padding: "4rem" }}>
+          <Story />
+        </Box>
+      );
+    },
+  ],
+  args: {
     data,
     size: "full",
     variant: "overlay",
     className: "custom-zha",
-  };
-
-  return <Card {...args} {...zhaCardAnim} childAnims={childAnims} />;
-};
-
-const styleViewport = () => {
-  // @ts-ignore
-  const viewport = document && document.getElementById("storybook-root");
-
-  if (viewport) {
-    viewport.style.height = "100vh";
-    viewport.style.padding = "5rem";
-    viewport.style.background = "black";
-  }
+    childAnims: cardChildAnims,
+    ...zhaCardAnim,
+  },
 };

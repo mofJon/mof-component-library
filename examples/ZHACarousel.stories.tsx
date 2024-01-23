@@ -1,50 +1,24 @@
-import { FC } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Card, Carousel } from "@/components";
+// @ts-ignore
 import Arrow from "@/assets/icons/zhaArrow.svg";
-import zha1 from "@/assets/images/zhaCarousel1.jpg";
-import zha2 from "@/assets/images/zhaCarousel2.jpg";
-import zha3 from "@/assets/images/zhaCarousel3.jpg";
-import { childAnims, zhaCardAnim } from "./animations";
+import { cardChildAnims, zhaCardAnim } from "./animations";
+import data from "./__mockdata__.json";
 
-const zhaData: any = [
-  {
-    media: zha1.src,
-    preHeading: "Transport",
-    headingTitle: "BMW Central Building",
-    info: "<span>Leipzig, Germany</span><span>2001-2005</span><span>BMW AG</span>",
-    description:
-      "Description goes here lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec vestibulum eros. Curabitur ac libero malesuada, feugiat ligula quis, sodales diam. Morbi cursus mauris id bibendum commodo.",
-    primaryCta: "View article",
-    variant: "primary",
-  },
-  {
-    media: zha2.src,
-    preHeading: "Transport",
-    headingTitle: "BMW Central Building",
-    info: "<span>Leipzig, Germany</span><span>2001-2005</span><span>BMW AG</span>",
-    description:
-      "Description goes here lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec vestibulum eros. Curabitur ac libero malesuada, feugiat ligula quis, sodales diam. Morbi cursus mauris id bibendum commodo.",
-    primaryCta: "View article",
-    variant: "primary",
-  },
-  {
-    media: zha3.src,
-    preHeading: "Transport",
-    headingTitle: "BMW Central Building",
-    info: "<span>Leipzig, Germany</span><span>2001-2005</span><span>BMW AG</span>",
-    description:
-      "Description goes here lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec vestibulum eros. Curabitur ac libero malesuada, feugiat ligula quis, sodales diam. Morbi cursus mauris id bibendum commodo.",
-    primaryCta: "View article",
-    variant: "primary",
-  },
-];
+declare const window: {
+  innerWidth: number;
+  addEventListener: any;
+  removeEventListener: any;
+};
 
 const meta: Meta<typeof Carousel> = {
   component: Carousel,
   tags: ["autodocs"],
   parameters: {
     layout: "centered",
+    backgrounds: {
+      default: "dark",
+    },
   },
   argTypes: {
     align: {
@@ -72,27 +46,22 @@ const meta: Meta<typeof Carousel> = {
 export default meta;
 type Story = StoryObj<typeof Carousel>;
 
-const items = zhaData.map((val: any, i: number) => {
+const items = data.map((val: any, i: number) => {
   return (
     <Card
       key={`zahaCard${i}`}
       data={val}
       variant="overlay"
       className="custom-zha"
-      childAnims={childAnims}
+      childAnims={cardChildAnims}
       size="full"
       {...zhaCardAnim}
     />
   );
 });
 
-export const ZHACarousel: FC = () => {
-  styleViewport();
-  // @ts-ignore
-  const width = window ? window.innerWidth * 0.8 : 800;
-  const height = width / 1.7777; //aspect ratio
-
-  const args: any = {
+export const ZHACarousel: Story = {
+  args: {
     items,
     controls: {
       show: true,
@@ -103,24 +72,8 @@ export const ZHACarousel: FC = () => {
     loop: true,
     variant: "primary",
     gap: 5,
-    width,
-    height,
+    width: window.innerWidth * 0.8,
+    height: (window.innerWidth * 0.8) / 1.7777,
     className: "custom-zha",
-  };
-
-  return <Carousel {...args} />;
-};
-
-const styleViewport = () => {
-  // @ts-ignore
-  const viewport = document && document.getElementById("storybook-root");
-
-  if (viewport) {
-    viewport.style.width = "100vw";
-    viewport.style.height = "100vh";
-    viewport.style.background = "black";
-    viewport.style.display = "flex";
-    viewport.style.justifyContent = "center";
-    viewport.style.alignItems = "center";
-  }
+  },
 };

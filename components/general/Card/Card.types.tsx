@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import { type VariantProps } from "class-variance-authority";
 import { card } from "./Card.styles";
 import { MotionProps } from "framer-motion";
@@ -10,7 +10,7 @@ export interface CardProps
     VariantProps<typeof card> {
   data: {
     variant: CardProps["variant"];
-    media: ReactNode;
+    image: {};
     preHeading?: string;
     headingTitle?: string;
     subHeading?: string;

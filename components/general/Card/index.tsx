@@ -23,7 +23,12 @@ export const Card = forwardRef(
 
     return (
       <Grid ref={ref} {...allProps}>
-        <Media data={data.media} size={size} {...mediaHolder(size)} />
+        <Media
+          data={data.image}
+          size={size}
+          {...mediaHolder(size)}
+          responsive
+        />
         <ContentBlock
           data={data}
           {...cardContent(size)}

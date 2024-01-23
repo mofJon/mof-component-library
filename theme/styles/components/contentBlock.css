@@ -7,6 +7,6 @@
   @apply w-full justify-between;
 }
 
-.content-block .cta {
+.content-block .primary-cta {
   @apply self-baseline mt-6;
 }

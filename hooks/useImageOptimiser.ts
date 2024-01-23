@@ -23,7 +23,11 @@ export default function useImageOptimiser(
 
   const responsiveProps = {
     fill: true,
-    objectFit: "cover",
+    fit: "cover",
+    sizes: sizes || "100vw",
+    style: {
+      objectFit: "cover",
+    },
   };
   const staticProps = {
     width,

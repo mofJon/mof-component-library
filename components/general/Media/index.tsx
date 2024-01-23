@@ -1,25 +1,34 @@
-import { FC } from "react";
+import { forwardRef, Ref } from "react";
 import { MediaProps } from "./Media.types";
 import { mediaHolder } from "./Media.styles";
-import { Box } from "@/components";
+import { Box, Image } from "@/components";
 
 //  Work in progress!!!
 
-export const Media: FC<MediaProps> = ({ className, data, size, ...props }) => {
-  if (!data) return null;
-  let variant = "backgroundImage";
-  if (data.isArray) {
-    variant = "slideshow";
-  }
-  if (data.videoId) {
-    variant = "video";
-  }
+export const Media = forwardRef(
+  (
+    { data, size, imageSizes, responsive = false, ...props }: MediaProps,
+    ref: Ref<MediaProps>,
+  ): any => {
+    if (!data) return null;
+    let variant = "image";
+    if (data.videoId) {
+      variant = "video";
+    }
 
-  // logic for carousel
-  if (data.isArray) {
-    console.log("carousel", data);
-  }
+    const hasImageSizes = imageSizes ? { sizes: imageSizes } : {};
 
-  // if not an array of images, display one image as background image for responsive cover
-  return <Box bgSrc={data} {...mediaHolder(size)} {...props} />;
-};
+    return (
+      <Box {...props} {...mediaHolder(size)}>
+        {variant === "image" && (
+          <Image
+            {...hasImageSizes}
+            src={data.imageUrl}
+            alt={data.imageUrl}
+            responsive={responsive}
+          />
+        )}
+      </Box>
+    );
+  },
+);

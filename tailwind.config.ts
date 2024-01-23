@@ -41,7 +41,7 @@ const config: Config = {
       },
       fontFamily: {
         primary: ["Inter", "Arial", "sans-serif"],
-        secondary: ["Times New Roman", "serif"],
+        secondary: ["Arial, Times New Roman", "serif"],
       },
       gap: {
         "0": "0",
@@ -74,8 +74,21 @@ const config: Config = {
         xxl: "1536px",
       },
       contentBlock: {
-        preHeading: "h6",
-        heading: "h1",
+        primary: {
+          preHeading: "copyBold",
+          headingTitle: "h3",
+          subHeading: "copyBold",
+          info: "copyBold",
+          description: "copy",
+        },
+      },
+      card: {
+        primary: {
+          sm: "(max-width: 1000px) 50vw, 80vw",
+          md: "(max-width: 1000px) 80vw, 90vw",
+          lg: "(max-width: 800px) 60vw, 30vw",
+          full: "100vw",
+        },
       },
     },
   },

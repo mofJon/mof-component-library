@@ -40,7 +40,7 @@
 }
 
 .text-copy {
-  @apply leading-normal text-[0.75rem] md:text-[0.875rem] font-normal;
+  @apply leading-normal text-[0.75rem] md:text-[0.875rem] font-primary;
 }
 
 .text-copy-bold {
