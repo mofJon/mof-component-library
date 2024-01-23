@@ -1,5 +1,11 @@
 import { cva } from "class-variance-authority";
 import { ContentBlockVars } from "./ContentBlock.types";
+import twConfig from "@/tailwind.config";
+
+// @ts-ignore
+const { contentBlock: contentSettings } = twConfig?.theme?.extend;
+let animations: any = {};
+let contentVariant: string = "primary";
 
 // contentBlock Variant Styles
 export const contentBlock = cva("content-block", {
@@ -15,45 +21,60 @@ export const contentBlock = cva("content-block", {
 });
 
 // contentBlock Props
-export const contentBlockVars: ContentBlockVars = (variant, classes) => {
+export const contentBlockVars: ContentBlockVars = (
+  variant,
+  childAnims,
+  classes,
+) => {
   const baseStyles = `${classes ? classes : ""}`;
+  animations = childAnims;
+  contentVariant = variant || "primary";
 
   return {
     className: contentBlock({
       variant,
       className: baseStyles,
     }),
+    ...animations.contentBlock,
   };
 };
 
-export const cta = {
-  className: "cta",
-};
+export const primaryCta: any = () => ({
+  className: "primary-cta",
+  ...animations.primaryCta,
+});
 
-export const preContent: any = {
+export const preContent: any = () => ({
   className: "pre-content",
-};
+  ...animations.preContent,
+});
 
-export const preHeading: any = {
+export const preHeading: any = () => ({
   className: "pre-heading",
-  textStyle: "copyBold",
-};
+  textStyle: contentSettings[contentVariant].preHeading,
+  ...animations.preHeading,
+});
 
-export const info: any = {
+export const info: any = () => ({
   className: "info",
-  textStyle: "copyBold",
-};
+  textStyle: contentSettings[contentVariant].info,
+  ...animations.info,
+});
 
-export const headingTitle: any = {
+export const headingTitle: any = () => ({
   className: "heading-title",
-  textStyle: "h5",
-};
+  textStyle: contentSettings[contentVariant].headingTitle,
+  ...animations.headingTitle,
+});
 
-export const subHeading: any = {
+export const subHeading: any = () => ({
   className: "sub-heading",
-  textStyle: "copyBold",
-};
+  textStyle: contentSettings[contentVariant].subHeading,
+  ...animations.subHeading,
+});
 
-export const description = {
+export const description: any = () => ({
   className: "description",
-};
+  textStyle: contentSettings[contentVariant].description,
+  ...animations.description,
+});

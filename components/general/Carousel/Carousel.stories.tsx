@@ -1,12 +1,25 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Card, Carousel } from "@/components";
+import { Card, Carousel, Image } from "@/components";
 import Arrow from "@/assets/icons/chevron.svg";
 
-const items: any = [
+const urls: any = [
   "https://base.matterofform.com/media/1zudodgf/frans-ruiter-phnfcr2eh00-unsplash.jpg?width=1600&format=webp",
   "https://base.matterofform.com/media/uziesd2a/anthony-delanoix-cfi7_hcxecu-unsplash.jpg?width=1600&format=webp",
   "https://base.matterofform.com/media/44lnxixr/a7f1ed2ef6b95603a7fe9591043396e2.jpeg?width=1600&format=webp",
 ];
+
+const items = urls.map((url: string, i: number) => {
+  return (
+    <Image
+      key={`image${i}`}
+      alt={`image${i}`}
+      src={url}
+      sizes="(max-width: 800px) 100vw, 60vw"
+      priority
+      responsive
+    />
+  );
+});
 
 const meta: Meta<typeof Carousel> = {
   component: Carousel,

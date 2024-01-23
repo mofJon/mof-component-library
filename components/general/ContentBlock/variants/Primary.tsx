@@ -1,7 +1,7 @@
 import { FC } from "react";
 import {
   contentBlockVars,
-  cta,
+  primaryCta,
   description,
   headingTitle,
   info,
@@ -23,7 +23,7 @@ const PrimaryContentBlock: FC<ContentBlockContentProps> = ({
   ...props
 }) => {
   const allProps = {
-    ...contentBlockVars(variant, className),
+    ...contentBlockVars(variant, childAnims, className),
     ...props,
   };
 
@@ -32,36 +32,15 @@ const PrimaryContentBlock: FC<ContentBlockContentProps> = ({
   };
 
   return (
-    <Stack direction="column" {...allProps} {...childAnims?.contentBlock}>
-      <Stack direction="row" {...preContent} {...childAnims?.preContent}>
-        <Text
-          text={data.preHeading}
-          {...preHeading}
-          {...childAnims?.preHeading}
-        />
-        <Text text={data.info} {...info} {...childAnims?.info} />
+    <Stack direction="column" {...allProps}>
+      <Stack direction="row" {...preContent()}>
+        <Text text={data.preHeading} {...preHeading()} />
+        <Text text={data.info} {...info()} />
       </Stack>
-      <Text
-        text={data.headingTitle}
-        {...headingTitle}
-        {...childAnims?.headingTitle}
-      />
-      <Text
-        text={data.subHeading}
-        {...subHeading}
-        {...childAnims?.subHeading}
-      />
-      <Text
-        text={data.description}
-        {...description}
-        {...childAnims?.description}
-      />
-      <Button
-        text={data.primaryCta}
-        onClick={handleClick}
-        {...cta}
-        {...childAnims?.primaryCta}
-      />
+      <Text text={data.headingTitle} {...headingTitle()} />
+      <Text text={data.subHeading} {...subHeading()} />
+      <Text text={data.description} {...description()} />
+      <Button text={data.primaryCta} onClick={handleClick} {...primaryCta()} />
     </Stack>
   );
 };

@@ -6,7 +6,7 @@
   @apply p-5 !text-white;
 }
 
-.card.custom-zha .content-block .cta {
+.card.custom-zha .content-block .primary-cta {
   @apply mt-auto self-end rounded-[0.3rem] px-5 font-sans font-light absolute bottom-5 hover:rounded-[0.3rem] hover:text-white transition-[background-position] duration-500 ease-out;
   background: linear-gradient(
     to bottom,
@@ -18,7 +18,7 @@
   background-size: 100% 500%;
 }
 
-.card.custom-zha .content-block .cta:hover {
+.card.custom-zha .content-block .primary-cta:hover {
   background-position-y: 100%;
 }
 
@@ -40,7 +40,7 @@
   @apply text-black;
 }
 
-.card.custom-zha .pre-heading {
+.card.overlay.custom-zha .pre-heading {
   @apply bg-white rounded-full !text-black p-1 px-3 !text-xs transition-colors duration-200;
 }
 
@@ -52,6 +52,6 @@
   @apply text-4xl font-sans font-light;
 }
 
-.card.custom-zha .description {
-  @apply w-1/2 text-copy opacity-0;
+.card.overlay.custom-zha .description {
+  @apply w-1/2 !text-copy;
 }

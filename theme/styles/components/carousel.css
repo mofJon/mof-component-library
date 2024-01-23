@@ -16,7 +16,7 @@
 }
 
 .carousel-item {
-  @apply h-full;
+  @apply relative h-full;
 }
 
 .carousel.bookcase .carousel-item {

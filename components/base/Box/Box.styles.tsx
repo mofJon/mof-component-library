@@ -21,6 +21,7 @@ export const boxVars: BoxVars = (variant, bgSrc, classes, styleProps) => {
         ${classes ? classes : ""}
     `;
 
+  console.log(baseStyles);
   let bg = {};
   if (bgSrc) {
     bg = {

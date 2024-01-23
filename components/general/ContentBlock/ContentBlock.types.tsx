@@ -29,5 +29,6 @@ export interface ContentBlockContentProps
 
 export type ContentBlockVars = (
   variant: ContentBlockProps["variant"],
+  childAnims: {},
   className: any,
 ) => Record<any, any>;
