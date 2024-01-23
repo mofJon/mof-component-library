@@ -1,5 +1,5 @@
 export interface MediaProps {
-  className: any;
   data: any;
+  imageSizes: string;
   size?: "sm" | "md" | "lg" | "full" | null;
 }

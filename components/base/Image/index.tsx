@@ -4,7 +4,7 @@ import NextImage from "next/image";
 import { ImageProps } from "./Image.types";
 import { spacer } from "./Image.styles";
 import { motion } from "framer-motion";
-import { containsMotionProps, toDataURL } from "@/utils";
+import { containsMotionProps } from "@/utils";
 import { useImageOptimiser } from "@/hooks";
 
 export const Image = forwardRef(

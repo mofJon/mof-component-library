@@ -24,7 +24,7 @@
 }
 
 .card .media-holder {
-  @apply w-full bg-cover bg-center;
+  @apply relative w-full bg-cover bg-center;
 }
 
 .card .media-holder.sm {
