@@ -1,0 +1,144 @@
+.input-group {
+  @apply flex flex-col my-2 first:mt-0 last:mb-0 only:my-0;
+}
+
+.input-group .input {
+  @apply border border-grey4 text-sm rounded-lg w-full p-3 block;
+}
+
+.input-group .checkbox {
+  @apply flex;
+}
+.input-group .radio {
+  @apply flex;
+}
+
+.input-group .checkbox .label {
+  @apply mb-0 normal-case font-normal;
+}
+
+.input-group .radio .label {
+  @apply mb-0 normal-case font-normal;
+}
+
+.input-group .input[type='checkbox'],
+.input-group .input[type='radio'] {
+  @apply w-auto mr-2 accent-black;
+}
+
+.input-group .input[type='text'] {
+  @apply outline-none focus:border-black;
+}
+
+.input-group .label {
+  @apply block mb-2 text-grey3 text-[0.875rem] leading-[1.25rem] lg:text-[1rem] lg:leading-[1.5rem] font-semibold tracking-[0.01em];
+}
+
+.input-group .multi-checkbox {
+  @apply flex items-center;
+}
+
+/* Dropdown */
+.input-group .dropdown {
+  @apply border-none p-0;
+}
+
+.input-group .dropdown .main-button {
+  @apply rounded-lg border-grey4 h-[46px];
+}
+
+.input-group .dropdown .popover-title {
+  @apply text-paragraph text-grey1;
+}
+
+.input-group .dropdown .content {
+  @apply border-t rounded-xl;
+}
+
+.input-group .dropdown.open .content {
+  @apply mt-1 drop-shadow-lg;
+}
+/* End Dropdown */
+
+.input-group.error .label {
+  @apply text-messagingRed;
+}
+
+.input-group.error .input {
+  @apply border-messagingRed;
+}
+
+.input-group.error .error-message {
+  @apply text-messagingRed font-normal;
+}
+
+.input-group .input.number-input {
+  @apply flex;
+}
+
+.input-group .input.number-input input[type='number']::-webkit-outer-spin-button,
+.input-group .input.number-input input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input-group .input.number-input input[type='number'] {
+  width: 80%;
+  text-align: center;
+  -moz-appearance: textfield;
+  outline: none;
+  border: none;
+}
+
+.input-group .input.number-input input[type='number']:focus-visible {
+  outline: none;
+  border: none;
+}
+
+.input-group .input.datepicker {
+  @apply p-0;
+}
+
+.radio-group {
+  @apply flex;
+}
+.input-group .radio-group,
+.input-group .multi-checkbox {
+  @apply cursor-pointer;
+}
+
+.input-group:has(input:disabled),
+.input-group:has(input:disabled) .number-input > *,
+.input-group:has(input:disabled) label:has(input:disabled),
+button:disabled {
+  @apply cursor-not-allowed;
+}
+
+.input-group .input.number-input input[type='number']:disabled {
+  @apply bg-transparent;
+}
+
+.select {
+  @apply px-4 py-2.5 bg-transparent text-lightColor text-small-regular tracking-[.96px] font-medium font-secondary uppercase outline-none grow placeholder:text-lightColor;
+}
+
+.input-common {
+  @apply font-primary p-2 backdrop-blur-[13px] border-white/25 rounded-full border text-lightColor text-small-regular tracking-[.96px] uppercase outline-none;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.input-common option {
+  @apply rounded-full border text-darkColor text-small-regular tracking-[.96px] uppercase outline-none;
+}
+
+input[type='color'] {
+  @apply p-0 backdrop-blur-[13px] border-white/25 rounded-full border text-lightColor text-small-regular tracking-[.96px] uppercase outline-none;
+  background: rgba(255, 255, 255, 0.02);
+}
+input[type='color']::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+input[type='color']::-webkit-color-swatch {
+  @apply backdrop-blur-[13px] border-white/25 rounded-full border text-lightColor text-small-regular tracking-[.96px] uppercase outline-none;
+  background: rgba(255, 255, 255, 0.02);
+}

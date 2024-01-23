@@ -5,7 +5,7 @@ import { BoxVars } from "./Box.types";
 export const box = cva("box", {
   variants: {
     variant: {
-      flex: ["flex flex-1"],
+      flex: ["flex flex-1-auto"],
       block: ["block"],
       container: ["container m-auto"],
     },

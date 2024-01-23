@@ -1,18 +1,8 @@
-import React from "react";
-import { type VariantProps } from "class-variance-authority";
-import { image } from "./Image.styles";
+import { ImageProps as NextImageProps } from "next/image";
 import { MotionProps } from "framer-motion";
 
-type HTMLAndMotionProps = React.HTMLAttributes<HTMLElement> & MotionProps;
+type ImageAndMotionProps = NextImageProps & MotionProps;
 
-export interface ImageProps
-  extends HTMLAndMotionProps,
-    VariantProps<typeof image> {
-  src: string;
-  alt: string;
+export interface ImageProps extends ImageAndMotionProps {
+  responsive: boolean;
 }
-
-export type ImageVars = (
-  variant: ImageProps["variant"],
-  className: ImageProps["className"],
-) => Record<any, any>;

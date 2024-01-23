@@ -1,5 +1,10 @@
 import { cva } from "class-variance-authority";
-import { NavProps } from "./nav.types";
+import { NavProps } from "./Nav.types";
+import {
+  navItemAnimations,
+  navPanelAnimations,
+  navPanelWrapperAnimations,
+} from "@/animations";
 
 type NavVars = any;
 
@@ -9,7 +14,6 @@ export const nav = cva("nav", {
     variant: {
       primary: "primary",
       secondary: "secondary",
-      flyout: "flyout",
     },
     persistOn: {
       all: "",
@@ -48,39 +52,20 @@ export const navPanelWrapper = (
     className: `nav-panel-wrapper ${isActive ? "active" : ""} ${
       attach ? `attach-${attach}` : ""
     }`,
-    variants: {
-      inactive: {
-        height: 0,
-      },
-      active: {
-        height,
-      },
-    },
+    ...navPanelWrapperAnimations(height, attach),
   };
 };
 
 export const navPanel = (isActive: boolean) => ({
   className: `nav-panel ${isActive ? "active" : ""}`,
-  variants: {
-    inactive: {
-      opacity: 0,
-    },
-    active: {
-      opacity: 1,
-      transition: {
-        delay: 0.2,
-        when: "beforeChildren",
-        delayChildren: 0.5,
-        staggerChildren: 0.2,
-      },
-    },
-  },
+  ...navPanelAnimations,
 });
 
 export const navItem = (
   isActive: boolean,
   itemIcons: any,
   navStyles: string,
+  index = 0,
 ) => {
   return {
     className: `nav-item 
@@ -89,19 +74,7 @@ export const navItem = (
     ${itemIcons?.iconPre ? "with-icon-pre" : ""}
     ${itemIcons?.iconPost ? "with-icon-post" : ""}
     `,
-    variants: {
-      inactive: {
-        opacity: 0,
-      },
-      active: {
-        opacity: 1,
-        transition: {
-          type: "spring",
-          duration: 1,
-          delay: 0.5,
-        },
-      },
-    },
+    ...navItemAnimations(index),
     whileHover: "hovered",
   };
 };
@@ -110,7 +83,7 @@ export const navItemWrapper = (
   isActive: boolean,
   attach: NavProps["attach"],
 ) => ({
-  className: `nav-item-wrapper ${attach ? "attach-to" : ""}`,
+  className: `nav-item-wrapper ${attach && `attach-${attach}`}`,
   initial: "inactive",
   animate: isActive ? "active" : "inactive",
 });

@@ -3,7 +3,7 @@ import { navVars } from "./Nav.styles";
 import { NavProps } from "./Nav.types";
 import { NavContext, NavItem } from "./chunks";
 import { Stack } from "@/components";
-import { remapNavData, updateNavState } from "@/utils";
+import { remapNavData } from "@/utils";
 
 export const Nav: NavProps = forwardRef(
   (
@@ -24,7 +24,6 @@ export const Nav: NavProps = forwardRef(
     }: NavProps,
     ref: Ref<NavProps>,
   ) => {
-    const level = 0;
     const [navState, setNavState] = useState(remapNavData(data));
 
     if (!navState || navState.length <= 0) return null;
@@ -44,7 +43,14 @@ export const Nav: NavProps = forwardRef(
     return (
       <Stack ref={ref} {...allProps}>
         <NavContext.Provider
-          value={{ persistOn, attach, itemsPerColumn, navState, setNavState }}
+          value={{
+            persistOn,
+            attach,
+            itemsPerColumn,
+            navState,
+            setNavState,
+            itemIcons,
+          }}
         >
           {renderItems}
         </NavContext.Provider>

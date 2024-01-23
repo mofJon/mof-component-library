@@ -22,3 +22,10 @@ export * from "./base/Grid/Grid.types";
 export * from "./base/Image/Image.types";
 export * from "./base/Stack/Stack.types";
 export * from "./base/Text/Text.types";
+
+//  general types
+export * from "./general/Card/Card.types";
+export * from "./general/Carousel/Carousel.types";
+export * from "./general/ContentBlock/ContentBlock.types";
+export * from "./general/Media/Media.types";
+export * from "./general/Nav/Nav.types";

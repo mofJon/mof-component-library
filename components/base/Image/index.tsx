@@ -1,24 +1,52 @@
-import { createElement, forwardRef, Ref } from "react";
+import { forwardRef, Ref, useEffect, useRef, useState } from "react";
+import { Box } from "@/components";
+import NextImage from "next/image";
 import { ImageProps } from "./Image.types";
-import { imageVars } from "./Image.styles";
+import { spacer } from "./Image.styles";
 import { motion } from "framer-motion";
-
-//  Work in progress!!!
+import { containsMotionProps, toDataURL } from "@/utils";
+import { useImageOptimiser } from "@/hooks";
 
 export const Image = forwardRef(
   (
-    { className, variant = "static", src, alt = "image", ...props }: ImageProps,
+    {
+      src: propSrc,
+      width: propWidth,
+      height: propHeight,
+      alt = "image",
+      responsive = false,
+      placeholder,
+      sizes,
+      ...props
+    }: ImageProps,
     ref: Ref<ImageProps>,
-  ) => {
-    const isAnimated = props.animate || props.variants; // do framer motion props exist on parent
+  ): any => {
+    const imageRef = useRef<any>();
+    const isAnimated = containsMotionProps(props);
+    const optimiserProps = useImageOptimiser(
+      propSrc,
+      propWidth,
+      propHeight,
+      responsive,
+      sizes,
+      imageRef,
+    );
+
+    // work out parent dimensions
+    if (optimiserProps.width === 0 || !optimiserProps.src) {
+      return <Box {...spacer} ref={imageRef} />;
+    }
+
     const allProps = {
-      ...imageVars(variant, className), // pass all styling defaults to decoupled styles file to future-proof modularity
-      ...props, // pass down remaining props
+      alt,
+      ...props,
+      ...optimiserProps,
     };
 
-    return createElement(
-      isAnimated ? motion.img : "img", // if motion props exist on component, make this component animatable, otherwise render static div
-      { ...allProps, ref, src },
+    return isAnimated ? (
+      motion(NextImage, { ...allProps, ref })
+    ) : (
+      <NextImage {...allProps} ref={ref} />
     );
   },
 );

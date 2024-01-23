@@ -21,7 +21,7 @@
 }
 
 .nav-panel-wrapper {
-  @apply relative w-full origin-top overflow-y-hidden shadow-lg;
+  @apply relative w-full origin-top overflow-y-hidden shadow-lg bg-white;
 }
 
 .nav-panel {
@@ -30,6 +30,14 @@
 
 .nav-item svg {
   @apply h-3 flex justify-self-end;
+}
+
+.nav-item.main-nav svg {
+  @apply h-5 text-gray-400;
+}
+
+.nav-item.sub-nav svg {
+  @apply pl-10 text-gray-400;
 }
 
 .nav-item.active svg {
@@ -48,19 +56,43 @@
   @apply shadow-none;
 }
 
-.nav-item-wrapper.attach-to {
+.nav-panel-wrapper[class*="attach"] {
+  @apply left-[-10000px];
+}
+
+.nav-panel-wrapper[class*="attach"].active {
+  @apply left-0;
+}
+
+.nav-item-wrapper.attach-bottom {
   @apply w-full;
   position: initial;
 }
 
-.nav-panel-wrapper[class*="attach-"] {
-  @apply absolute w-full top-full left-0 opacity-0;
+.nav-item-wrapper.attach-right .nav-item.active svg {
+  @apply rotate-0;
 }
 
-.nav-panel-wrapper[class*="attach-"].active {
-  @apply opacity-100;
+.nav-panel-wrapper.attach-bottom {
+  @apply absolute w-full top-full;
 }
 
-.nav-panel-wrapper[class*="attach-"] .nav-item {
-  @apply border-none;
+.nav-panel-wrapper.attach-right {
+  @apply absolute top-0 border border-gray-100 !shadow-lg;
+}
+
+.nav-panel-wrapper.attach-right.active {
+  @apply left-full;
+}
+
+.nav-panel-wrapper.attach-bottom .nav-panel {
+  @apply py-5;
+}
+
+.nav-panel-wrapper.attach-bottom .nav-item {
+  @apply border-none min-h-16;
+}
+
+.nav-panel-wrapper.attach-bottom svg {
+  @apply hidden;
 }

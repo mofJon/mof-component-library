@@ -58,7 +58,7 @@ export const Container: Story = {
   args: {
     variant: "container",
     className:
-      "bg-white h-screen pt-10 border-dashed border-blue-400 border-r-4 border-l-4",
+      "bg-white h-screen pt-10 border-dashed border-blue-400 border-r-4 border-l-4 h-[28rem]",
     children: <ContentBlock data={data} />,
   },
 };

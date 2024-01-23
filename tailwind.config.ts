@@ -73,6 +73,10 @@ const config: Config = {
         xl: "1280px",
         xxl: "1536px",
       },
+      contentBlock: {
+        preHeading: "h6",
+        heading: "h1",
+      },
     },
   },
   plugins: [],

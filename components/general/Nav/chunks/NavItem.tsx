@@ -10,18 +10,25 @@ const NavItem: FC<NavItemProps> = ({
   data,
   level = 0,
   itemIcons,
-  itemIndex,
   ...props
 }) => {
-  const { navState, setNavState, attach } = useContext(NavContext);
-  const { isGroup, navTitle, navLink, navItems, isActive, navStyle } = data;
+  const { navState, setNavState, attach, persistOn } = useContext(NavContext);
+  const { navTitle, navLink, navItems, isActive, navStyle } = data;
   const router = useRouter();
 
+  const updateNav = () => {
+    const newState = updateNavState(
+      navState,
+      "isActive",
+      data.index,
+      persistOn,
+    );
+    setNavState(newState);
+  };
+
   const handleClick = useCallback(() => {
-    console.log(data);
     if (data.isGroup) {
-      const newState = updateNavState(navState, "isActive", data.index);
-      setNavState(newState);
+      persistOn !== "hover" && updateNav();
     } else {
       navLink && router.push(navLink);
     }
@@ -34,20 +41,25 @@ const NavItem: FC<NavItemProps> = ({
       variant="nav"
       iconPre={itemIcons?.iconPre}
       iconPost={itemIcons?.iconPost}
-      {...navItem(isActive, itemIcons, navStyle)}
+      {...navItem(isActive, itemIcons, navStyle, data.index)}
       {...props}
     />
   );
 
   if (navItems && navItems.length > 0) {
     return (
-      <Stack direction="column" {...navItemWrapper(isActive, attach)}>
+      <Stack
+        direction="column"
+        {...navItemWrapper(isActive, attach)}
+        onMouseEnter={() => persistOn === "hover" && updateNav()}
+        onMouseLeave={() => persistOn === "hover" && updateNav()}
+      >
         {item}
         <NavPanel
           data={navItems}
           level={level + 1}
           itemIcons={itemIcons}
-          itemIndex={itemIndex}
+          itemIndex={data.index}
           isActive={isActive}
         />
       </Stack>
