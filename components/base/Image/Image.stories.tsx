@@ -1,4 +1,3 @@
-import { useRef, useEffect, useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Box, Image, Stack, Text } from "@/components";
 import { Provider } from "react-redux";
@@ -22,14 +21,7 @@ const meta: Meta<typeof Image> = {
 export default meta;
 type Story = StoryObj<typeof Image>;
 
-export const DimensionsFromQueryString: Story = {
-  args: {
-    src: imageUrlWithQuery,
-    priority: true,
-  },
-};
-
-export const DimensionsFromExplicitValues: Story = {
+export const ExplicitWidthAndHeight: Story = {
   args: {
     src: imageUrlWithoutQuery,
     width: 800,
@@ -40,37 +32,33 @@ export const DimensionsFromExplicitValues: Story = {
   },
 };
 
-export const ResponsiveFallback: Story = {
+export const FillContainer: Story = {
   decorators: [
     (Story) => {
-      const { store } = wrapper.useWrappedStore({});
-      const responsiveImageRef = useRef();
-      const [imageSrc, setImageSrc] = useState("");
-
-      useEffect(() => {
-        if (responsiveImageRef.current) {
-          const imageEl: any = responsiveImageRef.current;
-          setImageSrc(imageEl.src);
-          console.log(responsiveImageRef, "responsive", imageEl.src);
-        }
-      }, [responsiveImageRef]);
-
       return (
         <Stack direction="column" gap={5}>
           <Text
             text="Image dimensions set by container.<br/>Here, 400 x 400"
             textStyle="h6"
           />
-          <Box className="w-[400px] h-[400px] bg-gray-200">
-            <Story ref={responsiveImageRef} />
+          <Box className="w-[400px] h-[400px] bg-gray-200 relative">
+            <Story />
           </Box>
-          <Text text={imageSrc} textStyle="copy" />
         </Stack>
       );
     },
   ],
   args: {
     src: imageUrlWithoutQuery,
+    responsive: true,
+  },
+};
+
+export const Responsive: Story = {
+  args: {
+    src: imageUrlWithQuery,
+    priority: true,
+    responsive: true,
   },
 };
 
@@ -91,6 +79,7 @@ export const ComparisonBetweenImageComponents: Story = {
           <Stack direction="column" gap={5} className="mb-10">
             <Stack direction="column" className="w-full max-w-[1000px]">
               <Text text="Existing" textStyle="h6" />
+              {/* @ts-ignore */}
               <ResponsiveImage
                 image={{ imageUrl: `${imageUrlWithoutQuery}?version=e` }}
                 widths={{ xs: 327, md: 688, lg: 936 }}
@@ -112,12 +101,4 @@ export const ComparisonBetweenImageComponents: Story = {
       );
     },
   ],
-};
-
-export const Full: Story = {
-  args: {
-    src: imageUrlWithQuery,
-    priority: true,
-    responsive: true,
-  },
 };
