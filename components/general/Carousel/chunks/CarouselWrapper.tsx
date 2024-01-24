@@ -1,16 +1,16 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
 import { Box, Stack } from "@/components";
 import CarouselItem from "./CarouselItem";
 import { ICarouselWrapper } from "../Carousel.types";
 import { PanInfo } from "framer-motion";
 import { carouselCanvas, carouselWrapper } from "../Carousel.styles";
+import { CarouselContext } from "./";
 
 // @ts-ignore
 // const html = document.documentElement;
 
 const CarouselWrapper: FC<ICarouselWrapper> = ({
   items,
-  currItem,
   dragWidth,
   gap,
   animationStyle,
@@ -20,13 +20,14 @@ const CarouselWrapper: FC<ICarouselWrapper> = ({
   ...props
 }) => {
   const length = items.length - 1;
-  const { currItem: currentItem, setCurrItem } = currItem;
+  const { currItem, setCurrItem } = useContext(CarouselContext);
   const slideWidth = dragWidth + (gap || 0);
 
   const carouselItems = loop ? [...items, ...items] : items;
 
   const handleItemClick = (index: number) => {
-    !loop && setCurrItem(index);
+    // !loop && setCurrItem(index);
+    if (!loop) currItem.value = index;
   };
 
   const renderItems = carouselItems.map((val: any, i: number) => {
@@ -37,7 +38,6 @@ const CarouselWrapper: FC<ICarouselWrapper> = ({
         index={i}
         width={dragWidth}
         slideWidth={slideWidth}
-        currentItem={currentItem}
         length={length}
         animationStyle={animationStyle}
         variant={variant}
@@ -59,11 +59,11 @@ const CarouselWrapper: FC<ICarouselWrapper> = ({
     const vel = velocity.x;
     const fastEnough = Math.abs(vel) > 5;
 
-    if (fastEnough && typeof currentItem === "number") {
+    if (fastEnough && typeof currItem === "number") {
       const delta = vel > 0 ? -1 : 1;
-      const next = currentItem + delta;
+      const next = currItem + delta;
 
-      if (next !== currentItem) {
+      if (next !== currItem) {
         const croppedVal = loop ? next : Math.max(0, Math.min(length, next));
 
         setCurrItem(croppedVal);
@@ -74,8 +74,8 @@ const CarouselWrapper: FC<ICarouselWrapper> = ({
   };
 
   let x = 0;
-  if (typeof currentItem === "number") {
-    x = -currentItem * slideWidth;
+  if (typeof currItem === "number") {
+    x = -currItem * slideWidth;
   }
 
   return (

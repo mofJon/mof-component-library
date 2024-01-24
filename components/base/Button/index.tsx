@@ -11,7 +11,7 @@ export const Button = forwardRef(
       className,
       variant = "primary",
       size = "md",
-      text = "Button",
+      text,
       onClick,
       iconPre = null,
       iconPost = null,
@@ -19,6 +19,8 @@ export const Button = forwardRef(
     }: ButtonProps,
     ref: Ref<ButtonProps>,
   ) => {
+    if (!text) return null;
+
     const isAnimated = containsMotionProps(props); //contains framer motion props?
 
     const handleClick = useCallback(() => onClick && onClick(), [onClick]);

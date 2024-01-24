@@ -3,10 +3,11 @@ import { CarouselProps } from "./Carousel.types";
 import { carouselVars } from "./Carousel.styles";
 import { Stack } from "@/components";
 import {
+  CarouselContext,
   CarouselControls,
   CarouselPagination,
   CarouselWrapper,
-} from "./subcomponents";
+} from "./chunks";
 
 export const Carousel = forwardRef(
   (
@@ -49,29 +50,31 @@ export const Carousel = forwardRef(
 
     return (
       <Stack {...allProps}>
-        <CarouselWrapper
-          items={items}
-          gap={gap}
-          dragWidth={carouselWidth}
-          currItem={{ currItem, setCurrItem }}
-          animationStyle={animationStyle}
-          crop={crop}
-          loop={loop}
-          variant={variant}
-        />
-        <CarouselControls
-          controls={controls}
-          currItem={{ currItem, setCurrItem }}
-          length={items.length}
-          width={carouselWidth}
-          loop={loop}
-        />
-        {showPagination && !loop && (
-          <CarouselPagination
-            currItem={{ currItem, setCurrItem }}
-            length={items.length}
+        <CarouselContext.Provider value={{ currItem, setCurrItem }}>
+          <CarouselWrapper
+            items={items}
+            gap={gap}
+            dragWidth={carouselWidth}
+            // currItem={{ currItem, setCurrItem }}
+            animationStyle={animationStyle}
+            crop={crop}
+            loop={loop}
+            variant={variant}
           />
-        )}
+          <CarouselControls
+            controls={controls}
+            // currItem={{ currItem, setCurrItem }}
+            length={items.length}
+            width={carouselWidth}
+            loop={loop}
+          />
+          {showPagination && !loop && (
+            <CarouselPagination
+              // currItem={{ currItem, setCurrItem }}
+              length={items.length}
+            />
+          )}
+        </CarouselContext.Provider>
       </Stack>
     );
   },

@@ -14,6 +14,7 @@ type HTMLAndMotionProps = React.HTMLAttributes<HTMLElement> & MotionProps;
 export interface ContentBlockContentProps
   extends HTMLAndMotionProps,
     VariantProps<typeof contentBlock> {
+  ref?: any;
   data: {
     // variant: ContentBlockProps["variant"];
     preHeading?: string;

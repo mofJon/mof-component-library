@@ -1,20 +1,20 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
 import { Box, Stack } from "@/components";
 import { carouselControl, carouselControlsHolder } from "../Carousel.styles";
 import { CarouselDirection } from "../Carousel.types";
+import { CarouselContext } from "./";
 
 const CarouselControls: FC<any> = ({
   controls,
-  currItem,
   width,
   length,
   loop,
   ...props
 }) => {
-  const { currItem: currentItem, setCurrItem } = currItem;
+  const { currItem, setCurrItem } = useContext(CarouselContext);
 
   const handleSwitch = (dir: CarouselDirection) => {
-    let switchVal = (dir === "next" ? 1 : -1) + currentItem;
+    let switchVal = (dir === "next" ? 1 : -1) + currItem;
 
     const croppedVal = loop
       ? switchVal
@@ -30,8 +30,7 @@ const CarouselControls: FC<any> = ({
 
   const renderControls = ["prev", "next"].map((val: any, i: number) => {
     const hide =
-      (val === "prev" ? currentItem === 0 : currentItem === length - 1) &&
-      !loop;
+      (val === "prev" ? currItem === 0 : currItem === length - 1) && !loop;
 
     return (
       <Box

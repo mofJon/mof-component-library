@@ -35,7 +35,6 @@ export type CarouselVars = (
 export interface ICarouselWrapper {
   items: CarouselProps["items"];
   animationStyle: CarouselProps["animationStyle"];
-  currItem: any;
   dragWidth: number;
   gap: number;
   crop: boolean;
@@ -48,7 +47,6 @@ export interface ICarouselItem {
   item: any;
   width: number;
   slideWidth: number;
-  currentItem: number;
   length: number;
   loop?: boolean;
   onClick: (index: number) => void;
@@ -60,12 +58,10 @@ export type CarouselDirection = "prev" | "next";
 
 export interface ICarouselControls {
   controls: CarouselProps["controls"];
-  currItem: any;
   length: number;
   width: number;
 }
 
 export interface ICarouselPagination {
-  currItem: any;
   length: number;
 }
