@@ -7,6 +7,7 @@
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
     "storybook-docs": "storybook dev --docs",
+    "build-storybook": "storybook build",
     "format": "prettier --write .",
     "chromatic": "npx chromatic --project-token=chpt_1884b5e48422bd0",
     "bundle": "bun ./bun.config.js",

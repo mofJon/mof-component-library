@@ -5,9 +5,9 @@ import { TextVars } from "./Text.types";
 export const text = cva("text", {
   variants: {
     variant: {
-      primary: ["text-primary"],
-      secondary: ["text-secondary"],
-      alternate: ["text-alternate"],
+      primary: ["font-primary"],
+      secondary: ["font-secondary"],
+      alternate: ["font-alternate"],
     },
     textStyle: {
       h1: "text-h1",
@@ -16,8 +16,8 @@ export const text = cva("text", {
       h4: "text-h4",
       h5: "text-h5",
       h6: "text-h6",
-      copy: "text-copy",
-      copyBold: "text-copy-bold",
+      paragraph: "text-paragraph",
+      paragraphBold: "text-paragraph-bold",
       main: "text-mainheading",
       sub: "text-mainheading",
       button: "",
@@ -25,7 +25,7 @@ export const text = cva("text", {
   },
   defaultVariants: {
     variant: "primary",
-    textStyle: "copy",
+    textStyle: "paragraph",
   },
 });
 

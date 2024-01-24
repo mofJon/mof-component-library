@@ -1,17 +1,13 @@
 {
   "name": "mof-component-library",
-  "version": "0.1.8",
+  "version": "0.1.14",
   "main": "./index.js",
   "scripts": {},
-  "dependencies": {
+  "peerDependencies": {
+    "@svgr/webpack": "^8.1.0",
     "class-variance-authority": "^0.7.0",
     "framer-motion": "^10.17.4",
-    "isomorphic-dompurify": "^2.2.0"
-  },
-  "devDependencies": {
-    "@svgr/webpack": "^8.1.0"
-  },
-  "peerDependencies": {
+    "isomorphic-dompurify": "^2.2.0",
     "next": "14.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

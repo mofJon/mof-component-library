@@ -9,7 +9,7 @@ import { containsMotionProps } from "@/utils";
 
 export const Text = forwardRef(
   (
-    { className, variant, text, textStyle = "copy", ...props }: TextProps,
+    { className, variant, text, textStyle = "paragraph", ...props }: TextProps,
     ref: Ref<TextProps>,
   ) => {
     const isAnimated = containsMotionProps(props); //contains framer motion props?
