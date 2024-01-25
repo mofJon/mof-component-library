@@ -12,6 +12,10 @@
   @apply min-h-[9rem] rounded-lg;
 }
 
+.card.custom-zha .button-group {
+  @apply justify-end;
+}
+
 .card.custom-zha .button {
   @apply border-none;
 }

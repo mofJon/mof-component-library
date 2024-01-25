@@ -27,7 +27,7 @@ export const openLink = (router, link) => {
   }
 };
 
-export const isValidHttpUrl = (string) => {
+export const isValidHttpUrl = (string = "") => {
   let url = null;
 
   if (string && string.length > 0) {

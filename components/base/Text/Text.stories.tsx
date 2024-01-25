@@ -61,9 +61,9 @@ export const Heading6: Story = {
   },
 };
 
-export const Copy: Story = {
+export const Paragraph: Story = {
   args: {
-    textStyle: "copy",
+    textStyle: "paragraph",
     text: "Lorem ipsum lamat salmat, etc...",
   },
 };

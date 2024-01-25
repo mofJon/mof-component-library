@@ -1,5 +1,6 @@
 import { cva } from "class-variance-authority";
 import { ContentBlockVars } from "./ContentBlock.types";
+import { camelToHyphen } from "@/utils/formatting";
 import twConfig from "@/tailwind.config";
 
 // @ts-ignore
@@ -39,42 +40,18 @@ export const contentBlockVars: ContentBlockVars = (
   };
 };
 
-export const primaryCta: any = () => ({
-  className: "primary-cta",
-  ...animations.primaryCta,
-});
+// likely need modification when we nail down BE data structure
+export const renderComponent = (component: string, data?: any) => {
+  const text = data ? data[component]?.text || data[component] : null;
+  const textStyle = data
+    ? contentSettings[contentVariant][component]?.text ||
+      contentSettings[contentVariant][component]
+    : null;
 
-export const preContent: any = () => ({
-  className: "pre-content",
-  ...animations.preContent,
-});
-
-export const preHeading: any = () => ({
-  className: "pre-heading",
-  textStyle: contentSettings[contentVariant].preHeading,
-  ...animations.preHeading,
-});
-
-export const info: any = () => ({
-  className: "info",
-  textStyle: contentSettings[contentVariant].info,
-  ...animations.info,
-});
-
-export const headingTitle: any = () => ({
-  className: "heading-title",
-  textStyle: contentSettings[contentVariant].headingTitle,
-  ...animations.headingTitle,
-});
-
-export const subHeading: any = () => ({
-  className: "sub-heading",
-  textStyle: contentSettings[contentVariant].subHeading,
-  ...animations.subHeading,
-});
-
-export const description: any = () => ({
-  className: "description",
-  textStyle: contentSettings[contentVariant].description,
-  ...animations.description,
-});
+  return {
+    className: camelToHyphen(component),
+    text,
+    textStyle,
+    ...animations[component],
+  };
+};

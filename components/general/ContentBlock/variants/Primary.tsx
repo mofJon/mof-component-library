@@ -1,16 +1,7 @@
 import { FC } from "react";
-import {
-  contentBlockVars,
-  primaryCta,
-  description,
-  headingTitle,
-  info,
-  preContent,
-  preHeading,
-  subHeading,
-} from "../ContentBlock.styles";
+import { contentBlockVars, renderComponent } from "../ContentBlock.styles";
 import { ContentBlockContentProps } from "../ContentBlock.types";
-import { Button, Stack, Text } from "@/components";
+import { ButtonGroup, Stack, Text } from "@/components";
 import { emptyContentBlockAnim } from "@/animations";
 
 // Work in progress
@@ -27,20 +18,20 @@ const PrimaryContentBlock: FC<ContentBlockContentProps> = ({
     ...props,
   };
 
-  const handleClick = () => {
-    console.log("clicked CTA");
-  };
-
   return (
     <Stack direction="column" {...allProps}>
-      <Stack direction="row" {...preContent()}>
-        <Text text={data.preHeading} {...preHeading()} />
-        <Text text={data.info} {...info()} />
+      <Stack direction="row" {...renderComponent("preContent")}>
+        <Text {...renderComponent("preHeading", data)} />
+        <Text {...renderComponent("info", data)} />
       </Stack>
-      <Text text={data.headingTitle} {...headingTitle()} />
-      <Text text={data.subHeading} {...subHeading()} />
-      <Text text={data.description} {...description()} />
-      <Button text={data.primaryCta} onClick={handleClick} {...primaryCta()} />
+      <Text {...renderComponent("headingTitle", data)} />
+      <Text {...renderComponent("subheading", data)} />
+      <Text {...renderComponent("description", data)} />
+      <ButtonGroup
+        {...renderComponent("buttonGroup")}
+        primaryProps={renderComponent("primaryCta", data)}
+        secondaryProps={renderComponent("secondaryCta", data)}
+      />
     </Stack>
   );
 };

@@ -32,7 +32,7 @@ export const isValidHttpUrl = (string) => {
 
   if (string && string.length > 0) {
     try {
-      url = new URL(string);
+      url = new URL(string || "");
     } catch (_) {
       return false;
     }
@@ -59,7 +59,7 @@ export const convertAbsoluteLinkToRelative = (link) => {
     }
 
     try {
-      currentHostUrl = new URL(currentHost);
+      currentHostUrl = new URL(currentHost || "");
     } catch (e) {
       console.warn("Invalid URL: " + currentHost);
     }
@@ -68,7 +68,7 @@ export const convertAbsoluteLinkToRelative = (link) => {
       let linkUrl = null;
 
       try {
-        linkUrl = new URL(link.href);
+        linkUrl = new URL(link.href || "");
       } catch (e) {
         console.warn("Invalid URL: " + link.href);
       }

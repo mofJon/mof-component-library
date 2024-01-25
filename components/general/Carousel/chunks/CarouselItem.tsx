@@ -1,11 +1,12 @@
-import { FC } from "react";
-import { Box, Image, Text } from "@/components";
+import { FC, useContext } from "react";
+import { Box } from "@/components";
 import { ICarouselItem } from "../Carousel.types";
 import { itemHolder } from "../Carousel.styles";
 import {
   carouselFocusAnimation,
   carouselBookcaseAnimation,
 } from "@/animations";
+import { CarouselContext } from "./";
 
 let offset = 0;
 
@@ -13,7 +14,6 @@ const CarouselItem: FC<ICarouselItem> = ({
   index,
   item,
   width,
-  currentItem = 0,
   length,
   loop = false,
   animationStyle,
@@ -21,16 +21,17 @@ const CarouselItem: FC<ICarouselItem> = ({
   variant,
   ...props
 }) => {
-  let isActive = currentItem === index;
+  const { currItem } = useContext(CarouselContext);
+  let isActive = currItem === index;
 
   if (loop) {
     const itemsLength = length + 1;
     const fullLength = itemsLength * 2;
-    const groupOffset = Math.floor((currentItem - index - 1) / fullLength);
+    const groupOffset = Math.floor((currItem - index - 1) / fullLength);
 
     // reorders stack to faux infinte scroll
     offset = slideWidth * (fullLength * groupOffset + itemsLength);
-    isActive = currentItem - fullLength * groupOffset - itemsLength === index;
+    isActive = currItem - fullLength * groupOffset - itemsLength === index;
   }
 
   const itemAnimation = {

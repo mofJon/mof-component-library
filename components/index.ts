@@ -9,6 +9,7 @@ export * from "./base/Stack";
 export * from "./base/Text";
 
 // general components
+export * from "./general/ButtonGroup";
 export * from "./general/Card";
 export * from "./general/Carousel";
 export * from "./general/ContentBlock";
@@ -24,6 +25,7 @@ export * from "./base/Stack/Stack.types";
 export * from "./base/Text/Text.types";
 
 //  general types
+export * from "./general/ButtonGroup/ButtonGroup.types";
 export * from "./general/Card/Card.types";
 export * from "./general/Carousel/Carousel.types";
 export * from "./general/ContentBlock/ContentBlock.types";
