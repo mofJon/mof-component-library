@@ -1,6 +1,6 @@
 {
   "name": "mof-component-library",
-  "version": "0.1.14",
+  "version": "0.1.17",
   "main": "./index.js",
   "scripts": {},
   "peerDependencies": {
