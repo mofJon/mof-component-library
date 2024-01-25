@@ -1,9 +1,10 @@
-import React, { useRef, forwardRef, useImperativeHandle } from 'react';
-import PropTypes from 'prop-types';
-import { ResponsiveImage, VimeoPlayer } from 'components';
-import classNames from 'classnames';
-import { useSelector } from 'react-redux';
-import { selectIsRobot } from 'store/index';
+import React, { useRef, forwardRef, useImperativeHandle } from "react";
+import PropTypes from "prop-types";
+import ResponsiveImage from "../ResponsiveImage";
+import { VimeoPlayer } from "components";
+import classNames from "classnames";
+import { useSelector } from "react-redux";
+import { selectIsRobot } from "../../../store/index";
 
 const Media = forwardRef(function Media(
   {
@@ -24,6 +25,7 @@ const Media = forwardRef(function Media(
   },
   ref,
 ) {
+  console.log("xxx", media);
   const isRobot = useSelector(selectIsRobot);
 
   const vimeo = useRef();
@@ -57,7 +59,13 @@ const Media = forwardRef(function Media(
   }
 
   return (
-    <div className={classNames('w-full h-full relative overflow-hidden', className)} {...props}>
+    <div
+      className={classNames(
+        "w-full h-full relative overflow-hidden",
+        className,
+      )}
+      {...props}
+    >
       {media.coverImage && (
         <ResponsiveImage
           image={media.coverImage}

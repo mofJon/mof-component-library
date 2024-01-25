@@ -22,14 +22,15 @@ const meta: Meta<typeof Component> = {
 export default meta;
 type Story = StoryObj<typeof Component>;
 
-export const ModuleBase: Story = {
+export const SplittedContent: Story = {
   args: {
-    data: { 
-      anchor: 'id',
-      paddingTop: 'medium',
-      paddingBottom: 'medium',
-      backgroundColour:'#000'
+    leftContent: {
+      heading: 'Left Heading',
+      link:"https://www.google.com",
     },
-    children: <p className="color-from-bg">Text</p>,
+    rightContent: {
+      heading: 'Right Heading',
+      link: "https://www.google.com",
+    }
   },
 };
