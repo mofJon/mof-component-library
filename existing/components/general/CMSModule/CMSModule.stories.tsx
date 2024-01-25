@@ -22,14 +22,10 @@ const meta: Meta<typeof Component> = {
 export default meta;
 type Story = StoryObj<typeof Component>;
 
-export const ModuleBase: Story = {
+export const CMSModule: Story = {
   args: {
-    data: { 
-      anchor: 'id',
-      paddingTop: 'medium',
-      paddingBottom: 'medium',
-      backgroundColour:'#000'
-    },
-    children: <p className="color-from-bg">Text</p>,
+    module: {
+      moduleId: "id",
+    }
   },
 };
