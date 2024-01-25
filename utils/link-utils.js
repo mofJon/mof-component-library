@@ -13,6 +13,8 @@ export const isExternalLink = (link) => {
 };
 
 export const openLink = (router, link) => {
+  if (typeof window === "undefined") return null;
+
   if (link) {
     const { href, target } = link;
     if (target && target === "_blank") {

@@ -54,6 +54,7 @@ const items = data.map((val: any, i: number) => {
       variant="overlay"
       className="custom-zha"
       childAnims={cardChildAnims}
+      priority
       size="full"
       {...zhaCardAnim}
     />

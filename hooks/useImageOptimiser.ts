@@ -35,11 +35,6 @@ export default function useImageOptimiser(
     sizes: sizes || `${width || fallbackWidth}px`, // px value locks it from responding
   };
 
-  // jpg fallback for older browsers
-  const fallbackURL = `${stripQueryString(url)}?width=${
-    width * dpr
-  }&quality=${quality}`;
-
   // generates our responsive, width based srcset from the CND
   const imageLoader = ({ width }: any) => {
     return `${stripQueryString(
@@ -47,11 +42,19 @@ export default function useImageOptimiser(
     )}?width=${width}&quality=${quality}&format=webp`;
   };
 
+  // jpg fallback for older browsers
+  const fallbackURL = `${stripQueryString(url)}?width=${
+    fallbackWidth * dpr
+  }&quality=${quality}&format=auto`;
+
+  const isAbsolute = url.includes("http");
+  const hasLoader = isAbsolute ? { loader: imageLoader } : {};
+
   return {
-    src: `${fallbackURL}?width=${fallbackWidth}`,
+    src: isAbsolute ? fallbackURL : stripQueryString(url),
     ...(responsive ? responsiveProps : staticProps),
     // placeholder: "blur",
     quality,
-    loader: imageLoader,
+    ...hasLoader,
   };
 }

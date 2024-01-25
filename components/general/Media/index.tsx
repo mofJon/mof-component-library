@@ -7,7 +7,14 @@ import { Box, Image } from "@/components";
 
 export const Media = forwardRef(
   (
-    { data, size, imageSizes, responsive = false, ...props }: MediaProps,
+    {
+      data,
+      size,
+      imageSizes,
+      responsive = false,
+      priority = false,
+      ...props
+    }: MediaProps,
     ref: Ref<MediaProps>,
   ): any => {
     if (!data) return null;
@@ -26,6 +33,7 @@ export const Media = forwardRef(
             src={data.imageUrl}
             alt={data.imageUrl}
             responsive={responsive}
+            priority={priority}
           />
         )}
       </Box>
