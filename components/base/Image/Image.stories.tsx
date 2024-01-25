@@ -3,6 +3,7 @@ import { Box, Image, Stack, Text } from "@/components";
 import { Provider } from "react-redux";
 import ResponsiveImage from "@/existing/components/general/ResponsiveImage";
 import { wrapper } from "@/existing/store";
+import localImage from "@/assets/images/zhaCarousel1.jpg";
 
 const imageUrlWithQuery =
   "https://media.idorchester.com/api/v1/media/ox4khfi1/le-meurice-facade-5.jpg?width=696&height=464&format=webp";
@@ -38,7 +39,7 @@ export const FillContainer: Story = {
       return (
         <Stack direction="column" gap={5}>
           <Text
-            text="Image dimensions set by container.<br/>Here, 400 x 400"
+            text="Responsive in container, set as relative. (400 x 400)"
             textStyle="h6"
           />
           <Box className="w-[400px] h-[400px] bg-gray-200 relative">
@@ -101,4 +102,13 @@ export const ComparisonBetweenImageComponents: Story = {
       );
     },
   ],
+};
+
+export const StaticallyImportedImage: Story = {
+  args: {
+    src: localImage.src,
+    width: localImage.width,
+    height: localImage.height,
+    sizes: "(min-width: 808px) 50vw, 100vw",
+  },
 };

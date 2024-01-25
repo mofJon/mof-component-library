@@ -19,6 +19,7 @@ export interface CardProps
     primaryCta?: string;
     secondaryCta?: string;
   };
+  priority?: boolean;
   childAnims?: Record<string, any>;
 }
 

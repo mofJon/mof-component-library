@@ -8,8 +8,7 @@ export const getQueryByName = (str: string, key: string) => {
 };
 
 export const stripQueryString = (str: string) => {
-  const url = new URL(str);
-  url.search = "";
+  const url = str.replace(/\?.*$/, "");
   return url;
 };
 

@@ -14,7 +14,7 @@ export default function useDimensions(ref?: any): any {
   });
   const [refDimensions, setRefDimensions] = useState({});
 
-  if (!window) return null;
+  if (typeof window === "undefined") return null;
 
   const handleResize = () => {
     const screenWidth = window.innerWidth;

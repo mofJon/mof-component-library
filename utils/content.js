@@ -4,6 +4,9 @@ export const stripHtml = (html) => {
 
 export const isInViewport = (el) => {
   const rect = el.getBoundingClientRect();
+
+  if (typeof window === "undefined") return null;
+
   return (
     rect.top >= 0 &&
     rect.left >= 0 &&

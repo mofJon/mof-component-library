@@ -12,6 +12,7 @@ export const Card = forwardRef(
       size,
       data,
       childAnims = emptyContentBlockAnim,
+      priority,
       ...props
     }: CardProps,
     ref: Ref<CardProps>,
@@ -28,6 +29,7 @@ export const Card = forwardRef(
           size={size}
           {...mediaHolder(size)}
           responsive
+          priority
         />
         <ContentBlock
           data={data}
