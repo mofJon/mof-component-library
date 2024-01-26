@@ -4,36 +4,43 @@ import { textVars } from "./Text.styles";
 import DOMPurify from "isomorphic-dompurify";
 import { motion } from "framer-motion";
 import { containsMotionProps } from "@/utils";
+import Link from "next/link";
 
 //  Work in progress!!!
 
 export const Text = forwardRef(
   (
-    { className, variant, text, textStyle = "paragraph", ...props }: TextProps,
+    {
+      className,
+      variant,
+      text,
+      textStyle = "paragraph",
+      link = {},
+      ...props
+    }: TextProps,
     ref: Ref<TextProps>,
   ) => {
     const isAnimated = containsMotionProps(props); //contains framer motion props?
 
-    if (!text) return null;
+    if (!text && !link.text) return null;
 
     // HTML string - unwanted tags stripping
-    const cleanedText = DOMPurify.sanitize(text, {
+    const cleanedText = DOMPurify.sanitize(link?.text || text, {
       ALLOWED_TAGS: ["b", "strong", "br", "span"],
     });
-
-    // multi-lang logic here
 
     if (textStyle === "button") {
       return text;
     }
 
     const allProps = {
-      ...textVars(variant, textStyle, className), // pass all styling defaults to decoupled styles file to future-proof modularity
+      ...textVars(variant, link?.text ? "link" : textStyle, className), // pass all styling defaults to decoupled styles file to future-proof modularity
+      ...link,
       ...props, // pass down remaining props
       dangerouslySetInnerHTML: { __html: cleanedText },
     };
 
-    let textTag = "p";
+    let textTag: any = link?.text ? Link : "p";
     if (typeof textStyle === "string" && textStyle.match(/h[1-6]/)) {
       textTag = textStyle;
     }

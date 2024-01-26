@@ -6,24 +6,23 @@ const meta: Meta<typeof Button> = {
   component: Button,
   tags: ["autodocs"],
   parameters: {
-    layout: "centered",
-    fullscreen: true,
+    layout: "padded",
   },
   argTypes: {
     iconPre: {
       table: {
-        display: false
-      }
+        display: false,
+      },
     },
     iconPost: {
       table: {
-        display: false
-      }
-    }
+        display: false,
+      },
+    },
   },
   args: {
-    size: "lg"
-  }
+    size: "lg",
+  },
 };
 
 export default meta;
@@ -34,6 +33,9 @@ export const Primary: Story = {
     variant: "primary",
     text: "Primary Button",
     onClick: action("primary clicked"),
+    style: {
+      margin: "auto",
+    },
   },
 };
 

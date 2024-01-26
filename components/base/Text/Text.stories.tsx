@@ -81,3 +81,14 @@ export const Sub: Story = {
     text: "this is an example of a subheading",
   },
 };
+
+export const Link: Story = {
+  args: {
+    link: {
+      text: "Click me!",
+      href: "https://www.google.com",
+      linkType: "external",
+      target: "_blank",
+    },
+  },
+};

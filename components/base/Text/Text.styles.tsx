@@ -21,6 +21,7 @@ export const text = cva("text", {
       main: "text-mainheading",
       sub: "text-mainheading",
       button: "",
+      link: "text-link",
     },
   },
   defaultVariants: {

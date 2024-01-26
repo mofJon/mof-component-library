@@ -9,6 +9,12 @@ export interface TextProps
   extends HTMLAndMotionProps,
     VariantProps<typeof text> {
   text?: string;
+  link?: {
+    text: string;
+    href: string;
+    linkType: string;
+    target: string;
+  };
 }
 
 export type TextVars = (

@@ -46,3 +46,7 @@
 .text-paragraph-bold {
   @apply leading-normal text-[0.75rem] md:text-[0.875rem] font-semibold tracking-[0.01em] !text-grey3;
 }
+
+.text-link {
+  @apply underline;
+}
