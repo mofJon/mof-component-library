@@ -12,14 +12,13 @@ export default function useImageOptimiser(
   sizes: string,
   ref?: any,
 ) {
-  const { width: parentWidth = 0, height: parentHeight = 0 } =
-    useDimensions(ref);
+  const dimensions = useDimensions(ref);
   const dpr = useDevicePixelRatio();
   const quality = dprQuality[dpr - 1];
   const fallbackWidth = 1080;
 
-  let width: number = propWidth || Math.round(parentWidth);
-  let height = propHeight || Math.round(parentHeight);
+  let width: number = propWidth || Math.round(dimensions?.width || 0);
+  let height = propHeight || Math.round(dimensions?.height || 0);
 
   const responsiveProps = {
     fill: true,

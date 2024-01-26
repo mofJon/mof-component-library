@@ -14,7 +14,7 @@ export const ContentBlock = forwardRef(
     }: ContentBlockProps,
     ref: Ref<ContentBlockProps>,
   ) => {
-    if (!data || !data.variant || !variant) return null;
+    if (!data) return null;
 
     // not detected by build step - will work out later
     // const Content = require(`./variants/${capitalise(variant)}`).default;

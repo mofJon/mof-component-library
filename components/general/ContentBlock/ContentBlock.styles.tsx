@@ -48,10 +48,12 @@ export const renderComponent = (component: string, data?: any) => {
       contentSettings[contentVariant][component]
     : null;
 
+  const ts = textStyle ? { textStyle } : {};
+
   return {
     className: camelToHyphen(component),
     text,
-    textStyle,
+    ...ts,
     ...animations[component],
   };
 };

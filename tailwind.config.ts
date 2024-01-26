@@ -44,6 +44,141 @@ const config: Config = {
         primary: ["Inter", "Arial", "sans-serif"],
         secondary: ["Arial, Times New Roman", "serif"],
       },
+      fontSize: {
+        xs: [
+          "0.75rem",
+          {
+            lineHeight: "1rem",
+            fontWeight: "400",
+          },
+        ],
+        sm: [
+          "0.875rem",
+          {
+            lineHeight: "1.25rem",
+            fontWeight: "400",
+          },
+        ],
+        md: [
+          "1rem",
+          {
+            lineHeight: "1.25rem",
+            fontWeight: "400",
+          },
+        ],
+        lg: [
+          "1.25rem",
+          {
+            lineHeight: "1.5rem",
+            fontWeight: "400",
+          },
+        ],
+        xl: [
+          "1.5rem",
+          {
+            lineHeight: "1.75rem",
+            fontWeight: "400",
+          },
+        ],
+        "2xl": [
+          "1.75rem",
+          {
+            lineHeight: "2rem",
+            fontWeight: "400",
+          },
+        ],
+        "3xl": [
+          "2rem",
+          {
+            lineHeight: "2.25rem",
+            fontWeight: "400",
+          },
+        ],
+        "4xl": [
+          "2.25rem",
+          {
+            lineHeight: "2.5rem",
+            fontWeight: "400",
+          },
+        ],
+        "5xl": [
+          "2.5rem",
+          {
+            lineHeight: "2.75",
+            fontWeight: "400",
+          },
+        ],
+        "6xl": [
+          "3rem",
+          {
+            lineHeight: "3.25rem",
+            fontWeight: "400",
+          },
+        ],
+        "7xl": [
+          "4rem",
+          {
+            lineHeight: "1",
+            fontWeight: "400",
+          },
+        ],
+        "8xl": [
+          "4.5rem",
+          {
+            lineHeight: "1",
+            fontWeight: "400",
+          },
+        ],
+        "9xl": [
+          "5rem",
+          {
+            lineHeight: "1",
+            fontWeight: "400",
+          },
+        ],
+        "10xl": [
+          "5.5rem",
+          {
+            lineHeight: "1",
+            fontWeight: "400",
+          },
+        ],
+        "11xl": [
+          "6rem",
+          {
+            lineHeight: "1",
+            fontWeight: "400",
+          },
+        ],
+        "12xl": [
+          "6.5rem",
+          {
+            lineHeight: "1",
+            fontWeight: "400",
+          },
+        ],
+        "13xl": [
+          "7rem",
+          {
+            lineHeight: "1",
+            fontWeight: "400",
+          },
+        ],
+        "14xl": [
+          "7.5rem",
+          {
+            lineHeight: "1",
+            fontWeight: "400",
+          },
+        ],
+        "15xl": [
+          "8rem",
+          {
+            lineHeight: "1",
+            fontWeight: "400",
+          },
+        ],
+      },
       gap: {
         "0": "0",
         "1": "0.25rem",
@@ -100,4 +235,5 @@ const config: Config = {
     },
   },
 };
+
 export default config;

@@ -19,6 +19,27 @@ const meta: Meta<typeof Text> = {
 export default meta;
 type Story = StoryObj<typeof Text>;
 
+export const DisplayTextLarge: Story = {
+  args: {
+    textStyle: "display-lg",
+    text: "Display text - large",
+  },
+};
+
+export const DisplayTextMedium: Story = {
+  args: {
+    textStyle: "display-md",
+    text: "Display text - medium",
+  },
+};
+
+export const DisplayTextSmall: Story = {
+  args: {
+    textStyle: "display-sm",
+    text: "Display text - small",
+  },
+};
+
 export const Heading1: Story = {
   args: {
     textStyle: "h1",
@@ -61,24 +82,59 @@ export const Heading6: Story = {
   },
 };
 
-export const Paragraph: Story = {
+export const ParagraphLg: Story = {
   args: {
-    textStyle: "paragraph",
+    textStyle: "p-lg",
     text: "Lorem ipsum lamat salmat, etc...",
   },
 };
 
-export const Main: Story = {
+export const Paragraph: Story = {
   args: {
-    textStyle: "main",
-    text: "Main Heading",
+    textStyle: "p",
+    text: "Lorem ipsum lamat salmat, etc...",
   },
 };
 
-export const Sub: Story = {
+export const ParagraphSm: Story = {
   args: {
-    textStyle: "sub",
-    text: "this is an example of a subheading",
+    textStyle: "p-sm",
+    text: "Lorem ipsum lamat salmat, etc...",
+  },
+};
+
+export const ParagraphXs: Story = {
+  args: {
+    textStyle: "p-xs",
+    text: "Lorem ipsum lamat salmat, etc...",
+  },
+};
+
+export const ParagraphXxs: Story = {
+  args: {
+    textStyle: "p-xxs",
+    text: "Lorem ipsum lamat salmat, etc...",
+  },
+};
+
+export const Interactive: Story = {
+  args: {
+    textStyle: "i",
+    text: "Interactive text",
+  },
+};
+
+export const InteractiveSmall: Story = {
+  args: {
+    textStyle: "i-sm",
+    text: "Interactive text",
+  },
+};
+
+export const InteractiveXs: Story = {
+  args: {
+    textStyle: "i-xs",
+    text: "Interactive text",
   },
 };
 

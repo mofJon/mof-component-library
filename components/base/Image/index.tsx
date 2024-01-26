@@ -25,8 +25,8 @@ export const Image = forwardRef(
     const isAnimated = containsMotionProps(props);
     const optimiserProps = useImageOptimiser(
       propSrc,
-      propWidth,
-      propHeight,
+      (propWidth = 0),
+      (propHeight = 0),
       responsive,
       sizes,
       imageRef,

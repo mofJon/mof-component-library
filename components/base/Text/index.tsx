@@ -14,7 +14,7 @@ export const Text = forwardRef(
       className,
       variant,
       text,
-      textStyle = "paragraph",
+      textStyle = "p",
       link = {},
       ...props
     }: TextProps,
@@ -33,8 +33,10 @@ export const Text = forwardRef(
       return text;
     }
 
+    const isLink: boolean = !!link.text;
+
     const allProps = {
-      ...textVars(variant, link?.text ? "link" : textStyle, className), // pass all styling defaults to decoupled styles file to future-proof modularity
+      ...textVars(variant, textStyle, isLink, className), // pass all styling defaults to decoupled styles file to future-proof modularity
       ...link,
       ...props, // pass down remaining props
       dangerouslySetInnerHTML: { __html: cleanedText },

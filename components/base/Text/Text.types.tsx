@@ -10,15 +10,16 @@ export interface TextProps
     VariantProps<typeof text> {
   text?: string;
   link?: {
-    text: string;
-    href: string;
-    linkType: string;
-    target: string;
+    text?: string;
+    href?: string;
+    linkType?: string;
+    target?: string;
   };
 }
 
 export type TextVars = (
   variant: TextProps["variant"],
   textStyle: TextProps["textStyle"],
+  isLink: boolean,
   className: TextProps["className"],
 ) => Record<any, any>;

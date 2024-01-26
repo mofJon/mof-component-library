@@ -2,7 +2,7 @@ import { forwardRef, Ref } from "react";
 import { Stack, Button } from "@/components";
 import { buttonGroupVars } from "./ButtonGroup.styles";
 import { ButtonGroupProps } from "./ButtonGroup.types";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 export const ButtonGroup = forwardRef(
   (

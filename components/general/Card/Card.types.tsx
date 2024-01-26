@@ -9,7 +9,6 @@ export interface CardProps
   extends HTMLAndMotionProps,
     VariantProps<typeof card> {
   data: {
-    variant: CardProps["variant"];
     image: {};
     preHeading?: string;
     headingTitle?: string;

@@ -1,52 +1,89 @@
-.text-h1,
-.text-h2,
-.text-h3,
-.text-h4,
-.text-h5,
-.text-h6 {
-  @apply font-primary font-semibold;
+/* display classes */
+
+.text-display-lg {
+  @apply text-12xl md:text-14xl tracking-tight;
 }
 
+.text-display-md {
+  @apply text-8xl md:text-10xl tracking-tight;
+}
+
+.text-display-sm {
+  @apply text-5xl md:text-7xl tracking-tight;
+}
+
+/* heading classes */
+
 .text-h1 {
-  @apply text-[3rem] leading-[4rem] sm:text-[4rem] sm:leading-[4.5rem] lg:text-[4.5rem] lg:leading-[6rem];
+  @apply text-4xl md:text-6xl tracking-tight;
 }
 
 .text-h2 {
-  @apply text-[2.5rem] leading-[3.5rem] sm:text-[3.25rem] sm:leading-[4.25rem] lg:text-[3.75rem] lg:leading-[5rem];
+  @apply text-3xl md:text-5xl tracking-tight;
 }
 
 .text-h3 {
-  @apply text-[2rem] leading-[2.625rem] sm:text-[2.625rem] sm:leading-[3.5rem] lg:text-[3rem] lg:leading-[4.5rem];
+  @apply text-2xl md:text-3xl tracking-tight;
 }
 
 .text-h4 {
-  @apply text-[1.625rem] leading-[2.25rem] sm:text-[2.125rem] sm:leading-[3rem] lg:text-[2.25rem] lg:leading-[3.5rem];
+  @apply text-lg md:text-xl tracking-tight;
 }
 
 .text-h5 {
-  @apply text-[1.375rem] leading-[1.875rem] sm:text-[1.625rem] sm:leading-[2.5rem] lg:text-[1.75rem] lg:leading-[2.5rem];
+  @apply text-md md:text-lg tracking-tight;
 }
 
 .text-h6 {
-  @apply text-[1.125rem] leading-[1.5rem] sm:text-[1.25rem] sm:leading-[2rem] lg:text-[1.375rem] lg:leading-[2rem];
+  @apply text-sm md:text-md tracking-tight;
 }
 
-.text-mainheading {
-  @apply text-[5rem] leading-[7.5rem] sm:text-[6.25rem] sm:leading-[9.375rem] lg:text-[7.5rem] lg:leading-[11.25rem];
+/* paragraph classes */
+
+.text-p {
+  @apply text-md md:text-lg;
 }
 
-.text-subheading {
-  @apply text-[0.875rem] leading-[1.25rem] lg:text-[1rem] lg:leading-[1.5rem] font-semibold tracking-[0.01em];
+.text-p-xxs {
+  @apply text-xs;
 }
 
-.text-paragraph {
-  @apply leading-normal text-[0.75rem] md:text-[0.875rem] font-primary;
+.text-p-xs {
+  @apply text-xs md:text-sm;
 }
 
-.text-paragraph-bold {
-  @apply leading-normal text-[0.75rem] md:text-[0.875rem] font-semibold tracking-[0.01em] !text-grey3;
+.text-p-sm {
+  @apply text-sm md:text-md;
 }
+
+.text-p-lg {
+  @apply text-lg md:text-xl;
+}
+
+/* interactive classes */
+
+.text-i {
+  @apply text-md tracking-tight uppercase;
+}
+
+.text-i-sm {
+  @apply text-sm tracking-tight uppercase;
+}
+
+.text-i-xs {
+  @apply text-xs tracking-tight uppercase;
+}
+
+/* utility classes */
 
 .text-link {
   @apply underline;
+}
+
+.text-bold {
+  @apply !font-medium;
+}
+
+.text-italic {
+  @apply italic;
 }
