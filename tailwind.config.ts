@@ -104,7 +104,7 @@ const config: Config = {
         "5xl": [
           "2.5rem",
           {
-            lineHeight: "2.75",
+            lineHeight: "2.75rem",
             fontWeight: "400",
           },
         ],

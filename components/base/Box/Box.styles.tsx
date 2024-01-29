@@ -1,13 +1,15 @@
 import { cva } from "class-variance-authority";
 import { BoxVars } from "./Box.types";
+import classnames from "classnames";
 
 // box Base and Variant Styles
 export const box = cva("box", {
   variants: {
     variant: {
-      flex: ["flex flex-1-auto"],
+      flex: ["flex flex-initial"],
       block: ["block"],
       container: ["container m-auto"],
+      section: "",
     },
   },
   defaultVariants: {
@@ -17,9 +19,7 @@ export const box = cva("box", {
 
 // box Props
 export const boxVars: BoxVars = (variant, bgSrc, classes, styleProps) => {
-  const baseStyles = `
-        ${classes ? classes : ""}
-    `;
+  const baseStyles = [classes];
 
   let bg = {};
   if (bgSrc) {
@@ -33,7 +33,7 @@ export const boxVars: BoxVars = (variant, bgSrc, classes, styleProps) => {
   return {
     className: box({
       variant,
-      className: baseStyles,
+      className: classnames(baseStyles),
     }),
     style: { ...styleProps, ...bg },
   };

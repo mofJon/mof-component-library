@@ -33,6 +33,7 @@ export const text = cva("text", {
       i: "text-i",
       "i-sm": "text-i-sm",
       "i-xs": "text-i-xs",
+      quote: "text-quote",
       button: "",
     },
   },

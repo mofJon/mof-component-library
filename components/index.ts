@@ -14,6 +14,7 @@ export * from "./general/Card";
 export * from "./general/Carousel";
 export * from "./general/ContentBlock";
 export * from "./general/Media";
+export { default as ModuleBase } from "./general/ModuleBase";
 export * from "./general/Nav";
 
 //  base types
@@ -30,4 +31,5 @@ export * from "./general/Card/Card.types";
 export * from "./general/Carousel/Carousel.types";
 export * from "./general/ContentBlock/ContentBlock.types";
 export * from "./general/Media/Media.types";
+export * from "./general/ModuleBase/ModuleBase.types";
 export * from "./general/Nav/Nav.types";

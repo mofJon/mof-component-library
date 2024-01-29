@@ -16,8 +16,10 @@ export const Box = forwardRef(
       // pass down remaining props
     };
 
+    const tagType = variant === "section" ? "section" : "div";
+
     return createElement(
-      isAnimated ? motion.div : "div", // if motion props exist on component, make this component animatable, otherwise render static div
+      isAnimated ? motion(tagType) : tagType, // if motion props exist on component, make this component animatable, otherwise render static div
       { ...allProps, ref },
       props.children,
     );

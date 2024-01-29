@@ -15,6 +15,7 @@
   @import "components/carousel.css";
   @import "components/card.css";
   @import "components/contentBlock.css";
+  @import "components/moduleBase.css";
   @import "components/nav.css";
 
   /* custom */

@@ -1,6 +1,6 @@
 import type { Preview } from "@storybook/react";
 import "../theme/styles/globals.css";
-import "../existing/styles/generated.css"; 
+import "../existing/styles/generated.css";
 
 const preview: Preview = {
   parameters: {
@@ -10,6 +10,9 @@ const preview: Preview = {
         color: /(background|color)$/i,
         date: /Date$/i,
       },
+    },
+    nextjs: {
+      appDirectory: true,
     },
   },
 };

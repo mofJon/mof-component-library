@@ -42,18 +42,13 @@ export const contentBlockVars: ContentBlockVars = (
 
 // likely need modification when we nail down BE data structure
 export const renderComponent = (component: string, data?: any) => {
-  const text = data ? data[component]?.text || data[component] : null;
-  const textStyle = data
-    ? contentSettings[contentVariant][component]?.text ||
-      contentSettings[contentVariant][component]
-    : null;
-
-  const ts = textStyle ? { textStyle } : {};
+  const text = data ? data[component]?.heading || data[component] : null;
+  const textStyle = contentSettings[contentVariant][component] || "p";
 
   return {
     className: camelToHyphen(component),
     text,
-    ...ts,
+    textStyle,
     ...animations[component],
   };
 };
