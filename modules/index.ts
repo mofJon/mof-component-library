@@ -1,3 +1,3 @@
 "use client";
 
-export {default as ModulesNavigation} from "./ModulesNavigation";
+export { default as HeadingSideModule } from "./HeadingSideModule";
