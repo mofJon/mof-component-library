@@ -4,7 +4,7 @@ import { contentBlock } from "./ContentBlock.styles";
 import { MotionProps } from "framer-motion";
 
 export interface ContentBlockProps {
-  variant?: "primary" | null;
+  variant?: any;
   data: any;
   childAnims?: Record<string, any>;
 }
@@ -15,8 +15,8 @@ export interface ContentBlockContentProps
   extends HTMLAndMotionProps,
     VariantProps<typeof contentBlock> {
   ref?: any;
+  variant?: any;
   data: {
-    // variant: ContentBlockProps["variant"];
     preHeading?: string;
     headingTitle?: string;
     info?: string;
@@ -29,7 +29,7 @@ export interface ContentBlockContentProps
 }
 
 export type ContentBlockVars = (
-  variant: ContentBlockProps["variant"],
+  variant: any,
   childAnims: {},
   className: any,
 ) => Record<any, any>;

@@ -13,6 +13,7 @@ export const contentBlock = cva("content-block", {
   variants: {
     variant: {
       primary: "primary",
+      headingSide: "heading-side",
     },
   },
   compoundVariants: [],
@@ -42,13 +43,30 @@ export const contentBlockVars: ContentBlockVars = (
 
 // likely need modification when we nail down BE data structure
 export const renderComponent = (component: string, data?: any) => {
-  const text = data ? data[component]?.heading || data[component] : null;
-  const textStyle = contentSettings[contentVariant][component] || "p";
+  let textProps = {};
+  let textStyles = {};
+
+  if (data && data[component]) {
+    if (typeof data[component] === "string") {
+      textProps = { text: data[component] };
+    } else {
+      textProps = data[component]?.heading
+        ? { text: data[component].heading }
+        : data[component];
+    }
+  }
+
+  if (contentSettings[contentVariant][component]) {
+    textStyles = {
+      textStyle: contentSettings[contentVariant][component].textStyle,
+      variant: contentSettings[contentVariant][component].variant,
+    };
+  }
 
   return {
     className: camelToHyphen(component),
-    text,
-    textStyle,
+    ...textProps,
+    ...textStyles,
     ...animations[component],
   };
 };

@@ -9,7 +9,7 @@ const HeadingSideModule: FC<HeadingSideModuleProps> = ({ data, ...props }) => {
   return (
     <ModuleBase {...headingSide(props.className)} data={data} {...props}>
       <Box variant="container">
-        <ContentBlock data={data} />
+        <ContentBlock data={data} variant="headingSide" />
       </Box>
     </ModuleBase>
   );

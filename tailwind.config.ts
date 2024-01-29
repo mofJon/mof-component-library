@@ -211,11 +211,26 @@ const config: Config = {
       },
       contentBlock: {
         primary: {
-          preHeading: "copyBold",
-          headingTitle: "h3",
-          subHeading: "copyBold",
-          info: "copyBold",
-          description: "copy",
+          preHeading: {
+            variant: "primaryBold",
+            textStyle: "p",
+          },
+          headingTitle: {
+            textStyle: "h2",
+          },
+          subHeading: {
+            variant: "primaryBold",
+            textStyle: "h3",
+          },
+          info: {
+            variant: "primaryBold",
+            textStyle: "p",
+          },
+        },
+        headingSide: {
+          headingTitle: {
+            textStyle: "h3",
+          },
         },
       },
       card: {
