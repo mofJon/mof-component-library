@@ -25,9 +25,13 @@ export const Text = forwardRef(
     if (!text && !link.text) return null;
 
     // HTML string - unwanted tags stripping
-    const cleanedText = DOMPurify.sanitize(link?.text || text, {
-      ALLOWED_TAGS: ["b", "strong", "br", "span"],
-    });
+    let cleanedText = link?.text || text;
+    // @ts-ignore
+    if (typeof window !== "undefined") {
+      cleanedText = DOMPurify.sanitize(link?.text || text, {
+        ALLOWED_TAGS: ["b", "strong", "br", "span"],
+      });
+    }
 
     if (textStyle === "button") {
       return text;

@@ -50,6 +50,7 @@ export const renderComponent = (component: string, data?: any) => {
     if (typeof data[component] === "string") {
       textProps = { text: data[component] };
     } else {
+      // data[component] is an object. either from the backend...or to define buttons
       textProps = data[component]?.heading
         ? { text: data[component].heading }
         : data[component];
