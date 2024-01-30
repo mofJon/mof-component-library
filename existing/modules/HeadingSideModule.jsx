@@ -1,5 +1,5 @@
-import { ModuleBase } from '@/components';
-import SectionContent from '@/components/cards/SectionContent';
+import { ModuleBase } from "../../../components";
+import SectionContent from "../../../components/cards/SectionContent";
 
 const HeadingSideModule = ({ data }) => {
   return (

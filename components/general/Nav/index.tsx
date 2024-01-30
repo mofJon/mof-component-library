@@ -2,8 +2,8 @@ import { forwardRef, Ref, useState } from "react";
 import { navVars } from "./Nav.styles";
 import { NavProps } from "./Nav.types";
 import { NavContext, NavItem } from "./chunks";
-import { Stack } from "@/components";
-import { remapNavData } from "@/utils";
+import { Stack } from "../../../components";
+import { remapNavData } from "../../../utils";
 
 export const Nav: NavProps = forwardRef(
   (

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Box, ContentBlock } from "@/components";
+import { Box, ContentBlock } from "../../../components";
 
 const meta: Meta<typeof Box> = {
   component: Box,

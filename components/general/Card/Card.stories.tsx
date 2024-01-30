@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Card } from "@/components";
+import { Card } from "../../../components";
 import { CardProps } from "./Card.types";
 
 const data: CardProps["data"] = {

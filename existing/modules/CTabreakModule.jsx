@@ -1,5 +1,5 @@
-import React from 'react';
-import { HeadingTag, ModuleBase, PreHeading, Link } from '@/components';
+import React from "react";
+import { HeadingTag, ModuleBase, PreHeading, Link } from "../../../components";
 
 const CTabreakModule = ({ data }) => {
   return (
@@ -11,8 +11,15 @@ const CTabreakModule = ({ data }) => {
               {data.preHeading}
             </PreHeading>
           )}
-          {data.headingTitle && <HeadingTag data={data.headingTitle} className="text-h2"></HeadingTag>}
-          {data.text && <div dangerouslySetInnerHTML={{ __html: data.text }}></div>}
+          {data.headingTitle && (
+            <HeadingTag
+              data={data.headingTitle}
+              className="text-h2"
+            ></HeadingTag>
+          )}
+          {data.text && (
+            <div dangerouslySetInnerHTML={{ __html: data.text }}></div>
+          )}
         </div>
         {(data.primaryCTA || data.secondaryCTA) && (
           <div className="button-wrapper flex flex-row gap-4 justify-end lg:items-center">

@@ -1,7 +1,8 @@
 import { cva } from "class-variance-authority";
 import { ContentBlockVars } from "./ContentBlock.types";
-import { camelToHyphen } from "@/utils/formatting";
-import twConfig from "@/tailwind.config";
+import { camelToHyphen } from "../../../utils/formatting";
+// @ts-ignore - grabs variables from the root project's tailwind config
+import twConfig from "/tailwind.config.ts";
 
 // @ts-ignore
 const { contentBlock: contentSettings } = twConfig?.theme?.extend;

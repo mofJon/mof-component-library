@@ -1,8 +1,8 @@
 import { forwardRef, Ref } from "react";
 import { CardProps } from "./Card.types";
 import { cardContent, cardVars, mediaHolder } from "./Card.styles";
-import { ContentBlock, Grid, Media } from "@/components";
-import { emptyContentBlockAnim } from "@/animations";
+import { ContentBlock, Grid, Media } from "../../../components";
+import { emptyContentBlockAnim } from "../../../theme/animations";
 
 export const Card = forwardRef(
   (
@@ -13,6 +13,7 @@ export const Card = forwardRef(
       data,
       childAnims = emptyContentBlockAnim,
       priority,
+      contentVariant = "card",
       ...props
     }: CardProps,
     ref: Ref<CardProps>,
@@ -35,6 +36,7 @@ export const Card = forwardRef(
           data={data}
           {...cardContent(size)}
           childAnims={childAnims}
+          variant={contentVariant}
         />
       </Grid>
     );

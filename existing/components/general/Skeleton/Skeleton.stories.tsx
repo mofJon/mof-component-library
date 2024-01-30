@@ -1,7 +1,7 @@
 import { Provider } from "react-redux";
 import type { Meta, StoryObj } from "@storybook/react";
 import Component from ".";
-import { wrapper } from "@/existing/store";
+import { wrapper } from "../../../store";
 
 const image = {
   imageUrl:
@@ -30,6 +30,6 @@ type Story = StoryObj<typeof Component>;
 export const Skeleton: Story = {
   args: {
     image,
-    className: 'h-40 w-40',
+    className: "h-40 w-40",
   },
 };

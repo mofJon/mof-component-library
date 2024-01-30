@@ -1,25 +1,32 @@
-import React, { useRef, useEffect } from 'react';
-import { ModuleBase, Link } from 'components';
-import Flicking, { FlickingError, ViewportSlot } from '@egjs/react-flicking';
-import { Pagination, AutoPlay } from '@egjs/flicking-plugins';
-import '@egjs/flicking-plugins/dist/pagination.css';
-import '@egjs/react-flicking/dist/flicking.css';
-import Arrow from 'assets/arrow.svg';
-import QuoteSectionContent from '@/components/cards/QuoteSectionContent';
+import React, { useRef, useEffect } from "react";
+import { ModuleBase, Link } from "components";
+import Flicking, { FlickingError, ViewportSlot } from "@egjs/react-flicking";
+import { Pagination, AutoPlay } from "@egjs/flicking-plugins";
+import "@egjs/flicking-plugins/dist/pagination.css";
+import "@egjs/react-flicking/dist/flicking.css";
+import Arrow from "assets/arrow.svg";
+import QuoteSectionContent from "../../../components/cards/QuoteSectionContent";
 
 const QuoteCarouselModule = ({ data }) => {
   const carousel = useRef();
 
   useEffect(() => {
-    carousel.current.on('ready', (e) => {
+    carousel.current.on("ready", (e) => {
       e.currentTarget.addPlugins(
         new Pagination({
-          type: 'bullet',
-          renderBullet: (className) => `<span class="${className}" role="button"></span>`,
+          type: "bullet",
+          renderBullet: (className) =>
+            `<span class="${className}" role="button"></span>`,
         }),
       );
       if (data?.autoPlay) {
-        e.currentTarget.addPlugins(new AutoPlay({ duration: 2000, direction: 'NEXT', stopOnHover: false }));
+        e.currentTarget.addPlugins(
+          new AutoPlay({
+            duration: 2000,
+            direction: "NEXT",
+            stopOnHover: false,
+          }),
+        );
       }
     });
   }, [data?.autoPlay]);
@@ -41,10 +48,20 @@ const QuoteCarouselModule = ({ data }) => {
   return (
     <ModuleBase data={data} className="relative">
       <div className="max-w-[1304px] m-auto px-6 md:px-10">
-        <Flicking ref={carousel} align="center" useResizeObserver={true} horizontal={true} circular={true}>
+        <Flicking
+          ref={carousel}
+          align="center"
+          useResizeObserver={true}
+          horizontal={true}
+          circular={true}
+        >
           {data.quotes.map((slide, index) => (
             <div key={index} className="w-full mx-10">
-              <QuoteSectionContent data={{ ...slide }} className="select-none" showBottomSpacing />
+              <QuoteSectionContent
+                data={{ ...slide }}
+                className="select-none"
+                showBottomSpacing
+              />
             </div>
           ))}
           <ViewportSlot>

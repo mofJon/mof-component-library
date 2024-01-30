@@ -2,7 +2,7 @@ import { createElement, forwardRef, Ref } from "react";
 import { StackProps } from "./Stack.types";
 import { stackVars } from "./Stack.styles";
 import { motion } from "framer-motion";
-import { containsMotionProps } from "@/utils";
+import { containsMotionProps } from "../../../utils";
 
 export const Stack = forwardRef(
   (

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Box, Grid } from "@/components";
-import { animControllerInView, fadeInUp } from "@/animations";
+import { Box, Grid } from "../../../components";
+import { animControllerInView, fadeInUp } from "../../../theme/animations";
 
 const meta: Meta<typeof Grid> = {
   component: Grid,

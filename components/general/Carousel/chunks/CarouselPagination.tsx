@@ -1,5 +1,5 @@
 import { FC, useContext } from "react";
-import { Box, Stack } from "@/components";
+import { Box, Stack } from "../../../../components";
 import { ICarouselPagination } from "../Carousel.types";
 import {
   carouselPagination,

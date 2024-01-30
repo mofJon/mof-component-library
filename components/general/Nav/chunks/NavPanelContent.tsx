@@ -1,9 +1,9 @@
 import { FC, useContext } from "react";
-import { Stack } from "@/components";
+import { Stack } from "../../../../components";
 import { NavContext, NavItem } from "./";
 import {} from "../Nav.styles";
 import { NavPanelProps } from "../Nav.types";
-import { splitArrayIntoChunks } from "@/utils";
+import { splitArrayIntoChunks } from "../../../../utils";
 
 const NavPanelContent: FC<NavPanelProps> = ({ data }) => {
   const { itemsPerColumn } = useContext(NavContext);

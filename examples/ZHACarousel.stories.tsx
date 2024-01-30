@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Card, Carousel } from "@/components";
+import { Card, Carousel } from "../components";
 // @ts-ignore
-import Arrow from "@/assets/icons/zhaArrow.svg";
+import Arrow from "../assets/icons/zhaArrow.svg";
 import { cardChildAnims, zhaCardAnim } from "./animations";
 import data from "./__mockdata__.json";
 

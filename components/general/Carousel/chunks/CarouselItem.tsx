@@ -1,11 +1,11 @@
 import { FC, useContext } from "react";
-import { Box } from "@/components";
+import { Box } from "../../../../components";
 import { ICarouselItem } from "../Carousel.types";
 import { itemHolder } from "../Carousel.styles";
 import {
   carouselFocusAnimation,
   carouselBookcaseAnimation,
-} from "@/animations";
+} from "../../../../theme/animations";
 import { CarouselContext } from "./";
 
 let offset = 0;

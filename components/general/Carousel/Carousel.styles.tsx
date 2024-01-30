@@ -4,7 +4,7 @@ import {
   carouselAnimationDefault,
   carouselAnimationElegant,
   carouselAnimationBouncy,
-} from "@/animations";
+} from "../../../theme/animations";
 
 // Carousel Variant Styles
 export const carousel = cva("carousel", {

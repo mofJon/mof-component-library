@@ -1,6 +1,6 @@
-import React from 'react';
-import { ModuleBase } from 'components';
-import QuoteSectionContent from '@/components/cards/QuoteSectionContent';
+import React from "react";
+import { ModuleBase } from "components";
+import QuoteSectionContent from "../../../components/cards/QuoteSectionContent";
 
 const QuoteModule = ({ data }) => {
   return (

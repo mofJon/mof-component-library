@@ -1,7 +1,7 @@
 import { forwardRef, Ref } from "react";
 import { MediaProps } from "./Media.types";
 import { mediaHolder } from "./Media.styles";
-import { Box, Image } from "@/components";
+import { Box, Image } from "../../../components";
 
 //  Work in progress!!!
 

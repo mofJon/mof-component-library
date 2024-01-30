@@ -3,7 +3,7 @@ import { TextProps } from "./Text.types";
 import { textVars } from "./Text.styles";
 import DOMPurify from "isomorphic-dompurify";
 import { motion } from "framer-motion";
-import { containsMotionProps } from "@/utils";
+import { containsMotionProps } from "../../../utils";
 import Link from "next/link";
 
 //  Work in progress!!!

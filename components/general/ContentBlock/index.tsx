@@ -1,7 +1,7 @@
-import { capitalise } from "@/utils/formatting";
+import { capitalise } from "../../../utils/formatting";
 import { forwardRef, Ref } from "react";
 import { ContentBlockProps } from "./ContentBlock.types";
-import { emptyContentBlockAnim } from "@/animations";
+import { emptyContentBlockAnim } from "../../../theme/animations";
 import Primary from "./variants/Primary";
 
 export const ContentBlock = forwardRef(

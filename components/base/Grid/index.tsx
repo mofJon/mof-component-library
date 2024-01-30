@@ -2,7 +2,7 @@ import { createElement, forwardRef, Ref } from "react";
 import { GridProps } from "./Grid.types";
 import { gridVars } from "./Grid.styles";
 import { motion } from "framer-motion";
-import { containsMotionProps } from "@/utils";
+import { containsMotionProps } from "../../../utils";
 
 export const Grid = forwardRef(
   (
