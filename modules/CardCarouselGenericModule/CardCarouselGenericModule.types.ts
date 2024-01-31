@@ -8,4 +8,5 @@ export type CardCarouselGenericModuleProps = CarouselProps & {
   directionComponent?: any;
   slideWidth?: number;
   slideHeight?: number;
+  contentVariant?: string;
 };

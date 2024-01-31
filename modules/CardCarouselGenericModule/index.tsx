@@ -7,6 +7,7 @@ import {
 } from "./CardCarouselGenericModule.styles";
 import { CardCarouselGenericModuleProps } from "./CardCarouselGenericModule.types";
 import { useDimensions } from "../../hooks";
+import { content } from "@/existing/tailwind.config";
 
 const CardCarouselGenericModule: FC<CardCarouselGenericModuleProps> = ({
   animationStyle = "default",
@@ -22,6 +23,7 @@ const CardCarouselGenericModule: FC<CardCarouselGenericModuleProps> = ({
   gap = 0,
   slideWidth,
   slideHeight,
+  contentVariant = "card",
   ...props
 }) => {
   const ref = useRef(null);
@@ -38,7 +40,7 @@ const CardCarouselGenericModule: FC<CardCarouselGenericModuleProps> = ({
             cards,
             cardChildAnims,
             cardAnim,
-            "card",
+            contentVariant,
             "primary",
             genericCard,
             "full",

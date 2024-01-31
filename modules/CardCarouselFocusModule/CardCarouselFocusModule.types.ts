@@ -7,4 +7,5 @@ export type CardCarouselFocusModuleProps = CarouselProps & {
   directionComponent?: any;
   slideWidth?: number;
   slideHeight?: number;
+  contentVariant?: string;
 };

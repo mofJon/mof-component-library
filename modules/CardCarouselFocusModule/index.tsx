@@ -21,6 +21,7 @@ const CardCarouselFocusModule: FC<CardCarouselFocusModuleProps> = ({
   gap = 0,
   slideWidth,
   slideHeight,
+  contentVariant = "card",
   ...props
 }) => {
   const ref = useRef(null);
@@ -37,7 +38,7 @@ const CardCarouselFocusModule: FC<CardCarouselFocusModuleProps> = ({
             cards,
             cardChildAnims,
             cardAnim,
-            "card",
+            contentVariant,
             "overlay",
             focusCard,
             "full",
