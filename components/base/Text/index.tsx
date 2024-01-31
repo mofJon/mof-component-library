@@ -5,6 +5,7 @@ import DOMPurify from "isomorphic-dompurify";
 import { motion } from "framer-motion";
 import { containsMotionProps } from "../../../utils";
 import Link from "next/link";
+import { allowedTags } from "./chunks";
 
 //  Work in progress!!!
 
@@ -16,6 +17,7 @@ export const Text = forwardRef(
       text,
       textStyle = "p",
       link = {},
+      rich = false,
       ...props
     }: TextProps,
     ref: Ref<TextProps>,
@@ -25,11 +27,12 @@ export const Text = forwardRef(
     if (!text && !link.text) return null;
 
     // HTML string - unwanted tags stripping
-    let cleanedText = link?.text || text;
+    const currentText = link?.text || (text as string);
+    let cleanedText = currentText;
     // @ts-ignore
     if (typeof window !== "undefined") {
-      cleanedText = DOMPurify.sanitize(link?.text || text, {
-        ALLOWED_TAGS: ["b", "strong", "br", "span"],
+      cleanedText = DOMPurify.sanitize(currentText, {
+        ALLOWED_TAGS: rich ? allowedTags.rich : allowedTags.default,
       });
     }
 
