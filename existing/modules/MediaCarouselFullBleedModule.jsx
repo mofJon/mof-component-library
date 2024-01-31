@@ -1,25 +1,32 @@
-import SectionContent from '@/components/cards/SectionContent';
-import React, { useRef, useEffect } from 'react';
-import { ModuleBase, ResponsiveImage } from 'components';
-import Flicking, { FlickingError, ViewportSlot } from '@egjs/react-flicking';
-import { Pagination, AutoPlay } from '@egjs/flicking-plugins';
-import '@egjs/flicking-plugins/dist/pagination.css';
-import '@egjs/react-flicking/dist/flicking.css';
-import ArrowForward from 'assets/arrowForward.svg';
+import SectionContent from "../../../components/cards/SectionContent";
+import React, { useRef, useEffect } from "react";
+import { ModuleBase, ResponsiveImage } from "components";
+import Flicking, { FlickingError, ViewportSlot } from "@egjs/react-flicking";
+import { Pagination, AutoPlay } from "@egjs/flicking-plugins";
+import "@egjs/flicking-plugins/dist/pagination.css";
+import "@egjs/react-flicking/dist/flicking.css";
+import ArrowForward from "assets/arrowForward.svg";
 
 const HeroCarouselCentreAlignedModule = ({ data }) => {
   const carousel = useRef();
 
   useEffect(() => {
-    carousel.current.on('ready', (e) => {
+    carousel.current.on("ready", (e) => {
       e.currentTarget.addPlugins(
         new Pagination({
-          type: 'bullet',
-          renderBullet: (className) => `<span class="${className}" role="button"></span>`,
+          type: "bullet",
+          renderBullet: (className) =>
+            `<span class="${className}" role="button"></span>`,
         }),
       );
       if (data?.autoPlay) {
-        e.currentTarget.addPlugins(new AutoPlay({ duration: 2000, direction: 'NEXT', stopOnHover: false }));
+        e.currentTarget.addPlugins(
+          new AutoPlay({
+            duration: 2000,
+            direction: "NEXT",
+            stopOnHover: false,
+          }),
+        );
       }
     });
   }, [data?.autoPlay]);
@@ -39,10 +46,22 @@ const HeroCarouselCentreAlignedModule = ({ data }) => {
   };
 
   return (
-    <ModuleBase data={data} className="relative h-[640px] md:h-[363px]  lg:h-[668px]">
-      <Flicking ref={carousel} align="center" useResizeObserver={true} horizontal={true} circular={true}>
+    <ModuleBase
+      data={data}
+      className="relative h-[640px] md:h-[363px]  lg:h-[668px]"
+    >
+      <Flicking
+        ref={carousel}
+        align="center"
+        useResizeObserver={true}
+        horizontal={true}
+        circular={true}
+      >
         {data.mediaSlides.map((slide, index) => (
-          <div key={index} className="h-[640px] md:h-[363px] lg:h-[668px] w-full">
+          <div
+            key={index}
+            className="h-[640px] md:h-[363px] lg:h-[668px] w-full"
+          >
             <div className="absolute w-full h-full flex justify-center items-end">
               <div className="w-full px-10 xl:px-[212px] pb-[96px] md:pb-[47px] lg:pb-[64px]">
                 <div className="absolute top-0 left-0 right-0 h-full w-full z-10 gradient-bottom" />
@@ -50,7 +69,7 @@ const HeroCarouselCentreAlignedModule = ({ data }) => {
                   data={{
                     headingTitle: {
                       heading: slide.headingTitle,
-                      htag: '',
+                      htag: "",
                     },
                     description: slide.description,
                     primaryCTA: slide.primaryCTA,
@@ -66,7 +85,14 @@ const HeroCarouselCentreAlignedModule = ({ data }) => {
 
             <ResponsiveImage
               image={slide.image}
-              widths={{ xs: 375, sm: 640, md: 768, lg: 1024, xl: 1280, xxl: 1536 }}
+              widths={{
+                xs: 375,
+                sm: 640,
+                md: 768,
+                lg: 1024,
+                xl: 1280,
+                xxl: 1536,
+              }}
             />
           </div>
         ))}

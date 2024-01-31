@@ -1,5 +1,3 @@
-import { CarouselProps } from "@/components/general/Carousel/Carousel.types";
-
 export const carouselAnimationDefault = {
   type: "spring",
   stiffness: 500,
@@ -30,12 +28,7 @@ const disableCarouselX = {
   },
 };
 
-export const carouselFocusAnimation = (
-  animStyle: CarouselProps["animationStyle"],
-  isActive: boolean,
-  offset: number,
-  loop: boolean,
-) => {
+export const carouselFocusAnimation = (animStyle, isActive, offset, loop) => {
   let xOffset = {};
   if (loop)
     xOffset = {
@@ -58,17 +51,17 @@ export const carouselFocusAnimation = (
       },
     },
     transition: {
-      ...focusTransition[animStyle as "default"],
+      ...focusTransition[animStyle || "default"],
       ...disableCarouselX,
     },
   };
 };
 
 export const carouselBookcaseAnimation = (
-  animStyle: CarouselProps["animationStyle"],
-  isActive: boolean,
-  offset: number,
-  loop: boolean,
+  animStyle,
+  isActive,
+  offset,
+  loop,
 ) => {
   let xOffset = {};
   if (loop)
@@ -92,7 +85,7 @@ export const carouselBookcaseAnimation = (
       },
     },
     transition: {
-      ...focusTransition[animStyle as "default"],
+      ...focusTransition[animStyle || "default"],
       ...disableCarouselX,
     },
   };

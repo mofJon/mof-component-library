@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Box, Card } from "@/components";
+import { Box, Card } from "../components";
 import { cardChildAnims, zhaCardAnim } from "./animations";
 
 const data: any = {

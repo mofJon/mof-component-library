@@ -5,7 +5,7 @@ import tailwindConfig from "../../../tailwind.config.js";
 import { isValidHttpUrl, loadLazyImage } from "utils";
 import classNames from "classnames";
 import { useSelector } from "react-redux";
-import { selectIsRobot } from "@/existing/store/index";
+import { selectIsRobot } from "../../../store/index";
 
 function screenArray() {
   const screenArray = [{ key: "xs", value: tailwindConfig.theme.screens.sm }];

@@ -1,9 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Box, Image, Stack, Text } from "@/components";
-import { Provider } from "react-redux";
-import ResponsiveImage from "@/existing/components/general/ResponsiveImage";
-import { wrapper } from "@/existing/store";
-import localImage from "@/assets/images/zhaCarousel1.jpg";
+import { Box, Image, Stack, Text } from "../../../components";
+import localImage from "../../../assets/images/zhaCarousel1.jpg";
 
 const imageUrlWithQuery =
   "https://media.idorchester.com/api/v1/media/ox4khfi1/le-meurice-facade-5.jpg?width=696&height=464&format=webp";
@@ -61,47 +58,6 @@ export const Responsive: Story = {
     priority: true,
     responsive: true,
   },
-};
-
-export const ComparisonBetweenImageComponents: Story = {
-  parameters: {
-    layout: "padded",
-  },
-  args: {
-    src: imageUrlWithoutQuery,
-    sizes: "(min-width: 808px) 50vw, 100vw",
-  },
-  decorators: [
-    (Story) => {
-      const { store } = wrapper.useWrappedStore({});
-
-      return (
-        <Provider store={store}>
-          <Stack direction="column" gap={5} className="mb-10">
-            <Stack direction="column" className="w-full max-w-[1000px]">
-              <Text text="Existing" textStyle="h6" />
-              {/* @ts-ignore */}
-              <ResponsiveImage
-                image={{ imageUrl: `${imageUrlWithoutQuery}?version=e` }}
-                widths={{ xs: 327, md: 688, lg: 936 }}
-                heights={{ xs: 218, md: 439, lg: 599 }}
-                cdnProps={{}}
-                imgProps={{}}
-                className="w-full h-auto"
-              />
-            </Stack>
-            <Stack
-              direction="column"
-              className="w-full max-w-[1000px] h-[70vw]"
-            >
-              <Text text="Proposed" textStyle="h6" />
-              <Story />
-            </Stack>
-          </Stack>
-        </Provider>
-      );
-    },
-  ],
 };
 
 export const StaticallyImportedImage: Story = {

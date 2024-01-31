@@ -1,9 +1,4 @@
-import { NavProps } from "@/components";
-
-export const navPanelWrapperAnimations = (
-  height: number,
-  attach: NavProps["attach"],
-) => {
+export const navPanelWrapperAnimations = (height, attach) => {
   if (attach) {
     return {
       variants: {
@@ -51,7 +46,7 @@ export const navPanelAnimations = {
   },
 };
 
-export const navItemAnimations = (index: number) => ({
+export const navItemAnimations = (index) => ({
   variants: {
     inactive: {
       opacity: 0,

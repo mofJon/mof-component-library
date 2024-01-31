@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Box, Nav } from "@/components";
+import { Box, Nav } from "../../../components";
 import data from "./__mock__.json";
 // @ts-ignore
-import Arrow from "@/assets/icons/chevron.svg";
+import Arrow from "../../../assets/icons/chevron.svg";
 
 const buttonHover = {
   variants: {

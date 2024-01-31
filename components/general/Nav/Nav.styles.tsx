@@ -4,7 +4,7 @@ import {
   navItemAnimations,
   navPanelAnimations,
   navPanelWrapperAnimations,
-} from "@/animations";
+} from "../../../theme/animations";
 
 type NavVars = any;
 

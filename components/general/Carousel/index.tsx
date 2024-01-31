@@ -1,7 +1,7 @@
 import { forwardRef, Ref, useState } from "react";
 import { CarouselProps } from "./Carousel.types";
 import { carouselVars } from "./Carousel.styles";
-import { Stack } from "@/components";
+import { Stack } from "../../../components";
 import {
   CarouselContext,
   CarouselControls,
@@ -31,7 +31,7 @@ export const Carousel = forwardRef(
   ) => {
     const [currItem, setCurrItem] = useState(0);
 
-    if (items.length === 0) return null;
+    if (items.length === 0 || width === 0 || height === 0) return null;
 
     const carouselWidth = width || items[0].media.width;
     const carouselHeight = height || items[0].media.height;

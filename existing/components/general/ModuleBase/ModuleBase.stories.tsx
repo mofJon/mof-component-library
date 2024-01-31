@@ -1,7 +1,7 @@
 import { Provider } from "react-redux";
 import type { Meta, StoryObj } from "@storybook/react";
 import Component from ".";
-import { wrapper } from "@/existing/store";
+import { wrapper } from "../../../store";
 
 const image = {
   imageUrl:
@@ -29,11 +29,11 @@ type Story = StoryObj<typeof Component>;
 
 export const ModuleBase: Story = {
   args: {
-    data: { 
-      anchor: 'id',
-      paddingTop: 'medium',
-      paddingBottom: 'medium',
-      backgroundColour:'#000'
+    data: {
+      anchor: "id",
+      paddingTop: "medium",
+      paddingBottom: "medium",
+      backgroundColour: "#000",
     },
     children: <p className="color-from-bg">Text</p>,
   },

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ButtonGroup } from "@/components";
+import { ButtonGroup } from "../../../components";
 import data from "./__mockdata__.json";
 
 const meta: Meta<typeof ButtonGroup> = {

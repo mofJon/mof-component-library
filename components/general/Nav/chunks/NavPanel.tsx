@@ -1,9 +1,9 @@
 import { FC, useContext, useRef } from "react";
-import { Box, Stack } from "@/components";
+import { Box, Stack } from "../../../../components";
 import { NavContext, NavPanelContent } from "./";
 import { navPanel, navPanelWrapper } from "../Nav.styles";
 import { NavPanelProps } from "../Nav.types";
-import { useDimensions } from "@/hooks";
+import { useDimensions } from "../../../../hooks";
 
 const NavPanel: FC<NavPanelProps> = ({ data, isActive = false }) => {
   const itemWrapperRef = useRef<any>(null);

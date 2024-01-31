@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { contentBlockVars, renderComponent } from "../ContentBlock.styles";
 import { ContentBlockContentProps } from "../ContentBlock.types";
-import { ButtonGroup, Stack, Text } from "@/components";
-import { emptyContentBlockAnim } from "@/animations";
+import { ButtonGroup, Stack, Text } from "../../../../components";
+import { emptyContentBlockAnim } from "../../../../theme/animations";
 
 // Work in progress
 
@@ -21,6 +21,7 @@ const PrimaryContentBlock: FC<ContentBlockContentProps> = ({
   return (
     <Stack direction="column" {...allProps}>
       <Stack direction="row" {...renderComponent("preContent")}>
+        <Text {...renderComponent("tag", data)} />
         <Text {...renderComponent("preHeading", data)} />
         <Text {...renderComponent("info", data)} />
       </Stack>

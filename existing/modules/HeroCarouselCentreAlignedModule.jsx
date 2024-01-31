@@ -1,26 +1,33 @@
-import SectionContent from '@/components/cards/SectionContent';
-import React, { useRef, useEffect } from 'react';
-import { ModuleBase, ResponsiveImage } from 'components';
-import Flicking, { FlickingError, ViewportSlot } from '@egjs/react-flicking';
-import { Pagination, AutoPlay } from '@egjs/flicking-plugins';
-import '@egjs/flicking-plugins/dist/pagination.css';
-import '@egjs/react-flicking/dist/flicking.css';
-import Arrow from 'assets/arrow.svg';
-import { Media } from '@/components';
+import SectionContent from "../../../components/cards/SectionContent";
+import React, { useRef, useEffect } from "react";
+import { ModuleBase, ResponsiveImage } from "components";
+import Flicking, { FlickingError, ViewportSlot } from "@egjs/react-flicking";
+import { Pagination, AutoPlay } from "@egjs/flicking-plugins";
+import "@egjs/flicking-plugins/dist/pagination.css";
+import "@egjs/react-flicking/dist/flicking.css";
+import Arrow from "assets/arrow.svg";
+import { Media } from "../../../components";
 
 const HeroCarouselCentreAlignedModule = ({ data }) => {
   const carousel = useRef();
 
   useEffect(() => {
-    carousel.current?.on('ready', (e) => {
+    carousel.current?.on("ready", (e) => {
       e.currentTarget.addPlugins(
         new Pagination({
-          type: 'bullet',
-          renderBullet: (className) => `<span class="${className}" role="button"></span>`,
+          type: "bullet",
+          renderBullet: (className) =>
+            `<span class="${className}" role="button"></span>`,
         }),
       );
       if (data?.autoPlay) {
-        e.currentTarget.addPlugins(new AutoPlay({ duration: 2000, direction: 'NEXT', stopOnHover: false }));
+        e.currentTarget.addPlugins(
+          new AutoPlay({
+            duration: 2000,
+            direction: "NEXT",
+            stopOnHover: false,
+          }),
+        );
       }
     });
   }, [data?.autoPlay]);
@@ -45,7 +52,14 @@ const HeroCarouselCentreAlignedModule = ({ data }) => {
         <div className="absolute top-0 left-0 right-0 h-full w-full">
           <Media
             media={data.video[0]}
-            widths={{ xs: 425, sm: 640, md: 768, lg: 1024, xl: 1280, xxl: 2560 }}
+            widths={{
+              xs: 425,
+              sm: 640,
+              md: 768,
+              lg: 1024,
+              xl: 1280,
+              xxl: 2560,
+            }}
             className="h-full w-full object-cover"
             cover
             dataNotLazy
@@ -53,12 +67,25 @@ const HeroCarouselCentreAlignedModule = ({ data }) => {
         </div>
       ) : (
         <>
-          <Flicking ref={carousel} align="center" useResizeObserver={true} horizontal={true} circular={true}>
+          <Flicking
+            ref={carousel}
+            align="center"
+            useResizeObserver={true}
+            horizontal={true}
+            circular={true}
+          >
             {data.mediaItems?.map((slide, index) => (
               <div key={index} className="h-screen w-full">
                 <ResponsiveImage
                   image={slide}
-                  widths={{ xs: 1024, sm: 1024, md: 1024, lg: 1024, xl: 1280, xxl: 1536 }}
+                  widths={{
+                    xs: 1024,
+                    sm: 1024,
+                    md: 1024,
+                    lg: 1024,
+                    xl: 1280,
+                    xxl: 1536,
+                  }}
                 />
               </div>
             ))}

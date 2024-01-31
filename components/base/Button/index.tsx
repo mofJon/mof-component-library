@@ -2,8 +2,8 @@ import { createElement, forwardRef, ReactNode, Ref, useCallback } from "react";
 import { ButtonProps } from "./Button.types";
 import { buttonVars } from "./Button.styles";
 import { motion } from "framer-motion";
-import { Stack, Text } from "@/components";
-import { containsMotionProps } from "@/utils";
+import { Stack, Text } from "../../../components";
+import { containsMotionProps } from "../../../utils";
 
 export const Button = forwardRef(
   (

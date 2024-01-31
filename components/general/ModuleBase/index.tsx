@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Box } from "@/components";
+import { Box } from "../../../components";
 import { moduleBase } from "./ModuleBase.styles";
 import { ModuleBaseProps } from "./ModuleBase.types";
 

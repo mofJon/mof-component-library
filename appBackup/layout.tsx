@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "@/theme/styles/globals.css";
+import "../theme/styles/globals.css";
 
 export const metadata: Metadata = {
   title: "Component Library",

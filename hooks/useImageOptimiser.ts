@@ -1,5 +1,5 @@
 import { useDimensions } from "./";
-import { stripQueryString } from "@/utils";
+import { stripQueryString } from "../utils";
 import { useDevicePixelRatio } from "use-device-pixel-ratio";
 
 const dprQuality = [70, 30, 20];

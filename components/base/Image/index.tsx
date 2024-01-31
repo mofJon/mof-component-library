@@ -1,11 +1,11 @@
 import { forwardRef, Ref, useEffect, useRef, useState } from "react";
-import { Box } from "@/components";
+import { Box } from "../../../components";
 import NextImage from "next/image";
 import { ImageProps } from "./Image.types";
 import { spacer } from "./Image.styles";
 import { motion } from "framer-motion";
-import { containsMotionProps } from "@/utils";
-import { useImageOptimiser } from "@/hooks";
+import { containsMotionProps } from "../../../utils";
+import { useImageOptimiser } from "../../../hooks";
 
 export const Image = forwardRef(
   (

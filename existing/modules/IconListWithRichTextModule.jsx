@@ -1,17 +1,20 @@
-import { ModuleBase, ResponsiveImage } from '@/components';
-import SectionContent from '@/components/cards/SectionContent';
+import { ModuleBase, ResponsiveImage } from "../../../components";
+import SectionContent from "../../../components/cards/SectionContent";
 
 const IconListWithRichTextModule = ({ data }) => {
-  const { desktopLayoutAlignment, mobileLayoutAlignment, iconListElements } = data;
+  const { desktopLayoutAlignment, mobileLayoutAlignment, iconListElements } =
+    data;
 
   return (
     <ModuleBase data={data} className="container font-primary text-black">
       <div
         className={`flex   lg:items-center ${
-          mobileLayoutAlignment === 'Top'
-            ? 'flex-col gap-14 md:gap-20 lg:gap-32'
-            : 'flex-col-reverse gap-1 md:gap-8 lg:gap-32'
-        } lg:${desktopLayoutAlignment === 'Left' ? 'flex-row' : 'flex-row-reverse'}`}
+          mobileLayoutAlignment === "Top"
+            ? "flex-col gap-14 md:gap-20 lg:gap-32"
+            : "flex-col-reverse gap-1 md:gap-8 lg:gap-32"
+        } lg:${
+          desktopLayoutAlignment === "Left" ? "flex-row" : "flex-row-reverse"
+        }`}
       >
         <SectionContent
           data={data}
@@ -23,7 +26,10 @@ const IconListWithRichTextModule = ({ data }) => {
 
         <div className={`w-full lg:w-[46%] h-fit flex flex-wrap `}>
           {iconListElements.map((iconItem, iconIndex) => (
-            <div key={iconIndex} className={`icon-item w-1/2 h-fit mb-6 last:mb-0 flex items-center`}>
+            <div
+              key={iconIndex}
+              className={`icon-item w-1/2 h-fit mb-6 last:mb-0 flex items-center`}
+            >
               <div className={`icon mr-[15px] w-[18px] h-[18px] `}>
                 <ResponsiveImage
                   image={iconItem.logo}
@@ -35,7 +41,9 @@ const IconListWithRichTextModule = ({ data }) => {
               </div>
 
               <div className="text">
-                <p className="text-paragraph font-primary font-normal">{iconItem.text}</p>
+                <p className="text-paragraph font-primary font-normal">
+                  {iconItem.text}
+                </p>
               </div>
             </div>
           ))}

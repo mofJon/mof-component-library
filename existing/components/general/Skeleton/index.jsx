@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { motion } from "framer-motion";
-import LoadingImage from "@/assets/icons/loadingImage.svg";
+import LoadingImage from "../../../assets/loadingImage.svg";
 
 const Skeleton = ({ image, className, ...props }) => {
   return (

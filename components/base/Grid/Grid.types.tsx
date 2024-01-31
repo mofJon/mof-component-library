@@ -1,5 +1,4 @@
 import React from "react";
-import { type VariantProps } from "class-variance-authority";
 import { MotionProps } from "framer-motion";
 
 type HTMLAndMotionProps = React.HTMLAttributes<HTMLElement> & MotionProps;

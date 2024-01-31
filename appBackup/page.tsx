@@ -1,4 +1,4 @@
-import { Card, Carousel, Box, Image } from "@/components";
+import { Card, Carousel, Box, Image } from "../../../components";
 
 const images: any = [
   "https://base.matterofform.com/media/1zudodgf/frans-ruiter-phnfcr2eh00-unsplash.jpg?width=1600&format=webp",

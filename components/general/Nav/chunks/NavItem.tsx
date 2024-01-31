@@ -1,10 +1,10 @@
 import { FC, useCallback, useContext, useState } from "react";
-import { Button, Stack } from "@/components";
+import { Button, Stack } from "../../../../components";
 import { useRouter } from "next/navigation";
 import { NavContext, NavPanel } from "./";
 import { navItem, navItemWrapper } from "../Nav.styles";
 import { NavItemProps } from "../Nav.types";
-import { updateNavState } from "@/utils";
+import { updateNavState } from "../../../../utils";
 
 const NavItem: FC<NavItemProps> = ({
   data,

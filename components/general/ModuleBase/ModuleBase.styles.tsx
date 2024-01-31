@@ -1,5 +1,5 @@
 import classnames from "classnames";
-import { isColorDark, fixColor } from "@/utils";
+import { isColorDark, fixColor } from "../../../utils";
 
 export const moduleBase: any = (data: any, className: string) => {
   const classes = ["module", className];
@@ -18,8 +18,6 @@ export const moduleBase: any = (data: any, className: string) => {
       ? "[&_.color-from-bg]:text-white"
       : "[&_.color-from-bg]:text-black",
   );
-
-  console.log(className, classes);
 
   return {
     id: data?.anchor || null,
