@@ -18,6 +18,10 @@
   @import "components/moduleBase.css";
   @import "components/nav.css";
 
+  /* modules */
+  @import "modules/CardCarouselFocusModule.css";
+  @import "modules/CardCarouselGenericModule.css";
+
   /* custom */
   @import "custom/index.css";
 }

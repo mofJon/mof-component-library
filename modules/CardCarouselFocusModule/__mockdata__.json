@@ -1,38 +1,118 @@
-[
-  {
-    "image": {
-      "imageUrl": "https://qa-cms.zaha-hadid.com/media/wotgyell/adrian-cuj-o_9ymcy0bag-unsplash.jpg",
-      "alt": "zaha"
+{
+  "moduleName": "CardCarouselGenericModule",
+  "moduleId": "0b98d1f5-2fee-463e-8994-fcabad88c3b2",
+  "props": {
+    "preHeading": "Awards",
+    "headingTitle": {
+      "heading": "Discover our latest awards and recognition",
+      "htag": "h2"
     },
-    "preHeading": "Transport",
-    "headingTitle": "BMW Central Building",
-    "info": "<span>Leipzig, Germany</span><span>2001-2005</span><span>BMW AG</span>",
     "description": "Description goes here lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec vestibulum eros. Curabitur ac libero malesuada, feugiat ligula quis, sodales diam. Morbi cursus mauris id bibendum commodo.",
-    "primaryCta": "View article",
-    "variant": "primary"
-  },
-  {
-    "image": {
-      "imageUrl": "https://qa-cms.zaha-hadid.com/media/2y3fbnzx/maarten-deckers-t5nxyxcf50i-unsplash.jpg",
-      "alt": "zaha"
-    },
-    "preHeading": "Transport",
-    "headingTitle": "BMW Central Building",
-    "info": "<span>Leipzig, Germany</span><span>2001-2005</span><span>BMW AG</span>",
-    "description": "Description goes here lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec vestibulum eros. Curabitur ac libero malesuada, feugiat ligula quis, sodales diam. Morbi cursus mauris id bibendum commodo.",
-    "primaryCta": "View article",
-    "variant": "primary"
-  },
-  {
-    "image": {
-      "imageUrl": "https://qa-cms.zaha-hadid.com/media/nm4aowig/zha_1.jpg",
-      "alt": "zaha"
-    },
-    "preHeading": "Transport",
-    "headingTitle": "BMW Central Building",
-    "info": "<span>Leipzig, Germany</span><span>2001-2005</span><span>BMW AG</span>",
-    "description": "Description goes here lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec vestibulum eros. Curabitur ac libero malesuada, feugiat ligula quis, sodales diam. Morbi cursus mauris id bibendum commodo.",
-    "primaryCta": "View article",
-    "variant": "primary"
+    "cardRow": [
+      {
+        "moduleName": "AwardCardRowModel",
+        "moduleId": "bb766dbf-d541-4a6b-9898-46c299c15b93",
+        "props": {
+          "cards": [
+            {
+              "moduleName": "AwardCard",
+              "moduleId": "3bf3773c-5fdb-4986-ae95-c52a0aaec3e6",
+              "props": {
+                "image": {
+                  "imageUrl": "https://qa-bb-api.matterofform.com/media/obnlrb4h/ambitious-studio-rick-barrett-ltiywsbbhei-unsplash.jpg",
+                  "caption": "Samuel Regan",
+                  "imageAlt": "Caption goes here lorem ipsum dolor sit amet consectetur adipiscing elit",
+                  "mediaId": 1308,
+                  "isSvg": false,
+                  "isVideo": false
+                },
+                "headingTitle": "Industry Excellent Survey and Design Award, Architectural Design First Prize",
+                "description": "Leeza SOHO",
+                "tag": "Award",
+                "primaryCta": {
+                  "text": "Project page",
+                  "href": "/",
+                  "linkType": "Content",
+                  "target": null
+                }
+              }
+            },
+            {
+              "moduleName": "AwardCard",
+              "moduleId": "252b4e0f-11d8-4dad-9772-143a1a4e1aa1",
+              "props": {
+                "image": {
+                  "imageUrl": "https://qa-bb-api.matterofform.com/media/obnlrb4h/ambitious-studio-rick-barrett-ltiywsbbhei-unsplash.jpg",
+                  "caption": "Samuel Regan",
+                  "imageAlt": "Caption goes here lorem ipsum dolor sit amet consectetur adipiscing elit",
+                  "mediaId": 1308,
+                  "isSvg": false,
+                  "isVideo": false
+                },
+                "headingTitle": "2023 ArchDaily Building of the Year Nomination",
+                "description": "BEEAH Headquarters",
+                "tag": "Award",
+                "primaryCta": {
+                  "text": "Project Page",
+                  "href": "/",
+                  "linkType": "Content",
+                  "target": null
+                }
+              }
+            },
+            {
+              "moduleName": "AwardCard",
+              "moduleId": "b6138ede-bdeb-4cbd-a429-152513d4cc55",
+              "props": {
+                "image": {
+                  "imageUrl": "https://qa-bb-api.matterofform.com/media/obnlrb4h/ambitious-studio-rick-barrett-ltiywsbbhei-unsplash.jpg",
+                  "caption": "Samuel Regan",
+                  "imageAlt": "Caption goes here lorem ipsum dolor sit amet consectetur adipiscing elit",
+                  "mediaId": 1308,
+                  "isSvg": false,
+                  "isVideo": false
+                },
+                "headingTitle": "Architizer A+ Awards 'Office-Low Rise' Winner",
+                "description": "BEEAH Headquarters",
+                "tag": "Award",
+                "primaryCta": {
+                  "text": "Project Page",
+                  "href": "/",
+                  "linkType": "Content",
+                  "target": null
+                }
+              }
+            },
+            {
+              "moduleName": "AwardCard",
+              "moduleId": "f0a7dd12-b55a-43c7-8625-290539313e43",
+              "props": {
+                "image": {
+                  "imageUrl": "https://qa-bb-api.matterofform.com/media/obnlrb4h/ambitious-studio-rick-barrett-ltiywsbbhei-unsplash.jpg",
+                  "caption": "Samuel Regan",
+                  "imageAlt": "Caption goes here lorem ipsum dolor sit amet consectetur adipiscing elit",
+                  "mediaId": 1308,
+                  "isSvg": false,
+                  "isVideo": false
+                },
+                "headingTitle": "Johnson Controls 'Blueprint of the Future' award winner",
+                "description": "BEEAH Headquarters",
+                "tag": "Award",
+                "primaryCta": {
+                  "text": "Project Page",
+                  "href": "/",
+                  "linkType": "Content",
+                  "target": null
+                }
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "anchor": "awards-carousel",
+    "anchorDisplayName": "Awards",
+    "paddingTop": "Large",
+    "paddingBottom": "Large"
   }
-]
+}

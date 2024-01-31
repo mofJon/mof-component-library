@@ -33,3 +33,6 @@ export * from "./general/ContentBlock/ContentBlock.types";
 export * from "./general/Media/Media.types";
 export * from "./general/ModuleBase/ModuleBase.types";
 export * from "./general/Nav/Nav.types";
+
+// shared components
+export * from "./shared/CardItems";

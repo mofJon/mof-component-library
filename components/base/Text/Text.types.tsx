@@ -16,6 +16,7 @@ export interface TextProps
     target?: string;
   };
   rich?: boolean;
+  htag?: string;
 }
 
 export type TextVars = (

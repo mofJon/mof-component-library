@@ -232,6 +232,19 @@ const config: Config = {
             textStyle: "h3",
           },
         },
+        card: {
+          preHeading: {
+            variant: "primaryBold",
+            textStyle: "p",
+          },
+          headingTitle: {
+            textStyle: "h5",
+          },
+          description: {
+            variant: "primary",
+            textStyle: "p-sm",
+          },
+        },
       },
       card: {
         primary: {
@@ -243,7 +256,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/line-clamp")],
   variants: {
     extend: {
       fontSize: ["responsive", "h1", "h2", "h3", "h4", "h5", "h6"], // Add h* styles

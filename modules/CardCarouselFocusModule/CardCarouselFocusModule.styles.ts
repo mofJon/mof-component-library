@@ -7,5 +7,5 @@ export const focusCarousel = {
 };
 
 export const focusContainer = {
-  className: "p-0",
+  className: "focus-container",
 };

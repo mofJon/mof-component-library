@@ -23,6 +23,7 @@ export const Carousel = forwardRef(
       height,
       controls,
       showPagination = false,
+      paginationType = "dots",
       align = "left",
       crop = true,
       ...props
@@ -55,7 +56,6 @@ export const Carousel = forwardRef(
             items={items}
             gap={gap}
             dragWidth={carouselWidth}
-            // currItem={{ currItem, setCurrItem }}
             animationStyle={animationStyle}
             crop={crop}
             loop={loop}
@@ -63,15 +63,14 @@ export const Carousel = forwardRef(
           />
           <CarouselControls
             controls={controls}
-            // currItem={{ currItem, setCurrItem }}
             length={items.length}
             width={carouselWidth}
             loop={loop}
           />
           {showPagination && !loop && (
             <CarouselPagination
-              // currItem={{ currItem, setCurrItem }}
               length={items.length}
+              paginationType={paginationType}
             />
           )}
         </CarouselContext.Provider>

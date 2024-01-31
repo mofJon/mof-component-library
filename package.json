@@ -1,6 +1,6 @@
 {
   "name": "mof-component-library",
-  "version": "0.1.39",
+  "version": "0.1.41",
   "main": "./index.js",
   "types": "./index.d.ts",
   "scripts": {
@@ -30,6 +30,7 @@
     "@storybook/react": "^7.6.8",
     "@storybook/test": "^7.6.8",
     "@svgr/webpack": "^8.1.0",
+    "@tailwindcss/line-clamp": "^0.4.4",
     "@types/bun": "latest",
     "@types/dompurify": "^3.0.5",
     "@types/node": "^20",

@@ -1,23 +1,24 @@
 import { FC, useRef } from "react";
-import { Box, ModuleBase, Carousel, Card, CardItems } from "../../components";
+import { Box, ModuleBase, Carousel, CardItems } from "../../components";
 import {
-  focusCard,
-  focusCarousel,
-  focusContainer,
-} from "./CardCarouselFocusModule.styles";
-import { CardCarouselFocusModuleProps } from "./CardCarouselFocusModule.types";
+  genericCard,
+  genericCarousel,
+  genericContainer,
+} from "./CardCarouselGenericModule.styles";
+import { CardCarouselGenericModuleProps } from "./CardCarouselGenericModule.types";
 import { useDimensions } from "../../hooks";
 
-const CardCarouselFocusModule: FC<CardCarouselFocusModuleProps> = ({
+const CardCarouselGenericModule: FC<CardCarouselGenericModuleProps> = ({
   animationStyle = "default",
   data,
   directionComponent,
   cardAnim,
   cardChildAnims,
-  showPagination = false,
+  showPagination = true,
   paginationType = "dots",
+  columns = 1,
   crop = false,
-  loop = true,
+  loop = false,
   gap = 0,
   slideWidth,
   slideHeight,
@@ -26,11 +27,11 @@ const CardCarouselFocusModule: FC<CardCarouselFocusModuleProps> = ({
   const ref = useRef(null);
   const { width, height } = useDimensions(ref);
 
-  const renderCarouselRows = data.props.cardRow.map((val: any, i: number) => {
+  const renderCarouselRows = data.cardRow.map((val: any, i: number) => {
     const { cards } = val.props;
 
     return (
-      <Box key={`focusCardCarouselRow${i}`} ref={ref} {...focusContainer}>
+      <Box key={`genericCardCarouselRow${i}`} ref={ref} {...genericContainer}>
         <Carousel
           {...props}
           items={CardItems(
@@ -38,8 +39,8 @@ const CardCarouselFocusModule: FC<CardCarouselFocusModuleProps> = ({
             cardChildAnims,
             cardAnim,
             "card",
-            "overlay",
-            focusCard,
+            "primary",
+            genericCard,
             "full",
           )}
           animationStyle={animationStyle}
@@ -52,9 +53,9 @@ const CardCarouselFocusModule: FC<CardCarouselFocusModuleProps> = ({
           paginationType={paginationType}
           loop={loop}
           gap={gap}
-          width={slideWidth || width}
+          width={(slideWidth || width) / columns - gap}
           height={slideHeight || height}
-          {...focusCarousel}
+          {...genericCarousel}
         />
       </Box>
     );
@@ -63,4 +64,4 @@ const CardCarouselFocusModule: FC<CardCarouselFocusModuleProps> = ({
   return <ModuleBase data={data}>{renderCarouselRows}</ModuleBase>;
 };
 
-export default CardCarouselFocusModule;
+export default CardCarouselGenericModule;

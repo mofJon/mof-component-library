@@ -26,8 +26,7 @@ const CarouselWrapper: FC<ICarouselWrapper> = ({
   const carouselItems = loop ? [...items, ...items] : items;
 
   const handleItemClick = (index: number) => {
-    // !loop && setCurrItem(index);
-    if (!loop) currItem.value = index;
+    !loop && setCurrItem(index);
   };
 
   const renderItems = carouselItems.map((val: any, i: number) => {

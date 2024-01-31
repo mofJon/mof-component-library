@@ -9,3 +9,10 @@ export const camelToHyphen = (str: string) => {
     .replace(/([A-Z])([A-Z][a-z])/g, "$1-$2")
     .toLowerCase();
 };
+
+export const getFormattedValue = (value: number, type: string) => {
+  if (type === "leadingZeroNumbers") {
+    return value < 10 ? `0${value + 1}` : value + 1;
+  }
+  return value + 1;
+};

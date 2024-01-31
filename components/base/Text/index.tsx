@@ -18,6 +18,7 @@ export const Text = forwardRef(
       textStyle = "p",
       link = {},
       rich = false,
+      htag: seoTag,
       ...props
     }: TextProps,
     ref: Ref<TextProps>,
@@ -49,9 +50,9 @@ export const Text = forwardRef(
       dangerouslySetInnerHTML: { __html: cleanedText },
     };
 
-    let textTag: any = link?.text ? Link : "p";
+    let textTag: any = link?.text ? Link : seoTag || "p";
     if (typeof textStyle === "string" && textStyle.match(/h[1-6]/)) {
-      textTag = textStyle;
+      textTag = seoTag || textStyle;
     }
 
     return createElement(

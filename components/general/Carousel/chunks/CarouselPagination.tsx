@@ -1,6 +1,7 @@
 import { FC, useContext } from "react";
-import { Box, Stack } from "../../../../components";
+import { Box, Stack, Text } from "../../../../components";
 import { ICarouselPagination } from "../Carousel.types";
+import { getFormattedValue } from "../../../../utils";
 import {
   carouselPagination,
   carouselPaginationStep,
@@ -8,7 +9,11 @@ import {
 } from "../Carousel.styles";
 import { CarouselContext } from "./";
 
-const CarouselPagination: FC<ICarouselPagination> = ({ length, ...props }) => {
+const CarouselPagination: FC<ICarouselPagination> = ({
+  length,
+  paginationType,
+  ...props
+}) => {
   const { currItem, setCurrItem } = useContext(CarouselContext);
 
   const handleClick = (index: number) => {
@@ -18,6 +23,16 @@ const CarouselPagination: FC<ICarouselPagination> = ({ length, ...props }) => {
   const indexer = Array.from({ length }, (v, i) => i);
   const renderDots = indexer.map((i: number) => {
     const isActive = currItem === i;
+    const number = getFormattedValue(i, paginationType) as string;
+
+    let paginationItem = (
+      <Box variant="block" {...carouselPaginationStep(isActive, "dots")} />
+    );
+    if (paginationType !== "dots") {
+      paginationItem = (
+        <Text text={number} {...carouselPaginationStep(isActive, "numbers")} />
+      );
+    }
 
     return (
       <Box
@@ -25,7 +40,7 @@ const CarouselPagination: FC<ICarouselPagination> = ({ length, ...props }) => {
         {...carouselPaginationStepClickArea}
         onClick={() => handleClick(i)}
       >
-        <Box variant="block" {...carouselPaginationStep(isActive)} />
+        {paginationItem}
       </Box>
     );
   });

@@ -112,9 +112,13 @@ export const carouselPagination = {
   className: "carousel-pagination",
 };
 
-export const carouselPaginationStep = (isActive: boolean) => {
+export const carouselPaginationStep = (isActive: boolean, type: string) => {
   return {
-    className: `carousel-pagination-step ${isActive ? "active" : ""}`,
+    className: `${
+      type === "dots"
+        ? "carousel-pagination-step"
+        : "carousel-pagination-number"
+    } ${isActive ? "active" : ""}`,
   };
 };
 

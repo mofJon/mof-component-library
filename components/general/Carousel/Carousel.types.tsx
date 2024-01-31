@@ -19,6 +19,7 @@ export interface CarouselProps
     directionComponent: ReactNode;
   };
   showPagination: boolean;
+  paginationType: "dots" | "numbers" | "leadingZeroNumbers" | "slider";
   align?: "left" | "center";
   crop: boolean;
 }
@@ -64,4 +65,5 @@ export interface ICarouselControls {
 
 export interface ICarouselPagination {
   length: number;
+  paginationType: CarouselProps["paginationType"];
 }
