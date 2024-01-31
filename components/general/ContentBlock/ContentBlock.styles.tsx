@@ -56,13 +56,16 @@ export const renderComponent = (component: string, data?: any) => {
         ? { text: data[component].heading }
         : data[component];
     }
-  }
 
-  if (contentSettings[contentVariant][component]) {
-    textStyles = {
-      textStyle: contentSettings[contentVariant][component].textStyle,
-      variant: contentSettings[contentVariant][component].variant,
-    };
+    if (
+      contentSettings[contentVariant] &&
+      contentSettings[contentVariant][component]
+    ) {
+      textStyles = {
+        textStyle: contentSettings[contentVariant][component].textStyle,
+        variant: contentSettings[contentVariant][component].variant,
+      };
+    }
   }
 
   return {

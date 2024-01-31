@@ -12,13 +12,15 @@ export default function useDimensions(ref?: any): any {
     screenWidth: 0,
     screenHeight: 0,
   });
-  const [refDimensions, setRefDimensions] = useState({});
-
-  if (typeof window === "undefined") return null;
+  const [refDimensions, setRefDimensions] = useState({
+    width: 0,
+    height: 0,
+  });
 
   const handleResize = () => {
     const screenWidth = window.innerWidth;
     const screenHeight = window.innerHeight;
+
     setDimensions({ screenWidth, screenHeight });
 
     if (ref && ref.current) {

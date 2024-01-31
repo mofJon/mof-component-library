@@ -14,7 +14,7 @@ export interface CarouselProps
   gap: number;
   width?: number;
   height?: number;
-  controls: {
+  controls?: {
     show?: boolean;
     directionComponent: ReactNode;
   };

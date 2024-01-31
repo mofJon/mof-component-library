@@ -19,8 +19,6 @@ export const moduleBase: any = (data: any, className: string) => {
       : "[&_.color-from-bg]:text-black",
   );
 
-  console.log(className, classes);
-
   return {
     id: data?.anchor || null,
     className: classnames(classes),

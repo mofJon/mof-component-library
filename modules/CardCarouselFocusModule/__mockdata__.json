@@ -1,0 +1,38 @@
+[
+  {
+    "image": {
+      "imageUrl": "https://qa-cms.zaha-hadid.com/media/wotgyell/adrian-cuj-o_9ymcy0bag-unsplash.jpg",
+      "alt": "zaha"
+    },
+    "preHeading": "Transport",
+    "headingTitle": "BMW Central Building",
+    "info": "<span>Leipzig, Germany</span><span>2001-2005</span><span>BMW AG</span>",
+    "description": "Description goes here lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec vestibulum eros. Curabitur ac libero malesuada, feugiat ligula quis, sodales diam. Morbi cursus mauris id bibendum commodo.",
+    "primaryCta": "View article",
+    "variant": "primary"
+  },
+  {
+    "image": {
+      "imageUrl": "https://qa-cms.zaha-hadid.com/media/2y3fbnzx/maarten-deckers-t5nxyxcf50i-unsplash.jpg",
+      "alt": "zaha"
+    },
+    "preHeading": "Transport",
+    "headingTitle": "BMW Central Building",
+    "info": "<span>Leipzig, Germany</span><span>2001-2005</span><span>BMW AG</span>",
+    "description": "Description goes here lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec vestibulum eros. Curabitur ac libero malesuada, feugiat ligula quis, sodales diam. Morbi cursus mauris id bibendum commodo.",
+    "primaryCta": "View article",
+    "variant": "primary"
+  },
+  {
+    "image": {
+      "imageUrl": "https://qa-cms.zaha-hadid.com/media/nm4aowig/zha_1.jpg",
+      "alt": "zaha"
+    },
+    "preHeading": "Transport",
+    "headingTitle": "BMW Central Building",
+    "info": "<span>Leipzig, Germany</span><span>2001-2005</span><span>BMW AG</span>",
+    "description": "Description goes here lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec vestibulum eros. Curabitur ac libero malesuada, feugiat ligula quis, sodales diam. Morbi cursus mauris id bibendum commodo.",
+    "primaryCta": "View article",
+    "variant": "primary"
+  }
+]

@@ -1,12 +1,12 @@
 {
   "name": "mof-component-library",
-  "version": "0.1.38",
+  "version": "0.1.39",
   "main": "./index.js",
   "types": "./index.d.ts",
   "scripts": {
     "dev": "bun storybook",
     "lint": "next lint",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 6006 --no-open",
     "storybook-docs": "storybook dev --docs",
     "build-storybook": "storybook build",
     "format": "prettier --write .",

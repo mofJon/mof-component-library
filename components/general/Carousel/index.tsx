@@ -31,7 +31,7 @@ export const Carousel = forwardRef(
   ) => {
     const [currItem, setCurrItem] = useState(0);
 
-    if (items.length === 0) return null;
+    if (items.length === 0 || width === 0 || height === 0) return null;
 
     const carouselWidth = width || items[0].media.width;
     const carouselHeight = height || items[0].media.height;
