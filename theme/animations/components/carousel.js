@@ -16,10 +16,24 @@ export const carouselAnimationBouncy = {
   stiffness: 200,
 };
 
-const focusTransition = {
+export const carouselAnimationSlow = {
+  type: "spring",
+  damping: 50,
+  stiffness: 100,
+};
+
+export const carouselAnimationSuperSlow = {
+  type: "spring",
+  damping: 100,
+  stiffness: 100,
+};
+
+const transitionType = {
   default: carouselAnimationDefault,
   elegant: carouselAnimationElegant,
   bouncy: carouselAnimationBouncy,
+  slow: carouselAnimationSlow,
+  superSlow: carouselAnimationSuperSlow,
 };
 
 const disableCarouselX = {
@@ -51,7 +65,7 @@ export const carouselFocusAnimation = (animStyle, isActive, offset, loop) => {
       },
     },
     transition: {
-      ...focusTransition[animStyle || "default"],
+      ...transitionType[animStyle || "default"],
       ...disableCarouselX,
     },
   };
@@ -85,7 +99,41 @@ export const carouselBookcaseAnimation = (
       },
     },
     transition: {
-      ...focusTransition[animStyle || "default"],
+      ...transitionType[animStyle || "default"],
+      ...disableCarouselX,
+    },
+  };
+};
+
+export const carouselFadeAndScaleAnimation = (
+  animStyle,
+  isActive,
+  offset,
+  loop,
+) => {
+  let xOffset = {};
+  if (loop)
+    xOffset = {
+      x: offset,
+    };
+
+  return {
+    initial: "inactive",
+    animate: isActive ? "active" : "inactive",
+    variants: {
+      inactive: {
+        ...xOffset,
+        scale: 0.85,
+        opacity: 0,
+      },
+      active: {
+        ...xOffset,
+        scale: 1,
+        opacity: 1,
+      },
+    },
+    transition: {
+      ...transitionType[animStyle || "default"],
       ...disableCarouselX,
     },
   };

@@ -5,6 +5,7 @@ import { itemHolder } from "../Carousel.styles";
 import {
   carouselFocusAnimation,
   carouselBookcaseAnimation,
+  carouselFadeAndScaleAnimation,
 } from "../../../../theme/animations";
 import { CarouselContext } from "./";
 
@@ -35,9 +36,15 @@ const CarouselItem: FC<ICarouselItem> = ({
   }
 
   const itemAnimation = {
-    primary: {},
+    primary: { initial: "inactive", animate: isActive ? "active" : "inactive" },
     focus: carouselFocusAnimation(animationStyle, isActive, offset, loop),
     bookcase: carouselBookcaseAnimation(animationStyle, isActive, offset, loop),
+    fadeInAndScale: carouselFadeAndScaleAnimation(
+      animationStyle,
+      isActive,
+      offset,
+      loop,
+    ),
   };
 
   const allProps = {

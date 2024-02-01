@@ -4,6 +4,8 @@ import {
   carouselAnimationDefault,
   carouselAnimationElegant,
   carouselAnimationBouncy,
+  carouselAnimationSlow,
+  carouselAnimationSuperSlow,
 } from "../../../theme/animations";
 
 // Carousel Variant Styles
@@ -13,6 +15,7 @@ export const carousel = cva("carousel", {
       primary: "primary",
       focus: "focus",
       bookcase: "bookcase",
+      fadeInAndScale: "fade-in-and-scale",
     },
     size: {
       sm: "sm",
@@ -64,6 +67,8 @@ export const carouselWrapper = (gap: number, animationStyle = "default") => {
     default: carouselAnimationDefault,
     elegant: carouselAnimationElegant,
     bouncy: carouselAnimationBouncy,
+    slow: carouselAnimationSlow,
+    superSlow: carouselAnimationSuperSlow,
   };
 
   return {
