@@ -74,6 +74,12 @@
   @apply text-xs tracking-tight uppercase;
 }
 
+/* quote class */
+
+.text-quote {
+  @apply text-3xl md:text-5xl tracking-tight;
+}
+
 /* utility classes */
 
 .text-link {

@@ -18,7 +18,7 @@ export const Carousel = forwardRef(
       items = [],
       loop = false,
       animationStyle = "default",
-      gap,
+      gap = 0,
       width,
       height,
       controls,
@@ -26,6 +26,7 @@ export const Carousel = forwardRef(
       paginationType = "dots",
       align = "left",
       crop = true,
+      isClickable = false,
       ...props
     }: CarouselProps,
     ref: Ref<CarouselProps>,
@@ -51,7 +52,9 @@ export const Carousel = forwardRef(
 
     return (
       <Stack {...allProps}>
-        <CarouselContext.Provider value={{ currItem, setCurrItem }}>
+        <CarouselContext.Provider
+          value={{ currItem, setCurrItem, isClickable }}
+        >
           <CarouselWrapper
             items={items}
             gap={gap}

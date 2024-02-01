@@ -9,19 +9,20 @@ export interface CarouselProps
   extends HTMLAndMotionProps,
     VariantProps<typeof carousel> {
   items: any;
-  loop: boolean;
-  animationStyle?: "default" | "elegant" | "bouncy";
-  gap: number;
+  loop?: boolean;
+  animationStyle?: "default" | "elegant" | "bouncy" | "slow" | "superSlow";
+  gap?: number;
   width?: number;
   height?: number;
   controls?: {
     show?: boolean;
     directionComponent: ReactNode;
   };
-  showPagination: boolean;
-  paginationType: "dots" | "numbers" | "leadingZeroNumbers" | "slider";
+  showPagination?: boolean;
+  paginationType?: "dots" | "numbers" | "leadingZeroNumbers" | "slider";
   align?: "left" | "center";
-  crop: boolean;
+  crop?: boolean;
+  isClickable?: boolean;
 }
 
 export type CarouselVars = (

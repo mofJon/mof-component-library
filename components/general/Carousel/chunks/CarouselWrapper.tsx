@@ -20,13 +20,13 @@ const CarouselWrapper: FC<ICarouselWrapper> = ({
   ...props
 }) => {
   const length = items.length - 1;
-  const { currItem, setCurrItem } = useContext(CarouselContext);
+  const { currItem, setCurrItem, isClickable } = useContext(CarouselContext);
   const slideWidth = dragWidth + (gap || 0);
 
   const carouselItems = loop ? [...items, ...items] : items;
 
   const handleItemClick = (index: number) => {
-    !loop && setCurrItem(index);
+    !loop && isClickable && setCurrItem(index);
   };
 
   const renderItems = carouselItems.map((val: any, i: number) => {
