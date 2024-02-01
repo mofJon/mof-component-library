@@ -27,6 +27,7 @@ export const Carousel = forwardRef(
       align = "left",
       crop = true,
       isClickable = false,
+      itemAnimationVariant = "default",
       ...props
     }: CarouselProps,
     ref: Ref<CarouselProps>,
@@ -53,7 +54,7 @@ export const Carousel = forwardRef(
     return (
       <Stack {...allProps}>
         <CarouselContext.Provider
-          value={{ currItem, setCurrItem, isClickable }}
+          value={{ currItem, setCurrItem, isClickable, itemAnimationVariant }}
         >
           <CarouselWrapper
             items={items}
