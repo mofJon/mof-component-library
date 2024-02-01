@@ -8,4 +8,5 @@ export type CardCarouselFocusModuleProps = CarouselProps & {
   slideWidth?: number;
   slideHeight?: number;
   contentVariant?: string;
+  imageSizes?: string;
 };

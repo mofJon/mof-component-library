@@ -4,6 +4,7 @@ import { buttonVars } from "./Button.styles";
 import { motion } from "framer-motion";
 import { Stack, Text } from "../../../components";
 import { containsMotionProps } from "../../../utils";
+import { useRouter } from "next/navigation";
 
 export const Button = forwardRef(
   (
@@ -15,15 +16,27 @@ export const Button = forwardRef(
       onClick,
       iconPre = null,
       iconPost = null,
+      linkType,
+      href,
+      target,
       ...props
     }: ButtonProps,
     ref: Ref<ButtonProps>,
   ) => {
+    const router = useRouter();
     if (!text) return null;
 
     const isAnimated = containsMotionProps(props); //contains framer motion props?
 
-    const handleClick = useCallback(() => onClick && onClick(), [onClick]);
+    const handleClick = useCallback(() => {
+      if (onClick) {
+        onClick();
+      }
+
+      if (href) {
+        router.push(href);
+      }
+    }, [onClick]);
 
     const allProps = {
       ...buttonVars(variant, size, className), // pass all styling defaults to decoupled styles file to future-proof modularity

@@ -22,6 +22,7 @@ const CardCarouselFocusModule: FC<CardCarouselFocusModuleProps> = ({
   slideWidth,
   slideHeight,
   contentVariant = "card",
+  imageSizes,
   ...props
 }) => {
   const ref = useRef(null);
@@ -42,6 +43,7 @@ const CardCarouselFocusModule: FC<CardCarouselFocusModuleProps> = ({
             "overlay",
             focusCard,
             "full",
+            imageSizes,
           )}
           animationStyle={animationStyle}
           crop={crop}

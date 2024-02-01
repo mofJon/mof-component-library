@@ -10,6 +10,7 @@ export const Card = forwardRef(
       className,
       variant = "primary",
       size,
+      imageSizes,
       data,
       childAnims = emptyContentBlockAnim,
       priority,
@@ -28,6 +29,7 @@ export const Card = forwardRef(
         <Media
           data={data.image}
           size={size}
+          imageSizes={imageSizes}
           {...mediaHolder(size)}
           responsive
           priority

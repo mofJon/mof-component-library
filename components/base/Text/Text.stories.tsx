@@ -143,7 +143,6 @@ export const Link: Story = {
     link: {
       text: "Click me!",
       href: "https://www.google.com",
-      linkType: "external",
       target: "_blank",
     },
   },

@@ -12,6 +12,9 @@ export interface ButtonProps
   onClick?: () => void;
   iconPre?: ReactNode | null;
   iconPost?: ReactNode | null;
+  linkType?: "internal" | "external" | "download";
+  href?: string;
+  target?: string;
 }
 
 export type ButtonVars = (

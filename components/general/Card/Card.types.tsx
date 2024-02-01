@@ -21,6 +21,7 @@ export interface CardProps
   priority?: boolean;
   contentVariant?: any;
   childAnims?: Record<string, any>;
+  imageSizes?: string;
 }
 
 export type CardVars = (

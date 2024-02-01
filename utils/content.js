@@ -93,3 +93,34 @@ export const updateNavState = (array, key, index, persistOn) => {
     }
   });
 };
+
+const findLastNotGreater = (arr, value) => {
+  let lastNotGreater = -1;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > value) {
+      break;
+    }
+    lastNotGreater = arr[i];
+  }
+
+  return lastNotGreater;
+};
+
+export const getCurrentBreakpoint = (breakpoints, width) => {
+  let currentBreakpoint = "base";
+
+  const breakpointNums = Object.values(breakpoints).map((breakpoint) =>
+    parseInt(breakpoint),
+  );
+
+  const breakpointValue = findLastNotGreater(breakpointNums, width);
+
+  if (breakpointValue > -1) {
+    currentBreakpoint = Object.keys(breakpoints).filter(
+      (key) => breakpoints[key] === `${breakpointValue}px`,
+    )[0];
+  }
+
+  return currentBreakpoint;
+};

@@ -7,7 +7,14 @@ import {
 } from "./CardCarouselGenericModule.styles";
 import { CardCarouselGenericModuleProps } from "./CardCarouselGenericModule.types";
 import { useDimensions } from "../../hooks";
-import { content } from "@/existing/tailwind.config";
+// @ts-ignore - grabs variables from the root project's tailwind config
+import twConfig from "/tailwind.config.ts";
+
+// @ts-ignore
+const { screens: breakpoints } = twConfig?.theme?.extend;
+const availBreakpoints = breakpoints
+  ? Object.keys(breakpoints)
+  : ["base", "sm", "md", "lg", "xl"];
 
 const CardCarouselGenericModule: FC<CardCarouselGenericModuleProps> = ({
   animationStyle = "default",
@@ -24,10 +31,24 @@ const CardCarouselGenericModule: FC<CardCarouselGenericModuleProps> = ({
   slideWidth,
   slideHeight,
   contentVariant = "card",
+  imageSizes,
   ...props
 }) => {
   const ref = useRef(null);
-  const { width, height } = useDimensions(ref);
+  const { width, height, breakpoint } = useDimensions(ref);
+
+  // get the number of columns to render based on the current breakpoint
+  let columnNum = columns;
+  if (typeof columns === "object") {
+    columnNum = Object.values(columns)[0];
+    for (let i = 0; i < availBreakpoints.length; i++) {
+      const val = availBreakpoints[i];
+      if (columns[val] && breakpoint !== "base") columnNum = columns[val];
+      if (val === breakpoint) {
+        break;
+      }
+    }
+  }
 
   const renderCarouselRows = data.cardRow.map((val: any, i: number) => {
     const { cards } = val.props;
@@ -44,6 +65,7 @@ const CardCarouselGenericModule: FC<CardCarouselGenericModuleProps> = ({
             "primary",
             genericCard,
             "full",
+            imageSizes,
           )}
           animationStyle={animationStyle}
           crop={crop}
@@ -55,7 +77,7 @@ const CardCarouselGenericModule: FC<CardCarouselGenericModuleProps> = ({
           paginationType={paginationType}
           loop={loop}
           gap={gap}
-          width={(slideWidth || width) / columns - gap}
+          width={(slideWidth || width) / (columnNum as number) - gap}
           height={slideHeight || height}
           {...genericCarousel}
         />

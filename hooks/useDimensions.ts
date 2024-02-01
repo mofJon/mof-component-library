@@ -1,4 +1,7 @@
 import { useState, useEffect } from "react";
+import { getCurrentBreakpoint } from "../utils";
+// @ts-ignore - grabs variables from the root project's tailwind config
+import twConfig from "/tailwind.config.ts";
 
 declare const window: {
   innerHeight: number;
@@ -6,6 +9,9 @@ declare const window: {
   addEventListener: any;
   removeEventListener: any;
 } & Window;
+
+// @ts-ignore
+const { screens: breakpoints } = twConfig?.theme?.extend;
 
 export default function useDimensions(ref?: any): any {
   const [dimensions, setDimensions] = useState({
@@ -16,12 +22,16 @@ export default function useDimensions(ref?: any): any {
     width: 0,
     height: 0,
   });
+  const [breakpoint, setBreakpoint] = useState("base");
 
   const handleResize = () => {
     const screenWidth = window.innerWidth;
     const screenHeight = window.innerHeight;
 
     setDimensions({ screenWidth, screenHeight });
+
+    const currBreakpoint = getCurrentBreakpoint(breakpoints, screenWidth);
+    setBreakpoint(currBreakpoint);
 
     if (ref && ref.current) {
       const el = ref.current;
@@ -44,7 +54,7 @@ export default function useDimensions(ref?: any): any {
     };
   }, []);
 
-  return { ...refDimensions, ...dimensions };
+  return { ...refDimensions, ...dimensions, breakpoint };
 }
 
 const domRectToObject = (rect: any) => {

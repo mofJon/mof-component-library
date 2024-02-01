@@ -8,6 +8,7 @@ export const CardItems = (
   variant = "primary",
   cardStyle: any,
   size = "full",
+  imageSizes,
 ) => {
   return data.map((val: any, i: number) => {
     return (
@@ -16,6 +17,7 @@ export const CardItems = (
         data={val.props}
         variant={variant}
         size={size}
+        imageSizes={imageSizes}
         contentVariant={contentVariant}
         childAnims={childAnims}
         priority

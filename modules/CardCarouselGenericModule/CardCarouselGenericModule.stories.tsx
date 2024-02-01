@@ -30,7 +30,7 @@ export const CardCarouselGeneric: Story = {
     directionComponent: <Arrow />,
     paginationType: "leadingZeroNumbers",
     showPagination: true,
-    columns: 3,
+    columns: { sm: 1, md: 3 },
     gap: 5,
   },
 };
