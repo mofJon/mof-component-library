@@ -3,5 +3,7 @@ export interface MediaProps {
   imageSizes?: string;
   responsive?: boolean;
   priority?: boolean;
+  align?: "left" | "right" | "center" | null;
+  orientation?: "portrait" | "landscape" | null;
   size?: "sm" | "md" | "lg" | "full" | null;
 }

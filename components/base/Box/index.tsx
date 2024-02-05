@@ -7,7 +7,7 @@ import { containsMotionProps } from "../../../utils";
 export const Box = forwardRef(
   (
     { className, variant = "flex", bgSrc, ...props }: BoxProps,
-    ref: Ref<BoxProps>,
+    ref: Ref<any>,
   ) => {
     const isAnimated = containsMotionProps(props); //contains framer motion props?
     const allProps = {

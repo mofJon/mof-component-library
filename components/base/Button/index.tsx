@@ -21,7 +21,7 @@ export const Button = forwardRef(
       target,
       ...props
     }: ButtonProps,
-    ref: Ref<ButtonProps>,
+    ref: Ref<any>,
   ) => {
     const router = useRouter();
     if (!text) return null;

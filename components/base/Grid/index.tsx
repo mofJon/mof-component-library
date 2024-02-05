@@ -5,10 +5,7 @@ import { motion } from "framer-motion";
 import { containsMotionProps } from "../../../utils";
 
 export const Grid = forwardRef(
-  (
-    { className, rows, cols, gap, ...props }: GridProps,
-    ref: Ref<GridProps>,
-  ) => {
+  ({ className, rows, cols, gap, ...props }: GridProps, ref: Ref<any>) => {
     const isAnimated = containsMotionProps(props); //contains framer motion props?
     const allProps = {
       ...gridVars(rows, cols, gap, className), // pass all styling defaults to decoupled styles file to future-proof modularity

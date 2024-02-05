@@ -13,7 +13,7 @@ export const Stack = forwardRef(
       gap,
       ...props
     }: StackProps,
-    ref: Ref<StackProps>,
+    ref: Ref<any>,
   ) => {
     const isAnimated = containsMotionProps(props); //contains framer motion props?
     const allProps = {

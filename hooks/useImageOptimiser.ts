@@ -9,9 +9,9 @@ export default function useImageOptimiser(
   propWidth: number,
   propHeight: number,
   responsive: boolean,
-  sizes: string,
+  sizes?: string,
   ref?: any,
-) {
+): any {
   const dimensions = useDimensions(ref);
   const dpr = useDevicePixelRatio();
   const quality = dprQuality[dpr - 1];

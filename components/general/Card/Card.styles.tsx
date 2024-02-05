@@ -6,6 +6,7 @@ export const card = cva("card", {
   variants: {
     variant: {
       primary: "primary",
+      secondary: "secondary",
       overlay: "overlay",
     },
     size: {
@@ -38,6 +39,12 @@ export const cardVars: CardVars = (variant, size, classes) => {
 export const mediaHolder = (size: any) => {
   return {
     className: `card-media-holder ${size}`,
+  };
+};
+
+export const backgroundMediaHolder = (size: any) => {
+  return {
+    className: `card-bg-media-holder ${size}`,
   };
 };
 

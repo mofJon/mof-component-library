@@ -1,4 +1,4 @@
-import { forwardRef, Ref, useEffect, useRef, useState } from "react";
+import { forwardRef, Ref, useRef } from "react";
 import { Box } from "../../../components";
 import NextImage from "next/image";
 import { ImageProps } from "./Image.types";
@@ -19,7 +19,7 @@ export const Image = forwardRef(
       sizes,
       ...props
     }: ImageProps,
-    ref: Ref<ImageProps>,
+    ref: Ref<any>,
   ): any => {
     const imageRef = useRef<any>();
     const isAnimated = containsMotionProps(props);
@@ -33,7 +33,10 @@ export const Image = forwardRef(
     );
 
     // work out parent dimensions
-    if (optimiserProps.width === 0 || !optimiserProps.src) {
+    if (
+      (optimiserProps.width && optimiserProps.width === 0) ||
+      !optimiserProps.src
+    ) {
       return <Box {...spacer} ref={imageRef} />;
     }
 
