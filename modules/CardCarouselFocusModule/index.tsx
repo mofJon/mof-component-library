@@ -23,6 +23,7 @@ const CardCarouselFocusModule: FC<CardCarouselFocusModuleProps> = ({
   slideHeight,
   contentVariant = "card",
   imageSizes,
+  itemAnimationVariant = "none",
   ...props
 }) => {
   const ref = useRef(null);
@@ -57,6 +58,7 @@ const CardCarouselFocusModule: FC<CardCarouselFocusModuleProps> = ({
           gap={gap}
           width={slideWidth || width}
           height={slideHeight || height}
+          itemAnimationVariant={itemAnimationVariant}
           {...focusCarousel}
         />
       </Box>

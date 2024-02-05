@@ -11,7 +11,7 @@ import { CarouselContext } from "./";
 
 const CarouselPagination: FC<ICarouselPagination> = ({
   length,
-  paginationType,
+  paginationType = "dots",
   ...props
 }) => {
   const { currItem, setCurrItem } = useContext(CarouselContext);

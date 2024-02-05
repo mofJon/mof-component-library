@@ -22,7 +22,7 @@ const CarouselItem: FC<ICarouselItem> = ({
   variant,
   ...props
 }) => {
-  const { currItem } = useContext(CarouselContext);
+  const { currItem, itemAnimationVariant } = useContext(CarouselContext);
   let isActive = currItem === index;
 
   if (loop) {
@@ -45,6 +45,7 @@ const CarouselItem: FC<ICarouselItem> = ({
       offset,
       loop,
     ),
+    none: {},
   };
 
   const allProps = {
@@ -52,7 +53,7 @@ const CarouselItem: FC<ICarouselItem> = ({
     ...props,
     bgSrc: typeof item === "string" ? item : "",
     // @ts-ignore
-    ...itemAnimation[variant],
+    ...itemAnimation[itemAnimationVariant],
   };
 
   return <Box {...allProps}>{item.type ? item : null}</Box>;

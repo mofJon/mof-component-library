@@ -23,6 +23,13 @@ export interface CarouselProps
   align?: "left" | "center";
   crop?: boolean;
   isClickable?: boolean;
+  itemAnimationVariant?:
+    | "default"
+    | "elegant"
+    | "bouncy"
+    | "slow"
+    | "superSlow"
+    | "none";
 }
 
 export type CarouselVars = (
