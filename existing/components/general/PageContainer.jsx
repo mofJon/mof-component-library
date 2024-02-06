@@ -1,13 +1,13 @@
-import { useEffect, useRef, useState } from 'react';
-import classnames from 'classnames';
-import { gsap } from 'gsap/dist/gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { ScrollSmoother } from 'gsap/dist/ScrollSmoother';
-import { useSelector } from 'react-redux';
-import { selectIsRobot } from 'store/index';
-import { useRouter } from 'next/router';
-import SmootherContext from './SmootherContext';
-import { useLayoutEffect, loadLazyImage } from 'utils';
+import { useEffect, useRef, useState } from "react";
+import classnames from "classnames";
+import { gsap } from "gsap/dist/gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { ScrollSmoother } from "gsap/dist/ScrollSmoother";
+import { useSelector } from "react-redux";
+import { selectIsRobot } from "store/index";
+import { useRouter } from "next/navigation";
+import SmootherContext from "./SmootherContext";
+import { useLayoutEffect, loadLazyImage } from "utils";
 
 const PageContainer = ({ className, ...props }) => {
   const wrapper = useRef();
@@ -18,7 +18,7 @@ const PageContainer = ({ className, ...props }) => {
   const isRobot = useSelector(selectIsRobot);
 
   useEffect(() => {
-    router.events.on('routeChangeComplete', (url, { shallow }) => {
+    router.events.on("routeChangeComplete", (url, { shallow }) => {
       if (!shallow) {
         scrollSmoother?.scrollTop(0);
       }
@@ -51,7 +51,7 @@ const PageContainer = ({ className, ...props }) => {
   // load lazy images
   const loadLazyImagesChunk = () => {
     if (!isRobot) {
-      const elList = document.querySelectorAll('.lazy-image:not(.lazy-loaded)');
+      const elList = document.querySelectorAll(".lazy-image:not(.lazy-loaded)");
 
       if (elList && elList.length > 0) {
         let imgEl = null;
@@ -59,16 +59,18 @@ const PageContainer = ({ className, ...props }) => {
           loadLazyImage(elList[i]);
           if (elList[i] && i === 4) {
             const media =
-              elList[i].children && elList[i].children.length > 0 ? [...elList[i].children, elList[i]] : [elList[i]];
+              elList[i].children && elList[i].children.length > 0
+                ? [...elList[i].children, elList[i]]
+                : [elList[i]];
 
-            imgEl = media.find((cEl) => cEl.tagName.toLowerCase() === 'img');
+            imgEl = media.find((cEl) => cEl.tagName.toLowerCase() === "img");
           }
         }
         if (imgEl) {
           if (imgEl.complete) {
             loadLazyImagesChunk();
           } else {
-            imgEl.addEventListener('load', () => {
+            imgEl.addEventListener("load", () => {
               loadLazyImagesChunk();
             });
           }
@@ -84,7 +86,14 @@ const PageContainer = ({ className, ...props }) => {
   return (
     <SmootherContext.Provider value={scrollSmoother}>
       <div ref={wrapper}>
-        <div className={classnames('page-container will-change-transform', className)} {...props} ref={content} />
+        <div
+          className={classnames(
+            "page-container will-change-transform",
+            className,
+          )}
+          {...props}
+          ref={content}
+        />
       </div>
     </SmootherContext.Provider>
   );

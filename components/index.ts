@@ -17,6 +17,11 @@ export * from "./general/Media";
 export { default as ModuleBase } from "./general/ModuleBase";
 export * from "./general/Nav";
 
+// search components
+export { default as DropdownFilter } from "./search/DropdownFilter";
+export { default as Pagination } from "./search/Pagination";
+export { default as SearchFilters } from "./search/SearchFilters";
+
 //  base types
 export * from "./base/Box/Box.types";
 export * from "./base/Button/Button.types";

@@ -16,7 +16,7 @@
      hover:bg-transparent hover:text-primary 
      hover:border hover:border-primary 
     active:bg-primary active:text-black 
-    disabled:bg-grey5 disabled:text-white;
+     disabled:text-white;
 }
 
 /* secondary button */
@@ -24,7 +24,7 @@
   @apply border border-white duration-200 [&_svg]:stroke-black text-white
     hover:bg-primary hover:brightness-150 hover:border-transparent 
     active:bg-primary active:text-white 
-    disabled:bg-grey5 disabled:text-white disabled:border-grey5 [&_svg]:disabled:stroke-white;
+     disabled:text-white  [&_svg]:disabled:stroke-white;
 }
 
 /* button modifiers */
@@ -53,45 +53,39 @@
 
 /* text button */
 .button.text {
-  @apply duration-200 [&_svg]:stroke-black 
-    hover:bg-grey6 
-    active:bg-grey3 active:text-white 
+  @apply duration-200 [&_svg]:stroke-black  active:text-white 
     disabled:opacity-25;
 }
 
 /* link button */
 .button.link {
   @apply relative px-0 pb-0 duration-200 [&_svg]:stroke-black [&_svg]:duration-200
-    hover:text-grey3 [&_svg]:hover:stroke-grey3 
+
     active:opacity-25 
     disabled:opacity-25;
 }
 
 .button.link::after {
-  @apply absolute content-[''] w-full h-[1px] bottom-[1px] left-0 bg-black hover:bg-grey3;
+  @apply absolute content-[''] w-full h-[1px] bottom-[1px] left-0 bg-black;
 }
 
 .button.link:hover::after {
-  @apply bg-grey3 duration-200;
+  @apply duration-200;
 }
 
 .button.link:active::after {
   @apply opacity-25 duration-200;
 }
 
-/* .button.link:hover svg {
-  @apply stroke-grey3 duration-200;
-} */
-
 /* action buttons */
 /* circle */
 .button.primary.circle {
-  @apply hover:bg-grey3 active:opacity-10 active:border-none;
+  @apply active:opacity-10 active:border-none;
 }
 
 .button.secondary.circle {
   @apply hover:bg-black 
-    active:bg-white active:border-grey4 
+    active:bg-white 
     disabled:hover:bg-white disabled:hover:border-black;
 }
 
@@ -101,10 +95,6 @@
 
 .button.secondary.circle:hover:disabled svg {
   @apply stroke-black;
-}
-
-.button.secondary.circle:active svg {
-  @apply stroke-grey4;
 }
 
 .button .stack {

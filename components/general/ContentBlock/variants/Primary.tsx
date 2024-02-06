@@ -23,7 +23,7 @@ const PrimaryContentBlock: FC<ContentBlockContentProps> = ({
       <Stack direction="row" {...renderComponent("preContent")}>
         <Text {...renderComponent("tag", data)} />
         <Text {...renderComponent("preHeading", data)} />
-        <Text {...renderComponent("info", data)} />
+        <Text {...renderComponent("infoTags", data)} />
       </Stack>
       <Text {...renderComponent("headingTitle", data)} />
       <Text {...renderComponent("subheading", data)} />

@@ -1,0 +1,9 @@
+.card-listing {
+  .card-holder {
+    @apply grid grid-cols-4 gap-2 max-w-full;
+
+    .card {
+      @apply p-4 grid grid-rows-2;
+    }
+  }
+}
