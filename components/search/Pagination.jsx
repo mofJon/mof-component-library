@@ -1,16 +1,22 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { pushValuesToRouteQuery, assignValuesFromRouteQuery } from 'utils';
-import { useRouter } from 'next/router';
-import { useTranslation } from 'next-i18next';
-import classNames from 'classnames';
-import ArrowUp from 'assets/arrowUp.svg';
+import React, { useState, useEffect, useRef } from "react";
+import { pushValuesToRouteQuery, assignValuesFromRouteQuery } from "utils";
+import { useRouter } from "next/navigation";
+import { useTranslation } from "next-i18next";
+import classNames from "classnames";
+import ArrowUp from "assets/icons/arrowUp.svg";
 
-const Pagination = ({ pageSize, totalCount, onChange, queryMode, ...props }) => {
+const Pagination = ({
+  pageSize,
+  totalCount,
+  onChange,
+  queryMode,
+  ...props
+}) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [btns, setBtns] = useState([]);
   const totalPages = useRef(1);
   const router = useRouter();
-  const { t } = useTranslation('common');
+  const { t } = useTranslation("common");
 
   useEffect(() => {
     const pageObj = { page: 1 };
@@ -30,7 +36,8 @@ const Pagination = ({ pageSize, totalCount, onChange, queryMode, ...props }) => 
           currentPage - 1 === page ||
           currentPage + 1 === page ||
           (page === 2 && currentPage === 4) ||
-          (page === totalPages.current && currentPage === totalPages.current - 2) ||
+          (page === totalPages.current &&
+            currentPage === totalPages.current - 2) ||
           (currentPage < 4 && totalPages.current > 3 && page < 4) ||
           (currentPage === totalPages.current && page === currentPage - 2)
         ) {
@@ -39,7 +46,7 @@ const Pagination = ({ pageSize, totalCount, onChange, queryMode, ...props }) => 
           (page === 2 && currentPage > 3) ||
           (page !== 2 && page === totalPages.current && totalPages.current > 3)
         ) {
-          newBtns.push({ label: '...', value: page });
+          newBtns.push({ label: "...", value: page });
         }
       } else {
         newBtns.push({ label: page, value: page });
@@ -74,11 +81,11 @@ const Pagination = ({ pageSize, totalCount, onChange, queryMode, ...props }) => 
       {btns.map((btn) => (
         <button
           className={classNames(
-            'hidden md:block btn text small m-3 px-6 w-auto',
-            currentPage === btn.value && 'bg-grey3 text-white',
+            "hidden md:block btn text small m-3 px-6 w-auto",
+            currentPage === btn.value && "bg-grey3 text-white",
           )}
           key={btn.value}
-          disabled={btn.label === '...'}
+          disabled={btn.label === "..."}
           onClick={() => setPage(btn.value)}
         >
           {btn.label} {currentPage === btn.value}
@@ -86,7 +93,10 @@ const Pagination = ({ pageSize, totalCount, onChange, queryMode, ...props }) => 
       ))}
 
       <div className="md:hidden text-subheading mx-5">
-        {t('general.$pagination', { currentPage, totalPages: totalPages.current })}
+        {t("general.$pagination", {
+          currentPage,
+          totalPages: totalPages.current,
+        })}
       </div>
 
       <button

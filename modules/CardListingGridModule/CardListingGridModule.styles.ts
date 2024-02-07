@@ -1,11 +1,9 @@
-export const focusCard = {
-  className: "focus-card",
-};
+import classNames from "classnames";
 
-export const focusCarousel = {
-  className: "focus-carousel",
-};
+export const moduleWrapper = (props: any) => ({
+  className: classNames(["card-listing", props.className]),
+});
 
-export const focusContainer = {
-  className: "focus-container",
+export const cardHolder = {
+  className: "card-holder",
 };

@@ -1,6 +1,11 @@
 import { forwardRef, Ref } from "react";
 import { CardProps } from "./Card.types";
-import { cardContent, cardVars, mediaHolder } from "./Card.styles";
+import {
+  backgroundMediaHolder,
+  cardContent,
+  cardVars,
+  mediaHolder,
+} from "./Card.styles";
 import { ContentBlock, Grid, Media } from "../../../components";
 import { emptyContentBlockAnim } from "../../../theme/animations";
 
@@ -31,6 +36,18 @@ export const Card = forwardRef(
           size={size}
           imageSizes={imageSizes}
           {...mediaHolder(size)}
+          responsive
+          priority
+          align={data.mediaAlignment && data.mediaAlignment.toLowerCase()}
+          orientation={
+            data.mediaOrientation && data.mediaOrientation.toLowerCase()
+          }
+        />
+        <Media
+          data={data.backgroundImage}
+          size={size}
+          imageSizes={imageSizes}
+          {...backgroundMediaHolder}
           responsive
           priority
         />
