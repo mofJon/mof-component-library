@@ -41,6 +41,10 @@ export const mediaHolder = (size: any) => {
   };
 };
 
+export const backgroundMediaHolder = {
+  className: "card-bg-media-holder",
+};
+
 export const cardContent = (size: any) => {
   return {
     className: `card-content ${size}`,

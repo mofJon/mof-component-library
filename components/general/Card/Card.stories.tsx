@@ -18,7 +18,6 @@ const data: CardProps["data"] = {
   description:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec vestibulum eros. Curabitur ac libero malesuada, feugiat ligula quis, sodales diam. <br/><br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec vestibulum eros. Curabitur ac libero malesuada, feugiat ligula quis, sodales diam. ",
   primaryCta: "View article",
-  variant: "primary",
 };
 
 const meta: Meta<typeof Card> = {

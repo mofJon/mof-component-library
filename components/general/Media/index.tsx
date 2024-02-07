@@ -13,6 +13,8 @@ export const Media = forwardRef(
       imageSizes,
       responsive = false,
       priority = false,
+      align,
+      orientation,
       ...props
     }: MediaProps,
     ref: Ref<MediaProps>,
@@ -26,7 +28,7 @@ export const Media = forwardRef(
     const hasImageSizes = imageSizes ? { sizes: imageSizes } : {};
 
     return (
-      <Box {...props} {...mediaHolder(size)}>
+      <Box {...props} {...mediaHolder(size, align, orientation)}>
         {variant === "image" && (
           <Image
             {...hasImageSizes}
