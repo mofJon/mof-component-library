@@ -57,14 +57,37 @@ export const splitArrayIntoChunks = (arr, chunkSize) => {
   );
 };
 
-export const remapNavData = (data, state = true, level = 0) => {
+const renameKeys = async (data) => {
+  const newArray = [];
+
+  for (const navItem of data) {
+    const newNavItem = {
+      navLink: navItem.navItemLink?.href || navItem.ctaLink?.href,
+      navText: navItem.navItemText || navItem.navigationalTitle,
+    };
+
+    if (navItem.flyout && navItem.flyout.length > 0) {
+      newNavItem.navItems = []; // await renameKeys(navItem.flyout);
+    } else {
+      newNavItem.navItems = [];
+    }
+
+    newArray.push(newNavItem);
+  }
+
+  return newArray;
+};
+
+export const remapNavData = async (data, state = true, level = 0) => {
   const newContent = {
     isVisible: state,
     isActive: false,
     navStyle: level === 0 ? "main-nav" : "sub-nav",
   };
 
-  return data.map((item, index) => {
+  const remappedData = data[0].flyout !== null ? await renameKeys(data) : data;
+
+  return remappedData.map((item, index) => {
     const newItem = { ...item, ...newContent, level, index };
 
     if (item.navItems.length > 0) {

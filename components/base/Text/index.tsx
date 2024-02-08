@@ -1,4 +1,4 @@
-import { createElement, forwardRef, Ref } from "react";
+import { createElement, forwardRef, Ref, useEffect, useState } from "react";
 import { TextProps } from "./Text.types";
 import { textVars } from "./Text.styles";
 import DOMPurify from "isomorphic-dompurify";
@@ -23,9 +23,15 @@ export const Text = forwardRef(
     }: TextProps,
     ref: Ref<TextProps>,
   ) => {
+    const [clientReady, setClientReady] = useState<boolean>(false);
+
     const isAnimated = containsMotionProps(props); //contains framer motion props?
 
-    if (!text && !link.text) return null;
+    useEffect(() => {
+      setClientReady(true);
+    }, []);
+
+    if ((!text && !link.text) || !clientReady) return null;
 
     // HTML string - unwanted tags stripping
     const currentText = link?.text || (text as string);
@@ -42,10 +48,11 @@ export const Text = forwardRef(
     }
 
     const isLink: boolean = !!link.text;
+    const linkProps = isLink ? link : {};
 
     const allProps = {
       ...textVars(variant, textStyle, isLink, className), // pass all styling defaults to decoupled styles file to future-proof modularity
-      ...link,
+      ...linkProps,
       ...props, // pass down remaining props
       dangerouslySetInnerHTML: { __html: cleanedText },
     };

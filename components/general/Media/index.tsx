@@ -1,4 +1,4 @@
-import { createElement, forwardRef, Ref } from "react";
+import { forwardRef, Ref } from "react";
 import { MediaProps } from "./Media.types";
 import { mediaHolder } from "./Media.styles";
 import { Box, Image, Video } from "../../../components";
@@ -33,10 +33,10 @@ export const Media = forwardRef(
       />
     );
     if (data.isVideo) {
-      variant = <Video {...props} videoId={data.videoId} />;
+      variant = <Video {...props} videoId={data.imageUrl} />;
     }
     if (data.isSvg && data.svg) {
-      const SVG = require(data.svg).current;
+      const SVG = require(data.imageUrl).current;
       variant = SVG || null;
     }
 

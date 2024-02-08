@@ -1,3 +1,4 @@
+"use client";
 //  base components
 export * from "./base/Box";
 export * from "./base/Button";
