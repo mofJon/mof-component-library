@@ -12,10 +12,14 @@ export * from "./base/Text";
 export * from "./general/ButtonGroup";
 export * from "./general/Card";
 export * from "./general/Carousel";
+export { default as CMSModule } from "./general/CMSModule";
 export * from "./general/ContentBlock";
+export { default as Custom500 } from "./general/Custom500";
 export * from "./general/Media";
+export { default as MetaData } from "./general/MetaData";
 export { default as ModuleBase } from "./general/ModuleBase";
 export * from "./general/Nav";
+export { default as ShowJSON } from "./general/ShowJSON";
 
 // search components
 export { default as DropdownFilter } from "./search/DropdownFilter";

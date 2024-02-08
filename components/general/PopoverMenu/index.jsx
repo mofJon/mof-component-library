@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import ArrowForward from "assets/icons/arrowForward.svg";
+import ArrowForward from "../../../assets/icons/chevron.svg";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
