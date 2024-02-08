@@ -9,11 +9,15 @@ import {
 } from "./BreadcrumbsModule.style";
 
 const BreadcrumbsModule: FC<any> = ({ data }) => {
+  if (!data) return null;
+
+  console.log(data);
+
   return (
     <ModuleBase data={data}>
       <Box variant="container">
         <Stack {...breadcrumbs}>
-          {data.props.crumbs.map((crumb: any, index: number) =>
+          {data.crumbs.map((crumb: any, index: number) =>
             crumb.href ? (
               <Stack key={`breadcrumb-${index}`} {...breadcrumbsItemWrapper}>
                 <Text link={crumb} {...breadcrumbsItem} />

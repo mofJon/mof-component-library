@@ -1,32 +1,28 @@
 {
-  "moduleName": "BreadcrumbsModel",
-  "moduleId": "92886fd6-4224-4f43-9ac2-48803a870b3a",
-  "props": {
-    "crumbs": [
-      {
-        "text": "Home",
-        "href": "/",
-        "linkType": "Content",
-        "target": null
-      },
-      {
-        "text": "Breadcrumb level 02",
-        "href": "/breadcrumb2",
-        "linkType": "Content",
-        "target": null
-      },
-      {
-        "text": "Breadcrumb level 03",
-        "href": "/breadcrumb2/breadcrumb3",
-        "linkType": "Content",
-        "target": null
-      },
-      {
-        "text": "Current page",
-        "href": null,
-        "linkType": "Content",
-        "target": null
-      }
-    ]
-  }
+  "crumbs": [
+    {
+      "text": "Home",
+      "href": "/",
+      "linkType": "Content",
+      "target": null
+    },
+    {
+      "text": "Breadcrumb level 02",
+      "href": "/breadcrumb2",
+      "linkType": "Content",
+      "target": null
+    },
+    {
+      "text": "Breadcrumb level 03",
+      "href": "/breadcrumb2/breadcrumb3",
+      "linkType": "Content",
+      "target": null
+    },
+    {
+      "text": "Current page",
+      "href": null,
+      "linkType": "Content",
+      "target": null
+    }
+  ]
 }

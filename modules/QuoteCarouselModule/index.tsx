@@ -19,9 +19,10 @@ const QuoteCarouselModule: FC<QuoteCarouselModuleProps> = ({
 }) => {
   const ref = useRef(null);
   const { width, height } = useDimensions(ref);
-  const { quotes } = data.props;
 
-  const renderQuotes = quotes.map((val: any, i: number) => {
+  if (!data) return null;
+
+  const renderQuotes = data.quotes.map((val: any, i: number) => {
     return (
       <Stack key={`quoteCarousel${i}`} {...styles.quoteSlide}>
         <Stack {...styles.quoteMainWrapper}>
