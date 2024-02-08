@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Card, Carousel, Image } from "../../../components";
+// @ts-ignore
 import Arrow from "../../../assets/icons/chevron.svg";
 
 const urls: any = [

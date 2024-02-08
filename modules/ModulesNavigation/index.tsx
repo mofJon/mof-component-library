@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { FC, useState, useEffect } from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { Link } from "components";
 import classNames from "classnames";
 import ArrowForward from "../../../assets/icons/arrowForward.svg";

@@ -1,11 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import DropdownFilter from './DropdownFilter';
-import { pushValuesToRouteQuery, cleanQueryData, assignValuesFromRouteQuery } from 'utils';
-import { useRouter } from 'next/router';
+import React, { useState, useEffect } from "react";
+import DropdownFilter from "./DropdownFilter";
+import {
+  pushValuesToRouteQuery,
+  cleanQueryData,
+  assignValuesFromRouteQuery,
+} from "utils";
+import { useRouter } from "next/navigation";
 
 const SearchFilters = ({ filters, onChange, queryMode, ...props }) => {
   const [filterValues, setFilterValues] = useState();
   const router = useRouter();
+
+  console.log(router);
 
   useEffect(() => {
     if (filters) {
@@ -13,7 +19,7 @@ const SearchFilters = ({ filters, onChange, queryMode, ...props }) => {
       if (!filterValues) {
         filters.forEach((element) => {
           console.log(element);
-          newFilterValues['alma'] = [];
+          newFilterValues["alma"] = [];
         });
       }
       assignValuesFromRouteQuery(router, newFilterValues);
@@ -48,7 +54,7 @@ const SearchFilters = ({ filters, onChange, queryMode, ...props }) => {
           <div key={index}>
             <DropdownFilter
               className="input dropdown w-60"
-              value={filterValues['alma']}
+              value={filterValues["alma"]}
               filter={filter}
               onChange={_onChange}
             />

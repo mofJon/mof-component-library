@@ -17,22 +17,27 @@ export * from "./general/Media";
 export { default as ModuleBase } from "./general/ModuleBase";
 export * from "./general/Nav";
 
+// search components
+export { default as DropdownFilter } from "./search/DropdownFilter";
+export { default as Pagination } from "./search/Pagination";
+export { default as SearchFilters } from "./search/SearchFilters";
+
 //  base types
-export * from "./base/Box/Box.types";
-export * from "./base/Button/Button.types";
-export * from "./base/Grid/Grid.types";
-export * from "./base/Image/Image.types";
-export * from "./base/Stack/Stack.types";
-export * from "./base/Text/Text.types";
+export type { BoxProps } from "./base/Box/Box.types";
+export type { ButtonProps } from "./base/Button/Button.types";
+export type { GridProps } from "./base/Grid/Grid.types";
+export type { ImageProps } from "./base/Image/Image.types";
+export type { StackProps } from "./base/Stack/Stack.types";
+export type { TextProps } from "./base/Text/Text.types";
 
 //  general types
-export * from "./general/ButtonGroup/ButtonGroup.types";
-export * from "./general/Card/Card.types";
-export * from "./general/Carousel/Carousel.types";
-export * from "./general/ContentBlock/ContentBlock.types";
-export * from "./general/Media/Media.types";
-export * from "./general/ModuleBase/ModuleBase.types";
-export * from "./general/Nav/Nav.types";
+export type { ButtonGroupProps } from "./general/ButtonGroup/ButtonGroup.types";
+export type { CardProps } from "./general/Card/Card.types";
+export type { CarouselProps } from "./general/Carousel/Carousel.types";
+export type { ContentBlockProps } from "./general/ContentBlock/ContentBlock.types";
+export type { MediaProps } from "./general/Media/Media.types";
+export type { ModuleBaseProps } from "./general/ModuleBase/ModuleBase.types";
+export type { NavProps } from "./general/Nav/Nav.types";
 
 // shared components
 export * from "./shared/CardItems";

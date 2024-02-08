@@ -1,5 +1,5 @@
 import { useTranslation } from "next-i18next";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { ResponsiveImage, Link, FormControl } from "../../../components";
 import classNames from "classnames";
 import React, { useState, useEffect } from "react";

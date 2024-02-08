@@ -50,6 +50,11 @@ export const renderComponent = (component: string, data?: any) => {
   if (data && data[component]) {
     if (typeof data[component] === "string") {
       textProps = { text: data[component] };
+    } else if (data[component].isArray) {
+      const tagsArray = data[component].map((text: any, i: number) => (
+        <span key={`infoTag${i}`}>{text}</span>
+      ));
+      textProps = { text: tagsArray };
     } else {
       // data[component] is an object. either from the backend...or to define buttons
       textProps = data[component]?.heading

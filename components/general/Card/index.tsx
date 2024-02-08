@@ -47,7 +47,7 @@ export const Card = forwardRef(
           data={data.backgroundImage}
           size={size}
           imageSizes={imageSizes}
-          {...backgroundMediaHolder(size)}
+          {...backgroundMediaHolder}
           responsive
           priority
         />

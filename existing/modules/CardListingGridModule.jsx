@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { useRouter } from 'next/router';
-import { useSelector } from 'react-redux';
-import { ModuleBase, SearchFilters, Pagination, EntityCard } from 'components';
-import { getSearchFilters } from 'utils';
-import { selectPageId } from '../store/index';
+import React, { useState, useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
+import { useSelector } from "react-redux";
+import { ModuleBase, SearchFilters, Pagination, EntityCard } from "components";
+import { getSearchFilters } from "utils";
+import { selectPageId } from "../store/index";
 
 const CardListingGridModule = ({ data }) => {
   const [loading, setLoading] = useState(false);
@@ -15,11 +15,20 @@ const CardListingGridModule = ({ data }) => {
   const pageId = useSelector(selectPageId);
 
   useEffect(() => {
-    let newFilters = { filters: getSearchFilters(router), page: Number(router.query.page || 1) };
-    if (data?.filtersAndCards?.cards && JSON.stringify(newFilters) === JSON.stringify(queryData.current)) {
+    let newFilters = {
+      filters: getSearchFilters(router),
+      page: Number(router.query.page || 1),
+    };
+    if (
+      data?.filtersAndCards?.cards &&
+      JSON.stringify(newFilters) === JSON.stringify(queryData.current)
+    ) {
       setCards(data.filtersAndCards.cards);
       setTotalCount(data.filtersAndCards.totalCount);
-    } else if (JSON.stringify(newFilters) !== JSON.stringify(queryData.current) && pageId) {
+    } else if (
+      JSON.stringify(newFilters) !== JSON.stringify(queryData.current) &&
+      pageId
+    ) {
       queryData.current = newFilters;
       getData();
     }
@@ -27,8 +36,14 @@ const CardListingGridModule = ({ data }) => {
   }, [pageId, data]);
 
   useEffect(() => {
-    let newFilters = { filters: getSearchFilters(router), page: Number(router.query.page || 1) };
-    if (JSON.stringify(newFilters) !== JSON.stringify(queryData.current) && pageId) {
+    let newFilters = {
+      filters: getSearchFilters(router),
+      page: Number(router.query.page || 1),
+    };
+    if (
+      JSON.stringify(newFilters) !== JSON.stringify(queryData.current) &&
+      pageId
+    ) {
       queryData.current = newFilters;
       getData();
     }
@@ -46,7 +61,10 @@ const CardListingGridModule = ({ data }) => {
     const reqData = {
       PageId: pageId,
       //Filters: filters.current.filters,
-      Filters: queryData.current.filters.map((item) => ({ FieldName: 'tag', FieldGuids: item.FieldGuids })),
+      Filters: queryData.current.filters.map((item) => ({
+        FieldName: "tag",
+        FieldGuids: item.FieldGuids,
+      })),
       PageSize: data.filtersAndCards.pageSize,
       PageNumber: queryData.current.page,
       CardsType: data.filtersAndCards.cardType,
@@ -54,7 +72,7 @@ const CardListingGridModule = ({ data }) => {
     };
 
     const dataRes = await fetch(`/api/umbraco/api/ProductCard/GetCards`, {
-      method: 'POST',
+      method: "POST",
       signal: fetchController.current?.signal,
       body: JSON.stringify(reqData),
     }).catch(console.error);
@@ -82,7 +100,11 @@ const CardListingGridModule = ({ data }) => {
           />
         ))}
 
-        <Pagination totalCount={totalCount} pageSize={data.filtersAndCards.pageSize} queryMode />
+        <Pagination
+          totalCount={totalCount}
+          pageSize={data.filtersAndCards.pageSize}
+          queryMode
+        />
       </div>
     </ModuleBase>
   );
