@@ -1,6 +1,10 @@
+// components
 export * from "./components/carousel";
 export * from "./components/contentBlock";
 export * from "./components/nav";
+
+// modules
+export * from "./modules/CardListingGridModule";
 
 // default presets
 

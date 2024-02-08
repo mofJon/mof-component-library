@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { cardListingAnims, cardListingHolderAnims } from "./theme/animations";
 
 const config: Config = {
   content: [
@@ -252,6 +253,13 @@ const config: Config = {
           md: "(max-width: 1000px) 80vw, 90vw",
           lg: "(max-width: 800px) 60vw, 30vw",
           full: "100vw",
+        },
+      },
+      modules: {
+        CardListingGrid: {
+          animated: true,
+          cardAnims: cardListingAnims,
+          cardHolderAnims: cardListingHolderAnims,
         },
       },
     },
