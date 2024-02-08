@@ -1,7 +1,7 @@
-import { forwardRef, Ref } from "react";
+import { createElement, forwardRef, Ref } from "react";
 import { MediaProps } from "./Media.types";
 import { mediaHolder } from "./Media.styles";
-import { Box, Image } from "../../../components";
+import { Box, Image, Video } from "../../../components";
 
 //  Work in progress!!!
 
@@ -20,24 +20,31 @@ export const Media = forwardRef(
     ref: Ref<MediaProps>,
   ): any => {
     if (!data) return null;
-    let variant = "image";
-    if (data.videoId) {
-      variant = "video";
-    }
 
     const hasImageSizes = imageSizes ? { sizes: imageSizes } : {};
 
+    let variant: any = (
+      <Image
+        {...hasImageSizes}
+        src={data.imageUrl}
+        alt={data.imageUrl}
+        responsive={responsive}
+        priority={priority}
+      />
+    );
+    if (data.isVideo) {
+      variant = <Video {...props} videoId={data.videoId} />;
+    }
+    if (data.isSvg && data.svg) {
+      const SVG = require(data.svg).current;
+      variant = SVG || null;
+    }
+
+    if (!variant) return null;
+
     return (
       <Box {...props} {...mediaHolder(size, align, orientation)}>
-        {variant === "image" && (
-          <Image
-            {...hasImageSizes}
-            src={data.imageUrl}
-            alt={data.imageUrl}
-            responsive={responsive}
-            priority={priority}
-          />
-        )}
+        {variant}
       </Box>
     );
   },

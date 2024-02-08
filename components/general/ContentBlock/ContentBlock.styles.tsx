@@ -71,6 +71,12 @@ export const renderComponent = (component: string, data?: any) => {
         variant: contentSettings[contentVariant][component].variant,
       };
     }
+
+    if (component === "infoTags") {
+      textProps = {
+        text: data[component].map((val: string) => <span>{val}</span>),
+      };
+    }
   }
 
   return {

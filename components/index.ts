@@ -18,6 +18,7 @@ export { default as MetaData } from "./general/MetaData";
 export { default as ModuleBase } from "./general/ModuleBase";
 export * from "./general/Nav";
 export { default as ShowJSON } from "./general/ShowJSON";
+export { default as Video } from "./general/Video";
 
 // search components
 export { default as DropdownFilter } from "./search/DropdownFilter";
