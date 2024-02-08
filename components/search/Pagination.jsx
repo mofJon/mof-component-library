@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
-import { pushValuesToRouteQuery, assignValuesFromRouteQuery } from "utils";
+import {
+  pushValuesToRouteQuery,
+  assignValuesFromRouteQuery,
+} from "../../utils";
 import { useRouter } from "next/navigation";
-import { useTranslation } from "next-i18next";
 import classNames from "classnames";
-import ArrowUp from "assets/icons/arrowUp.svg";
+import ArrowUp from "../../assets/icons/chevron.svg";
 
 const Pagination = ({
   pageSize,
@@ -16,7 +18,6 @@ const Pagination = ({
   const [btns, setBtns] = useState([]);
   const totalPages = useRef(1);
   const router = useRouter();
-  const { t } = useTranslation("common");
 
   useEffect(() => {
     const pageObj = { page: 1 };
@@ -93,10 +94,7 @@ const Pagination = ({
       ))}
 
       <div className="md:hidden text-subheading mx-5">
-        {t("general.$pagination", {
-          currentPage,
-          totalPages: totalPages.current,
-        })}
+        {`${currentPage}: ${totalPages.current}`}
       </div>
 
       <button

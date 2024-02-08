@@ -4,14 +4,12 @@ import {
   pushValuesToRouteQuery,
   cleanQueryData,
   assignValuesFromRouteQuery,
-} from "utils";
+} from "../../utils";
 import { useRouter } from "next/navigation";
 
 const SearchFilters = ({ filters, onChange, queryMode, ...props }) => {
   const [filterValues, setFilterValues] = useState();
   const router = useRouter();
-
-  console.log(router);
 
   useEffect(() => {
     if (filters) {

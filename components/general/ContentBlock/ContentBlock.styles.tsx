@@ -74,7 +74,9 @@ export const renderComponent = (component: string, data?: any) => {
 
     if (component === "infoTags") {
       textProps = {
-        text: data[component].map((val: string) => <span>{val}</span>),
+        text:
+          data[component].map((val: string) => `<span>${val}</span>`).flat() ||
+          "",
       };
     }
   }
