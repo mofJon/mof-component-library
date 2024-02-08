@@ -1,4 +1,4 @@
-import { forwardRef, Ref, useState } from "react";
+import { forwardRef, Ref, useEffect, useState } from "react";
 import { navVars } from "./Nav.styles";
 import { NavProps } from "./Nav.types";
 import { NavContext, NavItem } from "./chunks";
@@ -24,9 +24,20 @@ export const Nav: NavProps = forwardRef(
     }: NavProps,
     ref: Ref<NavProps>,
   ) => {
-    const [navState, setNavState] = useState(remapNavData(data));
+    const [navState, setNavState] = useState([]);
 
-    if (!navState || navState.length <= 0) return null;
+    useEffect(() => {
+      const getNav = async () => {
+        const remap = await remapNavData(data);
+        console.log("REMAP", remap);
+        setNavState(remap);
+      };
+      getNav();
+    }, [data]);
+
+    console.log(navState, "nav");
+
+    // if (!navState || navState.length <= 0) return null;
 
     const renderItems = navState.map((val: any, i: number) => {
       return (

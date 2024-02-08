@@ -10,6 +10,8 @@ export const box = cva("box", {
       block: ["block"],
       container: ["container m-auto"],
       section: "",
+      header: "",
+      footer: "",
     },
   },
   defaultVariants: {

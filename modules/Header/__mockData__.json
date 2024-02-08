@@ -1,0 +1,171 @@
+{
+  "logo": {
+    "imageUrl": "https://qa-api.zaha-hadid.com/media/32en41sr/zha_logo.png",
+    "title": "",
+    "description": "",
+    "imageAlt": "",
+    "mediaId": 1208,
+    "isSvg": false,
+    "isVideo": false
+  },
+  "mainNavItems": [
+    {
+      "navItemText": "Projects",
+      "navItemLink": {
+        "text": "Projects",
+        "href": "https://qa-api.zaha-hadid.com/projects",
+        "linkType": "Content",
+        "target": ""
+      },
+      "flyout": []
+    },
+    {
+      "navItemText": "Expertise",
+      "navItemLink": null,
+      "flyout": [
+        {
+          "navigationalTitle": "View all expertise",
+          "ctaLink": {
+            "text": "Expertise",
+            "href": "https://qa-api.zaha-hadid.com/expertise",
+            "linkType": "Content",
+            "target": ""
+          },
+          "flyout": [],
+          "image": null
+        },
+        {
+          "navigationalTitle": "Architecture",
+          "ctaLink": {
+            "text": "Architecture",
+            "href": "https://qa-api.zaha-hadid.com/expertise/architecture",
+            "linkType": "Content",
+            "target": ""
+          },
+          "flyout": [
+            {
+              "navigationalTitle": "View all Architecture",
+              "ctaLink": {
+                "text": "Architecture",
+                "href": "https://qa-api.zaha-hadid.com/expertise/architecture",
+                "linkType": "Content",
+                "target": ""
+              },
+              "image": {
+                "imageUrl": "/media/nm4aowig/zha_1.jpg",
+                "title": "",
+                "description": "",
+                "imageAlt": "",
+                "mediaId": 1201,
+                "isSvg": false,
+                "isVideo": false
+              },
+              "colour": null
+            },
+            {
+              "navigationalTitle": "Culture",
+              "ctaLink": {
+                "text": "Culture",
+                "href": "https://qa-api.zaha-hadid.com/expertise/architecture/culture",
+                "linkType": "Content",
+                "target": ""
+              },
+              "image": {
+                "imageUrl": "/media/wotgyell/adrian-cuj-o_9ymcy0bag-unsplash.jpg?rxy=0.5037593984962406,0.5260651629072681",
+                "title": "First",
+                "description": "",
+                "imageAlt": "",
+                "mediaId": 1267,
+                "isSvg": false,
+                "isVideo": false
+              },
+              "colour": "#4d3894"
+            },
+            {
+              "navigationalTitle": "Civic",
+              "ctaLink": {
+                "text": "Civic",
+                "href": "https://qa-api.zaha-hadid.com/expertise/architecture/civic",
+                "linkType": "Content",
+                "target": ""
+              },
+              "image": null,
+              "colour": "#66258d"
+            },
+            {
+              "navigationalTitle": "Offices",
+              "ctaLink": {
+                "text": "Offices",
+                "href": "https://qa-api.zaha-hadid.com/expertise/architecture/education",
+                "linkType": "Content",
+                "target": ""
+              },
+              "image": {
+                "imageUrl": "/media/2ilnx0wu/zha_3.jpg",
+                "title": "",
+                "description": "",
+                "imageAlt": "",
+                "mediaId": 1225,
+                "isSvg": false,
+                "isVideo": false
+              },
+              "colour": "#334a9b"
+            }
+          ],
+          "image": {
+            "imageUrl": "/media/nm4aowig/zha_1.jpg",
+            "title": "",
+            "description": "",
+            "imageAlt": "",
+            "mediaId": 1201,
+            "isSvg": false,
+            "isVideo": false
+          }
+        },
+        {
+          "navigationalTitle": "Interior Architecture",
+          "ctaLink": {
+            "text": "Interior Architecture",
+            "href": "https://qa-api.zaha-hadid.com/expertise/interior-architecture",
+            "linkType": "Content",
+            "target": ""
+          },
+          "flyout": [],
+          "image": null
+        },
+        {
+          "navigationalTitle": "Masterplans",
+          "ctaLink": {
+            "text": "Masterplans",
+            "href": "https://qa-api.zaha-hadid.com/expertise/masterplans",
+            "linkType": "Content",
+            "target": ""
+          },
+          "flyout": [],
+          "image": null
+        }
+      ]
+    },
+    {
+      "navItemText": "People",
+      "navItemLink": {
+        "text": "People",
+        "href": "https://qa-api.zaha-hadid.com/people",
+        "linkType": "Content",
+        "target": ""
+      },
+      "flyout": []
+    },
+    {
+      "navItemText": "About us",
+      "navItemLink": {
+        "text": "About us",
+        "href": "https://www.zaha-hadid.com/about-us/",
+        "linkType": "External",
+        "target": "_blank"
+      },
+      "flyout": []
+    }
+  ],
+  "languageSwitcher": null
+}

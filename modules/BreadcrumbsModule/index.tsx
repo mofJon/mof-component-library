@@ -3,7 +3,6 @@ import { ModuleBase, Box, Stack, Text } from "../../components";
 import {
   breadcrumbs,
   breadcrumbsItem,
-  breadcrumbsItemWrapper,
   activeBreadcrumbsItem,
   separator,
 } from "./BreadcrumbsModule.style";
@@ -11,21 +10,27 @@ import {
 const BreadcrumbsModule: FC<any> = ({ data }) => {
   if (!data) return null;
 
-  console.log(data);
-
   return (
     <ModuleBase data={data}>
       <Box variant="container">
         <Stack {...breadcrumbs}>
           {data.crumbs.map((crumb: any, index: number) =>
             crumb.href ? (
-              <Stack key={`breadcrumb-${index}`} {...breadcrumbsItemWrapper}>
-                <Text link={crumb} {...breadcrumbsItem} />
-                <Text text={"/"} {...separator} />
-              </Stack>
+              <>
+                <Text
+                  key={`breadcrumb-chain-${index}`}
+                  link={crumb}
+                  {...breadcrumbsItem}
+                />
+                <Text
+                  key={`breadcrumb-separator-${index}`}
+                  text={"/"}
+                  {...separator}
+                />
+              </>
             ) : (
               <Text
-                key={`breadcrumb-${index}`}
+                key={`breadcrumb-active-${index}`}
                 text={crumb.text}
                 {...activeBreadcrumbsItem}
               />

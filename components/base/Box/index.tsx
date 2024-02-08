@@ -15,7 +15,9 @@ export const Box = forwardRef(
       ...boxVars(variant, bgSrc, className, props.style), // pass all styling defaults to decoupled styles file to future-proof modularity
     };
 
-    const tagType = variant === "section" ? "section" : "div";
+    const tagType: any = ["section", "footer", "header"].includes(`${variant}`)
+      ? variant
+      : "div";
 
     return createElement(
       isAnimated ? motion(tagType) : tagType, // if motion props exist on component, make this component animatable, otherwise render static div
