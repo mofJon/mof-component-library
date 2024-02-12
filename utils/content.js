@@ -57,40 +57,17 @@ export const splitArrayIntoChunks = (arr, chunkSize) => {
   );
 };
 
-const renameKeys = async (data) => {
-  const newArray = [];
-
-  for (const navItem of data) {
-    const newNavItem = {
-      navLink: navItem.navItemLink?.href || navItem.ctaLink?.href,
-      navText: navItem.navItemText || navItem.navigationalTitle,
-    };
-
-    if (navItem.flyout && navItem.flyout.length > 0) {
-      newNavItem.navItems = []; // await renameKeys(navItem.flyout);
-    } else {
-      newNavItem.navItems = [];
-    }
-
-    newArray.push(newNavItem);
-  }
-
-  return newArray;
-};
-
-export const remapNavData = async (data, state = true, level = 0) => {
+export const remapNavData = (data, state = true, level = 0) => {
   const newContent = {
     isVisible: state,
     isActive: false,
-    navStyle: level === 0 ? "main-nav" : "sub-nav",
+    navStyle: level === 0 ? "main-nav" : `sub-nav level-${level}`,
   };
 
-  const remappedData = data[0].flyout !== null ? await renameKeys(data) : data;
-
-  return remappedData.map((item, index) => {
+  return data.map((item, index) => {
     const newItem = { ...item, ...newContent, level, index };
 
-    if (item.navItems.length > 0) {
+    if (item.navItems && item.navItems.length > 0) {
       return {
         ...newItem,
         navItems: remapNavData(item.navItems, false, level + 1),
@@ -101,20 +78,24 @@ export const remapNavData = async (data, state = true, level = 0) => {
   });
 };
 
-export const updateNavState = (array, key, index, persistOn) => {
-  if (key === "isActive" && persistOn === "all") {
-    const newArray = [...array];
-    newArray[index][key] = !array[index][key];
-    return newArray;
+export const extractAllOfType = (data, type) => {
+  const flattened = [];
+
+  function recurse(data) {
+    Object.keys(data).forEach((key) => {
+      const value = data[key];
+
+      if (typeof value === "object" && value !== null && key !== "image") {
+        recurse(value);
+      } else if (key === type && value !== null) {
+        flattened.push(value);
+      }
+    });
   }
 
-  return array.map((item, i) => {
-    if (i === index && item[key] === false) {
-      return { ...item, [key]: true };
-    } else {
-      return { ...item, [key]: false };
-    }
-  });
+  recurse(data, type);
+
+  return [...new Set(flattened)];
 };
 
 const findLastNotGreater = (arr, value) => {

@@ -1,5 +1,12 @@
 import { FC, useRef } from "react";
-import { Box, ModuleBase, Carousel, CardItems } from "../../components";
+import {
+  Box,
+  ModuleBase,
+  Card,
+  Carousel,
+  CardItems,
+  Stack,
+} from "../../components";
 import {
   genericCard,
   genericCarousel,
@@ -31,7 +38,7 @@ const CardCarouselGenericModule: FC<CardCarouselGenericModuleProps> = ({
   slideWidth,
   slideHeight,
   contentVariant = "card",
-  imageSizes,
+  imageSizes = "(max-width: 640px) 100vw, (max-width: 1200px) 33vw, 20vw",
   ...props
 }) => {
   const ref = useRef(null);
@@ -50,7 +57,9 @@ const CardCarouselGenericModule: FC<CardCarouselGenericModuleProps> = ({
     }
   }
 
-  const renderCarouselRows = data.cardRow.map((val: any, i: number) => {
+  const getCards = data?.cardRow || [];
+
+  const renderCarouselRows = getCards.map((val: any, i: number) => {
     const { cards } = val.props;
 
     return (
@@ -85,7 +94,14 @@ const CardCarouselGenericModule: FC<CardCarouselGenericModuleProps> = ({
     );
   });
 
-  return <ModuleBase data={data}>{renderCarouselRows}</ModuleBase>;
+  return (
+    <ModuleBase data={data}>
+      <Stack direction="column">
+        <Card data={data} />
+        {renderCarouselRows}
+      </Stack>
+    </ModuleBase>
+  );
 };
 
 export default CardCarouselGenericModule;

@@ -1,7 +1,7 @@
 import { forwardRef, Ref } from "react";
 import { MediaProps } from "./Media.types";
 import { mediaHolder } from "./Media.styles";
-import { Box, Image, Video } from "../../../components";
+import { Box, Image, Text, Video } from "../../../components";
 
 //  Work in progress!!!
 
@@ -11,9 +11,10 @@ export const Media = forwardRef(
       data,
       size,
       imageSizes,
-      responsive = false,
+      responsive = true,
       priority = false,
       align,
+      captionTextStyle = "p",
       orientation,
       ...props
     }: MediaProps,
@@ -37,7 +38,7 @@ export const Media = forwardRef(
     }
     if (data.isSvg && data.svg) {
       const SVG = require(data.imageUrl).current;
-      variant = SVG || null;
+      variant = <SVG /> || null;
     }
 
     if (!variant) return null;
@@ -45,6 +46,7 @@ export const Media = forwardRef(
     return (
       <Box {...props} {...mediaHolder(size, align, orientation)}>
         {variant}
+        <Text text={data.caption} textStyle={captionTextStyle} />
       </Box>
     );
   },

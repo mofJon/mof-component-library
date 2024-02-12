@@ -1,14 +1,14 @@
 header {
-  @apply bg-black w-full h-[4rem];
+  @apply bg-black w-full;
 
   .header-content {
-    @apply container items-center justify-center;
+    @apply relative container items-center justify-center;
 
-    .header-logo {
-      @apply w-[20rem] h-[4rem] border border-red-800;
+    .media-holder {
+      @apply w-[15rem] h-full;
     }
     .nav {
-      @apply border h-[4rem] text-white;
+      @apply border  text-white;
     }
   }
 }

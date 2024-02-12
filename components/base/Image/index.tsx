@@ -32,7 +32,7 @@ export const Image = forwardRef(
       imageRef,
     );
 
-    // work out parent dimensions
+    // this works out parent dimensions
     if (
       (optimiserProps.width && optimiserProps.width === 0) ||
       !optimiserProps.src

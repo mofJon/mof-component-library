@@ -256,6 +256,23 @@ const config: Config = {
         },
       },
       modules: {
+        accordion: {
+          tag: {
+            textStyle: "p-sm",
+          },
+          heading: {
+            textStyle: "h3",
+          },
+          itemTitle: {
+            textStyle: "h3",
+          },
+          itemCopy: {
+            textStyle: "p-sm",
+          },
+        },
+        Breadcrumbs: {
+          textStyle: "i-xs",
+        },
         CardListingGrid: {
           animated: true,
           cardAnims: cardListingAnims,

@@ -1,66 +1,120 @@
-import { FC, useCallback, useContext, useState } from "react";
-import { Button, Stack } from "../../../../components";
+import { FC, useCallback, useContext, useEffect, useState } from "react";
+import { Box, Button, Media, Stack } from "../../../../components";
 import { useRouter } from "next/navigation";
 import { NavContext, NavPanel } from "./";
-import { navItem, navItemWrapper } from "../Nav.styles";
-import { NavItemProps } from "../Nav.types";
-import { updateNavState } from "../../../../utils";
+import { colourSplash, navItem, navItemWrapper } from "../Nav.styles";
+import { NavItemProps, NavInteractionType } from "../Nav.types";
 
 const NavItem: FC<NavItemProps> = ({
   data,
-  level = 0,
-  itemIcons,
+  isActive: isActiveInGroup = false,
+  collapseSiblings,
   ...props
 }) => {
-  const { navState, setNavState, attach, persistOn } = useContext(NavContext);
-  const { navTitle, navLink, navItems, isActive, navStyle } = data;
+  const [isActive, setIsActive] = useState(false);
+  const [hoverLevel, setHoverLevel] = useState(false);
+  const {
+    navState,
+    setNavState,
+    attach,
+    persistOn,
+    navItemAnimations,
+    setImgProps,
+    itemIcons,
+    mainNavTextStyle,
+    subNavTextStyle,
+  } = useContext(NavContext);
+  const { navItemText, navItemLink, navItems, navStyle, level, colour, image } =
+    data;
   const router = useRouter();
+  const hasChildren = navItems && navItems.length > 0;
 
-  const updateNav = () => {
-    const newState = updateNavState(
-      navState,
-      "isActive",
-      data.index,
-      persistOn,
-    );
-    setNavState(newState);
-  };
+  const handleInteraction = useCallback(
+    (event: MouseEvent, interaction: NavInteractionType) => {
+      if (hasChildren) {
+        if (interaction === "hover" && persistOn === "hover") {
+          setIsActive(true);
+        } else if (interaction === "hoverOut" && persistOn === "hover") {
+          setIsActive(false);
+        }
 
-  const handleClick = useCallback(() => {
-    if (data.isGroup) {
-      persistOn !== "hover" && updateNav();
-    } else {
-      navLink && router.push(navLink);
+        if (interaction === "click" && persistOn !== "hover") {
+          event.preventDefault();
+          setIsActive(!isActive);
+          collapseSiblings && collapseSiblings();
+        }
+      } else if (interaction === "click") {
+        collapseSiblings && collapseSiblings();
+        navItemLink && router.push(navItemLink.href);
+      }
+    },
+    [navState, setNavState, data, router, isActive],
+  );
+
+  const handleHover = useCallback(() => {
+    setImgProps({ level, image, imageAvail: data.image });
+  }, []);
+
+  useEffect(() => {
+    if (!isActiveInGroup) {
+      setIsActive(false);
     }
-  }, [navState, setNavState, data, router]);
+  }, [isActiveInGroup]);
+
+  const isTotallyActive =
+    persistOn === "click" ? isActive && isActiveInGroup : isActive;
+
+  let iconPre;
+  let iconPost;
+  if (hasChildren || colour) {
+    iconPre = level === 0 ? itemIcons?.iconPre : itemIcons?.subIconPre;
+    iconPost = level === 0 ? itemIcons?.iconPost : itemIcons?.subIconPost;
+  }
 
   const item = (
     <Button
-      text={navTitle}
-      onClick={handleClick}
+      text={navItemText}
+      onClick={(e: any) => handleInteraction(e, "click")}
+      onMouseOver={handleHover}
       variant="nav"
-      iconPre={itemIcons?.iconPre}
-      iconPost={itemIcons?.iconPost}
-      {...navItem(isActive, itemIcons, navStyle, data.index)}
-      {...props}
+      iconPre={iconPre}
+      iconPost={iconPost}
+      {...navItem(
+        isTotallyActive,
+        itemIcons,
+        navStyle,
+        data.index,
+        navItemAnimations,
+      )}
+      textStyle={level === 0 ? mainNavTextStyle : subNavTextStyle}
+      // {...props}
     />
   );
+
+  const attachTo = Array.isArray(attach)
+    ? level < attach.length - 1
+      ? attach[level]
+      : attach[attach.length - 1]
+    : attach;
 
   if (navItems && navItems.length > 0) {
     return (
       <Stack
         direction="column"
-        {...navItemWrapper(isActive, attach)}
-        onMouseEnter={() => persistOn === "hover" && updateNav()}
-        onMouseLeave={() => persistOn === "hover" && updateNav()}
+        {...navItemWrapper(isTotallyActive, attachTo)}
+        onMouseEnter={(e: any) => handleInteraction(e, "hover")}
+        onMouseLeave={(e: any) => handleInteraction(e, "hoverOut")}
       >
         {item}
+        {colour && <Box {...colourSplash(colour)} />}
         <NavPanel
           data={navItems}
-          level={level + 1}
+          level={level}
           itemIcons={itemIcons}
           itemIndex={data.index}
-          isActive={isActive}
+          isActive={isTotallyActive}
+          attach={attachTo}
+          image={image}
         />
       </Stack>
     );

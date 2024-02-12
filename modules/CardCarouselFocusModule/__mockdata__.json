@@ -1,108 +1,112 @@
 {
-  "moduleName": "CardCarouselGenericModule",
+  "moduleName": "CardCarouselFocusModule",
   "moduleId": "0b98d1f5-2fee-463e-8994-fcabad88c3b2",
   "props": {
-    "preHeading": "Awards",
+    "preHeading": "Featured Projects",
     "headingTitle": {
-      "heading": "Discover our latest awards and recognition",
+      "heading": "Latest work from the ZHA firm",
       "htag": "h2"
     },
-    "description": "Description goes here lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec vestibulum eros. Curabitur ac libero malesuada, feugiat ligula quis, sodales diam. Morbi cursus mauris id bibendum commodo.",
+    "description": "<p>Showcasing visionary design, Zaha Hadid Architects' featured work encompasses iconic structures seamlessly merging innovation and aesthetics. Each project reflects a commitment to pushing architectural boundaries and shaping the future landscape.</p>",
     "cardRow": [
       {
-        "moduleName": "AwardCardRowModel",
-        "moduleId": "bb766dbf-d541-4a6b-9898-46c299c15b93",
+        "moduleName": "ProjectCardRowModel",
+        "moduleId": "a72f3860-8652-46f5-88c1-547f5774daea",
         "props": {
           "cards": [
             {
-              "moduleName": "AwardCard",
-              "moduleId": "3bf3773c-5fdb-4986-ae95-c52a0aaec3e6",
+              "moduleName": "ProjectCardModel",
+              "moduleId": "d31c9b4b-f152-4405-985f-e99e537751b8",
               "props": {
                 "image": {
                   "imageUrl": "https://qa-bb-api.matterofform.com/media/obnlrb4h/ambitious-studio-rick-barrett-ltiywsbbhei-unsplash.jpg",
-                  "caption": "Samuel Regan",
-                  "imageAlt": "Caption goes here lorem ipsum dolor sit amet consectetur adipiscing elit",
-                  "mediaId": 1308,
+                  "caption": "",
+                  "imageAlt": "A very colorful building",
+                  "mediaId": 1304,
                   "isSvg": false,
                   "isVideo": false
                 },
-                "headingTitle": "Industry Excellent Survey and Design Award, Architectural Design First Prize",
-                "description": "Leeza SOHO",
-                "tag": "Award",
+                "tag": "Transport",
+                "headingTitle": "BMW Central Building",
+                "description": "Our Central Building for BMW constituted a radical reinterpretation of the traditional office - transforming the building and the functions it contains into a more dynamic, engaging 'nerve-centre' or 'communication knot' - funneling all movement around the manufacturing complex through a space that transcends conventional white collar/blue collar spatial divisions.",
+                "info": ["Leipzig, Germany", "2001-2005", "BMW AG"],
                 "primaryCta": {
-                  "text": "Project page",
+                  "text": "Project Detail Page",
                   "href": "/",
                   "linkType": "Content",
-                  "target": null
+                  "target": ""
                 }
               }
             },
             {
-              "moduleName": "AwardCard",
-              "moduleId": "252b4e0f-11d8-4dad-9772-143a1a4e1aa1",
+              "moduleName": "ProjectCardModel",
+              "moduleId": "36386fa5-0e70-489d-8d60-409a77678f8d",
               "props": {
                 "image": {
                   "imageUrl": "https://qa-bb-api.matterofform.com/media/obnlrb4h/ambitious-studio-rick-barrett-ltiywsbbhei-unsplash.jpg",
-                  "caption": "Samuel Regan",
-                  "imageAlt": "Caption goes here lorem ipsum dolor sit amet consectetur adipiscing elit",
-                  "mediaId": 1308,
+                  "caption": "",
+                  "imageAlt": "A very colorful building",
+                  "mediaId": 1304,
                   "isSvg": false,
                   "isVideo": false
                 },
-                "headingTitle": "2023 ArchDaily Building of the Year Nomination",
-                "description": "BEEAH Headquarters",
-                "tag": "Award",
+                "tag": "Transport & Infrastructure ",
+                "headingTitle": "Beijing Daxing International Airport",
+                "description": "Beijing Daxing International Airport is a new airport in the Daxing district 46km south of the city centre (20 minutes by express train).",
+                "info": ["Hangzhou, China", "2014-2019", "Beijing"],
                 "primaryCta": {
-                  "text": "Project Page",
+                  "text": "Project Detail Page",
                   "href": "/",
                   "linkType": "Content",
-                  "target": null
+                  "target": ""
                 }
               }
             },
             {
-              "moduleName": "AwardCard",
-              "moduleId": "b6138ede-bdeb-4cbd-a429-152513d4cc55",
+              "moduleName": "ProjectCardModel",
+              "moduleId": "d31c9b4b-f152-4405-985f-e99e537751b8",
               "props": {
                 "image": {
                   "imageUrl": "https://qa-bb-api.matterofform.com/media/obnlrb4h/ambitious-studio-rick-barrett-ltiywsbbhei-unsplash.jpg",
-                  "caption": "Samuel Regan",
-                  "imageAlt": "Caption goes here lorem ipsum dolor sit amet consectetur adipiscing elit",
-                  "mediaId": 1308,
+                  "caption": "",
+                  "imageAlt": "A very colorful building",
+                  "mediaId": 1304,
                   "isSvg": false,
                   "isVideo": false
                 },
-                "headingTitle": "Architizer A+ Awards 'Office-Low Rise' Winner",
-                "description": "BEEAH Headquarters",
-                "tag": "Award",
+                "tag": "Transport",
+                "headingTitle": "BMW Central Building",
+                "description": "Our Central Building for BMW constituted a radical reinterpretation of the traditional office - transforming the building and the functions it contains into a more dynamic, engaging 'nerve-centre' or 'communication knot' - funneling all movement around the manufacturing complex through a space that transcends conventional white collar/blue collar spatial divisions.",
+                "info": ["Leipzig, Germany", "2001-2005", "BMW AG"],
                 "primaryCta": {
-                  "text": "Project Page",
+                  "text": "Project Detail Page",
                   "href": "/",
                   "linkType": "Content",
-                  "target": null
+                  "target": ""
                 }
               }
             },
             {
-              "moduleName": "AwardCard",
-              "moduleId": "f0a7dd12-b55a-43c7-8625-290539313e43",
+              "moduleName": "ProjectCardModel",
+              "moduleId": "36386fa5-0e70-489d-8d60-409a77678f8d",
               "props": {
                 "image": {
                   "imageUrl": "https://qa-bb-api.matterofform.com/media/obnlrb4h/ambitious-studio-rick-barrett-ltiywsbbhei-unsplash.jpg",
-                  "caption": "Samuel Regan",
-                  "imageAlt": "Caption goes here lorem ipsum dolor sit amet consectetur adipiscing elit",
-                  "mediaId": 1308,
+                  "caption": "",
+                  "imageAlt": "A very colorful building",
+                  "mediaId": 1304,
                   "isSvg": false,
                   "isVideo": false
                 },
-                "headingTitle": "Johnson Controls 'Blueprint of the Future' award winner",
-                "description": "BEEAH Headquarters",
-                "tag": "Award",
+                "tag": "Transport & Infrastructure ",
+                "headingTitle": "Beijing Daxing International Airport",
+                "description": "Beijing Daxing International Airport is a new airport in the Daxing district 46km south of the city centre (20 minutes by express train).",
+                "info": ["Hangzhou, China", "2014-2019", "Beijing"],
                 "primaryCta": {
-                  "text": "Project Page",
+                  "text": "Project Detail Page",
                   "href": "/",
                   "linkType": "Content",
-                  "target": null
+                  "target": ""
                 }
               }
             }
@@ -110,9 +114,10 @@
         }
       }
     ],
-    "anchor": "awards-carousel",
-    "anchorDisplayName": "Awards",
+    "anchor": "feauted-projects",
+    "anchorDisplayName": "Featured Projects",
     "paddingTop": "Large",
-    "paddingBottom": "Large"
+    "paddingBottom": "Small",
+    "backgroundColour": "#000000"
   }
 }

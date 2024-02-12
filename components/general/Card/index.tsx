@@ -16,6 +16,8 @@ export const Card = forwardRef(
       variant = "primary",
       size,
       imageSizes,
+      backgroundImageSizes,
+      captionTextStyle,
       data,
       childAnims = emptyContentBlockAnim,
       priority,
@@ -29,24 +31,34 @@ export const Card = forwardRef(
       ...props,
     };
 
+    if (!data) return null;
+
+    const mainImage: any =
+      data?.image ||
+      data?.cardImage ||
+      data?.largeImage ||
+      data?.videoFromGallery; // grrrr
+    const bgImage: any = data?.backgroundImage || data?.backgroundMedia;
+
     return (
       <Grid ref={ref} {...allProps}>
         <Media
-          data={data.image}
+          data={mainImage}
           size={size}
           imageSizes={imageSizes}
+          captionTextStyle={captionTextStyle}
           {...mediaHolder(size)}
           responsive
           priority
-          align={data.mediaAlignment && data.mediaAlignment.toLowerCase()}
+          align={data?.mediaAlignment && data.mediaAlignment.toLowerCase()}
           orientation={
-            data.mediaOrientation && data.mediaOrientation.toLowerCase()
+            data?.mediaOrientation && data.mediaOrientation.toLowerCase()
           }
         />
         <Media
-          data={data.backgroundImage}
+          data={bgImage}
           size={size}
-          imageSizes={imageSizes}
+          imageSizes={backgroundImageSizes}
           {...backgroundMediaHolder}
           responsive
           priority

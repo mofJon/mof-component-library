@@ -8,7 +8,7 @@ export const CardItems = (
   variant = "primary",
   cardStyle: any,
   size = "full",
-  imageSizes,
+  imageSizes = "90vw",
 ) => {
   return data.map((val: any, i: number) => {
     return (

@@ -48,10 +48,11 @@ export const Text = forwardRef(
     }
 
     const isLink: boolean = !!link.text;
-    const linkProps = isLink ? link : {};
+    const linkProps = isLink ? (({ linkType, ...rest }) => rest)(link) : {};
 
     const allProps = {
-      ...textVars(variant, textStyle, isLink, className), // pass all styling defaults to decoupled styles file to future-proof modularity
+      // pass all styling defaults to decoupled styles file to future-proof modularity
+      ...textVars(variant, textStyle, isLink, className),
       ...linkProps,
       ...props, // pass down remaining props
       dangerouslySetInnerHTML: { __html: cleanedText },
@@ -63,10 +64,29 @@ export const Text = forwardRef(
     }
 
     return createElement(
-      isAnimated ? motion(textTag) : textTag, // if motion props exist on component, make this component animatable, otherwise render static Text
+      // if motion props exist on component, make this component animatable, otherwise render static Text
+      isAnimated ? getMotionTag(textTag) : textTag,
       { ...allProps, ref },
     );
   },
 );
 
 Text.displayName = "Text";
+
+const getMotionTag = (tag: any) => {
+  const tags: any = {
+    p: motion.p,
+    h1: motion.h1,
+    h2: motion.h2,
+    h3: motion.h3,
+    h4: motion.h4,
+    h5: motion.h5,
+    h6: motion.h6,
+    span: motion.span,
+    a: motion.a,
+    Link: motion.a,
+    button: motion.button,
+  };
+
+  return tags[tag] || motion.p;
+};

@@ -1,17 +1,21 @@
-export const navPanelWrapperAnimations = (height, attach) => {
+export const navPanelWrapperAnimations = (attach) => {
   if (attach) {
     return {
       variants: {
         inactive: {
-          opacity: attach === "bottom" ? height : 0,
-          //   height: 0,
+          opacity: 0,
+          height: 0,
           transition: {
+            type: "spring",
             delay: 0.5,
           },
         },
         active: {
           opacity: 1,
-          height,
+          height: "auto",
+          transition: {
+            type: "spring",
+          },
         },
       },
     };
@@ -20,31 +24,36 @@ export const navPanelWrapperAnimations = (height, attach) => {
   return {
     variants: {
       inactive: {
-        height: 0,
+        opacity: 0,
       },
       active: {
-        height,
+        opacity: 1,
+        transition: {
+          type: "spring",
+        },
       },
     },
   };
 };
 
-export const navPanelAnimations = {
+export const navPanelAnimations = (attach) => ({
   variants: {
     inactive: {
       opacity: 0,
+      height: attach ? "auto" : 0,
     },
     active: {
       opacity: 1,
+      height: "auto",
       transition: {
+        type: "spring",
         delay: 0.2,
-        when: "beforeChildren",
-        delayChildren: 0.5,
-        staggerChildren: 0.2,
+        damping: 20,
+        stiffness: 150,
       },
     },
   },
-};
+});
 
 export const navItemAnimations = (index) => ({
   variants: {
@@ -55,9 +64,27 @@ export const navItemAnimations = (index) => ({
     active: {
       opacity: 1,
       transition: {
+        type: "spring",
         duration: 2,
-        delay: 0.5 + index * 0.2,
+        delay: 0.3 + index * 0.2,
       },
     },
   },
 });
+
+export const navImageAnimations = {
+  variants: {
+    inactive: {
+      opacity: 0,
+    },
+    active: {
+      opacity: 1,
+      transition: {
+        type: "spring",
+        delay: 0.5,
+        damping: 20,
+        stiffness: 150,
+      },
+    },
+  },
+};

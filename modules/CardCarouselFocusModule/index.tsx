@@ -1,5 +1,12 @@
 import { FC, useRef } from "react";
-import { Box, ModuleBase, Carousel, Card, CardItems } from "../../components";
+import {
+  Box,
+  ModuleBase,
+  Carousel,
+  Card,
+  CardItems,
+  Stack,
+} from "../../components";
 import {
   focusCard,
   focusCarousel,
@@ -22,14 +29,16 @@ const CardCarouselFocusModule: FC<CardCarouselFocusModuleProps> = ({
   slideWidth,
   slideHeight,
   contentVariant = "card",
-  imageSizes,
+  imageSizes = "90vw",
   itemAnimationVariant = "none",
   ...props
 }) => {
   const ref = useRef(null);
   const { width, height } = useDimensions(ref);
 
-  const renderCarouselRows = data.props.cardRow.map((val: any, i: number) => {
+  const getCards = data?.props?.cardRow || [];
+
+  const renderCarouselRows = getCards.map((val: any, i: number) => {
     const { cards } = val.props;
 
     return (
@@ -65,7 +74,14 @@ const CardCarouselFocusModule: FC<CardCarouselFocusModuleProps> = ({
     );
   });
 
-  return <ModuleBase data={data}>{renderCarouselRows}</ModuleBase>;
+  return (
+    <ModuleBase data={data}>
+      <Stack direction="column">
+        <Card data={data.props} />
+        {renderCarouselRows}
+      </Stack>
+    </ModuleBase>
+  );
 };
 
 export default CardCarouselFocusModule;

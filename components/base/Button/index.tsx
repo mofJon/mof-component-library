@@ -19,6 +19,7 @@ export const Button = forwardRef(
       linkType,
       href,
       target,
+      textStyle,
       ...props
     }: ButtonProps,
     ref: Ref<any>,
@@ -28,23 +29,26 @@ export const Button = forwardRef(
 
     const isAnimated = containsMotionProps(props); //contains framer motion props?
 
-    const handleClick = useCallback(() => {
-      if (onClick) {
-        onClick();
-      }
+    const handleClick = useCallback(
+      (e: MouseEvent) => {
+        if (onClick) {
+          onClick(e);
+        }
 
-      if (href) {
-        router.push(href);
-      }
-    }, [onClick]);
+        if (href) {
+          router.push(href);
+        }
+      },
+      [onClick],
+    );
 
     const allProps = {
       ...buttonVars(variant, size, className), // pass all styling defaults to decoupled styles file to future-proof modularity
-      onClick: handleClick,
+      onClick: (e: any) => handleClick(e),
       ...props, // pass down remaining props
     };
 
-    const buttonMain = <Text text={text} textStyle="button" />;
+    const buttonMain = <Text text={text} textStyle={textStyle || "button"} />;
     let buttonContent: ReactNode | any[] = buttonMain;
 
     if (iconPre || iconPost) {

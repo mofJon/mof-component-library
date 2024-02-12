@@ -1,375 +1,155 @@
 [
-    {
-        "navTitle": "Heros",
-        "navLink": null,
-        "isGroup": true,
-        "navItems": [
-            {
-                "navTitle": "Hero - Full Bleed Left Aligned Module Testpage",
-                "navLink": "https://base.matterofform.com/modules/heros/hero-full-bleed-left-aligned-module-testpage",
-                "isGroup": false,
-                "navItems": []
-            },
-            {
-                "navTitle": "Hero - Full Bleed Center Aligned Module Testpage",
-                "navLink": "https://base.matterofform.com/modules/heros/hero-full-bleed-center-aligned-module-testpage",
-                "isGroup": false,
-                "navItems": []
-            },
-            {
-                "navTitle": "Hero - Full Bleed Slim Left Aligned Module Testpage",
-                "navLink": "https://base.matterofform.com/modules/heros/hero-full-bleed-slim-left-aligned-module-testpage",
-                "isGroup": false,
-                "navItems": []
-            },
-            {
-                "navTitle": "Hero - Full Bleed Slim Center Aligned Module Testpage",
-                "navLink": "https://base.matterofform.com/modules/heros/hero-full-bleed-slim-center-aligned-module-testpage",
-                "isGroup": false,
-                "navItems": []
-            },
-            {
-                "navTitle": "Hero - Full Bleed Carousel Left Aligned Module Testpage",
-                "navLink": "https://base.matterofform.com/modules/heros/hero-full-bleed-carousel-left-aligned-module-testpage",
-                "isGroup": false,
-                "navItems": []
-            },
-            {
-                "navTitle": "Hero - Full Bleed Carousel Centre Aligned Module Testpage",
-                "navLink": "https://base.matterofform.com/modules/heros/hero-full-bleed-carousel-centre-aligned-module-testpage",
-                "isGroup": false,
-                "navItems": []
-            },
-            {
-                "navTitle": "Hero Slim Left Aligned",
-                "navLink": "https://base.matterofform.com/modules/heros/hero-slim-left-aligned",
-                "isGroup": false,
-                "navItems": []
-            },
-            {
-                "navTitle": "Hero - Media x2 Testpage",
-                "navLink": "https://base.matterofform.com/modules/heros/hero-media-x2-testpage",
-                "isGroup": false,
-                "navItems": []
-            },
-            {
-                "navTitle": "Hero left aligned slim",
-                "navLink": "https://base.matterofform.com/modules/heros/hero-left-aligned-slim",
-                "isGroup": false,
-                "navItems": []
-            }
-        ]
+  {
+    "navItemText": "Projects",
+    "navItemLink": {
+      "text": "Projects",
+      "href": "https://qa-api.zaha-hadid.com/projects",
+      "linkType": "Content",
+      "target": ""
     },
-    {
-        "navTitle": "Editorial",
-        "navLink": null,
-        "isGroup": true,
+    "navItems": []
+  },
+  {
+    "navItemText": "Expertise",
+    "navItemLink": null,
+    "navItems": [
+      {
+        "navItemText": "View all expertise",
+        "navItemLink": {
+          "text": "Expertise",
+          "href": "https://qa-api.zaha-hadid.com/expertise",
+          "linkType": "Content",
+          "target": ""
+        },
+        "navItems": [],
+        "image": null
+      },
+      {
+        "navItemText": "Architecture",
+        "navItemLink": {
+          "text": "Architecture",
+          "href": "https://qa-api.zaha-hadid.com/expertise/architecture",
+          "linkType": "Content",
+          "target": ""
+        },
         "navItems": [
-            {
-                "navTitle": "Heading - Vertically Stacked Module Testpage",
-                "navLink": "https://base.matterofform.com/modules/editorial/heading-vertically-stacked-module-testpage",
-                "isGroup": false,
-                "navItems": []
+          {
+            "navItemText": "View all Architecture",
+            "navItemLink": {
+              "text": "Architecture",
+              "href": "https://qa-api.zaha-hadid.com/expertise/architecture",
+              "linkType": "Content",
+              "target": ""
             },
-            {
-                "navTitle": "Heading - Side Heading Module TestPage",
-                "navLink": "https://base.matterofform.com/modules/editorial/heading-side-heading-module-testpage",
-                "isGroup": false,
-                "navItems": []
+            "image": {
+              "imageUrl": "https://qa-api.zaha-hadid.com/media/nm4aowig/zha_1.jpg",
+              "caption": "",
+              "imageAlt": "",
+              "mediaId": 1201,
+              "isSvg": false,
+              "isVideo": false
             },
-            {
-                "navTitle": "Quote - With Media Module Testpage",
-                "navLink": "https://base.matterofform.com/modules/editorial/quote-with-media-module-testpage",
-                "isGroup": false,
-                "navItems": []
+            "colour": null
+          },
+          {
+            "navItemText": "Culture",
+            "navItemLink": {
+              "text": "Culture",
+              "href": "https://qa-api.zaha-hadid.com/expertise/architecture/culture",
+              "linkType": "Content",
+              "target": ""
             },
-            {
-                "navTitle": "Quote - Simple Module TestPage",
-                "navLink": "https://base.matterofform.com/modules/editorial/quote-simple-module-testpage",
-                "isGroup": false,
-                "navItems": []
+            "image": {
+              "imageUrl": "https://qa-api.zaha-hadid.com/media/wotgyell/adrian-cuj-o_9ymcy0bag-unsplash.jpg?rxy=0.5037593984962406,0.5260651629072681",
+              "caption": "First",
+              "imageAlt": "",
+              "mediaId": 1267,
+              "isSvg": false,
+              "isVideo": false
             },
-            {
-                "navTitle": "Quote - Carousel Module Testpage",
-                "navLink": "https://base.matterofform.com/modules/editorial/quote-carousel-module-testpage",
-                "isGroup": false,
-                "navItems": []
+            "colour": "#4d3894"
+          },
+          {
+            "navItemText": "Civic",
+            "navItemLink": {
+              "text": "Civic",
+              "href": "https://qa-api.zaha-hadid.com/expertise/architecture/civic",
+              "linkType": "Content",
+              "target": ""
             },
-            {
-                "navTitle": "Rich Text - Full Width Module Test Page",
-                "navLink": "https://base.matterofform.com/modules/editorial/rich-text-full-width-module-test-page",
-                "isGroup": false,
-                "navItems": []
+            "image": null,
+            "colour": "#66258d"
+          },
+          {
+            "navItemText": "Offices",
+            "navItemLink": {
+              "text": "Offices",
+              "href": "https://qa-api.zaha-hadid.com/expertise/architecture/education",
+              "linkType": "Content",
+              "target": ""
             },
-            {
-                "navTitle": "Rich Text - With Media Module Testpage",
-                "navLink": "https://base.matterofform.com/modules/editorial/rich-text-with-media-module-testpage",
-                "isGroup": false,
-                "navItems": []
+            "image": {
+              "imageUrl": "https://qa-api.zaha-hadid.com/media/2ilnx0wu/zha_3.jpg",
+              "caption": "",
+              "imageAlt": "",
+              "mediaId": 1225,
+              "isSvg": false,
+              "isVideo": false
             },
-            {
-                "navTitle": "Rich Text - Columns Testpage",
-                "navLink": "https://base.matterofform.com/modules/editorial/rich-text-columns-testpage",
-                "isGroup": false,
-                "navItems": []
-            },
-            {
-                "navTitle": "Rich Text with Media",
-                "navLink": "https://base.matterofform.com/modules/editorial/rich-text-with-media",
-                "isGroup": false,
-                "navItems": []
-            },
-            {
-                "navTitle": "Text & Media - One Media & Rich Text Module Testpage",
-                "navLink": "https://base.matterofform.com/modules/editorial/text-media-one-media-rich-text-module-testpage",
-                "isGroup": false,
-                "navItems": []
-            },
-            {
-                "navTitle": "Text & Media - Two Media & Rich Text Module Testpage",
-                "navLink": "https://base.matterofform.com/modules/editorial/text-media-two-media-rich-text-module-testpage",
-                "isGroup": false,
-                "navItems": []
-            },
-            {
-                "navTitle": "Text & Media - Two Portrait Stacked & Rich Text",
-                "navLink": "https://base.matterofform.com/modules/editorial/text-media-two-portrait-stacked-rich-text",
-                "isGroup": false,
-                "navItems": []
-            },
-            {
-                "navTitle": "Text & Media - Media-on-Full-Bleed-Media & Rich Text Testpage",
-                "navLink": "https://base.matterofform.com/modules/editorial/text-media-media-on-full-bleed-media-rich-text-testpage",
-                "isGroup": false,
-                "navItems": []
-            },
-            {
-                "navTitle": "CTA Break - Without Logo Module Testpage",
-                "navLink": "https://base.matterofform.com/modules/editorial/cta-break-without-logo-module-testpage",
-                "isGroup": false,
-                "navItems": []
-            },
-            {
-                "navTitle": "CTA Break - With Logo Module Testpage",
-                "navLink": "https://base.matterofform.com/modules/editorial/cta-break-with-logo-module-testpage",
-                "isGroup": false,
-                "navItems": []
-            },
-            {
-                "navTitle": "Full Width Banner & Media Module Testpage",
-                "navLink": "https://base.matterofform.com/modules/editorial/full-width-banner-media-module-testpage",
-                "isGroup": false,
-                "navItems": []
-            },
-            {
-                "navTitle": "Full Width Banner - Full Bleed",
-                "navLink": "https://base.matterofform.com/modules/editorial/full-width-banner-full-bleed",
-                "isGroup": false,
-                "navItems": []
-            },
-            {
-                "navTitle": "Full Width Banner - Slim",
-                "navLink": "https://base.matterofform.com/modules/editorial/full-width-banner-slim",
-                "isGroup": false,
-                "navItems": []
-            },
-            {
-                "navTitle": "Double Text & Media Module Testpage",
-                "navLink": "https://base.matterofform.com/modules/editorial/double-text-media-module-testpage",
-                "isGroup": false,
-                "navItems": []
-            }
-        ]
+            "colour": "#334a9b"
+          }
+        ],
+        "image": {
+          "imageUrl": "https://qa-api.zaha-hadid.com/media/nm4aowig/zha_1.jpg",
+          "caption": "",
+          "imageAlt": "",
+          "mediaId": 1201,
+          "isSvg": false,
+          "isVideo": false
+        }
+      },
+      {
+        "navItemText": "Interior Architecture",
+        "navItemLink": {
+          "text": "Interior Architecture",
+          "href": "https://qa-api.zaha-hadid.com/expertise/interior-architecture",
+          "linkType": "Content",
+          "target": ""
+        },
+        "navItems": [],
+        "image": null
+      },
+      {
+        "navItemText": "Masterplans",
+        "navItemLink": {
+          "text": "Masterplans",
+          "href": "https://qa-api.zaha-hadid.com/expertise/masterplans",
+          "linkType": "Content",
+          "target": ""
+        },
+        "navItems": [],
+        "image": null
+      }
+    ]
+  },
+  {
+    "navItemText": "People",
+    "navItemLink": {
+      "text": "People",
+      "href": "https://qa-api.zaha-hadid.com/people",
+      "linkType": "Content",
+      "target": ""
     },
-    {
-        "navTitle": "Lists",
-        "navLink": null,
-        "isGroup": true,
-        "navItems": [
-            {
-                "navTitle": "List & Rich Text Module Testpage",
-                "navLink": "https://base.matterofform.com/modules/lists/list-rich-text-module-testpage",
-                "isGroup": false,
-                "navItems": []
-            },
-            {
-                "navTitle": "List & Media Module Testpage",
-                "navLink": "https://base.matterofform.com/modules/lists/list-media-module-testpage",
-                "isGroup": false,
-                "navItems": []
-            },
-            {
-                "navTitle": "List & Two Media Module Testpage",
-                "navLink": "https://base.matterofform.com/modules/lists/list-two-media-module-testpage",
-                "isGroup": false,
-                "navItems": []
-            },
-            {
-                "navTitle": "Icon List - 2 Columns & Media Module Testpage",
-                "navLink": "https://base.matterofform.com/modules/lists/icon-list-2-columns-media-module-testpage",
-                "isGroup": false,
-                "navItems": []
-            },
-            {
-                "navTitle": "Icon List - 2 Columns & Rich Text Module Testpage",
-                "navLink": "https://base.matterofform.com/modules/lists/icon-list-2-columns-rich-text-module-testpage",
-                "isGroup": false,
-                "navItems": []
-            },
-            {
-                "navTitle": "Icon List - Columns Module Testpage",
-                "navLink": "https://base.matterofform.com/modules/lists/icon-list-columns-module-testpage",
-                "isGroup": false,
-                "navItems": []
-            },
-            {
-                "navTitle": "Logo List Module Testpage",
-                "navLink": "https://base.matterofform.com/modules/lists/logo-list-module-testpage",
-                "isGroup": false,
-                "navItems": []
-            }
-        ]
+    "navItems": []
+  },
+  {
+    "navItemText": "About us",
+    "navItemLink": {
+      "text": "About us",
+      "href": "https://www.zaha-hadid.com/about-us/",
+      "linkType": "External",
+      "target": "_blank"
     },
-    {
-        "navTitle": "Cards",
-        "navLink": null,
-        "isGroup": true,
-        "navItems": [
-            {
-                "navTitle": "Card Carousel - Out of Screen Testpage",
-                "navLink": "https://base.matterofform.com/modules/cards/card-carousel-out-of-screen-testpage",
-                "isGroup": false,
-                "navItems": []
-            },
-            {
-                "navTitle": "Card Carousel - Focus Testpage",
-                "navLink": "https://base.matterofform.com/modules/cards/card-carousel-focus-testpage",
-                "isGroup": false,
-                "navItems": []
-            },
-            {
-                "navTitle": "Card Carousel - Generic Module Testpage",
-                "navLink": "https://base.matterofform.com/modules/cards/card-carousel-generic-module-testpage",
-                "isGroup": false,
-                "navItems": []
-            },
-            {
-                "navTitle": "List Items Module Testpage",
-                "navLink": "https://base.matterofform.com/modules/cards/list-items-module-testpage",
-                "isGroup": false,
-                "navItems": []
-            },
-            {
-                "navTitle": "Card Listing Grid Module",
-                "navLink": "https://base.matterofform.com/modules/cards/card-listing-grid-module",
-                "isGroup": false,
-                "navItems": []
-            },
-            {
-                "navTitle": "Card Listing Vertical Module",
-                "navLink": "https://base.matterofform.com/modules/cards/card-listing-vertical-module",
-                "isGroup": false,
-                "navItems": []
-            }
-        ]
-    },
-    {
-        "navTitle": "Media",
-        "navLink": null,
-        "isGroup": true,
-        "navItems": [
-            {
-                "navTitle": "Media Carousel",
-                "navLink": "https://base.matterofform.com/modules/media/media-carousel",
-                "isGroup": false,
-                "navItems": []
-            },
-            {
-                "navTitle": "Media Carousel - Full Bleed Testpage",
-                "navLink": "https://base.matterofform.com/modules/media/media-carousel-full-bleed-testpage",
-                "isGroup": false,
-                "navItems": []
-            },
-            {
-                "navTitle": "Media Columns - Landscape",
-                "navLink": "https://base.matterofform.com/modules/media/media-columns-landscape",
-                "isGroup": false,
-                "navItems": []
-            },
-            {
-                "navTitle": "Media Columns - Portrait",
-                "navLink": "https://base.matterofform.com/modules/media/media-columns-portrait",
-                "isGroup": false,
-                "navItems": []
-            },
-            {
-                "navTitle": "Media Masonry Grid Module Testpage",
-                "navLink": "https://base.matterofform.com/modules/media/media-masonry-grid-module-testpage",
-                "isGroup": false,
-                "navItems": []
-            }
-        ]
-    },
-    {
-        "navTitle": "Misc",
-        "navLink": null,
-        "isGroup": true,
-        "navItems": [
-            {
-                "navTitle": "Anchor Bar Module Testpage",
-                "navLink": "https://base.matterofform.com/modules/misc/anchor-bar-module-testpage",
-                "isGroup": false,
-                "navItems": []
-            },
-            {
-                "navTitle": "Contacts Module Testpage",
-                "navLink": "https://base.matterofform.com/modules/misc/contacts-module-testpage",
-                "isGroup": false,
-                "navItems": []
-            },
-            {
-                "navTitle": "Embed module",
-                "navLink": "https://base.matterofform.com/modules/misc/embed-module",
-                "isGroup": false,
-                "navItems": []
-            },
-            {
-                "navTitle": "Form Module",
-                "navLink": "https://base.matterofform.com/modules/misc/form-module",
-                "isGroup": false,
-                "navItems": []
-            },
-            {
-                "navTitle": "Tabs - Horizontal Module Testpage",
-                "navLink": "https://base.matterofform.com/modules/misc/tabs-horizontal-module-testpage",
-                "isGroup": false,
-                "navItems": []
-            },
-            {
-                "navTitle": "Accordion Module Testpage",
-                "navLink": "https://base.matterofform.com/modules/misc/accordion-module-testpage",
-                "isGroup": false,
-                "navItems": []
-            },
-            {
-                "navTitle": "Map - Full Bleed",
-                "navLink": "https://base.matterofform.com/modules/misc/map-full-bleed",
-                "isGroup": false,
-                "navItems": []
-            },
-            {
-                "navTitle": "Map - Simple",
-                "navLink": "https://base.matterofform.com/modules/misc/map-simple",
-                "isGroup": false,
-                "navItems": []
-            },
-            {
-                "navTitle": "Booking Module",
-                "navLink": "https://base.matterofform.com/modules/misc/booking-module",
-                "isGroup": false,
-                "navItems": []
-            }
-        ]
-    }
+    "navItems": []
+  }
 ]
-

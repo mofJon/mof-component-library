@@ -3,6 +3,13 @@ import { Box, Nav } from "../../../components";
 import data from "./__mock__.json";
 // @ts-ignore
 import Arrow from "../../../assets/icons/chevron.svg";
+import SubArrow from "../../../assets/icons/zhaArrow.svg";
+import {
+  navItemAnimations,
+  navPanelAnimations,
+  navPanelWrapperAnimations,
+  navImageAnimations,
+} from "../../../theme/animations";
 
 const buttonHover = {
   variants: {
@@ -18,6 +25,12 @@ const buttonHover = {
 const IconHolder = (
   <Box variant="block" {...buttonHover}>
     <Arrow />
+  </Box>
+);
+
+const SubIconHolder = (
+  <Box variant="block" {...buttonHover}>
+    <SubArrow />
   </Box>
 );
 
@@ -62,10 +75,16 @@ export const HorizontalDropdownNav: Story = {
   args: {
     data,
     persistOn: "hover",
+    attach: ["inherit", "right"],
     direction: "row",
     itemIcons: {
       iconPost: IconHolder,
+      subIconPost: SubIconHolder,
     },
+    navItemAnimations,
+    navPanelAnimations,
+    navPanelWrapperAnimations,
+    navImageAnimations,
   },
 };
 
@@ -74,11 +93,16 @@ export const HorizontalMegaNavWithColumns: Story = {
     data,
     persistOn: "hover",
     direction: "row",
-    attach: "bottom",
     itemsPerColumn: 4,
+    variant: "meganav",
     itemIcons: {
       iconPost: IconHolder,
+      subIconPost: SubIconHolder,
     },
+    navItemAnimations,
+    navPanelAnimations,
+    navPanelWrapperAnimations,
+    navImageAnimations,
   },
 };
 
@@ -89,8 +113,13 @@ export const AccordionNav: Story = {
     direction: "column",
     itemIcons: {
       iconPost: IconHolder,
+      subIconPost: SubIconHolder,
     },
     className: "w-[30rem]",
+    navItemAnimations,
+    navPanelAnimations,
+    navPanelWrapperAnimations,
+    navImageAnimations,
   },
 };
 
@@ -99,10 +128,15 @@ export const FlyoutNav: Story = {
     data,
     persistOn: "hover",
     direction: "column",
-    attach: "right",
+    attach: ["right", "right"],
     itemIcons: {
       iconPost: IconHolder,
+      subIconPost: SubIconHolder,
     },
     className: "w-[30rem]",
+    navItemAnimations,
+    navPanelAnimations,
+    navPanelWrapperAnimations,
+    navImageAnimations,
   },
 };

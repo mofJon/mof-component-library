@@ -1,6 +1,7 @@
 import React from "react";
 import { type VariantProps } from "class-variance-authority";
 import { card } from "./Card.styles";
+import { TextProps } from "../../../components";
 import { MotionProps } from "framer-motion";
 
 type HTMLAndMotionProps = React.HTMLAttributes<HTMLElement> & MotionProps;
@@ -8,24 +9,30 @@ type HTMLAndMotionProps = React.HTMLAttributes<HTMLElement> & MotionProps;
 export interface CardProps
   extends HTMLAndMotionProps,
     VariantProps<typeof card> {
-  data: {
-    image?: {};
-    backgroundImage?: {};
-    preHeading?: string;
-    headingTitle?: string;
-    subHeading?: string;
-    description?: string;
-    info?: string;
-    infoTags?: string;
-    primaryCta?: string;
-    secondaryCta?: string;
-    mediaAlignment?: any;
-    mediaOrientation?: any;
-  };
+  data:
+    | {
+        image?: {};
+        backgroundImage?: {};
+        backgroundMedia?: {};
+
+        preHeading?: string;
+        headingTitle?: string;
+        subHeading?: string;
+        description?: string;
+        info?: string;
+        infoTags?: string;
+        primaryCta?: string;
+        secondaryCta?: string;
+        mediaAlignment?: any;
+        mediaOrientation?: any;
+      }
+    | any;
   priority?: boolean;
   contentVariant?: any;
   childAnims?: Record<string, any>;
   imageSizes?: string;
+  backgroundImageSizes?: string;
+  captionTextStyle?: TextProps["textStyle"];
 }
 
 export type CardVars = (

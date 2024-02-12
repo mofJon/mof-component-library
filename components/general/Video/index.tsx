@@ -22,13 +22,14 @@ declare const document: {
 };
 
 const Video: any = forwardRef(function Video(
+  // @ts-ignore
   { media, cover, controls, onPayerReady, onAutoPlayStarted, ...props },
   ref,
 ) {
   const root = useRef();
   const container = useRef();
 
-  let player: Player = useRef(null);
+  let player: any = useRef(null);
   let fullscreen: any = useRef(null);
   const [vimeoReady, setVimeoReady] = useState(false);
 
@@ -36,7 +37,7 @@ const Video: any = forwardRef(function Video(
   const [videobgHeight, setVideobgHeight] = useState("100%");
 
   useEffect(() => {
-    if (!isNaN(media.vimeoId)) {
+    if (!isNaN(media.vimeoId) && container.current) {
       player.current = new Player(container.current, {
         id: media.vimeoId,
         autoplay: media.autoPlay,

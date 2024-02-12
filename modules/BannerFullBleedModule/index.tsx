@@ -5,6 +5,8 @@ import { BannerFullBleedMedia } from "./BannerFullBleedModule.styles";
 
 const BannerFullBleedModule: FC<BannerFullBleedModuleProps> = ({
   data,
+  backgroundImageSizes,
+  childAnims,
   ...props
 }) => {
   return (
@@ -13,7 +15,14 @@ const BannerFullBleedModule: FC<BannerFullBleedModuleProps> = ({
       data={data}
       {...props}
     >
-      <Card variant="overlay" data={data} size="full" />
+      <Card
+        variant="overlay"
+        data={data}
+        size="full"
+        contentVariant="bannerFullBleed"
+        {...childAnims}
+        {...backgroundImageSizes}
+      />
     </ModuleBase>
   );
 };

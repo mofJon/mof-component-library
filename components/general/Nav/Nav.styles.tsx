@@ -1,19 +1,16 @@
 import { cva } from "class-variance-authority";
+import classNames from "classnames";
 import { NavProps } from "./Nav.types";
-import {
-  navItemAnimations,
-  navPanelAnimations,
-  navPanelWrapperAnimations,
-} from "../../../theme/animations";
 
 type NavVars = any;
 
-// nav Variant Styles
+// Nav Variant Styles
 export const nav = cva("nav", {
   variants: {
     variant: {
       primary: "primary",
       secondary: "secondary",
+      meganav: "meganav",
     },
     persistOn: {
       all: "",
@@ -27,12 +24,10 @@ export const nav = cva("nav", {
   },
 });
 
-// nav Props
+// Nav Props
 // @ts-ignore
 export const navVars: NavVars = (variant, persistOn, classes) => {
-  const baseStyles = `
-    
-  ${classes ? classes : ""}`;
+  const baseStyles = classNames(classes);
 
   return {
     className: nav({
@@ -45,36 +40,58 @@ export const navVars: NavVars = (variant, persistOn, classes) => {
 
 export const navPanelWrapper = (
   isActive: boolean,
-  height = 0,
   attach: NavProps["attach"],
+  hasImage: boolean,
+  level: number,
+  navPanelWrapperAnimations?: any,
 ) => {
+  const animProps = navPanelWrapperAnimations
+    ? navPanelWrapperAnimations(attach)
+    : {};
+
   return {
-    className: `nav-panel-wrapper ${isActive ? "active" : ""} ${
-      attach ? `attach-${attach}` : ""
-    }`,
-    ...navPanelWrapperAnimations(height, attach),
+    className: classNames(
+      "nav-panel-wrapper",
+      { "with-image": hasImage },
+      [`level-${level}`],
+      { [`attach-${attach}`]: attach != null },
+      { active: isActive },
+    ),
+    ...animProps,
   };
 };
 
-export const navPanel = (isActive: boolean) => ({
-  className: `nav-panel ${isActive ? "active" : ""}`,
-  ...navPanelAnimations,
-});
+export const navPanel = (
+  isActive: boolean,
+  attach: NavProps["attach"],
+  navPanelAnimations?: any,
+) => {
+  const animProps = navPanelAnimations ? navPanelAnimations(attach) : {};
+
+  return {
+    className: classNames("nav-panel", { active: isActive }),
+    ...animProps,
+  };
+};
 
 export const navItem = (
   isActive: boolean,
   itemIcons: any,
   navStyles: string,
   index = 0,
+  navItemAnimations?: any,
 ) => {
+  const animProps = navItemAnimations ? navItemAnimations(index) : {};
+
   return {
-    className: `nav-item 
-    ${navStyles}
-    ${isActive ? "active" : ""}
-    ${itemIcons?.iconPre ? "with-icon-pre" : ""}
-    ${itemIcons?.iconPost ? "with-icon-post" : ""}
-    `,
-    ...navItemAnimations(index),
+    className: classNames(
+      "nav-item",
+      [navStyles],
+      { active: isActive },
+      { "with-icon-pre": itemIcons?.iconPre || itemIcons?.subIconPre },
+      { "with-icon-post": itemIcons?.iconPost || itemIcons?.subIconPost },
+    ),
+    ...animProps,
     whileHover: "hovered",
   };
 };
@@ -83,7 +100,26 @@ export const navItemWrapper = (
   isActive: boolean,
   attach: NavProps["attach"],
 ) => ({
-  className: `nav-item-wrapper ${attach && `attach-${attach}`}`,
+  className: classNames(
+    "nav-item-wrapper",
+    { [`attach-${attach}`]: attach != null },
+    { active: isActive },
+  ),
   initial: "inactive",
   animate: isActive ? "active" : "inactive",
+});
+
+export const colourSplash = (backgroundColor: string) => ({
+  className: "colour-splash",
+  style: {
+    backgroundColor,
+  } as any,
+});
+
+export const navImageWrapper = (level: number) => ({
+  className: classNames("nav-image-wrapper", [`level-${level}`]),
+});
+
+export const navImage = (isActive: boolean) => ({
+  className: classNames("nav-image", { active: isActive }),
 });

@@ -1,4 +1,5 @@
 // components
+export * from "./components/accordion";
 export * from "./components/carousel";
 export * from "./components/contentBlock";
 export * from "./components/nav";

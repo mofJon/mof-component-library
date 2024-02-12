@@ -1,42 +1,34 @@
-import { FC } from "react";
+import { FC, Fragment } from "react";
 import { ModuleBase, Box, Stack, Text } from "../../components";
 import {
   breadcrumbs,
   breadcrumbsItem,
   activeBreadcrumbsItem,
   separator,
-} from "./BreadcrumbsModule.style";
+} from "./BreadcrumbsModule.styles";
 
 const BreadcrumbsModule: FC<any> = ({ data }) => {
   if (!data) return null;
 
+  const renderCrumbs = data.crumbs.map((crumb: any, index: number) =>
+    crumb.href ? (
+      <Fragment key={`breadcrumb-item-${index}`}>
+        <Text link={crumb} {...breadcrumbsItem} />
+        <Text text={"/"} {...separator} />
+      </Fragment>
+    ) : (
+      <Text
+        key={`breadcrumb-current-${index}`}
+        text={crumb.text}
+        {...activeBreadcrumbsItem}
+      />
+    ),
+  );
+
   return (
     <ModuleBase data={data}>
       <Box variant="container">
-        <Stack {...breadcrumbs}>
-          {data.crumbs.map((crumb: any, index: number) =>
-            crumb.href ? (
-              <>
-                <Text
-                  key={`breadcrumb-chain-${index}`}
-                  link={crumb}
-                  {...breadcrumbsItem}
-                />
-                <Text
-                  key={`breadcrumb-separator-${index}`}
-                  text={"/"}
-                  {...separator}
-                />
-              </>
-            ) : (
-              <Text
-                key={`breadcrumb-active-${index}`}
-                text={crumb.text}
-                {...activeBreadcrumbsItem}
-              />
-            ),
-          )}
-        </Stack>
+        <Stack {...breadcrumbs}>{renderCrumbs}</Stack>
       </Box>
     </ModuleBase>
   );

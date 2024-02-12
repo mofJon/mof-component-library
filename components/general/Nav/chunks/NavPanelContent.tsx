@@ -1,4 +1,4 @@
-import { FC, useContext } from "react";
+import { FC, useContext, useState } from "react";
 import { Stack } from "../../../../components";
 import { NavContext, NavItem } from "./";
 import {} from "../Nav.styles";
@@ -34,15 +34,20 @@ export default NavPanelContent;
 
 const NavPanelItems: any = ({ data = [], columnIndex = 0 }) => {
   const { itemIcons } = useContext(NavContext);
+  const [activeItemIndex, setActiveItemIndex] = useState(-1);
+
+  const handleCollapseSiblings = (index: number) => {
+    setActiveItemIndex(index);
+  };
 
   return data.map((val: any, index: number) => {
     return (
       <NavItem
         key={`nav-item${val.level}_${val.index}_${columnIndex}_${index}`}
         data={val}
-        {...itemIcons}
         itemIndex={index}
-        isActive={val.isActive}
+        isActive={activeItemIndex === index}
+        collapseSiblings={() => handleCollapseSiblings(index)}
       />
     );
   });

@@ -20,7 +20,7 @@ export const Box = forwardRef(
       : "div";
 
     return createElement(
-      isAnimated ? motion(tagType) : tagType, // if motion props exist on component, make this component animatable, otherwise render static div
+      isAnimated ? getMotionTag(tagType) : tagType, // if motion props exist on component, make this component animatable, otherwise render static div
       { ...allProps, ref },
       props.children,
     );
@@ -28,3 +28,15 @@ export const Box = forwardRef(
 );
 
 Box.displayName = "Box";
+
+const getMotionTag = (tag: any) => {
+  const tags: any = {
+    div: motion.div,
+    section: motion.section,
+    footer: motion.footer,
+    header: motion.header,
+    span: motion.span,
+  };
+
+  return tags[tag] || motion.p;
+};

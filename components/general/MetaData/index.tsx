@@ -16,6 +16,7 @@ const Metadata = ({ metadata }: any) => {
   metadata.headSectionScripts.forEach((s: any) => {
     if (s && s !== "") {
       scriptSrcs.push(
+        // @ts-ignore
         .../src\s*=\s*"([^"]+)/g
           .exec(s)
           .filter((res) => !res.startsWith("src=")),

@@ -1,5 +1,5 @@
-import classnames from 'classnames';
+import classnames from "classnames";
 
-export const HeroLeftAligned = (className?: string) => ({
-  className: classnames(['hero-left-aligned', className]),
+export const HeroLeftAligned = (props: any) => ({
+  className: classnames(["hero-left-aligned", props.className]),
 });

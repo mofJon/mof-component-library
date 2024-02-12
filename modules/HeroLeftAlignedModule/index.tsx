@@ -5,15 +5,19 @@ import { HeroLeftAligned } from "./HeroLeftAlignedModule.styles";
 
 const HeroLeftAlignedModule: FC<HeroLeftAlignedModuleProps> = ({
   data,
+  childAnims,
+  backgroundImageSizes,
   ...props
 }) => {
   return (
-    <ModuleBase {...HeroLeftAligned(props.className)} data={data} {...props}>
+    <ModuleBase {...HeroLeftAligned(props)} data={data} {...props}>
       <Card
         variant="overlay"
         data={data}
         size="full"
         contentVariant="HeroLeftAligned"
+        {...backgroundImageSizes}
+        {...childAnims}
       />
     </ModuleBase>
   );

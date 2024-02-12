@@ -8,12 +8,13 @@ import {
 
 const RichTextWithMediaModule: FC<RichTextWithMediaModuleProps> = ({
   data,
+  imageSizes,
   ...props
 }) => {
   return (
-    <ModuleBase data={data} {...richTextWithMedia(props.className)} {...props}>
+    <ModuleBase data={data} {...richTextWithMedia(props)} {...props}>
       <Stack>
-        <Media responsive data={data.image} />
+        <Media responsive data={data.image} {...imageSizes} />
         <Stack>
           <Text
             text={data.headingTitle.heading}

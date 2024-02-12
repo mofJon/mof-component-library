@@ -5,6 +5,8 @@ import { RichTextAndOneMedia } from "./RichTextAndOneMediaModule.styles";
 
 const RichTextAndOneMediaModule: FC<RichTextAndOneMediaModuleProps> = ({
   data,
+  childAnims,
+  imageSizes,
   ...props
 }) => {
   return (
@@ -13,7 +15,12 @@ const RichTextAndOneMediaModule: FC<RichTextAndOneMediaModuleProps> = ({
       data={data}
       {...props}
     >
-      <Card data={data} contentVariant="richTextAndOneMedia" />
+      <Card
+        data={data}
+        contentVariant="richTextAndOneMedia"
+        {...childAnims}
+        {...imageSizes}
+      />
     </ModuleBase>
   );
 };

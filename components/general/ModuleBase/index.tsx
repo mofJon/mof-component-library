@@ -5,7 +5,7 @@ import { ModuleBaseProps } from "./ModuleBase.types";
 
 const ModuleBase: FC<ModuleBaseProps> = ({ data, ...props }) => {
   return (
-    <Box variant="section" {...props} {...moduleBase(data, props.className)} />
+    <Box variant="section" {...moduleBase(data, props.className)} {...props} />
   );
 };
 

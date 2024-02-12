@@ -10,11 +10,10 @@ const data: any = {
   },
   preHeading: "Transport",
   headingTitle: "BMW Central Building",
-  info: "<span>Leipzig, Germany</span><span>2001-2005</span><span>BMW AG</span>",
+  infoTags: ["Leipzig, Germany", "2001-2005", "BMW AG"],
   description:
     "Description goes here lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec vestibulum eros. Curabitur ac libero malesuada, feugiat ligula quis, sodales diam. Morbi cursus mauris id bibendum commodo.",
   primaryCta: "View article",
-  variant: "overlay",
 };
 
 const meta: Meta<typeof Card> = {
@@ -41,7 +40,6 @@ const meta: Meta<typeof Card> = {
   },
   args: {
     size: "full",
-    variant: "overlay",
   },
 };
 

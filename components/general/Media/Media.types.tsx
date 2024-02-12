@@ -1,3 +1,4 @@
+import { TextProps } from "../../../components";
 export interface MediaProps {
   data: any;
   imageSizes?: string;
@@ -6,4 +7,5 @@ export interface MediaProps {
   align?: "left" | "right" | "center" | null;
   orientation?: "portrait" | "landscape" | null;
   size?: "sm" | "md" | "lg" | "full" | null;
+  captionTextStyle?: TextProps["textStyle"];
 }
