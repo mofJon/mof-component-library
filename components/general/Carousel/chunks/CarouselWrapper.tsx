@@ -12,6 +12,7 @@ import { CarouselContext } from "./";
 const CarouselWrapper: FC<ICarouselWrapper> = ({
   items,
   dragWidth,
+  dragHeight,
   gap,
   animationStyle,
   crop,
@@ -36,6 +37,7 @@ const CarouselWrapper: FC<ICarouselWrapper> = ({
         item={val}
         index={i}
         width={dragWidth}
+        height={dragHeight}
         slideWidth={slideWidth}
         length={length}
         animationStyle={animationStyle}

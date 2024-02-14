@@ -6,7 +6,8 @@ import {
   carouselFocusAnimation,
   carouselBookcaseAnimation,
   carouselFadeAndScaleAnimation,
-} from "../../../../theme/animations";
+  carouselJaggedAnimation,
+} from "../Carousel.animations";
 import { CarouselContext } from "./";
 
 let offset = 0;
@@ -15,6 +16,7 @@ const CarouselItem: FC<ICarouselItem> = ({
   index,
   item,
   width,
+  height,
   length,
   loop = false,
   animationStyle,
@@ -22,7 +24,8 @@ const CarouselItem: FC<ICarouselItem> = ({
   variant,
   ...props
 }) => {
-  const { currItem, itemAnimationVariant } = useContext(CarouselContext);
+  const { currItem, itemAnimationVariant, jaggedPercent } =
+    useContext(CarouselContext);
   let isActive = currItem === index;
 
   if (loop) {
@@ -35,6 +38,8 @@ const CarouselItem: FC<ICarouselItem> = ({
     isActive = currItem - fullLength * groupOffset - itemsLength === index;
   }
 
+  console.log(variant);
+
   const itemAnimation = {
     primary: { initial: "inactive", animate: isActive ? "active" : "inactive" },
     focus: carouselFocusAnimation(animationStyle, isActive, offset, loop),
@@ -45,6 +50,13 @@ const CarouselItem: FC<ICarouselItem> = ({
       offset,
       loop,
     ),
+    jagged: carouselJaggedAnimation(
+      animationStyle,
+      index <= currItem,
+      width,
+      height,
+      jaggedPercent,
+    ),
     none: {},
   };
 
@@ -53,7 +65,7 @@ const CarouselItem: FC<ICarouselItem> = ({
     ...props,
     bgSrc: typeof item === "string" ? item : "",
     // @ts-ignore
-    ...itemAnimation[itemAnimationVariant],
+    ...itemAnimation[variant],
   };
 
   return <Box {...allProps}>{item.type ? item : null}</Box>;

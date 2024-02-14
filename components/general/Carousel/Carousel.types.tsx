@@ -31,6 +31,7 @@ export interface CarouselProps
     | "slow"
     | "superSlow"
     | "none";
+  jaggedPercent?: number;
 }
 
 export type CarouselVars = (
@@ -46,6 +47,7 @@ export interface ICarouselWrapper {
   items: CarouselProps["items"];
   animationStyle: CarouselProps["animationStyle"];
   dragWidth: number;
+  dragHeight?: number;
   gap: number;
   crop: boolean;
   loop?: boolean;
@@ -56,6 +58,7 @@ export interface ICarouselItem {
   index: number;
   item: any;
   width: number;
+  height?: number;
   slideWidth: number;
   length: number;
   loop?: boolean;

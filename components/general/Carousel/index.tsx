@@ -29,6 +29,7 @@ export const Carousel = forwardRef(
       isClickable = false,
       itemAnimationVariant = "default",
       paginationStyle,
+      jaggedPercent = 1,
       ...props
     }: CarouselProps,
     ref: Ref<CarouselProps>,
@@ -55,12 +56,19 @@ export const Carousel = forwardRef(
     return (
       <Stack {...allProps}>
         <CarouselContext.Provider
-          value={{ currItem, setCurrItem, isClickable, itemAnimationVariant }}
+          value={{
+            currItem,
+            setCurrItem,
+            isClickable,
+            itemAnimationVariant,
+            jaggedPercent,
+          }}
         >
           <CarouselWrapper
             items={items}
             gap={gap}
             dragWidth={carouselWidth}
+            dragHeight={carouselHeight}
             animationStyle={animationStyle}
             crop={crop}
             loop={loop}
