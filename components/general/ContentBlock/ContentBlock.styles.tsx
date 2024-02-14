@@ -20,7 +20,11 @@ export const contentBlockVars: ContentBlockVars = (
   contentVariant = variant || "primary";
 
   return {
-    className: classNames(classes),
+    className: classNames(
+      "content-block",
+      [`content-block-${variant}`],
+      classes,
+    ),
     ...animations.contentBlock,
   };
 };
@@ -40,16 +44,16 @@ export const renderComponent = (component: string, data?: any) => {
         textProps = { text: data[component].heading };
       } else {
         // buttons
+        let buttonStyles = {};
         if (
           contentSettings[contentVariant] &&
           contentSettings[contentVariant].buttons &&
           contentSettings[contentVariant].buttons[component]
         ) {
-          const buttonStyles =
+          buttonStyles =
             contentSettings[contentVariant].buttons[component] || {};
-
-          textProps = { ...data[component], ...buttonStyles };
         }
+        textProps = { ...data[component], ...buttonStyles };
       }
     }
 
