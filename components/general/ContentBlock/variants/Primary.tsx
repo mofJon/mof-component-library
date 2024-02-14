@@ -4,8 +4,6 @@ import { ContentBlockContentProps } from "../ContentBlock.types";
 import { ButtonGroup, Stack, Text } from "../../../../components";
 import { emptyContentBlockAnim } from "../../../../theme/animations";
 
-// Work in progress
-
 const PrimaryContentBlock: FC<ContentBlockContentProps> = ({
   variant,
   className,

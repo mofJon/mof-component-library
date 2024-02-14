@@ -2,6 +2,6 @@ import { BoxProps } from "../../components";
 
 export interface HeroLeftAlignedModuleProps extends BoxProps {
   data: any;
-  childAnims?: any;
+  moduleAnims?: any;
   backgroundImageSizes?: any;
 }

@@ -17,6 +17,7 @@ export interface TextProps
   };
   rich?: boolean;
   htag?: string;
+  motion?: boolean;
 }
 
 export type TextVars = (

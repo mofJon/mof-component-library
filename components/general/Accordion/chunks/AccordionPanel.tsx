@@ -3,10 +3,10 @@ import { Box, Text } from "../../../../components";
 import { accordionItemPanel } from "../Accordion.styles";
 
 const AccordionPanel: FC = ({
-  contentAnim,
+  contentAnim = {},
   data,
-  panelAnim,
-  accordionItemCopy,
+  panelAnim = {},
+  textStyles,
   index,
 }: any) => {
   return (
@@ -14,7 +14,7 @@ const AccordionPanel: FC = ({
       <Text
         key={`accordionContent${index}`}
         text={data}
-        {...accordionItemCopy}
+        textStyle={textStyles?.itemDescription}
         {...contentAnim}
       />
     </Box>

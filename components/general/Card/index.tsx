@@ -21,7 +21,6 @@ export const Card = forwardRef(
       data,
       childAnims = emptyContentBlockAnim,
       priority,
-      contentVariant = "card",
       ...props
     }: CardProps,
     ref: Ref<CardProps>,
@@ -67,7 +66,7 @@ export const Card = forwardRef(
           data={data}
           {...cardContent(size)}
           childAnims={childAnims}
-          variant={contentVariant}
+          variant={variant}
         />
       </Grid>
     );

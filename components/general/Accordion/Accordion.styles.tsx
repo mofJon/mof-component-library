@@ -18,12 +18,46 @@ export const accordionItemPanel = {
   style: {
     overflow: "hidden",
   },
+  variants: {
+    inactive: {
+      opacity: 0,
+      height: 0,
+    },
+    active: {
+      opacity: 1,
+      height: "auto",
+    },
+  },
+  transition: {
+    type: "spring",
+    damping: 20,
+    stiffness: 100,
+  },
 };
 
 export const accordionClose = {
   className: "accordion-close",
+  variants: {
+    inactive: {
+      rotate: 0,
+    },
+    active: {
+      rotate: 45,
+    },
+  },
 };
 
 export const accordionContent = {
   className: "accordion-content",
+  variants: {
+    inactive: {
+      opacity: 0,
+    },
+    active: {
+      opacity: 1,
+      transition: {
+        delay: 0.3,
+      },
+    },
+  },
 };

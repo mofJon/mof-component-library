@@ -28,6 +28,7 @@ export const Carousel = forwardRef(
       crop = true,
       isClickable = false,
       itemAnimationVariant = "default",
+      paginationStyle,
       ...props
     }: CarouselProps,
     ref: Ref<CarouselProps>,
@@ -75,6 +76,7 @@ export const Carousel = forwardRef(
             <CarouselPagination
               length={items.length}
               paginationType={paginationType}
+              paginationStyle={paginationStyle}
             />
           )}
         </CarouselContext.Provider>

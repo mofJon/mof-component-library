@@ -9,18 +9,32 @@ import {
 const RichTextWithTwoMediaModule: FC<RichTextWithTwoMediaModuleProps> = ({
   data,
   imageSizes,
+  moduleAnims,
+  textStyles,
   ...props
 }) => {
   return (
     <ModuleBase data={data} {...richTextWithMedia(props)} {...props}>
-      <Stack>
-        <Media responsive data={data.image} {...imageSizes} />
-        <Stack>
+      <Stack {...moduleAnims?.controller}>
+        <Media
+          responsive
+          data={data.image}
+          {...imageSizes}
+          {...moduleAnims?.media}
+        />
+        <Stack {...moduleAnims?.contentWrapper}>
           <Text
             text={data.headingTitle.heading}
-            textStyle={data.headingTitle.htag}
+            textStyle={textStyles?.heading || "h2"}
+            htag={data.headingTitle.htag}
+            {...moduleAnims?.heading}
           />
-          <Text text={data.content} {...richTextContent} />
+          <Text
+            text={data.content}
+            textStyle={textStyles?.content || "p"}
+            {...richTextContent}
+            {...moduleAnims?.content}
+          />
         </Stack>
       </Stack>
     </ModuleBase>

@@ -15,6 +15,7 @@ const QuoteCarouselModule: FC<QuoteCarouselModuleProps> = ({
   gap = 0,
   slideWidth,
   slideHeight,
+  textStyles,
   ...props
 }) => {
   const ref = useRef(null);
@@ -26,13 +27,33 @@ const QuoteCarouselModule: FC<QuoteCarouselModuleProps> = ({
     return (
       <Stack key={`quoteCarousel${i}`} {...styles.quoteSlide}>
         <Stack {...styles.quoteMainWrapper}>
-          <Text text="&ldquo;" textStyle="quote" {...styles.quoteLeft} />
-          <Text text={val.quote} textStyle="quote" {...styles.quoteMain} />
-          <Text text="&rdquo;" textStyle="quote" {...styles.quoteRight} />
+          <Text
+            text="&ldquo;"
+            textStyle={textStyles?.quoteMarks}
+            {...styles.quoteLeft}
+          />
+          <Text
+            text={val.quote}
+            textStyle={textStyles?.quote}
+            {...styles.quoteMain}
+          />
+          <Text
+            text="&rdquo;"
+            textStyle={textStyles?.quoteMarks}
+            {...styles.quoteRight}
+          />
         </Stack>
         <Stack {...styles.quoteFooter}>
-          <Text text={val.author} {...styles.quoteAuthor} />
-          <Text text={val.source} {...styles.quoteSource} />
+          <Text
+            text={val.author}
+            textStyle={textStyles?.author}
+            {...styles.quoteAuthor}
+          />
+          <Text
+            text={val.source}
+            textStyle={textStyles?.source}
+            {...styles.quoteSource}
+          />
         </Stack>
       </Stack>
     );
@@ -57,6 +78,7 @@ const QuoteCarouselModule: FC<QuoteCarouselModuleProps> = ({
           width={slideWidth || width}
           height={slideHeight || height}
           {...styles.quoteCarousel}
+          paginationStyle={textStyles?.pagination}
         />
       </Box>
     </ModuleBase>

@@ -17,6 +17,7 @@ export interface ButtonProps
   href?: string;
   target?: string;
   textStyle?: TextProps["textStyle"];
+  motion?: boolean;
 }
 
 export type ButtonVars = (

@@ -25,5 +25,9 @@ export const QuoteCarousel: Story = {
     showPagination: true,
     paginationType: "leadingZeroNumbers",
     animationStyle: "elegant",
+    textStyles: {
+      quote: "h1",
+      pagination: "text-xs",
+    },
   },
 };

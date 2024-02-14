@@ -2,6 +2,7 @@ import { BoxProps } from "../../components";
 
 export interface BannerFullBleedModuleProps extends BoxProps {
   data: any;
-  childAnims?: any;
+  moduleAnims?: any;
   backgroundImageSizes?: any;
+  cardVariant?: string;
 }

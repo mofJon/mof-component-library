@@ -28,5 +28,6 @@ export const CardCarouselFocus: Story = {
   args: {
     data,
     directionComponent: <Arrow />,
+    cardVariant: "focusCard",
   },
 };

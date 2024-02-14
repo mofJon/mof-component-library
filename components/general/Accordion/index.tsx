@@ -6,9 +6,8 @@ import { Stack } from "../../";
 const Accordion: FC = ({
   data,
   icon,
-  allowedMultipleOpen = true,
-  accordionItemTitle,
-  accordionItemCopy,
+  allowedMultipleOpen = false,
+  textStyles,
   childAnims,
 }: any) => {
   const [accordionState, setAccordionState] = useState<boolean[]>([]);
@@ -43,11 +42,10 @@ const Accordion: FC = ({
         data={val}
         index={i}
         accordionIcon={icon}
-        accordionItemTitle={accordionItemTitle}
-        accordionItemCopy={accordionItemCopy}
         childAnims={childAnims}
         togglePanel={togglePanel}
         isActive={accordionState[i]}
+        textStyles={textStyles}
       />
     );
   });

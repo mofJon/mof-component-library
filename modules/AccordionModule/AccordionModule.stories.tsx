@@ -29,14 +29,20 @@ const meta: Meta<typeof AccordionModule> = {
 export default meta;
 type Story = StoryObj<typeof AccordionModule>;
 
-export const CardCarouselGeneric: Story = {
+export const Accordion: Story = {
   args: {
     data,
     accordionIcon: <Close />,
-    childAnims: {
+    moduleAnims: {
       close: accordionClose,
       panel: accordionPanel,
       content: accordionContent,
+    },
+    textStyles: {
+      itemTitle: "h3",
+      itemDescription: "p",
+      tag: "text-xs",
+      headingTitle: "h1",
     },
   },
 };

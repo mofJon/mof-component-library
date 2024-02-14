@@ -1,27 +1,14 @@
 import { cva } from "class-variance-authority";
 import { ContentBlockVars } from "./ContentBlock.types";
 import { camelToHyphen } from "../../../utils/formatting";
+import classNames from "classnames";
 // @ts-ignore - grabs variables from the root project's tailwind config
-import twConfig from "/tailwind.config.ts";
+import mofConfig from "/mofConfig.ts";
 
 // @ts-ignore
-const { contentBlock: contentSettings } = twConfig?.theme?.extend;
+const { card: contentSettings } = mofConfig;
 let animations: any = {};
 let contentVariant: string = "primary";
-
-// contentBlock Variant Styles
-export const contentBlock = cva("content-block", {
-  variants: {
-    variant: {
-      primary: "primary",
-      headingSide: "heading-side",
-    },
-  },
-  compoundVariants: [],
-  defaultVariants: {
-    variant: "primary",
-  },
-});
 
 // contentBlock Props
 export const contentBlockVars: ContentBlockVars = (
@@ -29,20 +16,15 @@ export const contentBlockVars: ContentBlockVars = (
   childAnims,
   classes,
 ) => {
-  const baseStyles = `${classes ? classes : ""}`;
   animations = childAnims;
   contentVariant = variant || "primary";
 
   return {
-    className: contentBlock({
-      variant,
-      className: baseStyles,
-    }),
+    className: classNames(classes),
     ...animations.contentBlock,
   };
 };
 
-// likely need modification when we nail down BE data structure
 export const renderComponent = (component: string, data?: any) => {
   let textProps = {};
   let textStyles = {};
@@ -52,18 +34,35 @@ export const renderComponent = (component: string, data?: any) => {
       textProps = { text: data[component] };
     } else {
       // data[component] is an object. either from the backend...or to define buttons
-      textProps = data[component]?.heading
-        ? { text: data[component].heading }
-        : data[component];
+
+      // seoTag
+      if (data[component]?.heading) {
+        textProps = { text: data[component].heading };
+      } else {
+        // buttons
+        if (
+          contentSettings[contentVariant] &&
+          contentSettings[contentVariant].buttons &&
+          contentSettings[contentVariant].buttons[component]
+        ) {
+          const buttonStyles =
+            contentSettings[contentVariant].buttons[component] || {};
+
+          textProps = { ...data[component], ...buttonStyles };
+        }
+      }
     }
 
     if (
       contentSettings[contentVariant] &&
-      contentSettings[contentVariant][component]
+      contentSettings[contentVariant].textStyles &&
+      contentSettings[contentVariant].textStyles[component]
     ) {
+      const style = contentSettings[contentVariant].textStyles[component];
+
       textStyles = {
-        textStyle: contentSettings[contentVariant][component].textStyle,
-        variant: contentSettings[contentVariant][component].variant,
+        textStyle: style?.textStyle || "p",
+        variant: style?.variant || "primary",
       };
     }
 
@@ -71,7 +70,14 @@ export const renderComponent = (component: string, data?: any) => {
       textProps = {
         text:
           data[component]
-            .map((val: string) => `<span>${val}</span>`)
+            .map((val: string) => {
+              let infoTag = `<span>${val}</span>`;
+              if (animations["infoTag"]) {
+                infoTag = `<span {...${animations["infoTag"]}}>${val}</span>`;
+              }
+
+              return infoTag;
+            })
             .join("") || "",
       };
     }

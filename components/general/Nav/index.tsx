@@ -26,8 +26,7 @@ export const Nav: NavProps = forwardRef(
       navPanelAnimations,
       navPanelWrapperAnimations,
       navImageAnimations,
-      mainNavTextStyle,
-      subNavTextStyle,
+      textStyles,
       ...props
     }: NavProps,
     ref: Ref<NavProps>,
@@ -58,7 +57,6 @@ export const Nav: NavProps = forwardRef(
 
     const allProps = {
       ...navVars(variant, persistOn, className),
-      ...props,
       direction,
     };
 
@@ -75,8 +73,7 @@ export const Nav: NavProps = forwardRef(
             navItemAnimations,
             navPanelAnimations,
             navImageAnimations,
-            mainNavTextStyle,
-            subNavTextStyle,
+            textStyles,
             images,
             imgProps,
             setImgProps,

@@ -6,4 +6,5 @@ type ImageAndMotionProps = NextImageProps & MotionProps;
 export interface ImageProps extends ImageAndMotionProps {
   responsive?: boolean;
   src: string;
+  motion?: boolean;
 }

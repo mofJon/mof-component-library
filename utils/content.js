@@ -43,7 +43,8 @@ export const containsMotionProps = (props) => {
     props.whileTap ||
     props.whileFocus ||
     props.whileDrag ||
-    props.whileInView
+    props.whileInView ||
+    props.motion
   ) {
     containsMotionProps = true;
   }

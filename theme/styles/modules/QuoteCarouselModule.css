@@ -38,7 +38,7 @@
 }
 
 .quote-carousel .carousel-pagination-number {
-  @apply text-white text-xs opacity-50 select-none;
+  @apply text-white opacity-50 select-none;
 }
 
 .quote-carousel .carousel-pagination-number.active {

@@ -41,7 +41,7 @@ export default function useDimensions(ref?: any): any {
   };
 
   useEffect(() => {
-    if (ref.current) {
+    if (ref && ref.current) {
       handleResize();
     }
   }, [ref]);
