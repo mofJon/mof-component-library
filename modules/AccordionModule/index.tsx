@@ -19,15 +19,15 @@ const AccordionModule: FC<AccordionModuleProps> = ({
       <Stack {...accordionWrapper(moduleAnims, props)}>
         <Text text={data.tag} {...accordionTag(textStyles?.tag, moduleAnims)} />
         <Text
-          text={data.headingTitle.heading}
-          htag={data.headingTitle.htag}
+          text={data?.headingTitle?.heading}
+          htag={data?.headingTitle?.htag}
           {...accordionHeading(textStyles?.headingTitle, moduleAnims)}
         />
         <Accordion
           // @ts-ignore
           data={data.accordionElements}
           icon={accordionIcon}
-          allowedMultipleOpen={data.allowedMultipleOpen}
+          allowedMultipleOpen={data?.allowedMultipleOpen}
           textStyles={textStyles}
           childAnims={moduleAnims}
         />
