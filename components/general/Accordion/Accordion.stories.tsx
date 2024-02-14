@@ -38,7 +38,9 @@ export const AccordionStack: Story = {
       panel: accordionPanel,
       content: accordionContent,
     },
-    accordionItemTitle: accordionTextStyles.itemTitle,
-    accordionItemCopy: accordionTextStyles.itemCopy,
+    textStyles: {
+      itemTitle: "h1",
+      itemDescription: "h3",
+    },
   },
 };

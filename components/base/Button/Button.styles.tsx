@@ -1,5 +1,20 @@
 import { cva } from "class-variance-authority";
 import { ButtonVars } from "./Button.types";
+import classNames from "classnames";
+import { camelToHyphen } from "../../../utils";
+// @ts-ignore - mof overrides
+import mofConfig from "/mofConfig";
+
+const buttons = mofConfig.button;
+let customButtonVariants: any = [];
+if (buttons) {
+  customButtonVariants = buttons.map((val: string) => {
+    return {
+      [val]: `button-${camelToHyphen(val)}`,
+    };
+  });
+}
+const variantObject = Object.assign({}, ...customButtonVariants);
 
 // Button Base and Variant Styles
 export const button = cva("button", {
@@ -7,15 +22,18 @@ export const button = cva("button", {
     variant: {
       primary: "primary",
       secondary: "secondary",
-      primaryCircle: "primary circle",
-      secondaryCircle: "secondary circle",
-      nav: "nav-button"
+      nav: "nav-button",
+      ...variantObject,
     },
     size: {
       sm: "sm",
       md: "md",
       lg: "lg",
       full: "full",
+    },
+    theme: {
+      light: "light",
+      dark: "dark",
     },
   },
   // example compond variant
@@ -30,7 +48,7 @@ export const button = cva("button", {
 
 // Button Props
 export const buttonVars: ButtonVars = (variant, size, classes) => {
-  const baseStyles = `${classes ? classes : ""}`;
+  const baseStyles = classNames(classes);
 
   return {
     className: button({

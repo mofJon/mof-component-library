@@ -9,6 +9,7 @@ export interface StackProps
   extends HTMLAndMotionProps,
     VariantProps<typeof stack> {
   gap?: number;
+  motion?: boolean;
 }
 
 export type StackVars = (

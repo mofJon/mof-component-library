@@ -10,13 +10,14 @@ import {
 const AccordionItem: FC<any> = ({
   data,
   accordionIcon = null,
-  accordionItemTitle,
-  accordionItemCopy,
+  textStyles,
   childAnims,
   index = 0,
   togglePanel,
   isActive,
 }) => {
+  const hasCloseAnims = childAnims?.close || {};
+
   return (
     <Stack
       key={`accordion-item-${index}`}
@@ -30,17 +31,22 @@ const AccordionItem: FC<any> = ({
         onClick={() => togglePanel(index)}
         {...accordionItemButton}
       >
-        <Box {...accordionClose} {...childAnims?.close}>
+        <Box {...accordionClose} {...hasCloseAnims}>
           {accordionIcon}
         </Box>
-        <Text text={data.title} {...accordionItemTitle} />
+        <Text
+          text={data.title}
+          textStyle={textStyles?.itemTitle}
+          {...accordionItem}
+        />
       </Stack>
       <AccordionPanel
+        // @ts-ignore
         index={index}
         data={data.text}
         panelAnim={childAnims?.panel || {}}
         contentAnim={childAnims?.content || {}}
-        {...accordionItemCopy}
+        textStyles={textStyles}
         isActive={isActive}
       />
     </Stack>

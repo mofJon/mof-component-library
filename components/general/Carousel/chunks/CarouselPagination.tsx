@@ -12,6 +12,7 @@ import { CarouselContext } from "./";
 const CarouselPagination: FC<ICarouselPagination> = ({
   length,
   paginationType = "dots",
+  paginationStyle,
   ...props
 }) => {
   const { currItem, setCurrItem } = useContext(CarouselContext);
@@ -30,7 +31,11 @@ const CarouselPagination: FC<ICarouselPagination> = ({
     );
     if (paginationType !== "dots") {
       paginationItem = (
-        <Text text={number} {...carouselPaginationStep(isActive, "numbers")} />
+        <Text
+          text={number}
+          textStyle={paginationStyle}
+          {...carouselPaginationStep(isActive, "numbers")}
+        />
       );
     }
 

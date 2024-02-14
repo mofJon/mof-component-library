@@ -25,8 +25,7 @@ export interface NavProps extends StackProps, VariantProps<typeof nav> {
   navPanelAnimations?: any;
   navPanelWrapperAnimations?: any;
   navImageAnimations?: any;
-  mainNavTextStyle?: TextProps["textStyle"];
-  subNavTextStyle?: TextProps["textStyle"];
+  textStyles?: any;
 }
 
 export type NavVars = (

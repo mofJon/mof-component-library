@@ -7,6 +7,7 @@ type HTMLAndMotionProps = React.HTMLAttributes<HTMLElement> & MotionProps;
 
 export interface BoxProps extends HTMLAndMotionProps, VariantProps<typeof box> {
   bgSrc?: string;
+  motion?: boolean;
 }
 
 export type BoxVars = (

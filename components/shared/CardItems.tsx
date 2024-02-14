@@ -4,9 +4,7 @@ export const CardItems = (
   data: any,
   childAnims: any,
   cardAnim: any,
-  contentVariant: any,
   variant = "primary",
-  cardStyle: any,
   size = "full",
   imageSizes = "90vw",
 ) => {
@@ -15,14 +13,12 @@ export const CardItems = (
       <Card
         key={`cardItem${i}`}
         data={val.props}
-        variant={variant}
         size={size}
         imageSizes={imageSizes}
-        contentVariant={contentVariant}
+        variant={variant}
         childAnims={childAnims}
         priority
         {...cardAnim}
-        {...cardStyle}
       />
     );
   });

@@ -4,5 +4,8 @@ import { StackProps } from "../../components";
 export interface AccordionModuleProps extends StackProps {
   data: any;
   accordionIcon?: ReactNode;
-  childAnims?: any;
+  moduleAnims?: any;
+  accordionItemTitle?: any;
+  accordionItemCopy?: any;
+  textStyles?: any;
 }

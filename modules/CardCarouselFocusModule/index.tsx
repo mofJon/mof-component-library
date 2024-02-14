@@ -19,8 +19,7 @@ const CardCarouselFocusModule: FC<CardCarouselFocusModuleProps> = ({
   animationStyle = "default",
   data,
   directionComponent,
-  cardAnim,
-  cardChildAnims,
+  moduleAnims,
   showPagination = false,
   paginationType = "dots",
   crop = false,
@@ -28,7 +27,8 @@ const CardCarouselFocusModule: FC<CardCarouselFocusModuleProps> = ({
   gap = 0,
   slideWidth,
   slideHeight,
-  contentVariant = "card",
+  carouselVariant = "focusCarousel",
+  cardVariant = "focusCard",
   imageSizes = "90vw",
   itemAnimationVariant = "none",
   ...props
@@ -47,11 +47,9 @@ const CardCarouselFocusModule: FC<CardCarouselFocusModuleProps> = ({
           {...props}
           items={CardItems(
             cards,
-            cardChildAnims,
-            cardAnim,
-            contentVariant,
-            "overlay",
-            focusCard,
+            moduleAnims?.cardChildAnims,
+            moduleAnims?.cardAnim,
+            cardVariant,
             "full",
             imageSizes,
           )}
@@ -77,7 +75,7 @@ const CardCarouselFocusModule: FC<CardCarouselFocusModuleProps> = ({
   return (
     <ModuleBase data={data}>
       <Stack direction="column">
-        <Card data={data.props} />
+        <Card data={data.props} variant={carouselVariant} />
         {renderCarouselRows}
       </Stack>
     </ModuleBase>

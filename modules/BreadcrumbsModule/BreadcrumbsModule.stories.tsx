@@ -1,14 +1,14 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import data from './__mockdata__.json';
+import type { Meta, StoryObj } from "@storybook/react";
+import data from "./__mockdata__.json";
 
-import Component from '.';
+import Component from ".";
 
 const meta: Meta<typeof Component> = {
   component: Component,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   parameters: {
     backgrounds: {
-      default: 'dark',
+      default: "dark",
     },
   },
 };

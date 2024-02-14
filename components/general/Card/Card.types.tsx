@@ -28,7 +28,6 @@ export interface CardProps
       }
     | any;
   priority?: boolean;
-  contentVariant?: any;
   childAnims?: Record<string, any>;
   imageSizes?: string;
   backgroundImageSizes?: string;

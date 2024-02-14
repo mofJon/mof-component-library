@@ -20,6 +20,7 @@ export interface CarouselProps
   };
   showPagination?: boolean;
   paginationType?: "dots" | "numbers" | "leadingZeroNumbers" | "slider";
+  paginationStyle?: any;
   align?: "left" | "center";
   crop?: boolean;
   isClickable?: boolean;
@@ -74,4 +75,5 @@ export interface ICarouselControls {
 export interface ICarouselPagination {
   length: number;
   paginationType: CarouselProps["paginationType"];
+  paginationStyle?: any;
 }

@@ -1,5 +1,5 @@
 export default {
-  default: ["b", "strong", "br", "span"],
+  default: ["b", "strong", "br", "span", "motion.span"],
   rich: [
     "b",
     "strong",

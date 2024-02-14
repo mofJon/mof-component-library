@@ -3,6 +3,7 @@ export const emptyContentBlockAnim = {
   preContent: {},
   preHeading: {},
   info: {},
+  infoTag: {},
   headingTitle: {},
   subHeading: {},
   description: {},

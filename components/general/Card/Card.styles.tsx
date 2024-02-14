@@ -1,13 +1,30 @@
 import { cva } from "class-variance-authority";
 import { CardVars } from "./Card.types";
+import { camelToHyphen } from "../../../utils";
+// @ts-ignore - mof overrides
+import mofConfig from "/mofConfig";
+
+const cards = mofConfig.card;
+let customCardVariants: any = [];
+if (cards) {
+  customCardVariants = Object.entries(cards).map(([key]) => {
+    return {
+      [key]: camelToHyphen(key),
+    };
+  });
+}
+
+const variantObject = Object.assign({}, ...customCardVariants);
+
+console.log(variantObject);
 
 // Card Variant Styles
 export const card = cva("card", {
   variants: {
     variant: {
       primary: "primary",
-      secondary: "secondary",
       overlay: "overlay",
+      ...variantObject,
     },
     size: {
       sm: "sm",

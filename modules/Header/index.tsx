@@ -3,12 +3,7 @@ import { Box, Media, Nav, Stack } from "../../components";
 import { headerWrapper, headerContent, navSettings } from "./Header.styles";
 import { useRouter } from "next/navigation";
 
-const Header: FC<any> = ({
-  data,
-  mainNavTextStyle,
-  subNavTextStyle,
-  ...props
-}) => {
+const Header: FC<any> = ({ data, textStyles, ...props }) => {
   const router = useRouter();
 
   const handleLogoClick = () => {
@@ -21,12 +16,7 @@ const Header: FC<any> = ({
         {/* @ts-ignore */}
         <Media data={data.logo} onClick={handleLogoClick} />
         {/* @ts-ignore */}
-        <Nav
-          data={data.mainNavItems}
-          {...mainNavTextStyle}
-          {...subNavTextStyle}
-          {...props}
-        />
+        <Nav data={data.mainNavItems} textStyles={textStyles} {...props} />
       </Stack>
     </Box>
   );

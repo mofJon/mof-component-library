@@ -7,27 +7,37 @@ import {
   separator,
 } from "./BreadcrumbsModule.styles";
 
-const BreadcrumbsModule: FC<any> = ({ data }) => {
+const BreadcrumbsModule: FC<any> = ({ data, textStyles, moduleAnims }) => {
   if (!data) return null;
+  const textStylesItem = textStyles?.breadcrumbItem || "i-xs";
 
   const renderCrumbs = data.crumbs.map((crumb: any, index: number) =>
     crumb.href ? (
       <Fragment key={`breadcrumb-item-${index}`}>
-        <Text link={crumb} {...breadcrumbsItem} />
-        <Text text={"/"} {...separator} />
+        <Text
+          link={crumb}
+          {...breadcrumbsItem(textStylesItem)}
+          {...moduleAnims?.item}
+        />
+        <Text
+          text={"/"}
+          {...separator(textStylesItem)}
+          {...moduleAnims?.item}
+        />
       </Fragment>
     ) : (
       <Text
         key={`breadcrumb-current-${index}`}
         text={crumb.text}
-        {...activeBreadcrumbsItem}
+        {...activeBreadcrumbsItem(textStylesItem)}
+        {...moduleAnims?.item}
       />
     ),
   );
 
   return (
     <ModuleBase data={data}>
-      <Box variant="container">
+      <Box variant="container" {...moduleAnims?.controller}>
         <Stack {...breadcrumbs}>{renderCrumbs}</Stack>
       </Box>
     </ModuleBase>

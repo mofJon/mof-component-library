@@ -27,8 +27,7 @@ const CardCarouselGenericModule: FC<CardCarouselGenericModuleProps> = ({
   animationStyle = "default",
   data,
   directionComponent,
-  cardAnim,
-  cardChildAnims,
+  moduleAnims,
   showPagination = true,
   paginationType = "dots",
   columns = 1,
@@ -37,7 +36,8 @@ const CardCarouselGenericModule: FC<CardCarouselGenericModuleProps> = ({
   gap = 0,
   slideWidth,
   slideHeight,
-  contentVariant = "card",
+  carouselVariant = "focusCarousel",
+  cardVariant = "focusCard",
   imageSizes = "(max-width: 640px) 100vw, (max-width: 1200px) 33vw, 20vw",
   ...props
 }) => {
@@ -68,11 +68,9 @@ const CardCarouselGenericModule: FC<CardCarouselGenericModuleProps> = ({
           {...props}
           items={CardItems(
             cards,
-            cardChildAnims,
-            cardAnim,
-            contentVariant,
-            "primary",
-            genericCard,
+            moduleAnims?.cardChildAnims,
+            moduleAnims?.cardAnim,
+            cardVariant,
             "full",
             imageSizes,
           )}
@@ -97,7 +95,7 @@ const CardCarouselGenericModule: FC<CardCarouselGenericModuleProps> = ({
   return (
     <ModuleBase data={data}>
       <Stack direction="column">
-        <Card data={data} />
+        <Card data={data} variant={carouselVariant} />
         {renderCarouselRows}
       </Stack>
     </ModuleBase>

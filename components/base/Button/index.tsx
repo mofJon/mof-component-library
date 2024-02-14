@@ -61,6 +61,10 @@ export const Button = forwardRef(
       );
     }
 
+    if (variant === "nav") {
+      buttonContent = <Text text={text} textStyle={textStyle || "nav"} />;
+    }
+
     return createElement(
       isAnimated ? motion.button : "button", // if motion props exist on component, make this component animatable, otherwise render static button
       { ...allProps, ref },

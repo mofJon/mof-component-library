@@ -30,5 +30,9 @@ export const HeaderWithNav: Story = {
     itemIcons: {
       iconPost: IconHolder,
     },
+    textStyles: {
+      mainNav: "i-xs",
+      subNav: "p-m",
+    },
   },
 };

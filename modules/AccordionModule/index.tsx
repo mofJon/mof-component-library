@@ -2,8 +2,6 @@ import { FC } from "react";
 import { Accordion, ModuleBase, Stack, Text } from "../../components";
 import {
   accordionHeading,
-  accordionItemTitle,
-  accordionItemCopy,
   accordionTag,
   accordionWrapper,
 } from "./AccordionModule.styles";
@@ -12,26 +10,26 @@ import { AccordionModuleProps } from "./AccordionModule.types";
 const AccordionModule: FC<AccordionModuleProps> = ({
   data,
   accordionIcon,
-  childAnims = {},
+  moduleAnims = {},
+  textStyles,
   ...props
 }) => {
   return (
     <ModuleBase data={data} {...props}>
-      <Stack {...accordionWrapper(childAnims, props)}>
-        <Text text={data.tag} {...accordionTag(childAnims)} />
+      <Stack {...accordionWrapper(moduleAnims, props)}>
+        <Text text={data.tag} {...accordionTag(textStyles?.tag, moduleAnims)} />
         <Text
           text={data.headingTitle.heading}
           htag={data.headingTitle.htag}
-          {...accordionHeading(childAnims)}
+          {...accordionHeading(textStyles?.headingTitle, moduleAnims)}
         />
         <Accordion
           // @ts-ignore
           data={data.accordionElements}
           icon={accordionIcon}
           allowedMultipleOpen={data.allowedMultipleOpen}
-          accordionItemTitle={accordionItemTitle}
-          accordionItemCopy={accordionItemCopy}
-          childAnims={childAnims}
+          textStyles={textStyles}
+          childAnims={moduleAnims}
         />
       </Stack>
     </ModuleBase>

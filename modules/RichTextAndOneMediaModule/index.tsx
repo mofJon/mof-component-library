@@ -5,7 +5,7 @@ import { RichTextAndOneMedia } from "./RichTextAndOneMediaModule.styles";
 
 const RichTextAndOneMediaModule: FC<RichTextAndOneMediaModuleProps> = ({
   data,
-  childAnims,
+  moduleAnims,
   imageSizes,
   ...props
 }) => {
@@ -18,7 +18,7 @@ const RichTextAndOneMediaModule: FC<RichTextAndOneMediaModuleProps> = ({
       <Card
         data={data}
         contentVariant="richTextAndOneMedia"
-        {...childAnims}
+        childAnims={moduleAnims.card}
         {...imageSizes}
       />
     </ModuleBase>

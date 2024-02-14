@@ -6,14 +6,7 @@ import { Media } from "../../components";
 
 const RichTextAndTwoPortraitStackedModule: FC<
   RichTextAndTwoPortraitStackedModuleProps
-> = ({
-  data,
-  childAnims,
-  mediaAnims,
-  imageSizes,
-  smallImageSizes,
-  ...props
-}) => {
+> = ({ data, moduleAnims, imageSizes, smallImageSizes, ...props }) => {
   return (
     <ModuleBase
       {...richTextAndTwoMedia(data.mediaAlignment, props)}
@@ -22,15 +15,15 @@ const RichTextAndTwoPortraitStackedModule: FC<
     >
       <Card
         data={data}
-        contentVariant="richTextAndTwoMedia"
-        {...childAnims}
+        variant="richTextAndTwoMedia"
+        childAnims={moduleAnims?.card}
         {...imageSizes}
       />
       <Media
         data={data.smallMedia}
         orientation={data.mediaOrientation}
         align={data.mediaAlignment}
-        {...mediaAnims}
+        {...moduleAnims?.media}
         imageSizes={smallImageSizes}
       />
     </ModuleBase>

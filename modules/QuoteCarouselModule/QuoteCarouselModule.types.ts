@@ -5,4 +5,5 @@ export type QuoteCarouselModuleProps = CarouselProps & {
   directionComponent?: any;
   slideWidth?: number;
   slideHeight?: number;
+  textStyles?: any;
 };

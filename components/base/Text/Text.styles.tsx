@@ -1,5 +1,29 @@
 import { cva } from "class-variance-authority";
 import { TextVars } from "./Text.types";
+import { camelToHyphen } from "../../../utils";
+// @ts-ignore - mof overrides
+import mofConfig from "/mofConfig";
+
+const texts = mofConfig.text;
+let customTextVariants: any = [];
+let customTextTextStyles: any = [];
+if (texts && texts.variants) {
+  customTextVariants = Object.entries(texts.variants).map(([key]) => {
+    return {
+      [key]: camelToHyphen(key),
+    };
+  });
+}
+if (texts && texts.textStyles) {
+  customTextTextStyles = Object.entries(texts.variants).map(([key]) => {
+    return {
+      [key]: camelToHyphen(key),
+    };
+  });
+}
+
+const variantObject = Object.assign({}, ...customTextVariants);
+const textStyleObject = Object.assign({}, ...customTextTextStyles);
 
 // Text Base and Variant Styles
 export const text = cva("text", {
@@ -13,10 +37,7 @@ export const text = cva("text", {
       secondaryBold: ["font-secondary text-bold"],
       secondaryLight: ["font-secondary text-light"],
       secondaryItalic: ["font-secondary text-italic"],
-      alternate: ["font-alternate"],
-      alternateBold: ["font-alternate text-bold"],
-      alternateLight: ["font-alternate text-light"],
-      alternateItalic: ["font-alternate text-italic"],
+      ...variantObject,
     },
     textStyle: {
       "display-sm": "text-display-sm",
@@ -40,6 +61,7 @@ export const text = cva("text", {
       "tag-sm": "text-tag-sm",
       quote: "text-quote",
       button: "",
+      ...textStyleObject,
     },
   },
   defaultVariants: {

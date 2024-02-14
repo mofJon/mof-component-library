@@ -85,6 +85,10 @@ export const HorizontalDropdownNav: Story = {
     navPanelAnimations,
     navPanelWrapperAnimations,
     navImageAnimations,
+    textStyles: {
+      mainNav: "i-xs",
+      subNav: "p-sm",
+    },
   },
 };
 
@@ -103,6 +107,10 @@ export const HorizontalMegaNavWithColumns: Story = {
     navPanelAnimations,
     navPanelWrapperAnimations,
     navImageAnimations,
+    textStyles: {
+      mainNav: "i-xs",
+      subNav: "p-sm",
+    },
   },
 };
 

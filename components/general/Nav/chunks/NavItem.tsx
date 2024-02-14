@@ -12,7 +12,6 @@ const NavItem: FC<NavItemProps> = ({
   ...props
 }) => {
   const [isActive, setIsActive] = useState(false);
-  const [hoverLevel, setHoverLevel] = useState(false);
   const {
     navState,
     setNavState,
@@ -21,8 +20,7 @@ const NavItem: FC<NavItemProps> = ({
     navItemAnimations,
     setImgProps,
     itemIcons,
-    mainNavTextStyle,
-    subNavTextStyle,
+    textStyles,
   } = useContext(NavContext);
   const { navItemText, navItemLink, navItems, navStyle, level, colour, image } =
     data;
@@ -86,7 +84,7 @@ const NavItem: FC<NavItemProps> = ({
         data.index,
         navItemAnimations,
       )}
-      textStyle={level === 0 ? mainNavTextStyle : subNavTextStyle}
+      textStyle={level === 0 ? textStyles?.mainNav : textStyles?.subNav}
       // {...props}
     />
   );

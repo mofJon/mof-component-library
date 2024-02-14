@@ -1,9 +1,9 @@
-import { FC, useContext, useState } from "react";
+import { FC, useContext } from "react";
 import { Box, Media } from "../../../../components";
 import { NavContext } from "./";
 import { navImageWrapper, navImage } from "../Nav.styles";
 
-const NavImages: FC<any> = ({ images, ...props }) => {
+const NavImages: FC<any> = ({ images }) => {
   const { imgProps } = useContext(NavContext);
 
   const renderImages = images.map((image: any, i: number) => {
@@ -12,7 +12,7 @@ const NavImages: FC<any> = ({ images, ...props }) => {
       (i === 0 && !imgProps.image);
 
     return (
-      <Box {...navImage(isActive)}>
+      <Box key={`navImage${i}`} {...navImage(isActive)}>
         <Media key={`${image.mediaId} `} data={image} />
       </Box>
     );

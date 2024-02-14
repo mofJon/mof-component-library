@@ -34,7 +34,7 @@
 }
 
 .generic-carousel .carousel-pagination-number {
-  @apply text-white text-xs opacity-50 select-none;
+  @apply text-white opacity-50 select-none;
 }
 
 .generic-carousel .carousel-pagination-number.active {
