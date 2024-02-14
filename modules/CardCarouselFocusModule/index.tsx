@@ -50,8 +50,6 @@ const CardCarouselFocusModule: FC<CardCarouselFocusModuleProps> = ({
             moduleAnims?.cardChildAnims,
             moduleAnims?.cardAnim,
             cardVariant,
-            "overlay",
-            focusCard,
             "full",
             imageSizes,
           )}

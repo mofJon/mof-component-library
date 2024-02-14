@@ -16,6 +16,8 @@ if (cards) {
 
 const variantObject = Object.assign({}, ...customCardVariants);
 
+console.log(variantObject);
+
 // Card Variant Styles
 export const card = cva("card", {
   variants: {

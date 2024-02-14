@@ -47,6 +47,7 @@ type Story = StoryObj<typeof Card>;
 export const CardGeneric: Story = {
   args: {
     data,
+    variant: "generic",
   },
 };
 

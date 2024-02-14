@@ -71,8 +71,6 @@ const CardCarouselGenericModule: FC<CardCarouselGenericModuleProps> = ({
             moduleAnims?.cardChildAnims,
             moduleAnims?.cardAnim,
             cardVariant,
-            "primary",
-            genericCard,
             "full",
             imageSizes,
           )}
