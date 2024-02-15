@@ -1,6 +1,4 @@
 import React from "react";
-import { type VariantProps } from "class-variance-authority";
-import { contentBlock } from "./ContentBlock.styles";
 import { MotionProps } from "framer-motion";
 
 export interface ContentBlockProps {
@@ -9,11 +7,22 @@ export interface ContentBlockProps {
   childAnims?: Record<string, any>;
 }
 
+export type ContentBlockMotionTypes = {
+  contentBlock: Record<string, any>;
+  preContent: Record<string, any>;
+  preHeading: Record<string, any>;
+  info: Record<string, any>;
+  infoTag: Record<string, any>;
+  headingTitle: Record<string, any>;
+  subHeading: Record<string, any>;
+  description: Record<string, any>;
+  primaryCta: Record<string, any>;
+  secondaryCta: Record<string, any>;
+};
+
 type HTMLAndMotionProps = React.HTMLAttributes<HTMLElement> & MotionProps;
 
-export interface ContentBlockContentProps
-  extends HTMLAndMotionProps,
-    VariantProps<typeof contentBlock> {
+export interface ContentBlockContentProps extends HTMLAndMotionProps {
   ref?: any;
   variant?: any;
   data: {
@@ -25,7 +34,7 @@ export interface ContentBlockContentProps
     primaryCta?: string;
     secondaryCta?: string;
   };
-  childAnims?: Record<string, any>;
+  childAnims?: ContentBlockMotionTypes;
 }
 
 export type ContentBlockVars = (

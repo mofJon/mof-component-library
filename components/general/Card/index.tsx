@@ -36,6 +36,7 @@ export const Card = forwardRef(
       data?.image ||
       data?.cardImage ||
       data?.largeImage ||
+      data?.smallImage ||
       data?.videoFromGallery; // grrrr
     const bgImage: any = data?.backgroundImage || data?.backgroundMedia;
 

@@ -39,6 +39,7 @@ export type { ButtonGroupProps } from "./general/ButtonGroup/ButtonGroup.types";
 export type { CardProps } from "./general/Card/Card.types";
 export type { CarouselProps } from "./general/Carousel/Carousel.types";
 export type { ContentBlockProps } from "./general/ContentBlock/ContentBlock.types";
+export type { ContentBlockMotionTypes } from "./general/ContentBlock/ContentBlock.types";
 export type { MediaProps } from "./general/Media/Media.types";
 export type { ModuleBaseProps } from "./general/ModuleBase/ModuleBase.types";
 export type { NavProps } from "./general/Nav/Nav.types";

@@ -12,4 +12,4 @@ export { default as QuoteCarouselModule } from "./QuoteCarouselModule";
 export { default as RichTextAndOneMediaModule } from "./RichTextAndOneMediaModule";
 export { default as RichTextWithMediaModule } from "./RichTextWithMediaModule";
 export { default as RichTextAndTwoMediaStackedModule } from "./RichTextAndTwoMediaStackedModule";
-export { default as RichTextWithTwoMediaModule } from "./RichTextWithTwoMediaModule";
+export { default as RichTextAndTwoMediaModule } from "./RichTextAndTwoMediaModule";

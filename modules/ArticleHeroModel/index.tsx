@@ -17,7 +17,7 @@ const ArticleHeroModel: FC<ArticleHeroModelProps> = ({
     >
       <Card
         data={data}
-        contentVariant="articleHeroModel"
+        variant="articleHeroModel"
         {...backgroundImageSizes}
         {...childAnims}
       />
