@@ -46,7 +46,7 @@ export default function useImageOptimiser(
     fallbackWidth * dpr
   }&quality=${quality}&format=auto`;
 
-  const isAbsolute = url.includes("http");
+  const isAbsolute = url && url.includes("http");
   const hasLoader = isAbsolute ? { loader: imageLoader } : {};
 
   return {

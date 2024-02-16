@@ -5,8 +5,8 @@ import { RichTextAndOneMedia } from "./ArticleHeroModel.styles";
 
 const ArticleHeroModel: FC<ArticleHeroModelProps> = ({
   data,
-  childAnims,
-  backgroundImageSizes,
+  moduleAnims,
+  imageSizes,
   ...props
 }) => {
   return (
@@ -14,12 +14,13 @@ const ArticleHeroModel: FC<ArticleHeroModelProps> = ({
       {...RichTextAndOneMedia(data.mediaAlignment, props)}
       data={data}
       {...props}
+      {...moduleAnims?.module}
     >
       <Card
         data={data}
-        variant="articleHeroModel"
-        {...backgroundImageSizes}
-        {...childAnims}
+        variant="articleHero"
+        backgroundImageSizes={imageSizes}
+        childAnims={moduleAnims?.card}
       />
     </ModuleBase>
   );

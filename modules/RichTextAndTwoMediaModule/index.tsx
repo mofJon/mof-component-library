@@ -9,9 +9,14 @@ const RichTextAndTwoMediaModule: FC<RichTextAndTwoMediaModuleProps> = ({
   moduleAnims,
   ...props
 }) => {
+  const newData = Object.assign(data, {
+    image: data.smallMedia,
+    backgroundImage: data.largeMedia,
+  });
+
   return (
     <ModuleBase
-      data={data}
+      data={newData}
       {...richTextWithMedia(props)}
       {...props}
       {...moduleAnims?.module}
@@ -20,12 +25,6 @@ const RichTextAndTwoMediaModule: FC<RichTextAndTwoMediaModuleProps> = ({
         variant="richTextAndTwoMedia"
         data={data}
         childAnims={moduleAnims?.card}
-      />
-      <Media
-        responsive
-        data={data?.smallImage || data?.image}
-        {...imageSizes}
-        {...moduleAnims?.media}
       />
     </ModuleBase>
   );

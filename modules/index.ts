@@ -6,6 +6,7 @@ export { default as CardCarouselFocusModule } from "./CardCarouselFocusModule";
 export { default as CardCarouselGenericModule } from "./CardCarouselGenericModule";
 export { default as Header } from "./Header";
 export { default as HeadingSideModule } from "./HeadingSideModule";
+export { default as HeadingVerticallyStackedModule } from "./HeadingVerticallyStackedModule";
 export { default as HeroLeftAlignedModule } from "./HeroLeftAlignedModule";
 export { default as MediaCarouselModule } from "./MediaCarouselModule";
 export { default as QuoteCarouselModule } from "./QuoteCarouselModule";

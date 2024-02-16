@@ -1,5 +1,10 @@
+import { ContentBlockMotionTypes } from "../../components";
+
 export interface ArticleHeroModelProps {
   data: any;
-  childAnims?: any;
-  backgroundImageSizes?: any;
+  moduleAnims?: {
+    module: Record<string, any>;
+    card: ContentBlockMotionTypes;
+  };
+  imageSizes?: string;
 }
