@@ -1,4 +1,4 @@
-import { forwardRef, Ref, useState } from "react";
+import { forwardRef, Ref, useRef, useState } from "react";
 import { CarouselProps } from "./Carousel.types";
 import { carouselVars } from "./Carousel.styles";
 import { Stack } from "../../../components";
@@ -8,6 +8,8 @@ import {
   CarouselPagination,
   CarouselWrapper,
 } from "./chunks";
+import { getValueAtBreakpoint } from "../../../utils";
+import { useDimensions } from "../../../hooks";
 
 export const Carousel = forwardRef(
   (
@@ -19,56 +21,54 @@ export const Carousel = forwardRef(
       loop = false,
       animationStyle = "default",
       gap = 0,
-      width,
-      height,
+      width: propsWidth = "100%",
+      height: propsHeight = "100%",
       controls,
       showPagination = false,
       paginationType = "dots",
-      align = "left",
       crop = true,
       isClickable = false,
       itemAnimationVariant = "default",
       paginationStyle,
-      jaggedPercent = 1,
+      inactiveWidth = "100%",
+      inactiveHeight = "100%",
       ...props
     }: CarouselProps,
     ref: Ref<CarouselProps>,
   ) => {
     const [currItem, setCurrItem] = useState(0);
+    const carouselWrapperRef = ref || useRef();
+    const { width, height, breakpoint } = useDimensions(carouselWrapperRef);
 
-    if (items.length === 0 || width === 0 || height === 0) return null;
+    const carouselWidth = getValueAtBreakpoint(propsWidth, breakpoint);
+    const carouselHeight = getValueAtBreakpoint(propsHeight, breakpoint);
 
-    const carouselWidth = width || items[0].media.width;
-    const carouselHeight = height || items[0].media.height;
+    if (items.length === 0) return null;
 
     const allProps = {
-      ...carouselVars(
-        variant,
-        size,
-        align,
-        carouselWidth,
-        carouselHeight,
-        className,
-      ),
+      ...carouselVars(variant, size, carouselWidth, carouselHeight, className),
       ...props,
     };
 
     return (
-      <Stack {...allProps}>
+      // @ts-ignore
+      <Stack ref={carouselWrapperRef} {...allProps}>
         <CarouselContext.Provider
           value={{
             currItem,
             setCurrItem,
             isClickable,
             itemAnimationVariant,
-            jaggedPercent,
+            inactiveWidth,
+            inactiveHeight,
+            breakpoint,
           }}
         >
           <CarouselWrapper
             items={items}
             gap={gap}
-            dragWidth={carouselWidth}
-            dragHeight={carouselHeight}
+            dragWidth={width}
+            dragHeight={height}
             animationStyle={animationStyle}
             crop={crop}
             loop={loop}
@@ -77,7 +77,7 @@ export const Carousel = forwardRef(
           <CarouselControls
             controls={controls}
             length={items.length}
-            width={carouselWidth}
+            width={width}
             loop={loop}
           />
           {showPagination && !loop && (

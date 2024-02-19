@@ -1,9 +1,10 @@
 export { default as AccordionModule } from "./AccordionModule";
-export { default as ArticleHeroModel } from "./ArticleHeroModel";
+export { default as ArticleHeroModule } from "./ArticleHeroModule";
 export { default as BannerFullBleedModule } from "./BannerFullBleedModule";
 export { default as BreadcrumbsModule } from "./BreadcrumbsModule";
 export { default as CardCarouselFocusModule } from "./CardCarouselFocusModule";
 export { default as CardCarouselGenericModule } from "./CardCarouselGenericModule";
+export { default as Footer } from "./Footer";
 export { default as Header } from "./Header";
 export { default as HeadingSideModule } from "./HeadingSideModule";
 export { default as HeadingVerticallyStackedModule } from "./HeadingVerticallyStackedModule";

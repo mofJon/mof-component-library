@@ -144,17 +144,16 @@ export const carouselJaggedAnimation = (
   isActive,
   width,
   height,
-  jaggedPercent = 1,
+  inactiveWidth,
+  inactiveHeight,
 ) => {
-  const littleGuy = 1.2 - jaggedPercent;
-
   return {
     initial: "inactive",
     animate: isActive ? "active" : "inactive",
     variants: {
       inactive: {
-        width: width * littleGuy,
-        height: height * 0.5,
+        width: inactiveWidth,
+        height: inactiveHeight,
         opacity: 1,
       },
       active: {

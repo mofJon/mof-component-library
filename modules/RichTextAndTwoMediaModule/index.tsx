@@ -7,6 +7,7 @@ const RichTextAndTwoMediaModule: FC<RichTextAndTwoMediaModuleProps> = ({
   data,
   imageSizes,
   moduleAnims,
+  variant = "richTextAndTwoMedia",
   ...props
 }) => {
   const newData = Object.assign(data, {
@@ -21,11 +22,7 @@ const RichTextAndTwoMediaModule: FC<RichTextAndTwoMediaModuleProps> = ({
       {...props}
       {...moduleAnims?.module}
     >
-      <Card
-        variant="richTextAndTwoMedia"
-        data={data}
-        childAnims={moduleAnims?.card}
-      />
+      <Card variant={variant} data={data} childAnims={moduleAnims?.card} />
     </ModuleBase>
   );
 };

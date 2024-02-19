@@ -27,11 +27,21 @@ type Story = StoryObj<typeof CardCarouselGenericModule>;
 export const MediaCarouselModule: Story = {
   args: {
     data,
-    directionComponent: <Arrow />,
-    paginationType: "leadingZeroNumbers",
-    showPagination: true,
-    gap: 5,
-    variant: "jagged",
-    jaggedPercent: 0.8, // 0 - 1
+    carouselProps: {
+      animationStyle: "elegant",
+      controls: {
+        show: true,
+        directionComponent: <Arrow />,
+      },
+      paginationType: "leadingZeroNumbers",
+      showPagination: true,
+      gap: 5,
+      variant: "jagged",
+      inactiveWidth: { sm: "100%", md: "30%" },
+      inactiveHeight: { sm: "100%", md: "60%", lg: "70%" },
+      width: { sm: "95%", md: "80%" },
+      height: 500,
+      crop: false,
+    },
   },
 };

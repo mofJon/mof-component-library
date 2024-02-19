@@ -2,15 +2,13 @@ import classNames from "classnames";
 import { isColorDark, fixColor } from "../../../utils";
 
 export const moduleBase: any = (data: any, props?: any) => {
-  const { className } = props;
-
   const classes = [
     "module",
-    { left: props?.mediaAlignment === "Left" },
-    { right: props?.mediaAlignment === "Right" },
-    { portrait: props?.mediaOrientation === "Portrait" },
-    { landscape: props?.mediaOrientation === "Landscape" },
-    className,
+    { left: data?.mediaAlignment === "Left" },
+    { right: data?.mediaAlignment === "Right" },
+    { portrait: data?.mediaOrientation === "Portrait" },
+    { landscape: data?.mediaOrientation === "Landscape" },
+    props?.className,
   ];
   const backgroundColor = fixColor(data?.backgroundColour);
 

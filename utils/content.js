@@ -1,3 +1,12 @@
+// @ts-ignore - grabs variables from the root project's tailwind config
+import twConfig from "/tailwind.config.ts";
+
+// @ts-ignore
+const { screens: breakpoints } = twConfig?.theme?.extend;
+const availBreakpoints = breakpoints
+  ? Object.keys(breakpoints)
+  : ["base", "sm", "md", "lg", "xl"];
+
 export const stripHtml = (html) => {
   return html.replace(/(<([^>]+)>)/gi, "");
 };
@@ -128,4 +137,32 @@ export const getCurrentBreakpoint = (breakpoints, width) => {
   }
 
   return currentBreakpoint;
+};
+
+export const getValueAtBreakpoint = (values, breakpoint, percentageOf) => {
+  let value = values;
+  if (typeof values === "object") {
+    value = Object.values(values)[0];
+    for (let i = 0; i < availBreakpoints.length; i++) {
+      const val = availBreakpoints[i];
+      if (values[val] && breakpoint !== "base") value = values[val];
+      if (val === breakpoint) {
+        break;
+      }
+    }
+  }
+
+  if (percentageOf) {
+    let percentOfVal = value;
+    if (typeof value === "number") {
+      percentOfVal = value / percentageOf;
+    }
+    if (value.includes("%")) {
+      const decimalise = parseInt(value.replace("%", "")) / 100;
+      percentOfVal = decimalise * percentageOf;
+    }
+    return percentOfVal;
+  }
+
+  return value;
 };

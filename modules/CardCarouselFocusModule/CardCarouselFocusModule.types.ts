@@ -1,12 +1,15 @@
 import { CarouselProps } from "../../components";
 
-export type CardCarouselFocusModuleProps = CarouselProps & {
-  moduleAnims?: any;
+export type CardCarouselFocusModuleProps = {
+  moduleAnims?: {
+    module?: any;
+    content?: any;
+    tag?: any;
+    heading?: any;
+    description?: any;
+  };
+  carouselProps?: CarouselProps;
   data: any;
-  directionComponent?: any;
-  slideWidth?: number;
-  slideHeight?: number;
-  cardVariant?: string;
-  carouselVariant?: string;
-  imageSizes?: string;
+  getItems: (cards: any) => any;
+  textStyles?: Record<string, any>;
 };

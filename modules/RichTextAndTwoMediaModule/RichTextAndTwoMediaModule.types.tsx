@@ -8,4 +8,5 @@ export interface RichTextAndTwoMediaModuleProps {
     card?: ContentBlockMotionTypes;
     media?: any;
   };
+  variant?: string;
 }

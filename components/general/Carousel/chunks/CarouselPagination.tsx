@@ -33,8 +33,7 @@ const CarouselPagination: FC<ICarouselPagination> = ({
       paginationItem = (
         <Text
           text={number}
-          textStyle={paginationStyle}
-          {...carouselPaginationStep(isActive, "numbers")}
+          {...carouselPaginationStep(isActive, "numbers", paginationStyle)}
         />
       );
     }

@@ -1,4 +1,9 @@
-import React, { useRef, forwardRef, useImperativeHandle } from "react";
+import React, {
+  useRef,
+  forwardRef,
+  useImperativeHandle,
+  useEffect,
+} from "react";
 import { Box, Image } from "../../";
 import { videoWrapper } from "./Video.styles";
 import VideoPlayer from "./VideoPlayer";
@@ -19,11 +24,14 @@ const Video: any = forwardRef(function Video(
   const isRobot = null;
 
   const vimeo = useRef();
+  const player = useRef();
 
   useImperativeHandle(
     ref,
     () => {
       const vid: any = vimeo?.current;
+
+      vid?.current.pause();
 
       return (
         data.vimeoId && {
@@ -40,10 +48,26 @@ const Video: any = forwardRef(function Video(
     return null;
   }
 
+  const togglePlay = () => {
+    const playerEl: any = player?.current;
+
+    if (playerEl) {
+      playerEl.getPaused().then((paused: boolean) => {
+        paused ? playerEl.play() : playerEl.pause();
+      });
+    }
+  };
+
+  const handleOnPlayerReady = (playerContainer: any) => {
+    if (playerContainer) {
+      player.current = playerContainer;
+    }
+  };
+
   const cover = data?.coverImage;
 
   return (
-    <Box {...videoWrapper} {...props}>
+    <Box {...videoWrapper} onClick={togglePlay}>
       {cover && (
         <Image
           {...imageSizes}
@@ -61,7 +85,7 @@ const Video: any = forwardRef(function Video(
             media={data}
             cover={cover}
             controls={controls}
-            onPlayerReady={onPlayerReady}
+            onPlayerReady={handleOnPlayerReady}
             onAutoPlayStarted={onAutoPlayStarted}
             muted={muted}
           />

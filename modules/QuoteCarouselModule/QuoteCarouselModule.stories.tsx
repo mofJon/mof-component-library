@@ -21,13 +21,22 @@ type Story = StoryObj<typeof QuoteCarouselModule>;
 export const QuoteCarousel: Story = {
   args: {
     data,
-    directionComponent: <Arrow />,
-    showPagination: true,
-    paginationType: "leadingZeroNumbers",
-    animationStyle: "elegant",
+    carouselProps: {
+      controls: {
+        show: true,
+        directionComponent: <Arrow />,
+      },
+      showPagination: true,
+      paginationType: "leadingZeroNumbers",
+      animationStyle: "elegant",
+      paginationStyle: {
+        textStyle: "i-xs",
+      },
+    },
     textStyles: {
-      quote: "h1",
-      pagination: "text-xs",
+      quote: {
+        textStyle: "h3",
+      },
     },
   },
 };

@@ -8,12 +8,12 @@ type HTMLAndMotionProps = React.HTMLAttributes<HTMLElement> & MotionProps;
 export interface CarouselProps
   extends HTMLAndMotionProps,
     VariantProps<typeof carousel> {
-  items: any;
+  items?: any;
   loop?: boolean;
   animationStyle?: "default" | "elegant" | "bouncy" | "slow" | "superSlow";
   gap?: number;
-  width?: number;
-  height?: number;
+  width?: number | string | Record<string, any>;
+  height?: number | string | Record<string, any>;
   controls?: {
     show?: boolean;
     directionComponent: ReactNode;
@@ -31,13 +31,13 @@ export interface CarouselProps
     | "slow"
     | "superSlow"
     | "none";
-  jaggedPercent?: number;
+  inactiveWidth?: number | string | Record<string, any>;
+  inactiveHeight?: number | string | Record<string, any>;
 }
 
 export type CarouselVars = (
   variant: CarouselProps["variant"],
   size: CarouselProps["size"],
-  align: CarouselProps["align"],
   width: CarouselProps["width"],
   height: CarouselProps["height"],
   className: CarouselProps["className"],

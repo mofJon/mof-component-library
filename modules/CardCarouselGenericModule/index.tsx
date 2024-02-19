@@ -1,103 +1,60 @@
-import { FC, useRef } from "react";
+import { FC } from "react";
+import { ModuleBase, Carousel, Stack, Text } from "../../components";
 import {
-  Box,
-  ModuleBase,
-  Card,
-  Carousel,
-  CardItems,
-  Stack,
-} from "../../components";
-import {
-  genericCard,
-  genericCarousel,
-  genericContainer,
+  carouselContent,
+  carouselWrapper,
+  carouselTag,
+  carouselHeading,
+  carouselDescription,
 } from "./CardCarouselGenericModule.styles";
 import { CardCarouselGenericModuleProps } from "./CardCarouselGenericModule.types";
-import { useDimensions } from "../../hooks";
-// @ts-ignore - grabs variables from the root project's tailwind config
-import twConfig from "/tailwind.config.ts";
-
-// @ts-ignore
-const { screens: breakpoints } = twConfig?.theme?.extend;
-const availBreakpoints = breakpoints
-  ? Object.keys(breakpoints)
-  : ["base", "sm", "md", "lg", "xl"];
 
 const CardCarouselGenericModule: FC<CardCarouselGenericModuleProps> = ({
-  animationStyle = "default",
+  carouselProps,
   data,
-  directionComponent,
   moduleAnims,
-  showPagination = true,
-  paginationType = "dots",
-  columns = 1,
-  crop = false,
-  loop = false,
-  gap = 0,
-  slideWidth,
-  slideHeight,
-  carouselVariant = "focusCarousel",
-  cardVariant = "focusCard",
-  imageSizes = "(max-width: 640px) 100vw, (max-width: 1200px) 33vw, 20vw",
+  getItems,
+  textStyles,
   ...props
 }) => {
-  const ref = useRef(null);
-  const { width, height, breakpoint } = useDimensions(ref);
-
-  // get the number of columns to render based on the current breakpoint
-  let columnNum = columns;
-  if (typeof columns === "object") {
-    columnNum = Object.values(columns)[0];
-    for (let i = 0; i < availBreakpoints.length; i++) {
-      const val = availBreakpoints[i];
-      if (columns[val] && breakpoint !== "base") columnNum = columns[val];
-      if (val === breakpoint) {
-        break;
-      }
-    }
-  }
-
+  if (!data) return null;
   const getCards = data?.cardRow || [];
 
   const renderCarouselRows = getCards.map((val: any, i: number) => {
     const { cards } = val.props;
 
-    return (
-      <Box key={`genericCardCarouselRow${i}`} ref={ref} {...genericContainer}>
-        <Carousel
-          {...props}
-          items={CardItems(
-            cards,
-            moduleAnims?.cardChildAnims,
-            moduleAnims?.cardAnim,
-            cardVariant,
-            "full",
-            imageSizes,
-          )}
-          animationStyle={animationStyle}
-          crop={crop}
-          controls={{
-            show: directionComponent ? true : false,
-            directionComponent: directionComponent ? directionComponent : null,
-          }}
-          showPagination={showPagination}
-          paginationType={paginationType}
-          loop={loop}
-          gap={gap}
-          width={(slideWidth || width) / (columnNum as number) - gap}
-          height={slideHeight || height}
-          {...genericCarousel}
-        />
-      </Box>
-    );
+    return <Carousel items={getItems(cards)} {...carouselProps} />;
   });
 
+  const heading =
+    typeof data.headingTitle === "object"
+      ? data.headingTitle.heading
+      : data.headingTitle;
+  const htag = data.headingTitle?.htag
+    ? { htag: data.headingTitle.heading }
+    : {};
+
   return (
-    <ModuleBase data={data}>
-      <Stack direction="column">
-        <Card data={data} variant={carouselVariant} />
-        {renderCarouselRows}
+    <ModuleBase data={data} {...carouselWrapper(props, moduleAnims?.module)}>
+      <Stack {...carouselContent(moduleAnims?.content)}>
+        <Text
+          text={data.tag}
+          {...carouselTag(moduleAnims?.tag, textStyles?.tag)}
+        />
+        <Text
+          text={heading}
+          {...htag}
+          {...carouselHeading(moduleAnims?.heading, textStyles?.heading)}
+        />
+        <Text
+          text={data.description}
+          {...carouselDescription(
+            moduleAnims?.description,
+            textStyles?.description,
+          )}
+        />
       </Stack>
+      {renderCarouselRows}
     </ModuleBase>
   );
 };

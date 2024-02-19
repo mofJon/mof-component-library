@@ -23,7 +23,7 @@ declare const document: {
 
 const VideoPlayer: any = forwardRef(function VideoPlayer(
   // @ts-ignore
-  { media, cover, controls, onPayerReady, onAutoPlayStarted, ...props },
+  { media, cover, controls, onPlayerReady, onAutoPlayStarted, ...props },
   ref,
 ) {
   const root = useRef();
@@ -56,15 +56,15 @@ const VideoPlayer: any = forwardRef(function VideoPlayer(
 
         player.current.ready().then(() => {
           setVimeoReady(true);
-          if (onPayerReady) {
-            onPayerReady();
+          if (onPlayerReady) {
+            onPlayerReady(player.current);
           }
         });
       }
     } else {
       console.error(`'${media.vimeoId}' is not a valid vimeo ID`);
     }
-  }, [onPayerReady, onAutoPlayStarted, media, controls]);
+  }, [onPlayerReady, onAutoPlayStarted, media, controls]);
 
   useImperativeHandle(
     ref,

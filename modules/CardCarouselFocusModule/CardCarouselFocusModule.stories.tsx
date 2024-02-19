@@ -27,7 +27,18 @@ type Story = StoryObj<typeof CardCarouselFocusModule>;
 export const CardCarouselFocus: Story = {
   args: {
     data,
-    directionComponent: <Arrow />,
-    cardVariant: "focusCard",
+    carouselProps: {
+      animationStyle: "elegant",
+      controls: {
+        show: true,
+        directionComponent: <Arrow />,
+      },
+      paginationType: "leadingZeroNumbers",
+      showPagination: true,
+      gap: 5,
+      height: 500,
+      crop: false,
+    },
+    getItems: () => [],
   },
 };

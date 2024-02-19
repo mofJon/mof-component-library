@@ -1,12 +1,13 @@
 import { cva } from "class-variance-authority";
-import { CarouselVars, CarouselProps } from "./Carousel.types";
+import { CarouselVars } from "./Carousel.types";
 import {
   carouselAnimationDefault,
   carouselAnimationElegant,
   carouselAnimationBouncy,
   carouselAnimationSlow,
   carouselAnimationSuperSlow,
-} from "../../../theme/animations";
+} from "./Carousel.motion";
+import classNames from "classnames";
 
 // Carousel Variant Styles
 export const carousel = cva("carousel", {
@@ -16,15 +17,12 @@ export const carousel = cva("carousel", {
       focus: "focus",
       bookcase: "bookcase",
       fadeInAndScale: "fade-in-and-scale",
+      jagged: "jagged",
     },
     size: {
       sm: "sm",
       md: "md",
       lg: "lg",
-    },
-    align: {
-      left: "left",
-      center: "center",
     },
   },
   compoundVariants: [],
@@ -38,28 +36,25 @@ export const carousel = cva("carousel", {
 export const carouselVars: CarouselVars = (
   variant,
   size,
-  align,
   width,
   height,
   classes,
 ) => {
-  const baseStyles = `${classes ? classes : ""}`;
-
   return {
     className: carousel({
       variant,
       size,
-      className: baseStyles,
+      className: classNames(classes),
     }),
     style: {
-      width: `${width}px`,
-      height: `${height}px`,
+      width,
+      height,
     },
   };
 };
 
 export const carouselCanvas = (crop: boolean) => ({
-  className: `carousel-canvas ${crop ? "crop" : ""}`,
+  className: classNames("carousel-canvas", { crop }),
 });
 
 export const carouselWrapper = (gap: number, animationStyle = "default") => {
@@ -72,7 +67,7 @@ export const carouselWrapper = (gap: number, animationStyle = "default") => {
   };
 
   return {
-    className: `carousel-wrapper`,
+    className: "carousel-wrapper",
     style: { gap: `${gap}px` },
     transition: transition[animationStyle as "default"],
   };
@@ -109,7 +104,7 @@ export const carouselControlsHolder = (width: number) => ({
 
 export const carouselControl = (dir: "prev" | "next", hide: boolean) => {
   return {
-    className: `carousel-control ${dir} ${hide ? "hide" : ""}`,
+    className: classNames("carousel-control", [dir], { hide: hide }),
   };
 };
 
@@ -117,13 +112,17 @@ export const carouselPagination = {
   className: "carousel-pagination",
 };
 
-export const carouselPaginationStep = (isActive: boolean, type: string) => {
+export const carouselPaginationStep = (
+  isActive: boolean,
+  type: string,
+  textStyles?: any,
+) => {
   return {
-    className: `${
-      type === "dots"
-        ? "carousel-pagination-step"
-        : "carousel-pagination-number"
-    } ${isActive ? "active" : ""}`,
+    className: classNames(
+      [`carousel-pagination-${type === "dots" ? "step" : "number"}`],
+      { active: isActive },
+    ),
+    ...textStyles,
   };
 };
 
