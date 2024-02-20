@@ -7,7 +7,7 @@ export const getQueryByName = (str: string, key: string) => {
   return matched ? matched[1] : "";
 };
 
-export const stripQueryString = (str: string) => {
+export const stripQueryString = (str: string = "") => {
   const url = str.replace(/\?.*$/, "");
   return url;
 };

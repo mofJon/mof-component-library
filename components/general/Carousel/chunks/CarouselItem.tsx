@@ -7,8 +7,9 @@ import {
   carouselBookcaseAnimation,
   carouselFadeAndScaleAnimation,
   carouselJaggedAnimation,
-} from "../Carousel.animations";
+} from "../Carousel.motion";
 import { CarouselContext } from "./";
+import { getValueAtBreakpoint } from "../../../../utils";
 
 let offset = 0;
 
@@ -24,9 +25,19 @@ const CarouselItem: FC<ICarouselItem> = ({
   variant,
   ...props
 }) => {
-  const { currItem, itemAnimationVariant, jaggedPercent } =
+  const { currItem, inactiveWidth, inactiveHeight, breakpoint } =
     useContext(CarouselContext);
   let isActive = currItem === index;
+  const newInactiveWidth = getValueAtBreakpoint(
+    inactiveWidth,
+    breakpoint,
+    width,
+  );
+  const newInactiveHeight = getValueAtBreakpoint(
+    inactiveHeight,
+    breakpoint,
+    height,
+  );
 
   if (loop) {
     const itemsLength = length + 1;
@@ -37,8 +48,6 @@ const CarouselItem: FC<ICarouselItem> = ({
     offset = slideWidth * (fullLength * groupOffset + itemsLength);
     isActive = currItem - fullLength * groupOffset - itemsLength === index;
   }
-
-  console.log(variant);
 
   const itemAnimation = {
     primary: { initial: "inactive", animate: isActive ? "active" : "inactive" },
@@ -55,7 +64,8 @@ const CarouselItem: FC<ICarouselItem> = ({
       index <= currItem,
       width,
       height,
-      jaggedPercent,
+      newInactiveWidth,
+      newInactiveHeight,
     ),
     none: {},
   };

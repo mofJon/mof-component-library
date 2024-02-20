@@ -27,6 +27,7 @@
   @import "modules/CardCarouselGenericModule.css";
   @import "modules/CardListingGridModule.css";
   @import "modules/Header.css";
+  @import "../../modules/Footer/Footer.css";
   @import "modules/HeadingSideModule.css";
   @import "modules/QuoteCarouselModule.css";
   @import "modules/RichTextWithMediaModule.css";

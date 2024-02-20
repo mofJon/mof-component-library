@@ -1,7 +1,6 @@
-export const mediaCarousel = {
-  className: "media-carousel",
-};
+import classNames from "classnames";
 
-export const mediaContainer = {
-  className: "media-container",
-};
+export const mediaCarousel = (props: any, motion?: any) => ({
+  className: classNames("media-carousel", props.className),
+  ...motion,
+});

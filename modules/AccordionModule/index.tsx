@@ -27,7 +27,7 @@ const AccordionModule: FC<AccordionModuleProps> = ({
           // @ts-ignore
           data={data.accordionElements}
           icon={accordionIcon}
-          allowedMultipleOpen={data?.allowedMultipleOpen}
+          allowedMultipleOpen={data?.allowOpeningMultiple}
           textStyles={textStyles}
           childAnims={moduleAnims}
         />

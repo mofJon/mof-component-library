@@ -1,83 +1,60 @@
-import { FC, useRef } from "react";
+import { FC } from "react";
+import { ModuleBase, Carousel, Stack, Text } from "../../components";
 import {
-  Box,
-  ModuleBase,
-  Carousel,
-  Card,
-  CardItems,
-  Stack,
-} from "../../components";
-import {
-  focusCard,
-  focusCarousel,
-  focusContainer,
+  carouselContent,
+  carouselWrapper,
+  carouselTag,
+  carouselHeading,
+  carouselDescription,
 } from "./CardCarouselFocusModule.styles";
 import { CardCarouselFocusModuleProps } from "./CardCarouselFocusModule.types";
-import { useDimensions } from "../../hooks";
 
 const CardCarouselFocusModule: FC<CardCarouselFocusModuleProps> = ({
-  animationStyle = "default",
+  carouselProps,
   data,
-  directionComponent,
   moduleAnims,
-  showPagination = false,
-  paginationType = "dots",
-  crop = false,
-  loop = true,
-  gap = 0,
-  slideWidth,
-  slideHeight,
-  carouselVariant = "focusCarousel",
-  cardVariant = "focusCard",
-  imageSizes = "90vw",
-  itemAnimationVariant = "none",
+  getItems,
+  textStyles,
   ...props
 }) => {
-  const ref = useRef(null);
-  const { width, height } = useDimensions(ref);
-
-  const getCards = data?.props?.cardRow || [];
+  if (!data) return null;
+  const getCards = data?.cardRow || [];
 
   const renderCarouselRows = getCards.map((val: any, i: number) => {
     const { cards } = val.props;
 
-    return (
-      <Box key={`focusCardCarouselRow${i}`} ref={ref} {...focusContainer}>
-        <Carousel
-          {...props}
-          items={CardItems(
-            cards,
-            moduleAnims?.cardChildAnims,
-            moduleAnims?.cardAnim,
-            cardVariant,
-            "full",
-            imageSizes,
-          )}
-          animationStyle={animationStyle}
-          crop={crop}
-          controls={{
-            show: directionComponent ? true : false,
-            directionComponent: directionComponent ? directionComponent : null,
-          }}
-          showPagination={showPagination}
-          paginationType={paginationType}
-          loop={loop}
-          gap={gap}
-          width={slideWidth || width}
-          height={slideHeight || height}
-          itemAnimationVariant={itemAnimationVariant}
-          {...focusCarousel}
-        />
-      </Box>
-    );
+    return <Carousel items={getItems(cards)} {...carouselProps} />;
   });
 
+  const heading =
+    typeof data.headingTitle === "object"
+      ? data.headingTitle.heading
+      : data.headingTitle;
+  const htag = data.headingTitle?.htag
+    ? { htag: data.headingTitle.heading }
+    : {};
+
   return (
-    <ModuleBase data={data}>
-      <Stack direction="column">
-        <Card data={data.props} variant={carouselVariant} />
-        {renderCarouselRows}
+    <ModuleBase data={data} {...carouselWrapper(props, moduleAnims?.module)}>
+      <Stack {...carouselContent(moduleAnims?.content)}>
+        <Text
+          text={data.tag}
+          {...carouselTag(moduleAnims?.tag, textStyles?.tag)}
+        />
+        <Text
+          text={heading}
+          {...htag}
+          {...carouselHeading(moduleAnims?.heading, textStyles?.heading)}
+        />
+        <Text
+          text={data.description}
+          {...carouselDescription(
+            moduleAnims?.description,
+            textStyles?.description,
+          )}
+        />
       </Stack>
+      {renderCarouselRows}
     </ModuleBase>
   );
 };

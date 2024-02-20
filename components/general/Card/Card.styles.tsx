@@ -16,8 +16,6 @@ if (cards) {
 
 const variantObject = Object.assign({}, ...customCardVariants);
 
-console.log(variantObject);
-
 // Card Variant Styles
 export const card = cva("card", {
   variants: {
@@ -60,7 +58,7 @@ export const mediaHolder = (size: any) => {
 };
 
 export const backgroundMediaHolder = {
-  className: "card-bg-media-holder",
+  className: "media-holder-background",
 };
 
 export const cardContent = (size: any) => {

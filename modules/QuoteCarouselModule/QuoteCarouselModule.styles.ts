@@ -1,95 +1,68 @@
-export const quoteContainer = {
+import classNames from "classnames";
+import defaultMotion from "./QuoteCarouselModule.motion";
+
+export const quoteModule = (props?: any, motion?: any) => ({
+  className: classNames("quote-carousel", props.className),
+  ...motion,
+});
+
+export const quoteContainer = (motion?: any) => ({
   className: "quote-container",
-};
+  ...motion,
+});
 
-export const quoteCarousel = {
-  className: "quote-carousel",
-};
-
-const fade = {
-  inactive: {
-    opacity: 0,
-  },
-  active: {
-    opacity: 1,
-    transition: {
-      stiffness: 50,
-      damping: 10,
-    },
-  },
-};
-
-export const quoteSlide = {
+export const quoteSlide = (motion?: any) => ({
   className: "quote-slide",
-  variants: fade,
-};
+  ...defaultMotion?.slide,
+  ...motion,
+});
 
-export const quoteMainWrapper = {
-  className: "quote-main-wrapper",
-  variants: {
-    inactive: {
-      opacity: 0,
-      scale: 0.9,
-    },
-    active: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        type: "spring",
-        damping: 10,
-        stiffness: 6,
-      },
-    },
-  },
-};
+export const quoteWrapper = (motion?: any) => ({
+  className: "quote-carousel",
+  ...defaultMotion?.quoteWrapper,
+  ...motion,
+});
 
-export const quoteMain = {
-  className: "quote-main",
-};
-
-export const quoteLeft = {
+export const quoteLeft = (motion?: any, textStyles?: Record<string, any>) => ({
   className: "quote-left",
-};
+  ...motion,
+  ...textStyles,
+});
 
-export const quoteRight = {
+export const quoteMain = (motion?: any, textStyles?: Record<string, any>) => ({
+  className: "quote-main",
+  ...motion,
+  ...textStyles,
+});
+
+export const quoteRight = (motion?: any, textStyles?: Record<string, any>) => ({
   className: "quote-right",
-};
+  ...motion,
+  ...textStyles,
+});
 
-export const quoteFooter = {
+export const quoteFooter = (motion?: any) => ({
   className: "quote-footer",
-  variants: {
-    inactive: {},
-    active: {
-      transition: {
-        staggerChildren: 0.3,
-        delayChildren: 1.5,
-      },
-    },
-  },
-};
+  ...defaultMotion?.footer,
+  ...motion,
+});
 
-const slowFadeUp = {
-  inactive: {
-    opacity: 0,
-    y: 10,
-  },
-  active: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      type: "spring",
-      damping: 20,
-      stiffness: 50,
-    },
-  },
-};
-
-export const quoteAuthor = {
+export const quoteAuthor = (
+  motion?: any,
+  textStyles?: Record<string, any>,
+) => ({
   className: "quote-author",
-  variants: slowFadeUp,
-};
+  ...defaultMotion?.author,
+  ...motion,
+  ...textStyles,
+});
 
-export const quoteSource = {
+export const quoteSource = (
+  motion?: any,
+  textStyles?: Record<string, any>,
+) => ({
   className: "quote-source",
-  variants: slowFadeUp,
-};
+  ...defaultMotion?.source,
+  ...motion,
+  ...textStyles,
+});

@@ -27,10 +27,18 @@ type Story = StoryObj<typeof CardCarouselGenericModule>;
 export const CardCarouselGeneric: Story = {
   args: {
     data,
-    directionComponent: <Arrow />,
-    paginationType: "leadingZeroNumbers",
-    showPagination: true,
-    columns: { sm: 1, md: 3 },
-    gap: 5,
+    carouselProps: {
+      animationStyle: "elegant",
+      controls: {
+        show: true,
+        directionComponent: <Arrow />,
+      },
+      paginationType: "leadingZeroNumbers",
+      showPagination: true,
+      gap: 5,
+      height: 500,
+      crop: false,
+    },
+    getItems: () => [],
   },
 };

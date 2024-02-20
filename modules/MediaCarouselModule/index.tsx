@@ -1,26 +1,14 @@
 import { FC } from "react";
 import { ModuleBase, Media, Carousel } from "../../components";
 import { mediaCarousel } from "./MediaCarouselModule.styles";
-// import { MediaCarouselModuleProps } from "./MediaCarouselModule.types";
-import { useDimensions } from "../../hooks";
-
 const MediaCarouselModule: FC<any> = ({
-  animationStyle = "default",
+  carouselProps,
   data,
-  directionComponent,
-  showPagination = true,
-  paginationType = "dots",
-  gap = 0,
-  slideWidth,
-  slideHeight,
+  moduleAnims,
   imageSizes,
   priority = false,
-  variant = "primary",
-  jaggedPercent = 1,
   ...props
 }) => {
-  const { screenWidth, screenHeight } = useDimensions();
-
   if (!data) return null;
   const slides = data?.mediaSlides || [];
 
@@ -36,25 +24,12 @@ const MediaCarouselModule: FC<any> = ({
   });
 
   return (
-    <ModuleBase data={data}>
-      <Carousel
-        {...props}
-        items={mediaSlides}
-        animationStyle={animationStyle}
-        variant={variant}
-        controls={{
-          show: directionComponent ? true : false,
-          directionComponent: directionComponent ? directionComponent : null,
-        }}
-        crop={false}
-        showPagination={showPagination}
-        paginationType={paginationType}
-        gap={gap}
-        width={slideWidth || screenWidth * 0.8}
-        height={slideHeight || screenHeight}
-        jaggedPercent={jaggedPercent}
-        {...mediaCarousel}
-      />
+    <ModuleBase
+      {...props}
+      data={data}
+      {...mediaCarousel(props, moduleAnims?.module)}
+    >
+      <Carousel items={mediaSlides} {...carouselProps} {...mediaCarousel} />
     </ModuleBase>
   );
 };

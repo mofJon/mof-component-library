@@ -11,11 +11,7 @@ const BannerFullBleedModule: FC<BannerFullBleedModuleProps> = ({
   ...props
 }) => {
   return (
-    <ModuleBase
-      {...BannerFullBleedMedia(props.className)}
-      data={data}
-      {...props}
-    >
+    <ModuleBase {...BannerFullBleedMedia(props)} data={data} {...props}>
       <Card
         variant={cardVariant}
         data={data}

@@ -29,13 +29,15 @@ export const Media = forwardRef(
       <Image
         {...hasImageSizes}
         src={data.imageUrl}
-        alt={data.imageUrl}
+        alt={data.imageAlt}
         responsive={responsive}
         priority={priority}
       />
     );
-    if (data.isVideo) {
-      variant = <Video {...props} videoId={data.imageUrl} />;
+    if (data.coverImage) {
+      variant = (
+        <Video {...props} data={data} {...hasImageSizes} priority={priority} />
+      );
     }
     if (data.isSvg && data.svg) {
       const SVG = require(data.imageUrl).current;
@@ -45,7 +47,7 @@ export const Media = forwardRef(
     if (!variant) return null;
 
     return (
-      <Box {...props} {...mediaHolder(size, align, orientation)}>
+      <Box {...props} {...mediaHolder(size, align, orientation, props)}>
         {variant}
         <Text text={data.caption} {...caption} />
       </Box>
