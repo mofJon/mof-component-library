@@ -104,7 +104,7 @@ export default {
           textStyle: "p",
         },
         headingTitle: {
-          textStyle: "h2",
+          textStyle: "h5",
         },
         subHeading: {
           variant: "primaryBold",

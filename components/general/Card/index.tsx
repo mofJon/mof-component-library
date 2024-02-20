@@ -17,7 +17,6 @@ export const Card = forwardRef(
       size,
       imageSizes,
       backgroundImageSizes,
-      captionTextStyle,
       data,
       childAnims = emptyContentBlockAnim,
       priority,
@@ -46,7 +45,6 @@ export const Card = forwardRef(
           data={mainImage}
           size={size}
           imageSizes={imageSizes}
-          captionTextStyle={captionTextStyle}
           {...mediaHolder(size)}
           responsive
           priority
@@ -54,6 +52,7 @@ export const Card = forwardRef(
           orientation={
             data?.mediaOrientation && data.mediaOrientation.toLowerCase()
           }
+          cardVariant={variant}
         />
         <Media
           data={bgImage}
@@ -62,6 +61,7 @@ export const Card = forwardRef(
           {...backgroundMediaHolder}
           responsive
           priority
+          cardVariant={variant}
         />
         <ContentBlock
           data={data}

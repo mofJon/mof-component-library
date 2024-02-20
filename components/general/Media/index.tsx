@@ -1,6 +1,6 @@
 import { forwardRef, Ref } from "react";
 import { MediaProps } from "./Media.types";
-import { mediaHolder } from "./Media.styles";
+import { caption, mediaHolder } from "./Media.styles";
 import { Box, Image, Text, Video } from "../../../components";
 
 //  Work in progress!!!
@@ -16,6 +16,7 @@ export const Media = forwardRef(
       align,
       captionTextStyle = "p",
       orientation,
+      cardVariant = "primary",
       ...props
     }: MediaProps,
     ref: Ref<MediaProps>,
@@ -46,7 +47,7 @@ export const Media = forwardRef(
     return (
       <Box {...props} {...mediaHolder(size, align, orientation)}>
         {variant}
-        <Text text={data.caption} textStyle={captionTextStyle} />
+        <Text text={data.caption} {...caption} />
       </Box>
     );
   },

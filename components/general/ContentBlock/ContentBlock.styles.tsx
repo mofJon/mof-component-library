@@ -1,4 +1,3 @@
-import { cva } from "class-variance-authority";
 import { ContentBlockVars } from "./ContentBlock.types";
 import { camelToHyphen } from "../../../utils/formatting";
 import classNames from "classnames";
@@ -7,8 +6,9 @@ import mofConfig from "/mofConfig.ts";
 
 // @ts-ignore
 const { card: contentSettings } = mofConfig;
-let animations: any = {};
+let motion: any = {};
 let contentVariant: string = "primary";
+let configStyle: any;
 
 // contentBlock Props
 export const contentBlockVars: ContentBlockVars = (
@@ -16,8 +16,9 @@ export const contentBlockVars: ContentBlockVars = (
   childAnims,
   classes,
 ) => {
-  animations = childAnims;
+  motion = childAnims;
   contentVariant = variant || "primary";
+  configStyle = contentSettings[contentVariant];
 
   return {
     className: classNames(
@@ -25,72 +26,35 @@ export const contentBlockVars: ContentBlockVars = (
       [`content-block-${variant}`],
       classes,
     ),
-    ...animations.contentBlock,
+    ...motion?.contentBlock,
   };
 };
 
-export const renderComponent = (component: string, data?: any) => {
-  let textProps = {};
-  let textStyles = {};
-
-  if (data && data[component]) {
-    if (typeof data[component] === "string") {
-      textProps = { text: data[component] };
-    } else {
-      // data[component] is an object. either from the backend...or to define buttons
-
-      // seoTag
-      if (data[component]?.heading) {
-        textProps = { text: data[component].heading };
-      } else {
-        // buttons
-        let buttonStyles = {};
-        if (
-          contentSettings[contentVariant] &&
-          contentSettings[contentVariant].buttons &&
-          contentSettings[contentVariant].buttons[component]
-        ) {
-          buttonStyles =
-            contentSettings[contentVariant].buttons[component] || {};
-        }
-        textProps = { ...data[component], ...buttonStyles };
-      }
-    }
-
-    if (
-      contentSettings[contentVariant] &&
-      contentSettings[contentVariant].textStyles &&
-      contentSettings[contentVariant].textStyles[component]
-    ) {
-      const style = contentSettings[contentVariant].textStyles[component];
-
-      textStyles = {
-        textStyle: style?.textStyle || "p",
-        variant: style?.variant || "primary",
-      };
-    }
-
-    if (component === "infoTags" && Array.isArray(data[component])) {
-      textProps = {
-        text:
-          data[component]
-            .map((val: string) => {
-              let infoTag = `<span>${val}</span>`;
-              if (animations["infoTag"]) {
-                infoTag = `<span {...${animations["infoTag"]}}>${val}</span>`;
-              }
-
-              return infoTag;
-            })
-            .join("") || "",
-      };
-    }
-  }
+export const renderText = (name: string) => {
+  const textStyles = configStyle?.textStyles?.[name] || { textStyle: "p" };
 
   return {
-    className: camelToHyphen(component),
-    ...textProps,
+    className: camelToHyphen(name),
     ...textStyles,
-    ...animations[component],
+    ...motion?.[name],
   };
 };
+
+export const renderButton = (name: string) => {
+  const buttonStyles = configStyle?.buttons?.[name] || {};
+
+  return {
+    ...buttonStyles,
+    ...motion?.[name],
+  };
+};
+
+export const contentInfoTags = (motion?: Record<string, any>) => ({
+  className: "info",
+  ...motion,
+});
+
+export const preContent = (motion?: Record<string, any>) => ({
+  className: "pre-content",
+  ...motion,
+});
