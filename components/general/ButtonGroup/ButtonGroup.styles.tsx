@@ -2,7 +2,7 @@ import { cva } from "class-variance-authority";
 import { ButtonGroupVars } from "./ButtonGroup.types";
 
 // buttonGroup Variant Styles
-export const buttonGroup = cva("content-block", {
+export const buttonGroup = cva("button-group", {
   variants: {
     direction: {
       row: "row",

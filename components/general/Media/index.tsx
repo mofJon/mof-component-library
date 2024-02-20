@@ -49,7 +49,7 @@ export const Media = forwardRef(
     return (
       <Box {...props} {...mediaHolder(size, align, orientation, props)}>
         {variant}
-        <Text text={data.caption} {...caption} />
+        <Text text={data.caption} {...caption()} />
       </Box>
     );
   },

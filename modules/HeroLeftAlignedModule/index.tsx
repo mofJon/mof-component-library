@@ -14,7 +14,6 @@ const HeroLeftAlignedModule: FC<HeroLeftAlignedModuleProps> = ({
       {...HeroLeftAligned(props)}
       data={data}
       {...moduleAnims?.module}
-      {...props}
     >
       <Card
         data={data}
