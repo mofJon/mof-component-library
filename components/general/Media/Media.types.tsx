@@ -8,4 +8,5 @@ export interface MediaProps {
   orientation?: "portrait" | "landscape" | null;
   size?: "sm" | "md" | "lg" | "full" | null;
   captionTextStyle?: TextProps["textStyle"];
+  cardVariant?: string;
 }

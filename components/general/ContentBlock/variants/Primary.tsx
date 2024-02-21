@@ -1,5 +1,11 @@
 import { FC } from "react";
-import { contentBlockVars, renderComponent } from "../ContentBlock.styles";
+import {
+  contentBlockVars,
+  renderButton,
+  renderText,
+  contentInfoTags,
+  preContent,
+} from "../ContentBlock.styles";
 import { ContentBlockContentProps } from "../ContentBlock.types";
 import { ButtonGroup, Stack, Text } from "../../../../components";
 import { emptyContentBlockAnim } from "../../../../theme/animations";
@@ -16,20 +22,40 @@ const PrimaryContentBlock: FC<ContentBlockContentProps> = ({
     ...props,
   };
 
+  const infoTags =
+    data?.infoTags && Array.isArray(data?.infoTags) ? data?.infoTags : [];
+
+  const renderTags = infoTags.map((val, i: number) => {
+    return <Text key={`infotag${i}`} text={val} {...renderText("infoTag")} />;
+  });
+
+  const heading = data?.headingTitle?.heading || data?.headingTitle || "";
+  const htag = data?.headingTitle?.htag
+    ? { htag: data?.headingTitle?.htag }
+    : {};
+
   return (
     <Stack direction="column" {...allProps}>
-      <Stack direction="row" {...renderComponent("preContent")}>
-        <Text {...renderComponent("tag", data)} />
-        <Text {...renderComponent("preHeading", data)} />
-        <Text {...renderComponent("infoTags", data)} />
+      <Stack direction="row" {...preContent(childAnims?.preContent)}>
+        <Text text={data?.tag} {...renderText("tag")} />
+        <Text text={data?.preHeading} {...renderText("preHeading")} />
+        <Stack {...contentInfoTags(childAnims?.infoTags)}>{renderTags}</Stack>
       </Stack>
-      <Text {...renderComponent("headingTitle", data)} />
-      <Text {...renderComponent("subheading", data)} />
-      <Text {...renderComponent("description", data)} />
+      <Text text={heading} {...htag} {...renderText("headingTitle")} />
+      <Text
+        text={data?.subHeading || data?.subheading}
+        {...renderText("subHeading")}
+      />
+      <Text text={data?.description} {...renderText("description")} />
       <ButtonGroup
-        {...renderComponent("buttonGroup")}
-        primaryProps={renderComponent("primaryCta", data)}
-        secondaryProps={renderComponent("secondaryCta", data)}
+        primaryProps={{
+          ...renderButton("primaryButton"),
+          ...data?.primaryCta,
+        }}
+        secondaryProps={{
+          ...renderButton("secondaryButton"),
+          ...data?.secondaryCta,
+        }}
       />
     </Stack>
   );

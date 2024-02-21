@@ -1,5 +1,7 @@
 // MOF component library presets and overrides
 
+import { HeroLeftAligned } from "./modules/HeroLeftAlignedModule/HeroLeftAlignedModule.styles";
+
 export default {
   button: [
     "primary",
@@ -10,6 +12,16 @@ export default {
     "secondaryOutline",
   ],
   card: {
+    heroLeftAligned: {
+      textStyles: {
+        tag: {
+          textStyle: "p",
+        },
+        headingTitle: {
+          textStyle: "h1",
+        },
+      },
+    },
     articleHero: {
       textStyles: {
         tag: {
@@ -104,7 +116,7 @@ export default {
           textStyle: "p",
         },
         headingTitle: {
-          textStyle: "h2",
+          textStyle: "h5",
         },
         subHeading: {
           variant: "primaryBold",

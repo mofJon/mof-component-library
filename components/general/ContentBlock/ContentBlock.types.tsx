@@ -8,16 +8,17 @@ export interface ContentBlockProps {
 }
 
 export type ContentBlockMotionTypes = {
-  contentBlock: Record<string, any>;
-  preContent: Record<string, any>;
-  preHeading: Record<string, any>;
-  info: Record<string, any>;
-  infoTag: Record<string, any>;
-  headingTitle: Record<string, any>;
-  subHeading: Record<string, any>;
-  description: Record<string, any>;
-  primaryCta: Record<string, any>;
-  secondaryCta: Record<string, any>;
+  contentBlock?: Record<string, any>;
+  preContent?: Record<string, any>;
+  preHeading?: Record<string, any>;
+  tag?: Record<string, any>;
+  info?: Record<string, any>;
+  infoTag?: Record<string, any>;
+  headingTitle?: Record<string, any>;
+  subHeading?: Record<string, any>;
+  description?: Record<string, any>;
+  primaryCta?: Record<string, any>;
+  secondaryCta?: Record<string, any>;
 };
 
 type HTMLAndMotionProps = React.HTMLAttributes<HTMLElement> & MotionProps;
@@ -28,6 +29,7 @@ export interface ContentBlockContentProps extends HTMLAndMotionProps {
   data: {
     preHeading?: string;
     headingTitle?: string;
+    tag?: string;
     info?: string;
     subHeading?: string;
     description?: string;
