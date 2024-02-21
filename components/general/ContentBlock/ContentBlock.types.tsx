@@ -28,13 +28,15 @@ export interface ContentBlockContentProps extends HTMLAndMotionProps {
   variant?: any;
   data: {
     preHeading?: string;
-    headingTitle?: string;
+    headingTitle?: any;
     tag?: string;
     info?: string;
     subHeading?: string;
+    subheading?: string;
     description?: string;
-    primaryCta?: string;
-    secondaryCta?: string;
+    primaryCta?: any;
+    secondaryCta?: any;
+    infoTags?: string[] | string;
   };
   childAnims?: ContentBlockMotionTypes;
 }
