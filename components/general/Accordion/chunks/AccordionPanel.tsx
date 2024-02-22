@@ -6,7 +6,7 @@ const AccordionPanel: FC = ({
   contentAnim = {},
   data,
   panelAnim = {},
-  textStyles,
+  textStyles = {},
   index,
 }: any) => {
   return (
@@ -14,7 +14,7 @@ const AccordionPanel: FC = ({
       <Text
         key={`accordionContent${index}`}
         text={data}
-        textStyle={textStyles?.itemDescription}
+        {...textStyles?.itemDescription}
         {...contentAnim}
       />
     </Box>

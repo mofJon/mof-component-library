@@ -13,7 +13,7 @@ const CardCarouselFocusModule: FC<CardCarouselFocusModuleProps> = ({
   carouselProps,
   data,
   moduleAnims,
-  getItems,
+  getItems = () => ["No content found. Please connect a config."],
   textStyles,
   ...props
 }) => {
@@ -23,7 +23,13 @@ const CardCarouselFocusModule: FC<CardCarouselFocusModuleProps> = ({
   const renderCarouselRows = getCards.map((val: any, i: number) => {
     const { cards } = val.props;
 
-    return <Carousel items={getItems(cards)} {...carouselProps} />;
+    return (
+      <Carousel
+        key={`carousel${i}`}
+        items={getItems(cards)}
+        {...carouselProps}
+      />
+    );
   });
 
   const heading =

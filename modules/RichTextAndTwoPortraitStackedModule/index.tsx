@@ -9,14 +9,14 @@ const RichTextAndTwoPortraitStackedModule: FC<
 > = ({ data, moduleAnims, imageSizes, smallImageSizes, ...props }) => {
   return (
     <ModuleBase
-      {...richTextAndTwoMedia(data.mediaAlignment, props)}
+      {...richTextAndTwoMedia(data, props)}
       data={data}
-      {...props}
+      {...moduleAnims?.module}
     >
       <Card
         data={data}
         variant="richTextAndTwoMedia"
-        childAnims={moduleAnims?.card}
+        childAnims={moduleAnims}
         {...imageSizes}
       />
       <Media

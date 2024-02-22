@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from "react";
 import { AccordionItem } from "./chunks";
-import { accordionWrapper } from "./Accordion.styles";
+import { accordionContent } from "./Accordion.styles";
 import { Stack } from "../../";
 
 const Accordion: FC = ({
@@ -50,7 +50,11 @@ const Accordion: FC = ({
     );
   });
 
-  return <Stack {...accordionWrapper}>{renderItems}</Stack>;
+  return (
+    <Stack {...accordionContent} {...childAnims?.accordionContent}>
+      {renderItems}
+    </Stack>
+  );
 };
 
 export default Accordion;

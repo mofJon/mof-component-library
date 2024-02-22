@@ -13,7 +13,7 @@ const FooterBottomLinks: FC<FooterBottomLinksProps> = ({
       <Text
         key={`footerBottomLink${i}`}
         link={val}
-        {...bottomLinkItem(motion?.item, textStyle)}
+        {...bottomLinkItem(motion?.item, textStyle, val?.linkType)}
       />
     );
   });

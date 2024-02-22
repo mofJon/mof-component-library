@@ -14,8 +14,12 @@ const RichTextWithMediaModule: FC<RichTextWithMediaModuleProps> = ({
   ...props
 }) => {
   return (
-    <ModuleBase data={data} {...richTextWithMedia(props)} {...props}>
-      <Stack {...moduleAnims?.controller}>
+    <ModuleBase
+      data={data}
+      {...richTextWithMedia(props)}
+      {...moduleAnims?.module}
+    >
+      <Stack {...moduleAnims?.content}>
         <Media
           responsive
           data={data.image}

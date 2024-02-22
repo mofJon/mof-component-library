@@ -38,7 +38,7 @@ const CarouselControls: FC<any> = ({
         onClick={() => handleSwitch(val)}
         {...carouselControl(val, hide)}
       >
-        {controls.directionComponent}
+        {controls?.directionComponent}
       </Box>
     );
   });

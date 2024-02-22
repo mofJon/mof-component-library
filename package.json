@@ -1,6 +1,6 @@
 {
   "name": "mof-component-library",
-  "version": "0.1.114",
+  "version": "0.1.130",
   "main": "./index.js",
   "types": "./index.d.ts",
   "scripts": {
@@ -14,11 +14,9 @@
     "bundle": "bun ./bun.config.js",
     "build-css": "npx tailwindcss -i ./theme/styles/globals.css -o ./dist/theme/styles/base-styles.css --minify"
   },
-  "dependencies": {
-    "class-variance-authority": "^0.7.0",
-    "isomorphic-dompurify": "^2.2.0"
-  },
   "devDependencies": {
+    "class-variance-authority": "^0.7.0",
+    "isomorphic-dompurify": "^2.2.0",
     "@microlink/react-json-view": "^1.23.0",
     "@reduxjs/toolkit": "^2.0.1",
     "@storybook/addon-actions": "^7.6.8",
@@ -37,7 +35,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@types/vimeo__player": "^2.18.3",
-    "@vimeo/player": "^2.21.0",
+    "@vidstack/react": "next",
     "autoprefixer": "^10.0.1",
     "chromatic": "^10.2.0",
     "classnames": "^2.5.1",

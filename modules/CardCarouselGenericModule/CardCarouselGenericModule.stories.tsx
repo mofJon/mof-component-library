@@ -3,6 +3,7 @@ import CardCarouselGenericModule from "./";
 // @ts-ignore
 import Arrow from "../../assets/icons/zhaArrow.svg";
 import data from "./__mockdata__.json";
+import moduleConfig from "./CardCarouselGenericModule.config";
 
 declare const window: {
   innerWidth: number;
@@ -27,18 +28,6 @@ type Story = StoryObj<typeof CardCarouselGenericModule>;
 export const CardCarouselGeneric: Story = {
   args: {
     data,
-    carouselProps: {
-      animationStyle: "elegant",
-      controls: {
-        show: true,
-        directionComponent: <Arrow />,
-      },
-      paginationType: "leadingZeroNumbers",
-      showPagination: true,
-      gap: 5,
-      height: 500,
-      crop: false,
-    },
-    getItems: () => [],
+    ...moduleConfig,
   },
 };

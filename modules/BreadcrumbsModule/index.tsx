@@ -3,42 +3,47 @@ import { ModuleBase, Box, Stack, Text } from "../../components";
 import {
   breadcrumbs,
   breadcrumbsItem,
-  activeBreadcrumbsItem,
+  breadcrumbsWrapper,
   separator,
 } from "./BreadcrumbsModule.styles";
 
-const BreadcrumbsModule: FC<any> = ({ data, textStyles, moduleAnims }) => {
+const BreadcrumbsModule: FC<any> = ({
+  data,
+  textStyles,
+  moduleAnims,
+  ...props
+}) => {
   if (!data) return null;
-  const textStylesItem = textStyles?.breadcrumbItem || "i-xs";
 
   const renderCrumbs = data.crumbs.map((crumb: any, index: number) =>
     crumb.href ? (
       <Fragment key={`breadcrumb-item-${index}`}>
         <Text
           link={crumb}
-          {...breadcrumbsItem(textStylesItem)}
-          {...moduleAnims?.item}
+          {...breadcrumbsItem(textStyles?.breadcrumbItem, moduleAnims?.item)}
         />
         <Text
           text={"/"}
-          {...separator(textStylesItem)}
-          {...moduleAnims?.item}
+          {...separator(textStyles?.breadcrumbItem, moduleAnims?.item)}
         />
       </Fragment>
     ) : (
       <Text
         key={`breadcrumb-current-${index}`}
         text={crumb.text}
-        {...activeBreadcrumbsItem(textStylesItem)}
-        {...moduleAnims?.item}
+        {...breadcrumbsItem(
+          textStyles?.breadcrumbItem,
+          moduleAnims?.item,
+          true,
+        )}
       />
     ),
   );
 
   return (
-    <ModuleBase data={data}>
-      <Box variant="container" {...moduleAnims?.controller}>
-        <Stack {...breadcrumbs}>{renderCrumbs}</Stack>
+    <ModuleBase data={data} {...breadcrumbs(props)} {...moduleAnims?.module}>
+      <Box variant="container" {...moduleAnims?.breadcrumbs}>
+        <Stack {...breadcrumbsWrapper}>{renderCrumbs}</Stack>
       </Box>
     </ModuleBase>
   );

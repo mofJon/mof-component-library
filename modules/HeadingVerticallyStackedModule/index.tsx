@@ -16,7 +16,7 @@ const HeadingVerticallyStackedModule: FC<
       <ContentBlock
         data={data}
         variant="headingVerticallyStacked"
-        childAnims={moduleAnims?.content}
+        childAnims={moduleAnims}
       />
     </ModuleBase>
   );

@@ -35,8 +35,8 @@
     "vimeoId": "889428749",
     "youtubeId": "",
     "autoPlay": true,
-    "loop": false,
-    "allowFullScreen": false
+    "loop": true,
+    "allowFullScreen": true
   },
   "anchor": "",
   "anchorDisplayName": "Pre-heading",

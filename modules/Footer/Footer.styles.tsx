@@ -16,8 +16,14 @@ export const topLinks = (motion?: any) => ({
   ...motion,
 });
 
-export const topLinkItem = (motion?: any, textStyle?: Record<string, any>) => ({
-  className: classnames(["footer-top-links-item"]),
+export const topLinkItem = (
+  motion?: any,
+  textStyle?: Record<string, any>,
+  linkType?: string,
+) => ({
+  className: classnames(["footer-top-links-item"], {
+    external: linkType === "External",
+  }),
   ...motion,
   ...textStyle,
 });
@@ -35,8 +41,11 @@ export const bottomLinks = (motion?: any) => ({
 export const bottomLinkItem = (
   motion?: any,
   textStyle?: Record<string, any>,
+  linkType?: string,
 ) => ({
-  className: classnames(["footer-bottom-links-item"]),
+  className: classnames(["footer-bottom-links-item"], {
+    external: linkType === "External",
+  }),
   ...motion,
   ...textStyle,
 });

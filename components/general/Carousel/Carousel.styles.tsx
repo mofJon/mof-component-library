@@ -40,6 +40,8 @@ export const carouselVars: CarouselVars = (
   height,
   classes,
 ) => {
+  const heightVals = height ? { height } : {};
+
   return {
     className: carousel({
       variant,
@@ -48,7 +50,7 @@ export const carouselVars: CarouselVars = (
     }),
     style: {
       width,
-      height,
+      ...heightVals,
     },
   };
 };

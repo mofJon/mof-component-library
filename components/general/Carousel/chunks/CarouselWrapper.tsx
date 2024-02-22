@@ -15,12 +15,13 @@ const CarouselWrapper: FC<ICarouselWrapper> = ({
   dragHeight,
   gap,
   animationStyle,
+  columnNum,
   crop,
   loop,
   variant,
   ...props
 }) => {
-  const length = items.length - 1;
+  const length = Math.floor((items.length - 1) / columnNum);
   const { currItem, setCurrItem, isClickable } = useContext(CarouselContext);
   const slideWidth = dragWidth + (gap || 0);
 
@@ -39,6 +40,7 @@ const CarouselWrapper: FC<ICarouselWrapper> = ({
         width={dragWidth}
         height={dragHeight}
         slideWidth={slideWidth}
+        columnNum={columnNum}
         length={length}
         animationStyle={animationStyle}
         variant={variant}

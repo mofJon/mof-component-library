@@ -13,6 +13,7 @@ export type ContentBlockMotionTypes = {
   preHeading?: Record<string, any>;
   tag?: Record<string, any>;
   info?: Record<string, any>;
+  infoTags?: Record<string, any>;
   infoTag?: Record<string, any>;
   headingTitle?: Record<string, any>;
   subHeading?: Record<string, any>;

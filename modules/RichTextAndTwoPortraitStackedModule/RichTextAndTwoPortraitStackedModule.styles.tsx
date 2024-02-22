@@ -1,9 +1,10 @@
 import classnames from "classnames";
 
-export const richTextAndTwoMedia = (mediaAlignment: string, props: any) => ({
+export const richTextAndTwoMedia = (data: any, props: any) => ({
   className: classnames([
     "rich-text-and-two-media",
-    mediaAlignment?.toLowerCase(),
+    [data?.mediaAlignment?.toLowerCase()],
+    [data?.mediaOrientation?.toLowerCase()],
     props.className,
   ]),
 });

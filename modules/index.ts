@@ -15,3 +15,6 @@ export { default as RichTextAndOneMediaModule } from "./RichTextAndOneMediaModul
 export { default as RichTextWithMediaModule } from "./RichTextWithMediaModule";
 export { default as RichTextAndTwoMediaStackedModule } from "./RichTextAndTwoMediaStackedModule";
 export { default as RichTextAndTwoMediaModule } from "./RichTextAndTwoMediaModule";
+
+// cards
+export { default as GenericCardModel } from "./GenericCardModule";

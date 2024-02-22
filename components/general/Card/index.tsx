@@ -26,6 +26,7 @@ export const Card = forwardRef(
   ) => {
     const allProps = {
       ...cardVars(variant, size, className),
+      ...childAnims?.card,
       ...props,
     };
 

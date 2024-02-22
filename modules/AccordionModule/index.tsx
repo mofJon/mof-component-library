@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { Accordion, ModuleBase, Stack, Text } from "../../components";
 import {
+  accordion,
   accordionHeading,
   accordionTag,
   accordionWrapper,
@@ -15,8 +16,8 @@ const AccordionModule: FC<AccordionModuleProps> = ({
   ...props
 }) => {
   return (
-    <ModuleBase data={data} {...props}>
-      <Stack {...accordionWrapper(moduleAnims, props)}>
+    <ModuleBase data={data} {...accordion(moduleAnims, props)}>
+      <Stack {...accordionWrapper(moduleAnims)}>
         <Text text={data.tag} {...accordionTag(textStyles?.tag, moduleAnims)} />
         <Text
           text={data?.headingTitle?.heading}

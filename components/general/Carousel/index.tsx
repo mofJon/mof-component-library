@@ -1,6 +1,6 @@
 import { forwardRef, Ref, useRef, useState } from "react";
 import { CarouselProps } from "./Carousel.types";
-import { carouselVars } from "./Carousel.styles";
+import { carousel, carouselVars } from "./Carousel.styles";
 import { Stack } from "../../../components";
 import {
   CarouselContext,
@@ -22,11 +22,12 @@ export const Carousel = forwardRef(
       animationStyle = "default",
       gap = 0,
       width: propsWidth = "100%",
-      height: propsHeight = "100%",
+      height: propsHeight,
       controls,
       showPagination = false,
       paginationType = "dots",
       crop = true,
+      columns = 1,
       isClickable = false,
       itemAnimationVariant = "default",
       paginationStyle,
@@ -41,7 +42,10 @@ export const Carousel = forwardRef(
     const { width, height, breakpoint } = useDimensions(carouselWrapperRef);
 
     const carouselWidth = getValueAtBreakpoint(propsWidth, breakpoint);
-    const carouselHeight = getValueAtBreakpoint(propsHeight, breakpoint);
+    const carouselHeight = propsHeight
+      ? getValueAtBreakpoint(propsHeight, breakpoint)
+      : null;
+    const columnNum = getValueAtBreakpoint(columns, breakpoint);
 
     if (items.length === 0) return null;
 
@@ -49,6 +53,10 @@ export const Carousel = forwardRef(
       ...carouselVars(variant, size, carouselWidth, carouselHeight, className),
       ...props,
     };
+
+    const carouselPages = Math.ceil(items.length / columnNum);
+
+    console.log(carouselPages);
 
     return (
       // @ts-ignore
@@ -69,20 +77,23 @@ export const Carousel = forwardRef(
             gap={gap}
             dragWidth={width}
             dragHeight={height}
+            columnNum={columnNum}
             animationStyle={animationStyle}
             crop={crop}
             loop={loop}
             variant={variant}
           />
-          <CarouselControls
-            controls={controls}
-            length={items.length}
-            width={width}
-            loop={loop}
-          />
-          {showPagination && !loop && (
+          {carouselPages > 1 && (
+            <CarouselControls
+              controls={controls}
+              length={carouselPages}
+              width={width}
+              loop={loop}
+            />
+          )}
+          {showPagination && !loop && carouselPages > 1 && (
             <CarouselPagination
-              length={items.length}
+              length={carouselPages}
               paginationType={paginationType}
               paginationStyle={paginationStyle}
             />

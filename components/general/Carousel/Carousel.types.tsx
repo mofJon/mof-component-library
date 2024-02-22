@@ -18,6 +18,7 @@ export interface CarouselProps
     show?: boolean;
     directionComponent: ReactNode;
   };
+  columns?: number | string | Record<string, any>;
   showPagination?: boolean;
   paginationType?: "dots" | "numbers" | "leadingZeroNumbers" | "slider";
   paginationStyle?: any;
@@ -51,6 +52,7 @@ export interface ICarouselWrapper {
   gap: number;
   crop: boolean;
   loop?: boolean;
+  columnNum: number;
   variant: CarouselProps["variant"];
 }
 
@@ -62,6 +64,7 @@ export interface ICarouselItem {
   slideWidth: number;
   length: number;
   loop?: boolean;
+  columnNum: number;
   onClick: (index: number) => void;
   animationStyle: CarouselProps["animationStyle"];
   variant: CarouselProps["variant"];

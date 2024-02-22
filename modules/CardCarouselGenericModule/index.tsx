@@ -13,7 +13,7 @@ const CardCarouselGenericModule: FC<CardCarouselGenericModuleProps> = ({
   carouselProps,
   data,
   moduleAnims,
-  getItems,
+  getItems = () => ["No content found. Please connect a config."],
   textStyles,
   ...props
 }) => {
@@ -23,7 +23,13 @@ const CardCarouselGenericModule: FC<CardCarouselGenericModuleProps> = ({
   const renderCarouselRows = getCards.map((val: any, i: number) => {
     const { cards } = val.props;
 
-    return <Carousel items={getItems(cards)} {...carouselProps} />;
+    return (
+      <Carousel
+        key={`carousel${i}`}
+        items={getItems(cards)}
+        {...carouselProps}
+      />
+    );
   });
 
   const heading =

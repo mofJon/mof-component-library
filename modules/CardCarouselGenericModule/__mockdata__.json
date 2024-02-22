@@ -25,7 +25,7 @@
                 "target": ""
               },
               "cardImage": {
-                "imageUrl": "/media/evvpayb0/chuttersnap-awxnufumebi-unsplash.jpg",
+                "imageUrl": "https://qa-api.zaha-hadid.com/media/evvpayb0/chuttersnap-awxnufumebi-unsplash.jpg",
                 "caption": "Chuttersnap Awxnufumebi Unsplash",
                 "imageAlt": "",
                 "mediaId": 1331,
@@ -48,7 +48,7 @@
                 "target": ""
               },
               "cardImage": {
-                "imageUrl": "/media/0w1farsi/lycs-architecture-akij95mmus8-unsplash.jpg",
+                "imageUrl": "https://qa-api.zaha-hadid.com/media/0w1farsi/lycs-architecture-akij95mmus8-unsplash.jpg",
                 "caption": "Lycs Architecture Akij95mmus8 Unsplash",
                 "imageAlt": "",
                 "mediaId": 1332,
@@ -71,7 +71,7 @@
                 "target": ""
               },
               "cardImage": {
-                "imageUrl": "/media/j04jmuxq/atanas-teodosiev-ezogykqmuyi-unsplash.jpg",
+                "imageUrl": "https://qa-api.zaha-hadid.com/media/j04jmuxq/atanas-teodosiev-ezogykqmuyi-unsplash.jpg",
                 "caption": "Atanas Teodosiev Ezogykqmuyi Unsplash",
                 "imageAlt": "",
                 "mediaId": 1327,
@@ -94,10 +94,56 @@
                 "target": ""
               },
               "cardImage": {
-                "imageUrl": "/media/v2jduld5/armand-khoury-u8jvx55atv4-unsplash.jpg",
+                "imageUrl": "https://qa-api.zaha-hadid.com/media/v2jduld5/armand-khoury-u8jvx55atv4-unsplash.jpg",
                 "caption": "Armand Khoury U8jvx55atv4 Unsplash",
                 "imageAlt": "",
                 "mediaId": 1329,
+                "isSvg": false,
+                "isVideo": false
+              }
+            }
+          },
+          {
+            "moduleName": "GenericCardModel",
+            "moduleId": "6aeb3f20-c364-4280-a941-6a99b7f7fea8",
+            "props": {
+              "tag": "Custom Card",
+              "headingTitle": "Banner",
+              "description": "Banner Description",
+              "primaryCta": {
+                "text": "Banner - Full Bleed",
+                "href": "/modules/banner-full-bleed",
+                "linkType": "Content",
+                "target": ""
+              },
+              "cardImage": {
+                "imageUrl": "https://qa-api.zaha-hadid.com/media/0w1farsi/lycs-architecture-akij95mmus8-unsplash.jpg",
+                "caption": "Lycs Architecture Akij95mmus8 Unsplash",
+                "imageAlt": "",
+                "mediaId": 1332,
+                "isSvg": false,
+                "isVideo": false
+              }
+            }
+          },
+          {
+            "moduleName": "GenericCardModel",
+            "moduleId": "6aeb3f20-c364-4280-a941-6a99b7f7fea8",
+            "props": {
+              "tag": "Custom Card",
+              "headingTitle": "Banner",
+              "description": "Banner Description",
+              "primaryCta": {
+                "text": "Banner - Full Bleed",
+                "href": "/modules/banner-full-bleed",
+                "linkType": "Content",
+                "target": ""
+              },
+              "cardImage": {
+                "imageUrl": "https://qa-api.zaha-hadid.com/media/0w1farsi/lycs-architecture-akij95mmus8-unsplash.jpg",
+                "caption": "Lycs Architecture Akij95mmus8 Unsplash",
+                "imageAlt": "",
+                "mediaId": 1332,
                 "isSvg": false,
                 "isVideo": false
               }

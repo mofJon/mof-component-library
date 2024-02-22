@@ -10,7 +10,7 @@ import {
 const AccordionItem: FC<any> = ({
   data,
   accordionIcon = null,
-  textStyles,
+  textStyles = {},
   childAnims,
   index = 0,
   togglePanel,
@@ -31,14 +31,10 @@ const AccordionItem: FC<any> = ({
         onClick={() => togglePanel(index)}
         {...accordionItemButton}
       >
+        <Text text={data.title} {...textStyles?.itemTitle} />
         <Box {...accordionClose} {...hasCloseAnims}>
           {accordionIcon}
         </Box>
-        <Text
-          text={data.title}
-          textStyle={textStyles?.itemTitle}
-          {...accordionItem}
-        />
       </Stack>
       <AccordionPanel
         // @ts-ignore

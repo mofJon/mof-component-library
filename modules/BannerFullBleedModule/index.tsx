@@ -11,12 +11,16 @@ const BannerFullBleedModule: FC<BannerFullBleedModuleProps> = ({
   ...props
 }) => {
   return (
-    <ModuleBase {...BannerFullBleedMedia(props)} data={data} {...props}>
+    <ModuleBase
+      {...BannerFullBleedMedia(props)}
+      data={data}
+      {...moduleAnims?.module}
+    >
       <Card
         variant={cardVariant}
         data={data}
         size="full"
-        {...moduleAnims?.card}
+        childAnims={moduleAnims}
         {...backgroundImageSizes}
       />
     </ModuleBase>

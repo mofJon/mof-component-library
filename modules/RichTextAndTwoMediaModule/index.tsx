@@ -22,7 +22,7 @@ const RichTextAndTwoMediaModule: FC<RichTextAndTwoMediaModuleProps> = ({
       {...props}
       {...moduleAnims?.module}
     >
-      <Card variant={variant} data={data} childAnims={moduleAnims?.card} />
+      <Card variant={variant} data={data} childAnims={moduleAnims} />
     </ModuleBase>
   );
 };

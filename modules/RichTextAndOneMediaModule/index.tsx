@@ -11,14 +11,14 @@ const RichTextAndOneMediaModule: FC<RichTextAndOneMediaModuleProps> = ({
 }) => {
   return (
     <ModuleBase
-      {...RichTextAndOneMedia(data.mediaAlignment, props.className)}
+      {...RichTextAndOneMedia(data, props.className)}
       data={data}
-      {...props}
+      {...moduleAnims?.module}
     >
       <Card
         data={data}
         contentVariant="richTextAndOneMedia"
-        childAnims={moduleAnims.card}
+        childAnims={moduleAnims}
         {...imageSizes}
       />
     </ModuleBase>

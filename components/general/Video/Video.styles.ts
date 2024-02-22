@@ -1,17 +1,13 @@
-import classnames from "classnames";
+import classNames from "classnames";
 
-export const videoWrapper = {
-  className: "video-wrapper",
-};
-
-export const videoRoot = (width: string, height: string) => ({
-  className: "video-root",
+export const videoWrapper = (isPlaying: boolean) => ({
+  className: classNames("video-wrapper", { playing: isPlaying }),
   style: {
-    width,
-    height,
+    width: "100%",
+    height: "100%",
   },
 });
 
-export const videoContainer = (props: any) => ({
-  className: classnames(["video-holder"], props.className),
-});
+export const videoControls = {
+  className: "video-controls",
+};

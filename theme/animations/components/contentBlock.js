@@ -4,6 +4,7 @@ export const emptyContentBlockAnim = {
   preHeading: {},
   info: {},
   infoTag: {},
+  infoTags: {},
   headingTitle: {},
   subHeading: {},
   description: {},

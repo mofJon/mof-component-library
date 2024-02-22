@@ -1,7 +1,7 @@
 import classNames from "classnames";
 
-export const accordionWrapper = {
-  className: "accordion-wrapper",
+export const accordionContent = {
+  className: "accordion-content",
   direction: "column" as const,
 };
 
@@ -43,21 +43,6 @@ export const accordionClose = {
     },
     active: {
       rotate: 45,
-    },
-  },
-};
-
-export const accordionContent = {
-  className: "accordion-content",
-  variants: {
-    inactive: {
-      opacity: 0,
-    },
-    active: {
-      opacity: 1,
-      transition: {
-        delay: 0.3,
-      },
     },
   },
 };
