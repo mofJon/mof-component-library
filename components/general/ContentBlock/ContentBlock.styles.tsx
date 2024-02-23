@@ -2,10 +2,10 @@ import { ContentBlockVars } from "./ContentBlock.types";
 import { camelToHyphen } from "../../../utils/formatting";
 import classNames from "classnames";
 // @ts-ignore - grabs variables from the root project's tailwind config
-import mofConfig from "/mofConfig.ts";
+import mofConfig from "/mofConfig";
 
 // @ts-ignore
-const { card: contentSettings } = mofConfig;
+const { contentProps } = mofConfig;
 let motion: any = {};
 let contentVariant: string = "primary";
 let configStyle: any;
@@ -18,7 +18,7 @@ export const contentBlockVars: ContentBlockVars = (
 ) => {
   motion = childAnims;
   contentVariant = variant || "primary";
-  configStyle = contentSettings[contentVariant];
+  configStyle = contentProps?.[contentVariant] || {};
 
   return {
     className: classNames(
@@ -44,6 +44,7 @@ export const renderButton = (name: string) => {
   const buttonStyles = configStyle?.buttons?.[name] || {};
 
   return {
+    className: camelToHyphen(name),
     ...buttonStyles,
     ...motion?.[name],
   };

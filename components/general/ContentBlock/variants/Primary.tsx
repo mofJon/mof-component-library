@@ -34,6 +34,8 @@ const PrimaryContentBlock: FC<ContentBlockContentProps> = ({
     ? { htag: data?.headingTitle?.htag }
     : {};
 
+  const hasButtons = data?.primaryCta || data?.secondaryCta;
+
   return (
     <Stack direction="column" {...allProps}>
       <Stack direction="row" {...preContent(childAnims?.preContent)}>
@@ -47,16 +49,18 @@ const PrimaryContentBlock: FC<ContentBlockContentProps> = ({
         {...renderText("subHeading")}
       />
       <Text text={data?.description} {...renderText("description")} />
-      <ButtonGroup
-        primaryProps={{
-          ...renderButton("primaryButton"),
-          ...data?.primaryCta,
-        }}
-        secondaryProps={{
-          ...renderButton("secondaryButton"),
-          ...data?.secondaryCta,
-        }}
-      />
+      {hasButtons && (
+        <ButtonGroup
+          primaryProps={{
+            ...renderButton("primaryCta"),
+            ...data?.primaryCta,
+          }}
+          secondaryProps={{
+            ...renderButton("secondaryCta"),
+            ...data?.secondaryCta,
+          }}
+        />
+      )}
     </Stack>
   );
 };

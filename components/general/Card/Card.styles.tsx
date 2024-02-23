@@ -3,8 +3,9 @@ import { CardVars } from "./Card.types";
 import { camelToHyphen } from "../../../utils";
 // @ts-ignore - mof overrides
 import mofConfig from "/mofConfig";
+import classNames from "classnames";
 
-const cards = mofConfig.card;
+const cards = mofConfig?.contentProps;
 let customCardVariants: any = [];
 if (cards) {
   customCardVariants = Object.entries(cards).map(([key]) => {
@@ -40,20 +41,18 @@ export const card = cva("card", {
 
 // card Props
 export const cardVars: CardVars = (variant, size, classes) => {
-  const baseStyles = `${classes ? classes : ""}`;
-
   return {
     className: card({
       variant,
       size,
-      className: baseStyles,
+      className: classNames([classes]),
     }),
   };
 };
 
 export const mediaHolder = (size: any) => {
   return {
-    className: `card-media-holder ${size}`,
+    className: classNames("card-media-holder", [size]),
   };
 };
 
@@ -63,7 +62,7 @@ export const backgroundMediaHolder = {
 
 export const cardContent = (size: any) => {
   return {
-    className: `card-content ${size}`,
+    className: classNames("card-content", [size]),
   };
 };
 

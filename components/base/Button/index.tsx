@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { Stack, Text } from "../../../components";
 import { containsMotionProps } from "../../../utils";
 import { useRouter } from "next/navigation";
+// @ts-ignore - mof overrides
+import mofConfig from "/mofConfig";
 
 export const Button = forwardRef(
   (
@@ -14,8 +16,8 @@ export const Button = forwardRef(
       size = "md",
       text,
       onClick,
-      iconPre = null,
-      iconPost = null,
+      iconPre: propsIconPre,
+      iconPost: propsIconPost,
       linkType,
       href,
       target,
@@ -28,6 +30,15 @@ export const Button = forwardRef(
     if (!text) return null;
 
     const isAnimated = containsMotionProps(props); //contains framer motion props?
+
+    // set icon from config, unless overrideen by props
+    const iconPre =
+      propsIconPre || mofConfig?.button?.[variant as "primary"]?.icons?.iconPre;
+    const iconPost =
+      propsIconPost ||
+      mofConfig?.button?.[variant as "primary"]?.icons?.iconPost;
+
+    const renderText = !mofConfig?.button?.[variant as "primary"]?.omitText;
 
     const handleClick = useCallback(
       (e: MouseEvent) => {
@@ -48,7 +59,9 @@ export const Button = forwardRef(
       ...props, // pass down remaining props
     };
 
-    const buttonMain = <Text text={text} textStyle={textStyle || "button"} />;
+    const buttonMain = renderText ? (
+      <Text text={text} textStyle={textStyle || "button"} />
+    ) : null;
     let buttonContent: ReactNode | any[] = buttonMain;
 
     if (iconPre || iconPost) {

@@ -1,10 +1,9 @@
 import classNames from "classnames";
 // @ts-ignore - grabs variables from the root project's tailwind config
-import mofConfig from "/mofConfig.ts";
-import { text } from "stream/consumers";
+import mofConfig from "/mofConfig";
 
 // @ts-ignore
-const { card: contentSettings } = mofConfig;
+const { contentProps } = mofConfig;
 let contentVariant: string = "primary";
 
 export const mediaHolder = (
@@ -25,7 +24,7 @@ export const mediaHolder = (
 };
 
 export const caption = () => {
-  const textStyles = contentSettings?.[contentVariant]?.textStyles?.caption || {
+  const textStyles = contentProps?.[contentVariant]?.textStyles?.caption || {
     textStyle: "p-sm",
   };
 

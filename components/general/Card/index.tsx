@@ -34,6 +34,7 @@ export const Card = forwardRef(
 
     const mainImage: any =
       data?.image ||
+      data?.media ||
       data?.cardImage ||
       data?.largeImage ||
       data?.smallImage ||
@@ -49,9 +50,9 @@ export const Card = forwardRef(
           {...mediaHolder(size)}
           responsive
           priority
-          align={data?.mediaAlignment && data.mediaAlignment.toLowerCase()}
+          align={data?.mediaAlignment && data?.mediaAlignment?.toLowerCase()}
           orientation={
-            data?.mediaOrientation && data.mediaOrientation.toLowerCase()
+            data?.mediaOrientation && data?.mediaOrientation?.toLowerCase()
           }
           cardVariant={variant}
         />

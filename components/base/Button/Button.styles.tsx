@@ -8,9 +8,9 @@ import mofConfig from "/mofConfig";
 const buttons = mofConfig.button;
 let customButtonVariants: any = [];
 if (buttons) {
-  customButtonVariants = buttons.map((val: string) => {
+  customButtonVariants = Object.keys(buttons).map((key: string) => {
     return {
-      [val]: `button-${camelToHyphen(val)}`,
+      [key]: `button-${camelToHyphen(key)}`,
     };
   });
 }

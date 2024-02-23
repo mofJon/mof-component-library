@@ -1,17 +1,28 @@
+import Arrow from "./assets/icons/arrow.svg";
+import Close from "./assets/icons/close.svg";
 // MOF component library presets and overrides
 
-import { HeroLeftAligned } from "./modules/HeroLeftAlignedModule/HeroLeftAlignedModule.styles";
-
 export default {
-  button: [
-    "primary",
-    "secondary",
-    "primaryCircle",
-    "secondaryCircle",
-    "primaryOutline",
-    "secondaryOutline",
-  ],
-  card: {
+  button: {
+    primary: {},
+    secondary: {},
+    primaryCircle: {},
+    secondaryCircle: {},
+    primaryOutline: {},
+    secondaryOutline: {},
+    primaryWithIcon: {
+      icons: {
+        iconPost: <Arrow />,
+      },
+    },
+    primaryOnlyIcon: {
+      icons: {
+        iconPost: <Close />,
+      },
+      omitText: true,
+    },
+  },
+  contentProps: {
     heroLeftAligned: {
       textStyles: {
         tag: {

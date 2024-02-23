@@ -28,6 +28,7 @@ const CardCarouselGenericModule: FC<CardCarouselGenericModuleProps> = ({
         key={`carousel${i}`}
         items={getItems(cards)}
         {...carouselProps}
+        {...moduleAnims?.carousel}
       />
     );
   });

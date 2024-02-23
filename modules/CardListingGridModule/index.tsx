@@ -18,24 +18,22 @@ import { MagicExit, MagicMotion } from "react-magic-motion";
 
 const CardListingGridModule: FC<CardListingGridModuleProps> = ({
   data,
+  moduleAnims,
+  getItems = (items?: any) => [],
   ...props
 }) => {
   if (!data) return null;
 
   const { cards, totalCount } = data?.filtersAndCards;
 
-  const renderCards = (cards || []).map((card: any) => (
-    <Card key={card.moduleId} data={card.props} {...cardWrapper} />
-  ));
-
   return (
-    <ModuleBase data={data} {...moduleWrapper(props)} {...props}>
+    <ModuleBase data={data} {...moduleWrapper(props)} {...moduleAnims?.module}>
       <Box variant="container">
         {/* @ts-ignore */}
         {/* <SearchFilters filters={data.filtersAndCards.filter} queryMode /> */}
         <MagicMotion {...cardMotion}>
           <Box {...cardHolder}>
-            <MagicExit {...cardExit}>{renderCards}</MagicExit>
+            <MagicExit {...cardExit}>{getItems(cards)}</MagicExit>
           </Box>
         </MagicMotion>
         {/* @ts-ignore */}

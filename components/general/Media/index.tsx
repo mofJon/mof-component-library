@@ -3,8 +3,6 @@ import { MediaProps } from "./Media.types";
 import { caption, mediaHolder } from "./Media.styles";
 import { Box, Image, Text, Video } from "../../../components";
 
-//  Work in progress!!!
-
 export const Media = forwardRef(
   (
     {
@@ -15,6 +13,8 @@ export const Media = forwardRef(
       priority = false,
       align,
       captionTextStyle = "p",
+      onAutoPlayStarted,
+      onPlayerReady,
       orientation,
       cardVariant = "primary",
       ...props
@@ -36,7 +36,13 @@ export const Media = forwardRef(
     );
     if (data.coverImage) {
       variant = (
-        <Video {...props} data={data} {...hasImageSizes} priority={priority} />
+        <Video
+          onAutoPlayStarted={onAutoPlayStarted}
+          onPlayerReady={onPlayerReady}
+          data={data}
+          {...hasImageSizes}
+          priority={priority} // for cover image
+        />
       );
     }
     if (data.isSvg && data.svg) {

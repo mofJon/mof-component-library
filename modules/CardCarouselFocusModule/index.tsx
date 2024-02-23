@@ -28,6 +28,7 @@ const CardCarouselFocusModule: FC<CardCarouselFocusModuleProps> = ({
         key={`carousel${i}`}
         items={getItems(cards)}
         {...carouselProps}
+        {...moduleAnims?.carousel}
       />
     );
   });

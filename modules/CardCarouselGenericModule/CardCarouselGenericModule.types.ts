@@ -7,6 +7,7 @@ export type CardCarouselGenericModuleProps = CarouselProps & {
     tag?: any;
     heading?: any;
     description?: any;
+    carousel?: any;
   };
   data: any;
   carouselProps?: CarouselProps;

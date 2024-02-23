@@ -7,6 +7,7 @@ export type CardCarouselFocusModuleProps = {
     tag?: any;
     heading?: any;
     description?: any;
+    carousel?: any;
   };
   carouselProps?: CarouselProps;
   data: any;

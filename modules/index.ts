@@ -4,6 +4,7 @@ export { default as BannerFullBleedModule } from "./BannerFullBleedModule";
 export { default as BreadcrumbsModule } from "./BreadcrumbsModule";
 export { default as CardCarouselFocusModule } from "./CardCarouselFocusModule";
 export { default as CardCarouselGenericModule } from "./CardCarouselGenericModule";
+export { default as CardListingGridModule } from "./CardListingGridModule";
 export { default as Footer } from "./Footer";
 export { default as Header } from "./Header";
 export { default as HeadingSideModule } from "./HeadingSideModule";

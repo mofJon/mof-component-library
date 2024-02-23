@@ -9,4 +9,6 @@ export interface MediaProps {
   size?: "sm" | "md" | "lg" | "full" | null;
   captionTextStyle?: TextProps["textStyle"];
   cardVariant?: any;
+  onAutoPlayStarted?: any;
+  onPlayerReady?: any;
 }

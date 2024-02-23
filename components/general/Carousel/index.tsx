@@ -56,8 +56,6 @@ export const Carousel = forwardRef(
 
     const carouselPages = Math.ceil(items.length / columnNum);
 
-    console.log(carouselPages);
-
     return (
       // @ts-ignore
       <Stack ref={carouselWrapperRef} {...allProps}>

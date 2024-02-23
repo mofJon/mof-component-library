@@ -12,7 +12,9 @@ const QuoteCarouselModule: FC<QuoteCarouselModuleProps> = ({
 }) => {
   if (!data) return null;
 
-  const renderQuotes = data.quotes.map((val: any, i: number) => {
+  const quoteItems = data?.quotes || [];
+
+  const renderQuotes = quoteItems.map((val: any, i: number) => {
     return (
       <Stack
         key={`quoteCarousel${i}`}
@@ -59,11 +61,7 @@ const QuoteCarouselModule: FC<QuoteCarouselModuleProps> = ({
   });
 
   return (
-    <ModuleBase
-      {...props}
-      data={data}
-      {...styles.quoteModule(props, moduleAnims?.module)}
-    >
+    <ModuleBase data={data} {...styles.quoteModule(props, moduleAnims?.module)}>
       <Box
         variant="container"
         {...styles.quoteContainer(moduleAnims?.container)}

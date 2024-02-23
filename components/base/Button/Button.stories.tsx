@@ -72,3 +72,29 @@ export const SecondaryCircle: Story = {
     onClick: action("secondary circle clicked"),
   },
 };
+
+export const PrimaryWithButton: Story = {
+  parameters: {
+    backgrounds: {
+      default: "dark",
+    },
+  },
+  args: {
+    variant: "primaryWithIcon",
+    text: "button with icon",
+    onClick: action("primary with icon clicked"),
+  },
+};
+
+export const PrimaryOnlyIcon: Story = {
+  parameters: {
+    backgrounds: {
+      default: "dark",
+    },
+  },
+  args: {
+    variant: "primaryOnlyIcon",
+    text: "button with icon and no text",
+    onClick: action("icon clicked"),
+  },
+};

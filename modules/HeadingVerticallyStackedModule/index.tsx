@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { ModuleBase, ContentBlock } from "../../components";
+import { ModuleBase, Card } from "../../components";
 import { HeadingVerticallyStackedModuleProps } from "./HeadingVerticallyStackedModule.types";
 import { headingVerticallyStacked } from "./HeadingVerticallyStackedModule.styles";
 
@@ -13,7 +13,7 @@ const HeadingVerticallyStackedModule: FC<
       {...props}
       {...moduleAnims?.module}
     >
-      <ContentBlock
+      <Card
         data={data}
         variant="headingVerticallyStacked"
         childAnims={moduleAnims}

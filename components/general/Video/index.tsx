@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, forwardRef, useState } from "react";
+import { useEffect, useRef, FC, useState } from "react";
 import { Box, Image } from "../../";
 import {
   FullscreenButton,
@@ -13,16 +13,13 @@ import { useDimensions } from "../../../hooks";
 
 let iframe: HTMLIFrameElement;
 
-const Video: any = forwardRef(function Video(
-  {
-    data,
-    imageSizes,
-    priority = "false",
-    onPlayerReady,
-    onAutoPlayStarted,
-  }: any,
-  ref,
-) {
+const Video: FC<any> = ({
+  data,
+  imageSizes,
+  priority = "false",
+  onPlayerReady,
+  onAutoPlayStarted,
+}: any) => {
   const player = useRef<MediaPlayerInstance>(null);
   const videoWrapperRef = useRef<HTMLDivElement>(null);
   const [isMuted, setIsMuted] = useState(true);
@@ -152,6 +149,6 @@ const Video: any = forwardRef(function Video(
       </MediaPlayer>
     </Box>
   );
-});
+};
 
 export default Video;
