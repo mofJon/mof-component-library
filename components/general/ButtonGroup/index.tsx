@@ -16,6 +16,8 @@ export const ButtonGroup = forwardRef(
   ) => {
     const router = useRouter();
 
+    if (!primaryProps?.href && !secondaryProps?.href) return null;
+
     const handleClick = (variant: string) => {
       const url =
         variant === "primary" ? primaryProps.href : secondaryProps.href;
@@ -30,8 +32,15 @@ export const ButtonGroup = forwardRef(
 
     return (
       <Stack {...allProps}>
-        <Button onClick={() => handleClick("primary")} {...primaryProps} />
-        <Button onClick={() => handleClick("secondary")} {...secondaryProps} />
+        {primaryProps?.href && (
+          <Button onClick={() => handleClick("primary")} {...primaryProps} />
+        )}
+        {secondaryProps?.href && (
+          <Button
+            onClick={() => handleClick("secondary")}
+            {...secondaryProps}
+          />
+        )}
       </Stack>
     );
   },

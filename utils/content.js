@@ -1,11 +1,22 @@
 // @ts-ignore - grabs variables from the root project's tailwind config
 import twConfig from "/tailwind.config.ts";
 
+const backUpBreakpoints = {
+  sm: "640px",
+  md: "768px",
+  lg: "1024px",
+  xl: "1280px",
+  xxl: "1536px",
+};
+
 // @ts-ignore
 const { screens: breakpoints } = twConfig?.theme?.extend;
 const availBreakpoints = breakpoints
   ? Object.keys(breakpoints)
-  : ["base", "sm", "md", "lg", "xl"];
+  : ["base", "sm", "md", "lg", "xl", "xxl"];
+
+const breakpointVals = breakpoints || backUpBreakpoints;
+delete breakpointVals.full;
 
 export const stripHtml = (html) => {
   return html.replace(/(<([^>]+)>)/gi, "");
@@ -67,27 +78,6 @@ export const splitArrayIntoChunks = (arr, chunkSize) => {
   );
 };
 
-export const remapNavData = (data, state = true, level = 0) => {
-  const newContent = {
-    isVisible: state,
-    isActive: false,
-    navStyle: level === 0 ? "main-nav" : `sub-nav level-${level}`,
-  };
-
-  return data.map((item, index) => {
-    const newItem = { ...item, ...newContent, level, index };
-
-    if (item.navItems && item.navItems.length > 0) {
-      return {
-        ...newItem,
-        navItems: remapNavData(item.navItems, false, level + 1),
-      };
-    } else {
-      return newItem;
-    }
-  });
-};
-
 export const extractAllOfType = (data, type) => {
   const flattened = [];
 
@@ -121,18 +111,20 @@ const findLastNotGreater = (arr, value) => {
   return lastNotGreater;
 };
 
-export const getCurrentBreakpoint = (breakpoints, width) => {
+export const getCurrentBreakpoint = (width) => {
   let currentBreakpoint = "base";
 
-  const breakpointNums = Object.values(breakpoints).map((breakpoint) =>
-    parseInt(breakpoint),
-  );
+  const breakpointNums = Object.values(breakpointVals).map((breakpoint) => {
+    if (!breakpoint.includes("%")) {
+      return parseInt(breakpoint);
+    }
+  });
 
   const breakpointValue = findLastNotGreater(breakpointNums, width);
 
   if (breakpointValue > -1) {
-    currentBreakpoint = Object.keys(breakpoints).filter(
-      (key) => breakpoints[key] === `${breakpointValue}px`,
+    currentBreakpoint = Object.keys(breakpointVals).filter(
+      (key) => breakpointVals[key] === `${breakpointValue}px`,
     )[0];
   }
 

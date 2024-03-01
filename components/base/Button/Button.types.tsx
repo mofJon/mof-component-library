@@ -13,7 +13,7 @@ export interface ButtonProps
   onClick?: (e: any) => void;
   iconPre?: ReactNode | null;
   iconPost?: ReactNode | null;
-  linkType?: "internal" | "external" | "download";
+  linkType?: "Content" | "External";
   href?: string;
   target?: string;
   textStyle?: TextProps["textStyle"];
@@ -23,5 +23,6 @@ export interface ButtonProps
 export type ButtonVars = (
   variant: ButtonProps["variant"],
   size: ButtonProps["size"],
+  linkType: ButtonProps["linkType"],
   className: ButtonProps["className"],
 ) => Record<any, any>;

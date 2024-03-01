@@ -1,106 +1,104 @@
 import { useEffect, useRef, FC, useState } from "react";
-import { Box, Image } from "../../";
-import {
-  FullscreenButton,
-  MediaPlayer,
-  MediaProvider,
-  MuteButton,
-  PlayButton,
-  type MediaPlayerInstance,
-} from "@vidstack/react";
+import { Box, Button, Image } from "../../";
+import ReactPlayer from "react-player/lazy";
+import screenfull from "screenfull";
 import { videoWrapper, videoControls } from "./Video.styles";
 import { useDimensions } from "../../../hooks";
-
-let iframe: HTMLIFrameElement;
 
 const Video: FC<any> = ({
   data,
   imageSizes,
   priority = "false",
-  onPlayerReady,
-  onAutoPlayStarted,
+  onPlayerReady = () => {},
+  onAutoPlayStarted = () => {},
 }: any) => {
-  const player = useRef<MediaPlayerInstance>(null);
+  const player = useRef<any>(null);
   const videoWrapperRef = useRef<HTMLDivElement>(null);
   const [isMuted, setIsMuted] = useState(true);
-  const [isFullscreen, setIsFullscreen] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [viewer, setViewer] = useState<HTMLIFrameElement | HTMLVideoElement>();
+  const [init, setInit] = useState(true);
+  const [aspect, setAspect] = useState(1);
   const { width, height } = useDimensions(videoWrapperRef);
 
-  let vidWidth: number | undefined = Math.round(width);
-  let vidHeight: number | undefined = undefined;
-  if (height > width) {
-    vidWidth = undefined;
-    vidHeight = Math.round(height);
-  }
+  const wrapper = videoWrapperRef.current;
 
-  const wrapper = videoWrapperRef.current!;
-  if (wrapper) {
-    iframe = wrapper.getElementsByTagName("iframe")[0];
-  }
+  const resizeVideo = () => {
+    if (wrapper) {
+      const vidContainer: any = wrapper.children[0];
+
+      const viewerWidth = viewer?.getBoundingClientRect()?.width;
+
+      if (vidContainer) {
+        vidContainer.style.width = "100%";
+        vidContainer.style.height = `${width * 3}px`;
+        if (height >= width * aspect || (viewerWidth || width) < width) {
+          vidContainer.style.height = "100%";
+          vidContainer.style.width = `${height * 3}px`;
+        }
+      }
+    }
+  };
 
   useEffect(() => {
-    if (iframe && !isFullscreen) {
-      if (vidWidth && vidWidth > 0) {
-        iframe.style.width = `${vidWidth}px`;
-        iframe.style.height = `${vidWidth * 2}px`;
-      }
-
-      if (vidHeight && vidHeight > 0) {
-        iframe.style.height = `${vidHeight}px`;
-        iframe.style.width = `${vidHeight * 2}px`;
-      }
-      iframe.style.background = "transparent";
-    }
-  }, [vidWidth, vidHeight]);
+    resizeVideo();
+  }, [width, height, player.current, viewer, init]);
 
   if (!data) {
     return null;
   }
 
   let vidSrc = data?.videoFromGallery?.videoUrl;
-  if (data?.vimeoId !== "") vidSrc = `vimeo/${data?.vimeoId}`;
-  if (data?.youtubeId !== "") vidSrc = `youtube/${data?.vimeoId}`;
+  if (data?.vimeoId !== "") vidSrc = `https://vimeo.com/${data?.vimeoId}`;
+  if (data?.youtubeId !== "")
+    vidSrc = `https://www.youtube.com/watch?v=${data?.youtubeId}`;
+  const cover = data?.coverImage;
 
-  const toggleStart = () => {
-    const playerEl = player.current!;
+  const handleReady = () => {
+    onPlayerReady();
+    const wrapper = videoWrapperRef.current;
 
-    if (playerEl) {
-      if (playerEl.paused) {
-        playerEl.play();
-      } else {
-        handleFullscreen();
+    if (wrapper) {
+      let container: any = wrapper.getElementsByTagName("video")[0];
+      let vidWidth = container?.videoWidth;
+      let vidHeight = container?.videoHeight;
+      if (wrapper.getElementsByTagName("iframe")[0]) {
+        container = wrapper.getElementsByTagName("iframe")[0];
+        vidWidth = container?.width.includes("px")
+          ? parseInt(container?.width)
+          : 640;
+        vidHeight = container?.height.includes("px")
+          ? parseInt(container?.height)
+          : 390;
+      }
+
+      setAspect(vidHeight / vidWidth);
+
+      if (container) {
+        setViewer(container);
+        if (data?.autoPlay) {
+          setInit(false);
+          setIsPlaying(true);
+        }
       }
     }
   };
 
   const handleFullscreen = (e?: any) => {
+    if (!data?.allowFullScreen) return;
+
     e && e.stopPropagation();
-    const playerEl = player.current!;
-    setIsFullscreen(true);
-
-    if (iframe) {
-      iframe.style.width = "100%";
-      iframe.style.height = "100%";
-      iframe.style.background = "black";
-    }
-
-    if (playerEl && data?.allowFullScreen) {
-      playerEl.enterFullscreen();
-    }
-  };
-
-  const handleFullscreenChange = (isFullscreen: any) => {
-    setIsFullscreen(isFullscreen);
+    viewer && screenfull.request(viewer);
   };
 
   const togglePlay = (e: any) => {
     e.stopPropagation();
-    setIsMuted(!isMuted);
-  };
+    if (init) {
+      setInit(false);
+      onAutoPlayStarted();
+    }
 
-  const handleIsPlaying = (e: any) => {
-    setIsPlaying(e.type === "play");
+    setIsPlaying(!isPlaying);
   };
 
   const toggleMute = (e: any) => {
@@ -108,45 +106,46 @@ const Video: FC<any> = ({
     setIsMuted(!isMuted);
   };
 
-  const cover = data?.coverImage;
-
   return (
     <Box
       ref={videoWrapperRef}
-      {...videoWrapper(isPlaying)}
-      onClick={toggleStart}
+      {...videoWrapper(isPlaying, data?.autoPlay, init)}
+      onClick={handleFullscreen}
     >
-      <MediaPlayer
+      <ReactPlayer
         ref={player}
-        src={vidSrc}
-        onCanPlay={onPlayerReady}
-        onAutoPlay={onAutoPlayStarted}
-        autoPlay={data?.autoPlay}
-        muted={isMuted}
+        url={vidSrc}
+        playing={isPlaying}
+        onReady={handleReady}
         controls={data?.allowControls}
-        playsInline
+        muted={isMuted}
+        autoPlay={data?.autoPlay && viewer}
+        playsinline
         loop={data?.loop}
-        onFullscreenChange={handleFullscreenChange}
-        onPlay={handleIsPlaying}
-        onPause={handleIsPlaying}
-      >
-        <MediaProvider>
-          {cover && (
-            <Image
-              sizes={imageSizes}
-              src={cover.imageUrl}
-              alt={cover.imageAlt}
-              priority={priority}
-              responsive
-            />
-          )}
-        </MediaProvider>
-        <Box {...videoControls}>
-          <MuteButton onClick={toggleMute} />
-          <PlayButton onClick={togglePlay} />
-          <FullscreenButton onClick={handleFullscreen} />
+        config={{
+          youtube: {
+            playerVars: {
+              videoControls: data?.allowControls,
+            },
+          },
+        }}
+      />
+      {cover && (
+        <Image
+          sizes={imageSizes}
+          src={cover.imageUrl}
+          alt={cover.imageAlt}
+          priority={priority}
+          responsive
+        />
+      )}
+      {vidSrc && (
+        <Box {...videoControls(isPlaying, !init)}>
+          <Button onClick={toggleMute} variant="videoMute" />
+          <Button onClick={togglePlay} variant="videoPlay" />
+          <Button onClick={handleFullscreen} variant="videoFullscreen" />
         </Box>
-      </MediaPlayer>
+      )}
     </Box>
   );
 };

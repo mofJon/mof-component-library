@@ -12,7 +12,7 @@ const BannerFullBleedModule: FC<BannerFullBleedModuleProps> = ({
 }) => {
   return (
     <ModuleBase
-      {...BannerFullBleedMedia(props)}
+      {...BannerFullBleedMedia(props, data)}
       data={data}
       {...moduleAnims?.module}
     >

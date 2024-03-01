@@ -1,5 +1,9 @@
 .nav {
-  @apply relative w-full justify-between;
+  @apply absolute
+  lg:relative
+  w-full
+  top-8
+  justify-between;
 
   &-item {
     @apply relative w-full normal-case border-b text-copy bg-white
@@ -103,7 +107,13 @@
 
   &.meganav {
     .nav-panel-wrapper.level-0 {
-      @apply absolute top-[5rem] left-0 right-0 w-full overflow-hidden;
+      @apply relative
+      lg:fixed
+     lg:top-[5rem]
+      left-0
+      right-0
+      w-full
+      overflow-hidden;
 
       .nav-panel {
         @apply w-[25%];
@@ -121,7 +131,14 @@
     }
 
     .nav-panel-wrapper.level-1 {
-      @apply absolute flex top-0 left-[-1000px] w-0 h-full opacity-0;
+      @apply relative
+      lg:absolute
+      flex
+      top-0
+      left-0 lg:left-[-1000px]
+      w-0
+      h-full
+      opacity-0;
       > .nav-panel {
         @apply relative w-[25%];
       }
@@ -150,13 +167,26 @@
   }
 
   &-image {
-    @apply opacity-0 w-full transition-opacity duration-300;
+    @apply opacity-0
+    w-full
+    transition-opacity
+    duration-300;
 
     &.active {
       @apply opacity-100;
     }
     &-wrapper {
-      @apply absolute top-2 right-2 bottom-2 left-[25%] ml-2 rounded-lg overflow-hidden pointer-events-none;
+      @apply !hidden md:!flex
+      absolute
+      top-2
+      right-2
+      bottom-2
+      left-[25%]
+      ml-2
+      rounded-lg
+      overflow-hidden
+      pointer-events-none;
+
       transition: left 0.4s ease-out;
       transition-timing-function: cubic-bezier(0.1, 0.25, 0.22, 1);
 

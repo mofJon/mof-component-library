@@ -29,12 +29,14 @@ const PrimaryContentBlock: FC<ContentBlockContentProps> = ({
     return <Text key={`infotag${i}`} text={val} {...renderText("infoTag")} />;
   });
 
-  const heading = data?.headingTitle?.heading || data?.headingTitle || "";
+  const heading =
+    data?.title || data?.headingTitle?.heading || data?.headingTitle || "";
   const htag = data?.headingTitle?.htag
     ? { htag: data?.headingTitle?.htag }
     : {};
 
-  const hasButtons = data?.primaryCta || data?.secondaryCta;
+  const hasButtons = data?.primaryCta || data?.secondaryCta || data?.cta;
+  const primaryCta = data?.primaryCta || data?.cta || {};
 
   return (
     <Stack direction="column" {...allProps}>
@@ -48,12 +50,15 @@ const PrimaryContentBlock: FC<ContentBlockContentProps> = ({
         text={data?.subHeading || data?.subheading}
         {...renderText("subHeading")}
       />
-      <Text text={data?.description} {...renderText("description")} />
+      <Text
+        text={data?.description || data?.content}
+        {...renderText("description")}
+      />
       {hasButtons && (
         <ButtonGroup
           primaryProps={{
             ...renderButton("primaryCta"),
-            ...data?.primaryCta,
+            ...primaryCta,
           }}
           secondaryProps={{
             ...renderButton("secondaryCta"),

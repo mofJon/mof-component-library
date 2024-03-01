@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Arrow from "@/assets/icons/zhaArrow.svg";
 import Component from ".";
 import data from "./__mockData__.json";
+import dataYT from "./__mockDataYouTube__.json";
+import dataSrc from "./__mockDataSrc__.json";
 
 const meta: Meta<typeof Component> = {
   component: Component,
@@ -17,8 +18,20 @@ const meta: Meta<typeof Component> = {
 export default meta;
 type Story = StoryObj<typeof Component>;
 
-export const RichTextAndOneMediaModule: Story = {
+export const RichTextAndOneMediaVimeo: Story = {
   args: {
     data,
+  },
+};
+
+export const RichTextAndOneMediaYoutube: Story = {
+  args: {
+    data: dataYT,
+  },
+};
+
+export const RichTextAndOneMediaSrc: Story = {
+  args: {
+    data: dataSrc,
   },
 };

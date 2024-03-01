@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss";
-import { cardListingAnims, cardListingHolderAnims } from "./theme/animations";
 
 const config: Config = {
   content: [
@@ -180,104 +179,12 @@ const config: Config = {
           },
         ],
       },
-      gap: {
-        "0": "0",
-        "1": "0.25rem",
-        "2": "0.5rem",
-        "3": "0.75rem",
-        "4": "1rem",
-        "5": "1.25rem",
-        "6": "1.5rem",
-        "7": "1.25rem",
-        "8": "2rem",
-        "9": "2.25rem",
-        "10": "2.5rem",
-        "11": "2.75rem",
-        "12": "3rem",
-        "13": "3.35rem",
-        "14": "3.5rem",
-        "15": "3.75rem",
-        "16": "4rem",
-        "17": "4.25rem",
-        "18": "4.5rem",
-        "19": "4.75rem",
-        "20": "6rem",
-      },
       screens: {
         sm: "640px",
         md: "768px",
         lg: "1024px",
         xl: "1280px",
         xxl: "1536px",
-      },
-      contentBlock: {
-        primary: {
-          preHeading: {
-            variant: "primaryBold",
-            textStyle: "p",
-          },
-          headingTitle: {
-            textStyle: "h2",
-          },
-          subHeading: {
-            variant: "primaryBold",
-            textStyle: "h3",
-          },
-          info: {
-            variant: "primaryBold",
-            textStyle: "p",
-          },
-        },
-        headingSide: {
-          headingTitle: {
-            textStyle: "h3",
-          },
-        },
-        card: {
-          preHeading: {
-            variant: "primaryBold",
-            textStyle: "p",
-          },
-          headingTitle: {
-            textStyle: "h5",
-          },
-          description: {
-            variant: "primary",
-            textStyle: "p-sm",
-          },
-        },
-      },
-      card: {
-        primary: {
-          sm: "(max-width: 1000px) 50vw, 80vw",
-          md: "(max-width: 1000px) 80vw, 90vw",
-          lg: "(max-width: 800px) 60vw, 30vw",
-          full: "100vw",
-        },
-      },
-      modules: {
-        accordion: {
-          tag: {
-            textStyle: "p-sm",
-          },
-          heading: {
-            textStyle: "h3",
-          },
-          itemTitle: {
-            textStyle: "h3",
-          },
-          itemCopy: {
-            textStyle: "p-sm",
-          },
-        },
-        Breadcrumbs: {
-          textStyle: "i-xs",
-        },
-        CardListingGrid: {
-          animated: true,
-          cardAnims: cardListingAnims,
-          cardHolderAnims: cardListingHolderAnims,
-        },
       },
     },
   },

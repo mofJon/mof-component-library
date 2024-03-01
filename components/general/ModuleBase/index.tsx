@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Box } from "../../../components";
+import { Box, ErrorBoundary } from "../../../components";
 import { moduleBase } from "./ModuleBase.styles";
 import { ModuleBaseProps } from "./ModuleBase.types";
 
@@ -8,7 +8,11 @@ const ModuleBase: FC<ModuleBaseProps> = ({
   variant = "section",
   ...props
 }) => {
-  return <Box variant={variant} {...props} {...moduleBase(data, props)} />;
+  return (
+    <ErrorBoundary>
+      <Box variant={variant} {...props} {...moduleBase(data, props)} />
+    </ErrorBoundary>
+  );
 };
 
 export default ModuleBase;

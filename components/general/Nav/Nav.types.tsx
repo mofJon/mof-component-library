@@ -10,46 +10,37 @@ import { nav } from "./Nav.styles";
 
 export interface NavProps extends StackProps, VariantProps<typeof nav> {
   data?: any;
-  itemIcons?: {
-    iconPre?: ReactNode;
-    iconPost?: ReactNode;
-    subIconPre?: ReactNode;
-    subIconPost?: ReactNode;
-  };
-  direction?: "row" | "column";
-  attach?: string | string[];
+  navProps?: any;
+  isOpen?: boolean;
   isActive?: boolean;
   itemsPerColumn?: number;
   displayName?: string;
-  navItemAnimations?: any;
-  navPanelAnimations?: any;
-  navPanelWrapperAnimations?: any;
-  navImageAnimations?: any;
-  textStyles?: any;
+  onBreakpointChange?: (breakpoint: string) => {};
 }
 
 export type NavVars = (
   variant: NavProps["variant"],
   persistOn: NavProps["persistOn"],
-  attach: NavProps["attach"],
+  attach: any, //NavProps["attach"],
   className: NavProps["className"],
 ) => Record<any, any>;
 
 export interface NavPanelProps extends StackProps {
   data: any;
-  itemIcons?: NavProps["itemIcons"];
+  itemIcons?: any; // NavProps["itemIcons"];
   isActive?: boolean;
   itemIndex?: number;
   level?: number;
   attach?: string;
   image?: any;
+  motion?: any;
 }
 
 type NavItem = BoxProps & ButtonProps;
 
 export interface NavItemProps extends NavItem {
   data: any;
-  itemIcons?: NavProps["itemIcons"];
+  itemIcons?: any; //NavProps["itemIcons"];
   collapseSiblings?: () => void;
   isActive?: boolean;
   itemIndex?: number;

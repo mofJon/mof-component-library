@@ -1,9 +1,16 @@
 import { FC, useCallback, useContext, useEffect, useState } from "react";
-import { Box, Button, Media, Stack } from "../../../../components";
+import { Box, Button, Stack } from "../../../../components";
 import { useRouter } from "next/navigation";
-import { NavContext, NavPanel } from "./";
-import { colourSplash, navItem, navItemWrapper } from "../Nav.styles";
+import { NavContext, NavPanel, NavWrapperRow } from "./";
+import {
+  colourSplash,
+  megaNavWrapper,
+  navItem,
+  navItemWrapper,
+} from "../Nav.styles";
 import { NavItemProps, NavInteractionType } from "../Nav.types";
+
+let resetTimeout: any;
 
 const NavItem: FC<NavItemProps> = ({
   data,
@@ -12,18 +19,27 @@ const NavItem: FC<NavItemProps> = ({
   ...props
 }) => {
   const [isActive, setIsActive] = useState(false);
+  const [showMegaNav, setShowMegaNav] = useState(false);
   const {
     navState,
     setNavState,
-    attach,
-    persistOn,
+    navSettings,
     navItemAnimations,
     setImgProps,
-    itemIcons,
-    textStyles,
+    setCurrTier,
+    backButton,
+    setBackButton,
+    variant,
   } = useContext(NavContext);
   const { navItemText, navItemLink, navItems, navStyle, level, colour, image } =
     data;
+  const {
+    attachTo: attach,
+    persistOn,
+    motion,
+    icon,
+    textStyle,
+  } = navSettings[level];
   const router = useRouter();
   const hasChildren = navItems && navItems.length > 0;
 
@@ -32,12 +48,24 @@ const NavItem: FC<NavItemProps> = ({
       if (hasChildren) {
         if (interaction === "hover" && persistOn === "hover") {
           setIsActive(true);
+          clearTimeout(resetTimeout);
+          setShowMegaNav(true);
         } else if (interaction === "hoverOut" && persistOn === "hover") {
           setIsActive(false);
+          resetTimeout = setTimeout(() => {
+            setShowMegaNav(false);
+          }, 500);
         }
 
         if (interaction === "click" && persistOn !== "hover") {
           event.preventDefault();
+
+          if (attachTo === "slideRight") {
+            backButton[level + 1] = navItemText;
+            setBackButton(backButton);
+            setCurrTier(level + 1);
+          }
+
           setIsActive(!isActive);
           collapseSiblings && collapseSiblings();
         }
@@ -46,7 +74,7 @@ const NavItem: FC<NavItemProps> = ({
         navItemLink && router.push(navItemLink.href);
       }
     },
-    [navState, setNavState, data, router, isActive],
+    [navState, setNavState, data, router, isActive, persistOn],
   );
 
   const handleHover = useCallback(() => {
@@ -62,11 +90,16 @@ const NavItem: FC<NavItemProps> = ({
   const isTotallyActive =
     persistOn === "click" ? isActive && isActiveInGroup : isActive;
 
-  let iconPre;
-  let iconPost;
-  if (hasChildren || colour) {
-    iconPre = level === 0 ? itemIcons?.iconPre : itemIcons?.subIconPre;
-    iconPost = level === 0 ? itemIcons?.iconPost : itemIcons?.subIconPost;
+  // if icons exist and/or set to show/hide on links/all
+  let iconPre = icon?.iconPre?.icon;
+  let iconPost = icon?.iconPost?.icon;
+
+  if (icon?.iconPre?.onlyButtons && !hasChildren) {
+    iconPre = undefined;
+  }
+
+  if (icon?.iconPost?.onlyButtons && !hasChildren) {
+    iconPost = undefined;
   }
 
   const item = (
@@ -79,12 +112,13 @@ const NavItem: FC<NavItemProps> = ({
       iconPost={iconPost}
       {...navItem(
         isTotallyActive,
-        itemIcons,
+        icon,
         navStyle,
         data.index,
         navItemAnimations,
       )}
-      textStyle={level === 0 ? textStyles?.mainNav : textStyles?.subNav}
+      textStyle={textStyle?.textStyle}
+      {...motion?.item}
       // {...props}
     />
   );
@@ -105,15 +139,28 @@ const NavItem: FC<NavItemProps> = ({
       >
         {item}
         {colour && <Box {...colourSplash(colour)} />}
-        <NavPanel
-          data={navItems}
-          level={level}
-          itemIcons={itemIcons}
-          itemIndex={data.index}
-          isActive={isTotallyActive}
-          attach={attachTo}
-          image={image}
-        />
+        {variant !== "meganav" && (
+          <NavPanel
+            data={navItems}
+            level={level}
+            itemIcons={icon}
+            itemIndex={data.index}
+            motion={motion}
+            isActive={isTotallyActive}
+            attach={attachTo}
+            image={image}
+          />
+        )}
+        {variant === "meganav" && showMegaNav && (
+          <Box
+            {...motion?.panelWrapper}
+            initial="closed"
+            animate={isActive ? "open" : "closed"}
+            {...megaNavWrapper}
+          >
+            <NavWrapperRow data={navItems} offset={1} />
+          </Box>
+        )}
       </Stack>
     );
   }

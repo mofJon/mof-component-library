@@ -10,7 +10,7 @@ let customCardVariants: any = [];
 if (cards) {
   customCardVariants = Object.entries(cards).map(([key]) => {
     return {
-      [key]: camelToHyphen(key),
+      [key]: `card-${camelToHyphen(key)}`,
     };
   });
 }

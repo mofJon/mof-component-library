@@ -21,6 +21,17 @@ export default {
       },
       omitText: true,
     },
+    videoPlay: {
+      icons: {
+        iconPost: <Arrow />,
+      },
+      text: "PLAY",
+    },
+    linkWithIcon: {
+      icons: {
+        iconPost: <Arrow />,
+      },
+    },
   },
   contentProps: {
     heroLeftAligned: {

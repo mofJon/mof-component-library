@@ -1,13 +1,26 @@
 import classNames from "classnames";
 
-export const videoWrapper = (isPlaying: boolean) => ({
-  className: classNames("video-wrapper", { playing: isPlaying }),
+export const videoWrapper = (
+  isPlaying: boolean,
+  isAutoPlay: boolean,
+  init: boolean,
+) => ({
+  className: classNames(
+    "video-wrapper",
+    { playing: isPlaying },
+    { autoplay: isAutoPlay },
+    { started: !init },
+  ),
   style: {
     width: "100%",
     height: "100%",
   },
 });
 
-export const videoControls = {
-  className: "video-controls",
-};
+export const videoControls = (isPlaying: boolean, hasStarted: boolean) => ({
+  className: classNames(
+    "video-controls",
+    { playing: isPlaying },
+    { started: hasStarted },
+  ),
+});

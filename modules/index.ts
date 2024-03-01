@@ -13,6 +13,7 @@ export { default as HeroLeftAlignedModule } from "./HeroLeftAlignedModule";
 export { default as MediaCarouselModule } from "./MediaCarouselModule";
 export { default as QuoteCarouselModule } from "./QuoteCarouselModule";
 export { default as RichTextAndOneMediaModule } from "./RichTextAndOneMediaModule";
+export { default as RichTextModule } from "./RichTextModule";
 export { default as RichTextWithMediaModule } from "./RichTextWithMediaModule";
 export { default as RichTextAndTwoMediaStackedModule } from "./RichTextAndTwoMediaStackedModule";
 export { default as RichTextAndTwoMediaModule } from "./RichTextAndTwoMediaModule";

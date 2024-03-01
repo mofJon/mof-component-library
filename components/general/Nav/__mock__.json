@@ -3,7 +3,7 @@
     "navItemText": "Projects",
     "navItemLink": {
       "text": "Projects",
-      "href": "https://qa-api.zaha-hadid.com/projects",
+      "href": "https://cdn-zhweb-qa-media.azureedge.net/api/v1/projects",
       "linkType": "Content",
       "target": ""
     },
@@ -17,7 +17,7 @@
         "navItemText": "View all expertise",
         "navItemLink": {
           "text": "Expertise",
-          "href": "https://qa-api.zaha-hadid.com/expertise",
+          "href": "https://cdn-zhweb-qa-media.azureedge.net/api/v1/expertise",
           "linkType": "Content",
           "target": ""
         },
@@ -28,7 +28,7 @@
         "navItemText": "Architecture",
         "navItemLink": {
           "text": "Architecture",
-          "href": "https://qa-api.zaha-hadid.com/expertise/architecture",
+          "href": "https://cdn-zhweb-qa-media.azureedge.net/api/v1/expertise/architecture",
           "linkType": "Content",
           "target": ""
         },
@@ -37,12 +37,12 @@
             "navItemText": "View all Architecture",
             "navItemLink": {
               "text": "Architecture",
-              "href": "https://qa-api.zaha-hadid.com/expertise/architecture",
+              "href": "https://cdn-zhweb-qa-media.azureedge.net/api/v1/expertise/architecture",
               "linkType": "Content",
               "target": ""
             },
             "image": {
-              "imageUrl": "https://qa-api.zaha-hadid.com/media/nm4aowig/zha_1.jpg",
+              "imageUrl": "https://cdn-zhweb-qa-media.azureedge.net/api/v1/media/nm4aowig/zha_1.jpg",
               "caption": "",
               "imageAlt": "",
               "mediaId": 1201,
@@ -55,12 +55,12 @@
             "navItemText": "Culture",
             "navItemLink": {
               "text": "Culture",
-              "href": "https://qa-api.zaha-hadid.com/expertise/architecture/culture",
+              "href": "https://cdn-zhweb-qa-media.azureedge.net/api/v1/expertise/architecture/culture",
               "linkType": "Content",
               "target": ""
             },
             "image": {
-              "imageUrl": "https://qa-api.zaha-hadid.com/media/wotgyell/adrian-cuj-o_9ymcy0bag-unsplash.jpg?rxy=0.5037593984962406,0.5260651629072681",
+              "imageUrl": "https://cdn-zhweb-qa-media.azureedge.net/api/v1/media/nm4aowig/zha_1.jpg",
               "caption": "First",
               "imageAlt": "",
               "mediaId": 1267,
@@ -73,7 +73,7 @@
             "navItemText": "Civic",
             "navItemLink": {
               "text": "Civic",
-              "href": "https://qa-api.zaha-hadid.com/expertise/architecture/civic",
+              "href": "https://cdn-zhweb-qa-media.azureedge.net/api/v1/expertise/architecture/civic",
               "linkType": "Content",
               "target": ""
             },
@@ -84,12 +84,12 @@
             "navItemText": "Offices",
             "navItemLink": {
               "text": "Offices",
-              "href": "https://qa-api.zaha-hadid.com/expertise/architecture/education",
+              "href": "https://cdn-zhweb-qa-media.azureedge.net/api/v1/expertise/architecture/education",
               "linkType": "Content",
               "target": ""
             },
             "image": {
-              "imageUrl": "https://qa-api.zaha-hadid.com/media/2ilnx0wu/zha_3.jpg",
+              "imageUrl": "https://qa-cms.zaha-hadid.com/media/53kgzguw/refargotohp-1azkcg0c38a-unsplash.jpg",
               "caption": "",
               "imageAlt": "",
               "mediaId": 1225,
@@ -100,7 +100,7 @@
           }
         ],
         "image": {
-          "imageUrl": "https://qa-api.zaha-hadid.com/media/nm4aowig/zha_1.jpg",
+          "imageUrl": "https://qa-cms.zaha-hadid.com/media/53kgzguw/refargotohp-1azkcg0c38a-unsplash.jpg",
           "caption": "",
           "imageAlt": "",
           "mediaId": 1201,
@@ -112,7 +112,7 @@
         "navItemText": "Interior Architecture",
         "navItemLink": {
           "text": "Interior Architecture",
-          "href": "https://qa-api.zaha-hadid.com/expertise/interior-architecture",
+          "href": "https://cdn-zhweb-qa-media.azureedge.net/api/v1/expertise/interior-architecture",
           "linkType": "Content",
           "target": ""
         },
@@ -123,7 +123,7 @@
         "navItemText": "Masterplans",
         "navItemLink": {
           "text": "Masterplans",
-          "href": "https://qa-api.zaha-hadid.com/expertise/masterplans",
+          "href": "https://cdn-zhweb-qa-media.azureedge.net/api/v1/expertise/masterplans",
           "linkType": "Content",
           "target": ""
         },
@@ -136,7 +136,7 @@
     "navItemText": "People",
     "navItemLink": {
       "text": "People",
-      "href": "https://qa-api.zaha-hadid.com/people",
+      "href": "https://cdn-zhweb-qa-media.azureedge.net/api/v1/people",
       "linkType": "Content",
       "target": ""
     },

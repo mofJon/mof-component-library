@@ -1,10 +1,9 @@
 {
   "logo": {
-    "imageUrl": "https://qa-api.zaha-hadid.com/media/32en41sr/zha_logo.png",
-    "title": "",
-    "description": "",
+    "imageUrl": "https://zhweb-qa-f-app.azurewebsites.net/media/3jsjdvk4/zhalogofullwhite.svg",
+    "caption": "",
     "imageAlt": "",
-    "mediaId": 1208,
+    "mediaId": 1538,
     "isSvg": false,
     "isVideo": false
   },
@@ -13,48 +12,47 @@
       "navItemText": "Projects",
       "navItemLink": {
         "text": "Projects",
-        "href": "https://qa-api.zaha-hadid.com/projects",
+        "href": "/projects",
         "linkType": "Content",
         "target": ""
       },
-      "flyout": []
+      "navItems": []
     },
     {
       "navItemText": "Expertise",
       "navItemLink": null,
-      "flyout": [
+      "navItems": [
         {
-          "navigationalTitle": "View all expertise",
-          "ctaLink": {
+          "navItemText": "View all expertise",
+          "navItemLink": {
             "text": "Expertise",
-            "href": "https://qa-api.zaha-hadid.com/expertise",
+            "href": "/expertise",
             "linkType": "Content",
             "target": ""
           },
-          "flyout": [],
+          "navItems": [],
           "image": null
         },
         {
-          "navigationalTitle": "Architecture",
-          "ctaLink": {
+          "navItemText": "Architecture",
+          "navItemLink": {
             "text": "Architecture",
-            "href": "https://qa-api.zaha-hadid.com/expertise/architecture",
+            "href": "/expertise/architecture",
             "linkType": "Content",
             "target": ""
           },
-          "flyout": [
+          "navItems": [
             {
-              "navigationalTitle": "View all Architecture",
-              "ctaLink": {
+              "navItemText": "View all Architecture",
+              "navItemLink": {
                 "text": "Architecture",
-                "href": "https://qa-api.zaha-hadid.com/expertise/architecture",
+                "href": "/expertise/architecture",
                 "linkType": "Content",
                 "target": ""
               },
               "image": {
-                "imageUrl": "/media/nm4aowig/zha_1.jpg",
-                "title": "",
-                "description": "",
+                "imageUrl": "https://zhweb-qa-f-app.azurewebsites.net/media/nm4aowig/zha_1.jpg",
+                "caption": "",
                 "imageAlt": "",
                 "mediaId": 1201,
                 "isSvg": false,
@@ -63,17 +61,16 @@
               "colour": null
             },
             {
-              "navigationalTitle": "Culture",
-              "ctaLink": {
+              "navItemText": "Culture",
+              "navItemLink": {
                 "text": "Culture",
-                "href": "https://qa-api.zaha-hadid.com/expertise/architecture/culture",
+                "href": "/expertise/architecture/culture",
                 "linkType": "Content",
                 "target": ""
               },
               "image": {
-                "imageUrl": "/media/wotgyell/adrian-cuj-o_9ymcy0bag-unsplash.jpg?rxy=0.5037593984962406,0.5260651629072681",
-                "title": "First",
-                "description": "",
+                "imageUrl": "https://zhweb-qa-f-app.azurewebsites.net/media/wotgyell/adrian-cuj-o_9ymcy0bag-unsplash.jpg",
+                "caption": "First",
                 "imageAlt": "",
                 "mediaId": 1267,
                 "isSvg": false,
@@ -82,10 +79,10 @@
               "colour": "#4d3894"
             },
             {
-              "navigationalTitle": "Civic",
-              "ctaLink": {
+              "navItemText": "Civic",
+              "navItemLink": {
                 "text": "Civic",
-                "href": "https://qa-api.zaha-hadid.com/expertise/architecture/civic",
+                "href": "/expertise/architecture/civic",
                 "linkType": "Content",
                 "target": ""
               },
@@ -93,17 +90,16 @@
               "colour": "#66258d"
             },
             {
-              "navigationalTitle": "Offices",
-              "ctaLink": {
+              "navItemText": "Offices",
+              "navItemLink": {
                 "text": "Offices",
-                "href": "https://qa-api.zaha-hadid.com/expertise/architecture/education",
+                "href": "/expertise/architecture/education",
                 "linkType": "Content",
                 "target": ""
               },
               "image": {
-                "imageUrl": "/media/2ilnx0wu/zha_3.jpg",
-                "title": "",
-                "description": "",
+                "imageUrl": "https://zhweb-qa-f-app.azurewebsites.net/media/2ilnx0wu/zha_3.jpg",
+                "caption": "",
                 "imageAlt": "",
                 "mediaId": 1225,
                 "isSvg": false,
@@ -113,9 +109,8 @@
             }
           ],
           "image": {
-            "imageUrl": "/media/nm4aowig/zha_1.jpg",
-            "title": "",
-            "description": "",
+            "imageUrl": "https://zhweb-qa-f-app.azurewebsites.net/media/nm4aowig/zha_1.jpg",
+            "caption": "",
             "imageAlt": "",
             "mediaId": 1201,
             "isSvg": false,
@@ -123,26 +118,40 @@
           }
         },
         {
-          "navigationalTitle": "Interior Architecture",
-          "ctaLink": {
+          "navItemText": "Interior Architecture",
+          "navItemLink": {
             "text": "Interior Architecture",
-            "href": "https://qa-api.zaha-hadid.com/expertise/interior-architecture",
+            "href": "/expertise/interior-architecture",
             "linkType": "Content",
             "target": ""
           },
-          "flyout": [],
-          "image": null
+          "navItems": [],
+          "image": {
+            "imageUrl": "https://zhweb-qa-f-app.azurewebsites.net/media/wjynwnvn/arturo-castaneyra-o-dkysvidb4-unsplash.jpg",
+            "caption": "Duis aute irure dolor in reprehenderit in voluptate velit 45",
+            "imageAlt": "",
+            "mediaId": 1252,
+            "isSvg": false,
+            "isVideo": false
+          }
         },
         {
-          "navigationalTitle": "Masterplans",
-          "ctaLink": {
+          "navItemText": "Masterplans",
+          "navItemLink": {
             "text": "Masterplans",
-            "href": "https://qa-api.zaha-hadid.com/expertise/masterplans",
+            "href": "/expertise/masterplans",
             "linkType": "Content",
             "target": ""
           },
-          "flyout": [],
-          "image": null
+          "navItems": [],
+          "image": {
+            "imageUrl": "https://zhweb-qa-f-app.azurewebsites.net/media/53kgzguw/refargotohp-1azkcg0c38a-unsplash.jpg",
+            "caption": "Duis aute irure velit 7436",
+            "imageAlt": "",
+            "mediaId": 1257,
+            "isSvg": false,
+            "isVideo": false
+          }
         }
       ]
     },
@@ -150,11 +159,11 @@
       "navItemText": "People",
       "navItemLink": {
         "text": "People",
-        "href": "https://qa-api.zaha-hadid.com/people",
+        "href": "/people",
         "linkType": "Content",
         "target": ""
       },
-      "flyout": []
+      "navItems": []
     },
     {
       "navItemText": "About us",
@@ -164,7 +173,7 @@
         "linkType": "External",
         "target": "_blank"
       },
-      "flyout": []
+      "navItems": []
     }
   ],
   "languageSwitcher": null

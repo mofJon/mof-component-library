@@ -1,5 +1,5 @@
 import { FC, useContext, useMemo, useRef } from "react";
-import { Box, Stack } from "../../../../components";
+import { Box, Button, Stack } from "../../../../components";
 import { NavContext, NavImages, NavPanelContent } from "./";
 import { navPanel, navPanelWrapper } from "../Nav.styles";
 import { NavPanelProps } from "../Nav.types";
@@ -10,18 +10,36 @@ const NavPanel: FC<NavPanelProps> = ({
   image,
   isActive = false,
   level = 0,
+  motion,
   attach,
 }) => {
   const itemWrapperRef = useRef<any>(null);
   const {
     itemsPerColumn,
-    navPanelAnimations,
-    navPanelWrapperAnimations,
-    navImageAnimations = {},
     images,
+    navSettings,
+    backButton,
+    currTier,
+    setCurrTier,
   } = useContext(NavContext);
+  const { icon } = navSettings;
 
   if (!Array.isArray(data)) return null;
+
+  const handleBack = () => {
+    setCurrTier(currTier - 1);
+  };
+
+  let back = null;
+  if (backButton && backButton[level]) {
+    back = (
+      <Button
+        text={backButton[level]}
+        iconPre={icon?.iconBack}
+        onClick={handleBack}
+      />
+    );
+  }
 
   return (
     <AnimatePresence>
@@ -32,14 +50,15 @@ const NavPanel: FC<NavPanelProps> = ({
           attach,
           image != null,
           level,
-          navPanelWrapperAnimations,
+          motion?.panelWrapper,
         )}
       >
         <Stack
           ref={itemWrapperRef}
           direction={itemsPerColumn ? "row" : "column"}
-          {...navPanel(isActive, attach, navPanelAnimations)}
+          {...navPanel(isActive, attach, motion?.panel)}
         >
+          {back}
           <NavPanelContent data={data} />
         </Stack>
         {level === 0 && <NavImages images={images} />}

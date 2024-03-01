@@ -1,6 +1,6 @@
 {
   "name": "mof-component-library",
-  "version": "0.1.150",
+  "version": "0.1.176",
   "main": "./index.js",
   "types": "./index.d.ts",
   "scripts": {
@@ -15,8 +15,6 @@
     "build-css": "npx tailwindcss -i ./theme/styles/globals.css -o ./dist/theme/styles/base-styles.css --minify"
   },
   "devDependencies": {
-    "class-variance-authority": "^0.7.0",
-    "isomorphic-dompurify": "^2.2.0",
     "@microlink/react-json-view": "^1.23.0",
     "@reduxjs/toolkit": "^2.0.1",
     "@storybook/addon-actions": "^7.6.8",
@@ -34,10 +32,9 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "@types/vimeo__player": "^2.18.3",
-    "@vidstack/react": "next",
     "autoprefixer": "^10.0.1",
     "chromatic": "^10.2.0",
+    "class-variance-authority": "^0.7.0",
     "classnames": "^2.5.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
@@ -45,6 +42,7 @@
     "eslint-plugin-storybook": "^0.6.15",
     "framer-motion": "^11.0.3",
     "gsap": "^3.12.5",
+    "isomorphic-dompurify": "^2.2.0",
     "next": "14.0.4",
     "next-i18next": "^15.2.0",
     "next-redux-wrapper": "^8.1.0",
@@ -56,8 +54,10 @@
     "react": "^18",
     "react-dom": "^18",
     "react-magic-motion": "^1.1.2",
+    "react-player": "^2.14.1",
     "react-redux": "^9.1.0",
     "resize-observer-polyfill": "^1.5.1",
+    "screenfull": "^6.0.2",
     "storybook": "^7.6.8",
     "tailwind-scrollbar-hide": "^1.1.7",
     "tailwindcss": "^3.3.0",

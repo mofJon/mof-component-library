@@ -2,7 +2,6 @@ import { FC } from "react";
 import { Card, ModuleBase } from "../../components";
 import { RichTextAndTwoMediaStackedModuleProps } from "./RichTextAndTwoMediaStackedModule.types";
 import { richTextAndTwoMedia } from "./RichTextAndTwoMediaStackedModule.styles";
-import { Media } from "../../components";
 
 const RichTextAndTwoMediaStackedModule: FC<
   RichTextAndTwoMediaStackedModuleProps
@@ -15,16 +14,9 @@ const RichTextAndTwoMediaStackedModule: FC<
     >
       <Card
         data={data}
-        variant="richTextAndTwoMedia"
+        variant="richTextAndTwoMediaStacked"
         childAnims={moduleAnims}
         {...imageSizes}
-      />
-      <Media
-        data={data.smallMedia}
-        orientation={data.mediaOrientation}
-        align={data.mediaAlignment}
-        {...moduleAnims?.media}
-        imageSizes={smallImageSizes}
       />
     </ModuleBase>
   );

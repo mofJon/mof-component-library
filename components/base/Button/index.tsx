@@ -27,7 +27,6 @@ export const Button = forwardRef(
     ref: Ref<any>,
   ) => {
     const router = useRouter();
-    if (!text) return null;
 
     const isAnimated = containsMotionProps(props); //contains framer motion props?
 
@@ -39,6 +38,9 @@ export const Button = forwardRef(
       mofConfig?.button?.[variant as "primary"]?.icons?.iconPost;
 
     const renderText = !mofConfig?.button?.[variant as "primary"]?.omitText;
+    const configText = mofConfig?.button?.[variant as "primary"]?.text;
+
+    if (!text && !configText && !iconPre && !iconPost) return null;
 
     const handleClick = useCallback(
       (e: MouseEvent) => {
@@ -54,13 +56,13 @@ export const Button = forwardRef(
     );
 
     const allProps = {
-      ...buttonVars(variant, size, className), // pass all styling defaults to decoupled styles file to future-proof modularity
+      ...buttonVars(variant, size, linkType, className), // pass all styling defaults to decoupled styles file to future-proof modularity
       onClick: (e: any) => handleClick(e),
       ...props, // pass down remaining props
     };
 
     const buttonMain = renderText ? (
-      <Text text={text} textStyle={textStyle || "button"} />
+      <Text text={text || configText} textStyle={textStyle || "button"} />
     ) : null;
     let buttonContent: ReactNode | any[] = buttonMain;
 
@@ -72,10 +74,6 @@ export const Button = forwardRef(
           {iconPost}
         </Stack>
       );
-    }
-
-    if (variant === "nav") {
-      buttonContent = <Text text={text} textStyle={textStyle || "nav"} />;
     }
 
     return createElement(

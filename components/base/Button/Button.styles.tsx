@@ -14,14 +14,15 @@ if (buttons) {
     };
   });
 }
+
 const variantObject = Object.assign({}, ...customButtonVariants);
 
 // Button Base and Variant Styles
 export const button = cva("button", {
   variants: {
     variant: {
-      primary: "primary",
-      secondary: "secondary",
+      primary: "button-primary",
+      secondary: "button-secondary",
       nav: "nav-button",
       ...variantObject,
     },
@@ -47,14 +48,12 @@ export const button = cva("button", {
 });
 
 // Button Props
-export const buttonVars: ButtonVars = (variant, size, classes) => {
-  const baseStyles = classNames(classes);
-
+export const buttonVars: ButtonVars = (variant, size, linkType, classes) => {
   return {
     className: button({
       variant,
       size,
-      className: baseStyles,
+      className: classNames(classes, { external: linkType === "External" }),
     }),
   };
 };

@@ -17,7 +17,7 @@
   @import "components/card.css";
   @import "components/contentBlock.css";
   @import "components/moduleBase.css";
-  @import "components/nav.css";
+  @import "../../components/general/Nav/Nav.css";
   @import "components/video.css";
 
   /* modules */
@@ -26,7 +26,8 @@
   @import "modules/CardCarouselFocusModule.css";
   @import "../../modules/CardCarouselGenericModule/CardCarouselGenericModule.css";
   @import "modules/CardListingGridModule.css";
-  @import "modules/Header.css";
+  /* @import "modules/Header.css"; */
+  @import "../../modules/Header/Header.css";
   @import "../../modules/Footer/Footer.css";
   @import "modules/HeadingSideModule.css";
   @import "modules/QuoteCarouselModule.css";

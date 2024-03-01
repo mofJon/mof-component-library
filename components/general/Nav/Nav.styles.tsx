@@ -1,6 +1,6 @@
 import { cva } from "class-variance-authority";
 import classNames from "classnames";
-import { NavProps } from "./Nav.types";
+import { camelToHyphen } from "../../../utils";
 
 type NavVars = any;
 
@@ -26,8 +26,8 @@ export const nav = cva("nav", {
 
 // Nav Props
 // @ts-ignore
-export const navVars: NavVars = (variant, persistOn, classes) => {
-  const baseStyles = classNames(classes);
+export const navVars: NavVars = (variant, persistOn, isOpen, classes) => {
+  const baseStyles = classNames(classes, { open: isOpen });
 
   return {
     className: nav({
@@ -40,15 +40,11 @@ export const navVars: NavVars = (variant, persistOn, classes) => {
 
 export const navPanelWrapper = (
   isActive: boolean,
-  attach: NavProps["attach"],
+  attach: any, //NavProps["attach"],
   hasImage: boolean,
   level: number,
-  navPanelWrapperAnimations?: any,
+  motion?: any,
 ) => {
-  const animProps = navPanelWrapperAnimations
-    ? navPanelWrapperAnimations(attach)
-    : {};
-
   return {
     className: classNames(
       "nav-panel-wrapper",
@@ -57,20 +53,20 @@ export const navPanelWrapper = (
       { [`attach-${attach}`]: attach != null },
       { active: isActive },
     ),
-    ...animProps,
+    ...motion,
   };
 };
 
 export const navPanel = (
   isActive: boolean,
-  attach: NavProps["attach"],
-  navPanelAnimations?: any,
+  attach: any, //NavProps["attach"],
+  motion?: any,
 ) => {
-  const animProps = navPanelAnimations ? navPanelAnimations(attach) : {};
-
   return {
-    className: classNames("nav-panel", { active: isActive }),
-    ...animProps,
+    className: classNames("nav-panel", { active: isActive }, [
+      `attach-to${attach}`,
+    ]),
+    ...motion,
   };
 };
 
@@ -98,11 +94,11 @@ export const navItem = (
 
 export const navItemWrapper = (
   isActive: boolean,
-  attach: NavProps["attach"],
+  attach: any, //NavProps["attach"],
 ) => ({
   className: classNames(
     "nav-item-wrapper",
-    { [`attach-${attach}`]: attach != null },
+    { [`attach-${camelToHyphen(attach)}`]: attach != null },
     { active: isActive },
   ),
   initial: "inactive",
@@ -123,3 +119,29 @@ export const navImageWrapper = (level: number) => ({
 export const navImage = (isActive: boolean) => ({
   className: classNames("nav-image", { active: isActive }),
 });
+
+export const navPanelWrapperRow = {
+  className: "nav-panel-wrapper-row",
+};
+
+export const navPanelColumn = (width: number, attach: string) => {
+  let panelWidth = {};
+  if (attach === "slide") {
+    panelWidth = { width };
+  }
+
+  return {
+    className: classNames("nav-panel-column", [camelToHyphen(attach)]),
+    style: {
+      ...panelWidth,
+    },
+  };
+};
+
+export const backButtonHeader = {
+  className: "nav-panel-back",
+};
+
+export const megaNavWrapper = {
+  className: "meganav-wrapper",
+};

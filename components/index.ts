@@ -15,6 +15,7 @@ export * from "./general/Carousel";
 export { default as CMSModule } from "./general/CMSModule";
 export * from "./general/ContentBlock";
 export { default as Custom500 } from "./general/Custom500";
+export { default as ErrorBoundary } from "./general/ErrorBoundary";
 export * from "./general/Media";
 export { default as ModuleBase } from "./general/ModuleBase";
 export * from "./general/Nav";
