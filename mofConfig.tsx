@@ -32,6 +32,21 @@ export default {
         iconPost: <Arrow />,
       },
     },
+    iconBack: {
+      icons: {
+        iconPost: <Arrow />,
+      },
+      omitText: true,
+    },
+    iconNext: {
+      icons: {
+        iconPost: <Arrow />,
+      },
+      omitText: true,
+    },
+    paginate: {
+      textStyle: "i-sm",
+    },
   },
   contentProps: {
     heroLeftAligned: {

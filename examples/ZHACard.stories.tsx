@@ -5,7 +5,7 @@ import { cardChildAnims, zhaCardAnim } from "./animations";
 const data: any = {
   image: {
     imageUrl:
-      "https://qa-cms.zaha-hadid.com/media/wotgyell/adrian-cuj-o_9ymcy0bag-unsplash.jpg",
+      "https://zhweb-qa-f-app.azurewebsites.net/media/wotgyell/adrian-cuj-o_9ymcy0bag-unsplash.jpg",
     alt: "zaha",
   },
   preHeading: "Transport",

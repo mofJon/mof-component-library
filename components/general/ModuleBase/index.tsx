@@ -10,7 +10,7 @@ const ModuleBase: FC<ModuleBaseProps> = ({
 }) => {
   return (
     <ErrorBoundary>
-      <Box variant={variant} {...props} {...moduleBase(data, props)} />
+      <Box variant={variant} {...props} {...moduleBase(data, props, variant)} />
     </ErrorBoundary>
   );
 };

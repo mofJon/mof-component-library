@@ -12,7 +12,7 @@ export const camelToHyphen = (str: string) => {
 
 export const getFormattedValue = (value: number, type: string) => {
   if (type === "leadingZeroNumbers") {
-    return value < 10 ? `0${value + 1}` : value + 1;
+    return value < 9 ? `0${value + 1}` : value + 1;
   }
   return value + 1;
 };

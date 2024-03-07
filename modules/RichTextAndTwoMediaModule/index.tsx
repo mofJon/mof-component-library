@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Media, ModuleBase, Card } from "../../components";
+import { Box, ModuleBase, Card } from "../../components";
 import { RichTextAndTwoMediaModuleProps } from "./RichTextAndTwoMediaModule.types";
 import { richTextWithMedia } from "./RichTextAndTwoMediaModule.styles";
 
@@ -19,10 +19,11 @@ const RichTextAndTwoMediaModule: FC<RichTextAndTwoMediaModuleProps> = ({
     <ModuleBase
       data={newData}
       {...richTextWithMedia(props)}
-      {...props}
       {...moduleAnims?.module}
     >
-      <Card variant={variant} data={data} childAnims={moduleAnims} />
+      <Box>
+        <Card variant={variant} data={data} childAnims={moduleAnims} />
+      </Box>
     </ModuleBase>
   );
 };

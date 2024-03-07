@@ -43,12 +43,14 @@ export const Text = forwardRef(
       });
     }
 
-    if (textStyle === "button") {
+    if (textStyle === "button" && variant !== "popover") {
       return text;
     }
 
     const isLink: boolean = !!link.text;
     const linkProps = isLink ? (({ linkType, ...rest }) => rest)(link) : {};
+
+    if (cleanedText === "[object Object]") return null;
 
     const allProps = {
       // pass all styling defaults to decoupled styles file to future-proof modularity

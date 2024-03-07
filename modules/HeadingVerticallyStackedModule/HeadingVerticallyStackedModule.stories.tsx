@@ -1,34 +1,36 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from "@storybook/react";
 import Component from ".";
 
 const data: any = {
   headingTitle: {
-    heading: '<p>News</p>',
-    htag: 'h2',
+    heading: "<p>News</p>",
+    htag: "h2",
   },
-  description: "<p>Copy to be decided elementum egestas in nostra ac parturient a semper donec odio imperdiet imperdiet erat mus nec vestibulum parturient a etiam aenean.</p>",
+  description:
+    "<p>Copy to be decided elementum egestas in nostra ac parturient a semper donec odio imperdiet imperdiet erat mus nec vestibulum parturient a etiam aenean.</p>",
   image: {
-    imageUrl: "https://qa-cms.zaha-hadid.com/media/wotgyell/adrian-cuj-o_9ymcy0bag-unsplash.jpg",
+    imageUrl:
+      "https://zhweb-qa-f-app.azurewebsites.net/media/wotgyell/adrian-cuj-o_9ymcy0bag-unsplash.jpg",
     title: "",
     description: "",
     imageAlt: "",
     mediaId: 1229,
     isSvg: false,
-    isVideo: false
+    isVideo: false,
   },
-  anchor: '',
-  anchorDisplayName: '',
-  paddingTop: 'small',
-  paddingBottom: 'small',
+  anchor: "",
+  anchorDisplayName: "",
+  paddingTop: "small",
+  paddingBottom: "small",
 };
 
 const meta: Meta<typeof Component> = {
   component: Component,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
     backgrounds: {
-      default: 'dark',
+      default: "dark",
     },
   },
 };

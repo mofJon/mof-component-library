@@ -1,21 +1,21 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import Component from '.';
+import type { Meta, StoryObj } from "@storybook/react";
+import Component from ".";
 
 const data: any = {
-  tag: 'Section Title',
+  tag: "Section Title",
   headingTitle: {
-    heading: '<p>Banner Full Bleed</p>',
-    htag: 'h2',
+    heading: "<p>Banner Full Bleed</p>",
+    htag: "h2",
   },
   description:
-    '<p>Description goes here lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec vestibulum eros. Curabitur ac libero malesuada, feugiat ligula quis, sodales diam.</p>',
+    "<p>Description goes here lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec vestibulum eros. Curabitur ac libero malesuada, feugiat ligula quis, sodales diam.</p>",
   // Image for test
   image: {
     imageUrl:
-      'https://qa-cms.zaha-hadid.com/media/wotgyell/adrian-cuj-o_9ymcy0bag-unsplash.jpg',
-    title: '',
-    description: '',
-    imageAlt: '',
+      "https://zhweb-qa-f-app.azurewebsites.net/media/wotgyell/adrian-cuj-o_9ymcy0bag-unsplash.jpg",
+    title: "",
+    description: "",
+    imageAlt: "",
     mediaId: 1229,
     isSvg: false,
     isVideo: false,
@@ -41,22 +41,22 @@ const data: any = {
   },
   */
   primaryCta: {
-    text: 'Play',
-    href: 'www.google.com',
+    text: "Play",
+    href: "www.google.com",
   },
-  anchor: '',
-  anchorDisplayName: '',
-  paddingTop: '',
-  paddingBottom: '',
+  anchor: "",
+  anchorDisplayName: "",
+  paddingTop: "",
+  paddingBottom: "",
 };
 
 const meta: Meta<typeof Component> = {
   component: Component,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
     backgrounds: {
-      default: 'dark',
+      default: "dark",
     },
   },
 };

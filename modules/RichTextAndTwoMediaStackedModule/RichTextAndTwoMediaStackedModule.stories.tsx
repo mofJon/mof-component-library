@@ -1,21 +1,22 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import Arrow from '@/assets/icons/zhaArrow.svg';
+import type { Meta, StoryObj } from "@storybook/react";
+import Arrow from "@/assets/icons/zhaArrow.svg";
 import Component from ".";
 
 const data: any = {
-  tag:  "Research & Technology",
+  tag: "Research & Technology",
   headingTitle: {
     heading: "<p>How we stay ahead of the curve</p>",
-    htag: '',
+    htag: "",
   },
-  description:"<p>Description goes here lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec vestibulum eros. Curabitur ac libero malesuada, feugiat ligula quis, sodales diam. Morbi cursus mauris id bibendum commodo.</p>",
+  description:
+    "<p>Description goes here lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec vestibulum eros. Curabitur ac libero malesuada, feugiat ligula quis, sodales diam. Morbi cursus mauris id bibendum commodo.</p>",
   primaryCta: {
     text: "People",
     href: "https://qa-api.zaha-hadid.com/people",
     linkType: "Content",
     target: "",
     iconPost: <Arrow />, // It does not come from the BE
-    size: 'sm' // It does not come from the BE
+    size: "sm", // It does not come from the BE
   },
   secondaryCta: {
     text: "Projects",
@@ -24,23 +25,14 @@ const data: any = {
     target: "",
     variant: "secondary", // It does not come from the BE
     iconPost: <Arrow />, // It does not come from the BE
-    size: 'sm' // It does not come from the BE
+    size: "sm", // It does not come from the BE
   },
   mediaAlignment: "Right",
   mediaOrientation: "Portrait",
-  // Image for test 
+  // Image for test
   image: {
-    imageUrl: "https://qa-cms.zaha-hadid.com/media/wotgyell/adrian-cuj-o_9ymcy0bag-unsplash.jpg",
-    title: "",
-    description: "",
-    imageAlt: "",
-    mediaId: 1229,
-    isSvg: false,
-    isVideo: false
-  },
-
-  smallMedia: {
-    imageUrl: "https://qa-cms.zaha-hadid.com/media/wotgyell/adrian-cuj-o_9ymcy0bag-unsplash.jpg",
+    imageUrl:
+      "https://zhweb-qa-f-app.azurewebsites.net/media/wotgyell/adrian-cuj-o_9ymcy0bag-unsplash.jpg",
     title: "",
     description: "",
     imageAlt: "",
@@ -48,20 +40,30 @@ const data: any = {
     isSvg: false,
     isVideo: false,
   },
-  anchor: '',
-  anchorDisplayName: '',
-  paddingTop: '',
-  paddingBottom: '',
+
+  smallMedia: {
+    imageUrl:
+      "https://zhweb-qa-f-app.azurewebsites.net/media/wotgyell/adrian-cuj-o_9ymcy0bag-unsplash.jpg",
+    title: "",
+    description: "",
+    imageAlt: "",
+    mediaId: 1229,
+    isSvg: false,
+    isVideo: false,
+  },
+  anchor: "",
+  anchorDisplayName: "",
+  paddingTop: "",
+  paddingBottom: "",
 };
 
-  // TODO: 
-  // Handle data from BE
-  // Fix font size on sm and md screens
-  // Fix smallMedia positions
+// TODO:
+// Handle data from BE
+// Fix font size on sm and md screens
+// Fix smallMedia positions
 
-
-  // The real data From BE
-  /*
+// The real data From BE
+/*
     "largeMedia": {
       "imageUrl": "/media/2ilnx0wu/zha_3.jpg",
       "title": "",
@@ -92,11 +94,11 @@ const data: any = {
 
 const meta: Meta<typeof Component> = {
   component: Component,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
     backgrounds: {
-      default: 'dark',
+      default: "dark",
     },
   },
 };
@@ -108,5 +110,4 @@ export const RichTextAndTwoMediaModule: Story = {
   args: {
     data,
   },
-  
 };

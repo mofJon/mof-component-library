@@ -1,3 +1,4 @@
+// import { getPlaiceholder } from "plaiceholder";
 // declare const document: any;
 
 export const getQueryByName = (str: string, key: string) => {
@@ -44,14 +45,12 @@ export const stripQueryString = (str: string = "") => {
 //   });
 // };
 
-export const toDataURL = async (url: string) => {
-  const formData = {
-    url: stripQueryString(url),
-  };
+// export const toBlurredURL = async (url: string) => {
+//   const buffer = await fetch(url).then(async (res) => {
+//     return Buffer.from(await res.arrayBuffer());
+//   });
 
-  const base64 = await fetch("/api/getBase64", {
-    method: "POST",
-    body: JSON.stringify(formData),
-  }).then((res) => console.log(res));
-  return base64;
-};
+//   const { base64 } = await getPlaiceholder(buffer);
+
+//   return base64;
+// };

@@ -19,7 +19,7 @@ const HeroLeftAlignedModule: FC<HeroLeftAlignedModuleProps> = ({
         data={data}
         size="full"
         variant="heroLeftAligned"
-        {...backgroundImageSizes}
+        backgroundImageSizes={backgroundImageSizes}
         childAnims={moduleAnims}
       />
     </ModuleBase>

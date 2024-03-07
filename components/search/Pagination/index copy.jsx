@@ -2,18 +2,12 @@ import React, { useState, useEffect, useRef } from "react";
 import {
   pushValuesToRouteQuery,
   assignValuesFromRouteQuery,
-} from "../../utils";
+} from "../../../utils";
 import { useRouter } from "next/navigation";
 import classNames from "classnames";
-import ArrowUp from "../../assets/icons/chevron.svg";
+import ArrowUp from "../../../assets/icons/chevron.svg";
 
-const Pagination = ({
-  pageSize,
-  totalCount,
-  onChange,
-  queryMode,
-  ...props
-}) => {
+const Pagination = ({ pageSize, totalCount, onChange, ...props }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [btns, setBtns] = useState([]);
   const totalPages = useRef(1);

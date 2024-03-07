@@ -1,12 +1,7 @@
 import { FC } from "react";
 import { ModuleBase, Carousel, Stack, Text } from "../../components";
-import {
-  carouselContent,
-  carouselWrapper,
-  carouselTag,
-  carouselHeading,
-  carouselDescription,
-} from "./CardCarouselGenericModule.styles";
+import { HeadingSideModule } from "../../modules";
+import { carouselWrapper } from "./CardCarouselGenericModule.styles";
 import { CardCarouselGenericModuleProps } from "./CardCarouselGenericModule.types";
 
 const CardCarouselGenericModule: FC<CardCarouselGenericModuleProps> = ({
@@ -33,34 +28,15 @@ const CardCarouselGenericModule: FC<CardCarouselGenericModuleProps> = ({
     );
   });
 
-  const heading =
-    typeof data.headingTitle === "object"
-      ? data.headingTitle.heading
-      : data.headingTitle;
-  const htag = data.headingTitle?.htag
-    ? { htag: data.headingTitle.heading }
-    : {};
+  const headingData = {
+    description: data?.description,
+    headingTitle: data?.headingTitle,
+    tag: data?.tag,
+  };
 
   return (
     <ModuleBase data={data} {...carouselWrapper(props, moduleAnims?.module)}>
-      <Stack {...carouselContent(moduleAnims?.content)}>
-        <Text
-          text={data.tag}
-          {...carouselTag(moduleAnims?.tag, textStyles?.tag)}
-        />
-        <Text
-          text={heading}
-          {...htag}
-          {...carouselHeading(moduleAnims?.heading, textStyles?.heading)}
-        />
-        <Text
-          text={data.description}
-          {...carouselDescription(
-            moduleAnims?.description,
-            textStyles?.description,
-          )}
-        />
-      </Stack>
+      <HeadingSideModule variant="flex" data={headingData} />
       {renderCarouselRows}
     </ModuleBase>
   );

@@ -5,3 +5,7 @@
 .column {
   @apply flex-col;
 }
+
+.media-holder {
+  @apply relative;
+}

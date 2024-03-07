@@ -6,21 +6,21 @@ import { HeadingSideModuleProps } from "./HeadingSideModule.types";
 const HeadingSideModule: FC<HeadingSideModuleProps> = ({
   data,
   moduleAnims,
+  variant = "section",
   ...props
 }) => {
   return (
     <ModuleBase
       {...headingSide(props.className)}
+      variant={variant}
       data={data}
       {...moduleAnims?.module}
     >
-      <Box variant="container">
-        <ContentBlock
-          data={data}
-          variant="headingSide"
-          childAnims={moduleAnims}
-        />
-      </Box>
+      <ContentBlock
+        data={data}
+        variant="headingSide"
+        childAnims={moduleAnims}
+      />
     </ModuleBase>
   );
 };

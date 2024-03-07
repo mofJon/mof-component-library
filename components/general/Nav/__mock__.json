@@ -89,7 +89,7 @@
               "target": ""
             },
             "image": {
-              "imageUrl": "https://qa-cms.zaha-hadid.com/media/53kgzguw/refargotohp-1azkcg0c38a-unsplash.jpg",
+              "imageUrl": "https://zhweb-qa-f-app.azurewebsites.net/media/53kgzguw/refargotohp-1azkcg0c38a-unsplash.jpg",
               "caption": "",
               "imageAlt": "",
               "mediaId": 1225,
@@ -100,7 +100,7 @@
           }
         ],
         "image": {
-          "imageUrl": "https://qa-cms.zaha-hadid.com/media/53kgzguw/refargotohp-1azkcg0c38a-unsplash.jpg",
+          "imageUrl": "https://zhweb-qa-f-app.azurewebsites.net/media/53kgzguw/refargotohp-1azkcg0c38a-unsplash.jpg",
           "caption": "",
           "imageAlt": "",
           "mediaId": 1201,

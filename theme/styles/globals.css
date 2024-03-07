@@ -18,6 +18,7 @@
   @import "components/contentBlock.css";
   @import "components/moduleBase.css";
   @import "../../components/general/Nav/Nav.css";
+  @import "../../components/general/Popover/Popover.css";
   @import "components/video.css";
 
   /* modules */

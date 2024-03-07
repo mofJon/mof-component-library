@@ -21,7 +21,7 @@
   "mediaOrientation": "Portrait",
   "media": {
     "coverImage": {
-      "imageUrl": "https://qa-cms.zaha-hadid.com/media/11tbjmi2/kychan-ccfo0o_ltsy-unsplash.jpg",
+      "imageUrl": "https://zhweb-qa-f-app.azurewebsites.net/media/11tbjmi2/kychan-ccfo0o_ltsy-unsplash.jpg",
       "caption": "Kychan CCFO0O LTSY Unsplash",
       "imageAlt": "This will be the alt text",
       "mediaId": 1330,

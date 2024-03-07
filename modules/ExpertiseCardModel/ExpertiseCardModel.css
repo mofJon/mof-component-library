@@ -1,0 +1,17 @@
+.card-expertise {
+  &-group {
+    @apply gap-8;
+  }
+  &-wrapper {
+    .grid {
+      @apply flex flex-col;
+    }
+    .content-block {
+      @apply min-h-10;
+    }
+
+    .media-holder {
+      @apply aspect-[3/2] w-[20rem];
+    }
+  }
+}

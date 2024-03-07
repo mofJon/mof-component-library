@@ -1,25 +1,25 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import Component from '.';
+import type { Meta, StoryObj } from "@storybook/react";
+import Component from ".";
 
 const data: any = {
   headingTitle: {
     heading: "<p>Projects</p>",
-    htag: '',
+    htag: "",
   },
   image: {
     imageUrl:
-      'https://qa-cms.zaha-hadid.com/media/wotgyell/adrian-cuj-o_9ymcy0bag-unsplash.jpg',
-    title: '',
-    description: '',
-    imageAlt: '',
+      "https://zhweb-qa-f-app.azurewebsites.net/media/wotgyell/adrian-cuj-o_9ymcy0bag-unsplash.jpg",
+    title: "",
+    description: "",
+    imageAlt: "",
     mediaId: 1229,
     isSvg: false,
     isVideo: false,
   },
-  tag: "13 typologies"
+  tag: "13 typologies",
 };
 
-// TODO: 
+// TODO:
 // Handle data from BE
 // Display infoTags array
 
@@ -42,11 +42,11 @@ const data: any = {
 
 const meta: Meta<typeof Component> = {
   component: Component,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
     backgrounds: {
-      default: 'dark',
+      default: "dark",
     },
   },
 };

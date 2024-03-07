@@ -1,6 +1,6 @@
 {
   "logo": {
-    "imageUrl": "https://qa-cms.zaha-hadid.com/media/32en41sr/zha_logo.png",
+    "imageUrl": "https://zhweb-qa-f-app.azurewebsites.net/media/32en41sr/zha_logo.png",
     "caption": "",
     "imageAlt": "",
     "mediaId": 1208,
@@ -49,7 +49,7 @@
   ],
   "copyrightText": "©2024 Zaha Hadid Architects",
   "backgroundImage": {
-    "imageUrl": "https://qa-cms.zaha-hadid.com/media/2y3fbnzx/maarten-deckers-t5nxyxcf50i-unsplash.jpg",
+    "imageUrl": "https://zhweb-qa-f-app.azurewebsites.net/media/2y3fbnzx/maarten-deckers-t5nxyxcf50i-unsplash.jpg",
     "caption": "Duis aute irure dolor in 324  in voluptate velit",
     "imageAlt": "",
     "mediaId": 1254,

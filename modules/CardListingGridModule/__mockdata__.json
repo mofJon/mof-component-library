@@ -1,383 +1,257 @@
 {
   "filtersAndCards": {
-    "cardType": "Project",
+    "cardType": "TeamMember",
+    "displayFilters": true,
     "filter": [
       {
-        "filterLabel": "Discipline",
+        "filterName": "Category",
+        "filterValue": "category",
         "filters": [
           {
-            "name": "Architecture",
-            "filterGuid": "b811e46b-7805-4cdf-9856-affee019d536",
+            "name": "Board Directors",
+            "filterGuid": "239f7013-9bd9-4184-95bb-3f5043b34c7b",
             "isSelected": false,
-            "hasTypology": true
+            "hasTypologies": false
           },
           {
-            "name": "Interior Architecture",
-            "filterGuid": "cde18cf2-53cd-4ec7-810a-490544ad9173",
+            "name": "Associate Directors",
+            "filterGuid": "7960226f-152e-467e-9dad-f43e6ffc0aac",
             "isSelected": false,
-            "hasTypology": false
+            "hasTypologies": false
+          },
+          {
+            "name": "Exhibitions, Design and Interiors",
+            "filterGuid": "08e85e5b-fb30-4e28-8f23-44c423aaa2bd",
+            "isSelected": false,
+            "hasTypologies": false
           }
         ]
       },
       {
-        "filterLabel": "Typologies",
+        "filterName": "Location",
+        "filterValue": "officeLocation",
         "filters": [
           {
-            "name": "Culture",
-            "filterGuid": "b811e46b-7805-4cdf-9856-affee019d536",
+            "name": "London, UK",
+            "filterGuid": "f397040f-37a7-4cc4-9b75-490fe69478d1",
             "isSelected": false,
-            "hasTypology": false
+            "hasTypologies": false
           },
           {
-            "name": "Civic",
-            "filterGuid": "cde18cf2-53cd-4ec7-810a-490544ad9173",
+            "name": "Beijing, China",
+            "filterGuid": "7dafeea9-f6fe-4c35-91d3-a4804508dc8e",
             "isSelected": false,
-            "hasTypology": false
+            "hasTypologies": false
           }
         ]
       },
       {
-        "filterLabel": "Status",
+        "filterName": "Team",
+        "filterValue": "team",
         "filters": [
           {
-            "name": "Complete",
-            "filterGuid": "b811e46b-7805-4cdf-9856-affee019d536",
+            "name": "Computation and Design",
+            "filterGuid": "d9d41a65-6884-491e-8210-c8aefea3d5d6",
             "isSelected": false,
-            "hasTypology": false
-          },
-          {
-            "name": "Under construction",
-            "filterGuid": "cde18cf2-53cd-4ec7-810a-490544ad9173",
-            "isSelected": false,
-            "hasTypology": false
-          },
-          {
-            "name": "Planning",
-            "filterGuid": "b6138ede-bdeb-4cbd-a429-152513d4cc55",
-            "isSelected": false,
-            "hasTypology": false
-          }
-        ]
-      },
-      {
-        "filterLabel": "Regions",
-        "filters": [
-          {
-            "name": "Asia",
-            "filterGuid": "b811e46b-7805-4cdf-9856-affee019d536",
-            "isSelected": false,
-            "hasTypology": false
-          },
-          {
-            "name": "Africa",
-            "filterGuid": "cde18cf2-53cd-4ec7-810a-490544ad9173",
-            "isSelected": false,
-            "hasTypology": false
-          },
-          {
-            "name": "Australia",
-            "filterGuid": "b6138ede-bdeb-4cbd-a429-152513d4cc55",
-            "isSelected": false,
-            "hasTypology": false
-          },
-          {
-            "name": "Europe",
-            "filterGuid": "e74595a1-3a50-480a-ae54-672e86fe96c8",
-            "isSelected": false,
-            "hasTypology": false
+            "hasTypologies": false
           }
         ]
       }
     ],
+    "sortByOptions": [],
+    "featuredCard": null,
+    "featuredId": null,
     "cards": [
       {
-        "moduleName": "ProjectCard",
-        "moduleId": "b7d9b9f1-d4bc-4426-93re6b-d1b13071fa15",
+        "moduleName": "TeamMemberListingGroup",
+        "moduleId": "239f7013-9bd9-4184-95bb-3f5043b34c7b",
         "props": {
-          "image": {
-            "imageUrl": "https://qa-bb-api.matterofform.com/media/toejwqb0/samuel-regan-asante-bzwtozzopuc-unsplash.jpg?rxy=0.32456140350877194,0.4924812030075188",
-            "caption": "Samuel Regan ",
-            "imageAlt": "Caption goes here lorem ipsum dolor sit amet consectetur adipiscing elit",
-            "mediaId": 1308,
-            "isSvg": false,
-            "isVideo": false
-          },
-          "tag": "Civic",
-          "headingTitle": "Burnham Pavillion",
-          "description": "<p>A temporary pavilion designed and erected in Chicago's Millennium Park as part of the Burnham Plan celebrations - reflecting the Chicago's long tradition for embracing cutti…</p>",
-          "primaryCta": {
-            "text": "Project Page",
-            "href": "/",
-            "linkType": "Content",
-            "target": null
-          }
+          "categoryName": "Board Directors",
+          "people": [
+            {
+              "moduleName": "TeamMemberCardModel",
+              "moduleId": "57202c39-d7dc-4f9f-892b-69441448a6b1",
+              "props": {
+                "firstName": "Jim",
+                "lastName": "Heverin",
+                "tag": "Board Directors",
+                "headingTitle": null,
+                "description": null,
+                "primaryCta": {
+                  "text": "Jim Heverin",
+                  "href": "/people/jim-heverin",
+                  "linkType": "Content",
+                  "target": null
+                },
+                "cardImage": {
+                  "imageUrl": "https://zhweb-qa-a-app.azurewebsites.net/media/g0gdfmvr/jim-heverin_ph-jacopo-spilimbergo-583x583.jpg",
+                  "caption": "",
+                  "imageAlt": "",
+                  "mediaId": 1316,
+                  "isSvg": false,
+                  "isVideo": false
+                }
+              }
+            },
+            {
+              "moduleName": "TeamMemberCardModel",
+              "moduleId": "53284768-6416-4db5-9111-9f7e063f6e92",
+              "props": {
+                "firstName": "Mouzhan",
+                "lastName": "Majidi",
+                "tag": "Board Directors",
+                "headingTitle": null,
+                "description": null,
+                "primaryCta": {
+                  "text": "Mouzhan Majidi",
+                  "href": "/people/mouzhan-majidi",
+                  "linkType": "Content",
+                  "target": null
+                },
+                "cardImage": {
+                  "imageUrl": "https://zhweb-qa-a-app.azurewebsites.net/media/g00pzw5t/mouzhan-majidi_ph-jacopo-spilimbergo_02-583x583.jpg",
+                  "caption": "",
+                  "imageAlt": "",
+                  "mediaId": 1315,
+                  "isSvg": false,
+                  "isVideo": false
+                }
+              }
+            },
+            {
+              "moduleName": "TeamMemberCardModel",
+              "moduleId": "ed27fa64-b55d-44cc-97b7-e76d7f28b583",
+              "props": {
+                "firstName": "Patrik",
+                "lastName": "Schumacher",
+                "tag": "Board Directors",
+                "headingTitle": null,
+                "description": null,
+                "primaryCta": {
+                  "text": "Patrik Schumacher",
+                  "href": "/people/patrik-schumacher",
+                  "linkType": "Content",
+                  "target": null
+                },
+                "cardImage": {
+                  "imageUrl": "https://zhweb-qa-a-app.azurewebsites.net/media/5xadmbtx/zaha_hadid_architects_-patrikschumacher-583x583.jpg?rxy=0.9716981132075472,0.2770154373927959",
+                  "caption": "",
+                  "imageAlt": "",
+                  "mediaId": 1317,
+                  "isSvg": false,
+                  "isVideo": false
+                }
+              }
+            }
+          ]
         }
       },
       {
-        "moduleName": "ProjectCard",
-        "moduleId": "70a0a131-23b0-467c-bd7f-ac2e9reac97327",
+        "moduleName": "TeamMemberListingGroup",
+        "moduleId": "7960226f-152e-467e-9dad-f43e6ffc0aac",
         "props": {
-          "image": {
-            "imageUrl": "https://qa-bb-api.matterofform.com/media/toejwqb0/samuel-regan-asante-bzwtozzopuc-unsplash.jpg?rxy=0.32456140350877194,0.4924812030075188",
-            "caption": "Samuel Regan ",
-            "imageAlt": "Caption goes here lorem ipsum dolor sit amet consectetur adipiscing elit",
-            "mediaId": 1308,
-            "isSvg": false,
-            "isVideo": false
-          },
-          "tag": "Culture",
-          "headingTitle": "Alai",
-          "description": "<p>Designed in response to its natural surroundings, Alai marries ecological considerations, engaging design and a…</p>",
-          "primaryCta": {
-            "text": "Project Page",
-            "href": "/",
-            "linkType": "Content",
-            "target": null
-          }
+          "categoryName": "Associate Directors",
+          "people": [
+            {
+              "moduleName": "TeamMemberCardModel",
+              "moduleId": "582cbc6a-90fb-476e-a69a-f3179a700c26",
+              "props": {
+                "firstName": "Karoly",
+                "lastName": "Markos",
+                "tag": "Associate Directors",
+                "headingTitle": null,
+                "description": null,
+                "primaryCta": {
+                  "text": "Karoly Markos",
+                  "href": "/people/karoly-markos",
+                  "linkType": "Content",
+                  "target": null
+                },
+                "cardImage": {
+                  "imageUrl": "https://zhweb-qa-a-app.azurewebsites.net/media/gfthe1dp/andres-rodriguez-f2ptsuudvsm-unsplash.jpg",
+                  "caption": "Andres Rodriguez",
+                  "imageAlt": "Andres Rodriguez as Karoly Markos",
+                  "mediaId": 1435,
+                  "isSvg": false,
+                  "isVideo": false
+                }
+              }
+            },
+            {
+              "moduleName": "TeamMemberCardModel",
+              "moduleId": "dc24eb77-990d-4006-baaf-ff7fc9d28f51",
+              "props": {
+                "firstName": "Mario",
+                "lastName": "Mattia",
+                "tag": "Associate Directors",
+                "headingTitle": null,
+                "description": null,
+                "primaryCta": {
+                  "text": "Mario Mattia",
+                  "href": "/people/mario-mattia",
+                  "linkType": "Content",
+                  "target": null
+                },
+                "cardImage": {
+                  "imageUrl": "https://zhweb-qa-a-app.azurewebsites.net/media/s1abfb0b/mariomattia_phjacopospilimbergo.jpg",
+                  "caption": "Mario Mattia",
+                  "imageAlt": "Mario Mattias profile picture",
+                  "mediaId": 1425,
+                  "isSvg": false,
+                  "isVideo": false
+                }
+              }
+            }
+          ]
         }
       },
       {
-        "moduleName": "ProjectCard",
-        "moduleId": "590ef37a-c77c-4c68-9848re-953355784f61",
+        "moduleName": "TeamMemberListingGroup",
+        "moduleId": "08e85e5b-fb30-4e28-8f23-44c423aaa2bd",
         "props": {
-          "image": {
-            "imageUrl": "https://qa-bb-api.matterofform.com/media/toejwqb0/samuel-regan-asante-bzwtozzopuc-unsplash.jpg?rxy=0.32456140350877194,0.4924812030075188",
-            "caption": "Samuel Regan ",
-            "imageAlt": "Caption goes here lorem ipsum dolor sit amet consectetur adipiscing elit",
-            "mediaId": 1308,
-            "isSvg": false,
-            "isVideo": false
-          },
-          "tag": "Culture",
-          "headingTitle": "Atelier Notify",
-          "description": "<p>The Atelier Notify constitutes a hybrid, part shop, part production line - presenting a fluid façade to the exterior, striking an elegant…</p>",
-          "primaryCta": {
-            "text": "Project Page",
-            "href": "/",
-            "linkType": "Content",
-            "target": null
-          }
-        }
-      },
-      {
-        "moduleName": "ProjectCard",
-        "moduleId": "b7d9b9f1-d4bc-4426-936b-dre1b13071fa15",
-        "props": {
-          "image": {
-            "imageUrl": "https://qa-bb-api.matterofform.com/media/toejwqb0/samuel-regan-asante-bzwtozzopuc-unsplash.jpg?rxy=0.32456140350877194,0.4924812030075188",
-            "caption": "Samuel Regan ",
-            "imageAlt": "Caption goes here lorem ipsum dolor sit amet consectetur adipiscing elit",
-            "mediaId": 1308,
-            "isSvg": false,
-            "isVideo": false
-          },
-          "tag": "Civic",
-          "headingTitle": "Burnham Pavillion",
-          "description": "<p>A temporary pavilion designed and erected in Chicago's Millennium Park as part of the Burnham Plan celebrations - reflecting the Chicago's long tradition for embracing cutti…</p>",
-          "primaryCta": {
-            "text": "Project Page",
-            "href": "/",
-            "linkType": "Content",
-            "target": null
-          }
-        }
-      },
-      {
-        "moduleName": "ProjectCard",
-        "moduleId": "70a0a131-23bgr0-467c-bd7f-ac2ree9ac97327",
-        "props": {
-          "image": {
-            "imageUrl": "https://qa-bb-api.matterofform.com/media/toejwqb0/samuel-regan-asante-bzwtozzopuc-unsplash.jpg?rxy=0.32456140350877194,0.4924812030075188",
-            "caption": "Samuel Regan ",
-            "imageAlt": "Caption goes here lorem ipsum dolor sit amet consectetur adipiscing elit",
-            "mediaId": 1308,
-            "isSvg": false,
-            "isVideo": false
-          },
-          "tag": "Culture",
-          "headingTitle": "Alai",
-          "description": "<p>Designed in response to its natural surroundings, Alai marries ecological considerations, engaging design and a…</p>",
-          "primaryCta": {
-            "text": "Project Page",
-            "href": "/",
-            "linkType": "Content",
-            "target": null
-          }
-        }
-      },
-      {
-        "moduleName": "ProjectCard",
-        "moduleId": "590ef37a-c77c-4c68-9848-953355784f61",
-        "props": {
-          "image": {
-            "imageUrl": "https://qa-bb-api.matterofform.com/media/toejwqb0/samuel-regan-asante-bzwtozzopuc-unsplash.jpg?rxy=0.32456140350877194,0.4924812030075188",
-            "caption": "Samuel Regan ",
-            "imageAlt": "Caption goes here lorem ipsum dolor sit amet consectetur adipiscing elit",
-            "mediaId": 1308,
-            "isSvg": false,
-            "isVideo": false
-          },
-          "tag": "Culture",
-          "headingTitle": "Atelier Notify",
-          "description": "<p>The Atelier Notify constitutes a hybrid, part shop, part production line - presenting a fluid façade to the exterior, striking an elegant…</p>",
-          "primaryCta": {
-            "text": "Project Page",
-            "href": "/",
-            "linkType": "Content",
-            "target": null
-          }
-        }
-      },
-      {
-        "moduleName": "ProjectCard",
-        "moduleId": "b7d9b9f1-d4bc-4426-gr936b-d1b13071fa15",
-        "props": {
-          "image": {
-            "imageUrl": "https://qa-bb-api.matterofform.com/media/toejwqb0/samuel-regan-asante-bzwtozzopuc-unsplash.jpg?rxy=0.32456140350877194,0.4924812030075188",
-            "caption": "Samuel Regan ",
-            "imageAlt": "Caption goes here lorem ipsum dolor sit amet consectetur adipiscing elit",
-            "mediaId": 1308,
-            "isSvg": false,
-            "isVideo": false
-          },
-          "tag": "Civic",
-          "headingTitle": "Burnham Pavillion",
-          "description": "<p>A temporary pavilion designed and erected in Chicago's Millennium Park as part of the Burnham Plan celebrations - reflecting the Chicago's long tradition for embracing cutti…</p>",
-          "primaryCta": {
-            "text": "Project Page",
-            "href": "/",
-            "linkType": "Content",
-            "target": null
-          }
-        }
-      },
-      {
-        "moduleName": "ProjectCard",
-        "moduleId": "70a0a131-23b0-467c-bd7f-acew2e9ac97327",
-        "props": {
-          "image": {
-            "imageUrl": "https://qa-bb-api.matterofform.com/media/toejwqb0/samuel-regan-asante-bzwtozzopuc-unsplash.jpg?rxy=0.32456140350877194,0.4924812030075188",
-            "caption": "Samuel Regan ",
-            "imageAlt": "Caption goes here lorem ipsum dolor sit amet consectetur adipiscing elit",
-            "mediaId": 1308,
-            "isSvg": false,
-            "isVideo": false
-          },
-          "tag": "Culture",
-          "headingTitle": "Alai",
-          "description": "<p>Designed in response to its natural surroundings, Alai marries ecological considerations, engaging design and a…</p>",
-          "primaryCta": {
-            "text": "Project Page",
-            "href": "/",
-            "linkType": "Content",
-            "target": null
-          }
-        }
-      },
-      {
-        "moduleName": "ProjectCard",
-        "moduleId": "590ef37a-c77c-4c68-9848-9533grew55784f61",
-        "props": {
-          "image": {
-            "imageUrl": "https://qa-bb-api.matterofform.com/media/toejwqb0/samuel-regan-asante-bzwtozzopuc-unsplash.jpg?rxy=0.32456140350877194,0.4924812030075188",
-            "caption": "Samuel Regan ",
-            "imageAlt": "Caption goes here lorem ipsum dolor sit amet consectetur adipiscing elit",
-            "mediaId": 1308,
-            "isSvg": false,
-            "isVideo": false
-          },
-          "tag": "Culture",
-          "headingTitle": "Atelier Notify",
-          "description": "<p>The Atelier Notify constitutes a hybrid, part shop, part production line - presenting a fluid façade to the exterior, striking an elegant…</p>",
-          "primaryCta": {
-            "text": "Project Page",
-            "href": "/",
-            "linkType": "Content",
-            "target": null
-          }
-        }
-      },
-      {
-        "moduleName": "ProjectCard",
-        "moduleId": "b7d9b9f1-d4bc-4426re-936b-d1b130gr71fa15",
-        "props": {
-          "image": {
-            "imageUrl": "https://qa-bb-api.matterofform.com/media/toejwqb0/samuel-regan-asante-bzwtozzopuc-unsplash.jpg?rxy=0.32456140350877194,0.4924812030075188",
-            "caption": "Samuel Regan ",
-            "imageAlt": "Caption goes here lorem ipsum dolor sit amet consectetur adipiscing elit",
-            "mediaId": 1308,
-            "isSvg": false,
-            "isVideo": false
-          },
-          "tag": "Civic",
-          "headingTitle": "Burnham Pavillion",
-          "description": "<p>A temporary pavilion designed and erected in Chicago's Millennium Park as part of the Burnham Plan celebrations - reflecting the Chicago's long tradition for embracing cutti…</p>",
-          "primaryCta": {
-            "text": "Project Page",
-            "href": "/",
-            "linkType": "Content",
-            "target": null
-          }
-        }
-      },
-      {
-        "moduleName": "ProjectCard",
-        "moduleId": "70a0a131-23b0-467c-bd7f-ac2e9grwegrac97327",
-        "props": {
-          "image": {
-            "imageUrl": "https://qa-bb-api.matterofform.com/media/toejwqb0/samuel-regan-asante-bzwtozzopuc-unsplash.jpg?rxy=0.32456140350877194,0.4924812030075188",
-            "caption": "Samuel Regan ",
-            "imageAlt": "Caption goes here lorem ipsum dolor sit amet consectetur adipiscing elit",
-            "mediaId": 1308,
-            "isSvg": false,
-            "isVideo": false
-          },
-          "tag": "Culture",
-          "headingTitle": "Alai",
-          "description": "<p>Designed in response to its natural surroundings, Alai marries ecological considerations, engaging design and a…</p>",
-          "primaryCta": {
-            "text": "Project Page",
-            "href": "/",
-            "linkType": "Content",
-            "target": null
-          }
-        }
-      },
-      {
-        "moduleName": "ProjectCard",
-        "moduleId": "590ef37a-c77c-4c68-9848-9533gwerg55784f61",
-        "props": {
-          "image": {
-            "imageUrl": "https://qa-bb-api.matterofform.com/media/toejwqb0/samuel-regan-asante-bzwtozzopuc-unsplash.jpg?rxy=0.32456140350877194,0.4924812030075188",
-            "caption": "Samuel Regan ",
-            "imageAlt": "Caption goes here lorem ipsum dolor sit amet consectetur adipiscing elit",
-            "mediaId": 1308,
-            "isSvg": false,
-            "isVideo": false
-          },
-          "tag": "Culture",
-          "headingTitle": "Atelier Notify",
-          "description": "<p>The Atelier Notify constitutes a hybrid, part shop, part production line - presenting a fluid façade to the exterior, striking an elegant…</p>",
-          "primaryCta": {
-            "text": "Project Page",
-            "href": "/",
-            "linkType": "Content",
-            "target": null
-          }
+          "categoryName": "Exhibitions, Design and Interiors",
+          "people": [
+            {
+              "moduleName": "TeamMemberCardModel",
+              "moduleId": "9bbe5f1e-ba67-48e2-83df-ac8644176fef",
+              "props": {
+                "firstName": "Johannes",
+                "lastName": "Hoffmann",
+                "tag": "Exhibitions, Design and Interiors",
+                "headingTitle": null,
+                "description": null,
+                "primaryCta": {
+                  "text": "Johannes Hoffmann",
+                  "href": "/people/johannes-hoffmann",
+                  "linkType": "Content",
+                  "target": null
+                },
+                "cardImage": {
+                  "imageUrl": "https://zhweb-qa-a-app.azurewebsites.net/media/a40le234/image-ratio.png",
+                  "caption": "",
+                  "imageAlt": "",
+                  "mediaId": 1321,
+                  "isSvg": false,
+                  "isVideo": false
+                }
+              }
+            }
+          ]
         }
       }
     ],
+    "orderBy": null,
     "totalCount": 3,
     "totalPages": 1,
     "currentPage": 1,
     "pageSize": 3
   },
-  "anchor": "all-projects",
-  "anchorDisplayName": "All Projects",
-  "preHeading": "All Projects",
+  "anchor": "",
+  "anchorDisplayName": "",
+  "tag": "",
   "headingTitle": {
-    "heading": "<p>Explore our portfolio of work</p>",
-    "htag": "h1"
+    "heading": "",
+    "htag": ""
   },
-  "description": "<p>Copy to be decided elementum egestas in nostra ac parturient a semper donec odio imperdiet imperdiet erat mus nec vestibulum parturient a etiam aenean.Et aliquet a vestibulum praesent ad a cum risus scelerisque at vestibulum.</p>"
+  "description": ""
 }

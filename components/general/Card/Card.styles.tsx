@@ -35,7 +35,6 @@ export const card = cva("card", {
   compoundVariants: [],
   defaultVariants: {
     variant: "primary",
-    size: "sm",
   },
 });
 

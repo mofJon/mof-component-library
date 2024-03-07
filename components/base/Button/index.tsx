@@ -62,7 +62,11 @@ export const Button = forwardRef(
     };
 
     const buttonMain = renderText ? (
-      <Text text={text || configText} textStyle={textStyle || "button"} />
+      <Text
+        variant={variant === "popover" ? variant : null}
+        text={text || configText}
+        textStyle={textStyle || "button"}
+      />
     ) : null;
     let buttonContent: ReactNode | any[] = buttonMain;
 
