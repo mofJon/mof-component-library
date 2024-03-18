@@ -6,6 +6,9 @@ import { richTextWithMedia } from "./RichTextAndTwoMediaModule.styles";
 const RichTextAndTwoMediaModule: FC<RichTextAndTwoMediaModuleProps> = ({
   data,
   imageSizes,
+  imageQuality,
+  backgroundImageSizes,
+  backgroundImageQuality,
   moduleAnims,
   variant = "richTextAndTwoMedia",
   ...props
@@ -22,7 +25,15 @@ const RichTextAndTwoMediaModule: FC<RichTextAndTwoMediaModuleProps> = ({
       {...moduleAnims?.module}
     >
       <Box>
-        <Card variant={variant} data={data} childAnims={moduleAnims} />
+        <Card
+          variant={variant}
+          data={data}
+          childAnims={moduleAnims}
+          imageSizes={imageSizes}
+          imageQuality={imageQuality}
+          backgroundImageSizes={backgroundImageSizes}
+          backgroundImageQuality={backgroundImageQuality}
+        />
       </Box>
     </ModuleBase>
   );

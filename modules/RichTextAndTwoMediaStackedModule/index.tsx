@@ -5,7 +5,16 @@ import { richTextAndTwoMedia } from "./RichTextAndTwoMediaStackedModule.styles";
 
 const RichTextAndTwoMediaStackedModule: FC<
   RichTextAndTwoMediaStackedModuleProps
-> = ({ data, moduleAnims, imageSizes, smallImageSizes, ...props }) => {
+> = ({
+  data,
+  moduleAnims,
+  imageSizes,
+  imageQuality,
+  backgroundImageSizes,
+  backgroundImageQuality,
+  smallImageSizes,
+  ...props
+}) => {
   return (
     <ModuleBase
       {...richTextAndTwoMedia(data, props)}
@@ -16,7 +25,10 @@ const RichTextAndTwoMediaStackedModule: FC<
         data={data}
         variant="richTextAndTwoMediaStacked"
         childAnims={moduleAnims}
-        {...imageSizes}
+        imageQuality={imageQuality}
+        imageSizes={imageSizes}
+        backgroundImageQuality={backgroundImageQuality}
+        backgroundImageSizes={backgroundImageSizes}
       />
     </ModuleBase>
   );

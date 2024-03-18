@@ -6,6 +6,7 @@ const MediaCarouselModule: FC<any> = ({
   data,
   moduleAnims,
   imageSizes,
+  imageQuality,
   priority = false,
   ...props
 }) => {
@@ -18,6 +19,7 @@ const MediaCarouselModule: FC<any> = ({
         key={`media-carousel-${i}`}
         data={val}
         imageSizes={imageSizes}
+        imageQuality={imageQuality}
         priority={priority}
       />
     );

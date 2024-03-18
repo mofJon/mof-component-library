@@ -12,5 +12,6 @@ export type CardListingGridModuleProps = {
   ) => any;
   textStyles?: any;
   icons?: any;
+  searchParams?: any;
   paginationButtonVariants?: any;
 };

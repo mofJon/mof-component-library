@@ -11,10 +11,14 @@ export default function useImageOptimiser(
   responsive: boolean,
   sizes?: string,
   ref?: any,
+  propsQuality?: any,
 ): any {
   const dimensions = useDimensions(ref);
   const dpr = useDevicePixelRatio();
-  const quality = dprQuality[dpr - 1];
+  const quality =
+    propsQuality?.[dimensions.breakpoint] ||
+    propsQuality ||
+    dprQuality[dpr - 1];
   const fallbackWidth = 1080;
 
   let width: number = propWidth || Math.round(dimensions?.width || 0);

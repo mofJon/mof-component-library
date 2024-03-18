@@ -11,6 +11,7 @@ const Video: FC<any> = ({
   priority = "false",
   onPlayerReady = () => {},
   onAutoPlayStarted = () => {},
+  imageQuality,
 }: any) => {
   const player = useRef<any>(null);
   const videoWrapperRef = useRef<HTMLDivElement>(null);
@@ -137,6 +138,7 @@ const Video: FC<any> = ({
           alt={cover.imageAlt}
           priority={priority}
           responsive
+          quality={imageQuality}
         />
       )}
       {vidSrc && (

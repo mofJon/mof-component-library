@@ -3,6 +3,9 @@ import { ContentBlockMotionTypes } from "../../components";
 export interface RichTextAndTwoMediaModuleProps {
   data: any;
   imageSizes?: any;
+  imageQuality?: any;
+  backgroundSizes?: any;
+  backgroundQuality?: any;
   moduleAnims?: {
     module?: any;
     card?: ContentBlockMotionTypes;

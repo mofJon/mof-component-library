@@ -11,6 +11,8 @@ export const getCardListingData = async (
   const controller = new AbortController();
   fetchController.current = controller;
 
+  console.log("fetch", queryData);
+
   const dataRes = await fetch(fetchUrl, {
     method: "POST",
     headers: {
@@ -22,6 +24,7 @@ export const getCardListingData = async (
 
   if (dataRes && dataRes.ok) {
     const data = await dataRes.json();
+    console.log(data);
     return data;
   } else {
     return [];

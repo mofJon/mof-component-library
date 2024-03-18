@@ -17,6 +17,7 @@ export const Media = forwardRef(
       onPlayerReady,
       orientation,
       cardVariant = "primary",
+      imageQuality,
       ...props
     }: MediaProps,
     ref: Ref<MediaProps>,
@@ -32,6 +33,7 @@ export const Media = forwardRef(
         alt={data.imageAlt}
         responsive={responsive}
         priority={priority}
+        quality={imageQuality}
       />
     );
     if (data.coverImage) {
@@ -42,6 +44,7 @@ export const Media = forwardRef(
           data={data}
           {...hasImageSizes}
           priority={priority} // for cover image
+          imageQuality={imageQuality}
         />
       );
     }

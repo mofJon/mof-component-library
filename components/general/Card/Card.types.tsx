@@ -31,6 +31,8 @@ export interface CardProps
   childAnims?: Record<string, any>;
   imageSizes?: string;
   backgroundImageSizes?: string;
+  imageQuality?: any;
+  backgroundImageQuality?: any;
 }
 
 export type CardVars = (

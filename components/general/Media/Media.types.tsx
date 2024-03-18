@@ -11,4 +11,5 @@ export interface MediaProps {
   cardVariant?: any;
   onAutoPlayStarted?: any;
   onPlayerReady?: any;
+  imageQuality?: any;
 }

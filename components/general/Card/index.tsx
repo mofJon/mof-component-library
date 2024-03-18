@@ -20,6 +20,8 @@ export const Card = forwardRef(
       data,
       childAnims = emptyContentBlockAnim,
       priority,
+      imageQuality,
+      backgroundImageQuality,
       ...props
     }: CardProps,
     ref: Ref<CardProps>,
@@ -55,6 +57,7 @@ export const Card = forwardRef(
             data?.mediaOrientation && data?.mediaOrientation?.toLowerCase()
           }
           cardVariant={variant}
+          imageQuality={imageQuality}
         />
         <Media
           data={bgImage}
@@ -64,6 +67,7 @@ export const Card = forwardRef(
           responsive
           priority
           cardVariant={variant}
+          imageQuality={backgroundImageQuality}
         />
         <ContentBlock
           data={data}

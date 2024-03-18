@@ -20,10 +20,6 @@
     left-0;
   }
 
-  .card {
-    @apply border;
-  }
-
   .media-holder {
     @apply min-h-20;
   }
@@ -33,6 +29,14 @@
 
     &-wrapper {
       @apply flex flex-row;
+    }
+
+    .card {
+      @apply border;
+
+      .tag {
+        @apply whitespace-nowrap;
+      }
     }
 
     &-control {

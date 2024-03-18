@@ -4,4 +4,5 @@ export interface RichTextAndOneMediaModuleProps extends BoxProps {
   data: any;
   moduleAnims?: any;
   imageSizes?: any;
+  imageQuality?: any;
 }

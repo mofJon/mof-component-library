@@ -17,6 +17,7 @@ export const Image = forwardRef(
       responsive = false,
       placeholder,
       sizes,
+      quality,
       ...props
     }: ImageProps,
     ref: Ref<any>,
@@ -30,6 +31,7 @@ export const Image = forwardRef(
       responsive,
       sizes,
       imageRef,
+      quality,
     );
 
     // this works out parent dimensions

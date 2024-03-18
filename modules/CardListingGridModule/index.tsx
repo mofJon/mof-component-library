@@ -10,7 +10,6 @@ import { HeadingSideModule } from "../../modules";
 import { gridWrapper, moduleWrapper } from "./CardListingGridModule.styles";
 import { CardListingGridModuleProps } from "./CardListingGridModule.types";
 import { getCardListingData } from "./CardListingFetchData";
-import { useSearchParams } from "next/navigation";
 
 const CardListingGridModule: FC<CardListingGridModuleProps> = ({
   data,
@@ -20,26 +19,29 @@ const CardListingGridModule: FC<CardListingGridModuleProps> = ({
   textStyles,
   icons,
   paginationButtonVariants,
+  searchParams,
   ...props
 }) => {
   if (!data && !data?.filtersAndCards) return null;
   const fetchController = useRef(null);
   const [selectedFilters, setSelectedFilters] = useState<any>([]);
-  const searchParams = new URLSearchParams(useSearchParams());
+  // const searchParams = new URLSearchParams(useSearchParams());
+  const currentPage = Number(searchParams?.page) || 1;
 
   const [isInit, setIsInit] = useState(true);
+
+  console.log("CL currentPage", currentPage);
 
   const {
     cards,
     cardType,
-    currentPage,
+    // currentPage,
     displayFilters,
     totalCount,
     totalPages,
     pageSize,
     sortByOptions,
   } = data?.filtersAndCards;
-  const [selectedPage, setSelectedPage] = useState<number>(currentPage);
   const [filteredCards, setFilteredCards] = useState<any[]>(cards);
 
   const isGroup = cards[0].moduleName.includes("Group");
@@ -57,19 +59,11 @@ const CardListingGridModule: FC<CardListingGridModuleProps> = ({
   }
 
   useEffect(() => {
-    const pageId = searchParams.get("page");
-
-    if (pageId) {
-      setSelectedPage(parseInt(pageId));
-    }
-  }, [searchParams]);
-
-  useEffect(() => {
     if (isInit) return;
 
     const { query, fetchUrl } = getQueryData(
       selectedFilters,
-      selectedPage,
+      currentPage,
       cardType,
       pageSize,
       displayFilters,
@@ -83,7 +77,7 @@ const CardListingGridModule: FC<CardListingGridModuleProps> = ({
     };
 
     fetchData().catch(console.error);
-  }, [selectedFilters, selectedPage]);
+  }, [selectedFilters, currentPage]);
 
   const handleFilterChange = (value: any) => {
     setIsInit(false);
@@ -94,11 +88,6 @@ const CardListingGridModule: FC<CardListingGridModuleProps> = ({
 
     setSelectedFilters([...cleanedFilters, value]);
   };
-
-  // const handlePaginationChange = (value: any) => {
-  //   setIsInit(false);
-  //   console.log(value, "pagination change");
-  // };
 
   const headingData = {
     description: data?.description,
@@ -131,7 +120,7 @@ const CardListingGridModule: FC<CardListingGridModuleProps> = ({
           totalCount={totalCount}
           pageSize={pageSize}
           totalPages={totalPages}
-          currentPage={selectedPage}
+          currentPage={currentPage}
           buttonVariants={paginationButtonVariants}
         />
       </Stack>
