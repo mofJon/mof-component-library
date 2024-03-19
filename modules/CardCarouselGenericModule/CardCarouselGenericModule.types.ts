@@ -4,10 +4,8 @@ export type CardCarouselGenericModuleProps = CarouselProps & {
   moduleAnims?: {
     module?: any;
     content?: any;
-    tag?: any;
-    heading?: any;
-    description?: any;
     carousel?: any;
+    headingSide?: any;
   };
   data: any;
   carouselProps?: CarouselProps;

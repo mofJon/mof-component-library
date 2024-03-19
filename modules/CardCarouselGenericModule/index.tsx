@@ -36,7 +36,11 @@ const CardCarouselGenericModule: FC<CardCarouselGenericModuleProps> = ({
 
   return (
     <ModuleBase data={data} {...carouselWrapper(props, moduleAnims?.module)}>
-      <HeadingSideModule variant="flex" data={headingData} />
+      <HeadingSideModule
+        variant="flex"
+        data={headingData}
+        moduleAnims={moduleAnims?.headingSide}
+      />
       {renderCarouselRows}
     </ModuleBase>
   );

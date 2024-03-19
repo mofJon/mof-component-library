@@ -104,7 +104,7 @@ const CardListingGridModule: FC<CardListingGridModuleProps> = ({
       <HeadingSideModule
         variant="flex"
         data={headingData}
-        {...moduleAnims?.headingSide}
+        moduleAnims={moduleAnims?.headingSide}
       />
       <Stack direction="column" {...gridWrapper(moduleAnims?.gridWrapper)}>
         {displayFilters && (

@@ -39,7 +39,7 @@ const CardCarouselFocusModule: FC<CardCarouselFocusModuleProps> = ({
       <HeadingSideModule
         variant="flex"
         data={headingData}
-        {...moduleAnims?.headingSide}
+        moduleAnims={moduleAnims?.headingSide}
       />
       {renderCarouselRows}
     </ModuleBase>

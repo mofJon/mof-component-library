@@ -4,10 +4,8 @@ export type CardCarouselFocusModuleProps = {
   moduleAnims?: {
     module?: any;
     content?: any;
-    tag?: any;
-    heading?: any;
-    description?: any;
     carousel?: any;
+    headingSide?: any;
   };
   carouselProps?: CarouselProps;
   data: any;
