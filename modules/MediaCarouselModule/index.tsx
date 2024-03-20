@@ -26,11 +26,7 @@ const MediaCarouselModule: FC<any> = ({
   });
 
   return (
-    <ModuleBase
-      {...props}
-      data={data}
-      {...mediaCarousel(props, moduleAnims?.module)}
-    >
+    <ModuleBase data={data} {...mediaCarousel(props, moduleAnims?.module)}>
       <Carousel items={mediaSlides} {...carouselProps} {...mediaCarousel} />
     </ModuleBase>
   );

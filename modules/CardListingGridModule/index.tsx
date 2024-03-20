@@ -22,15 +22,13 @@ const CardListingGridModule: FC<CardListingGridModuleProps> = ({
   searchParams,
   ...props
 }) => {
-  if (!data && !data?.filtersAndCards) return null;
+  if (!data || !data?.filtersAndCards) return null;
   const fetchController = useRef(null);
   const [selectedFilters, setSelectedFilters] = useState<any>([]);
   // const searchParams = new URLSearchParams(useSearchParams());
   const currentPage = Number(searchParams?.page) || 1;
 
   const [isInit, setIsInit] = useState(true);
-
-  console.log("CL currentPage", currentPage);
 
   const {
     cards,

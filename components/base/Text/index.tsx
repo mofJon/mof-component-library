@@ -7,8 +7,6 @@ import { containsMotionProps } from "../../../utils";
 import Link from "next/link";
 import { allowedTags } from "./chunks";
 
-//  Work in progress!!!
-
 export const Text = forwardRef(
   (
     {

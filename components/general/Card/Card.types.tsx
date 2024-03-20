@@ -33,6 +33,7 @@ export interface CardProps
   backgroundImageSizes?: string;
   imageQuality?: any;
   backgroundImageQuality?: any;
+  richText?: boolean;
 }
 
 export type CardVars = (

@@ -14,6 +14,7 @@ const RichTextModule: FC<RichTextModuleProps> = ({
       <Card
         data={data}
         variant="richText"
+        richText
         childAnims={moduleAnims?.card}
         {...imageSizes}
       />

@@ -10,6 +10,7 @@ export const ContentBlock = forwardRef(
       variant = "primary",
       data,
       childAnims = emptyContentBlockAnim,
+      richText = false,
       ...props
     }: ContentBlockProps,
     ref: Ref<ContentBlockProps>,
@@ -27,6 +28,7 @@ export const ContentBlock = forwardRef(
         variant={variant}
         data={data}
         childAnims={childAnims}
+        richText={richText}
         {...props}
       />
     );

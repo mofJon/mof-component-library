@@ -5,6 +5,7 @@ export interface ContentBlockProps {
   variant?: any;
   data: any;
   childAnims?: Record<string, any>;
+  richText?: boolean;
 }
 
 export type ContentBlockMotionTypes = {
@@ -43,6 +44,7 @@ export interface ContentBlockContentProps extends HTMLAndMotionProps {
     infoTags?: string[] | string;
   };
   childAnims?: ContentBlockMotionTypes;
+  richText?: boolean;
 }
 
 export type ContentBlockVars = (

@@ -15,6 +15,7 @@ const PrimaryContentBlock: FC<ContentBlockContentProps> = ({
   className,
   data,
   childAnims = emptyContentBlockAnim,
+  richText = false,
   ...props
 }) => {
   const allProps = {
@@ -52,6 +53,7 @@ const PrimaryContentBlock: FC<ContentBlockContentProps> = ({
       />
       <Text
         text={data?.description || data?.content}
+        rich={richText}
         {...renderText("description")}
       />
       {hasButtons && (

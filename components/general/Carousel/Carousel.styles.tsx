@@ -59,7 +59,11 @@ export const carouselCanvas = (crop: boolean) => ({
   className: classNames("carousel-canvas", { crop }),
 });
 
-export const carouselWrapper = (gap: number, animationStyle = "default") => {
+export const carouselWrapper = (
+  gap: number,
+  animationStyle = "default",
+  isDragging = false,
+) => {
   const transition = {
     default: carouselAnimationDefault,
     elegant: carouselAnimationElegant,
@@ -69,7 +73,7 @@ export const carouselWrapper = (gap: number, animationStyle = "default") => {
   };
 
   return {
-    className: "carousel-wrapper",
+    className: classNames("carousel-wrapper", { dragging: isDragging }),
     style: { gap: `${gap}px` },
     transition: transition[animationStyle as "default"],
   };

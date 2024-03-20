@@ -1,4 +1,4 @@
-import { FC, useContext } from "react";
+import { FC, useContext, useState } from "react";
 import { Box, Stack } from "../../../../components";
 import CarouselItem from "./CarouselItem";
 import { ICarouselWrapper } from "../Carousel.types";
@@ -23,6 +23,7 @@ const CarouselWrapper: FC<ICarouselWrapper> = ({
 }) => {
   const length = Math.floor((items.length - 1) / columnNum);
   const { currItem, setCurrItem, isClickable } = useContext(CarouselContext);
+  const [isDragging, setIsDragging] = useState(false);
   const slideWidth = dragWidth + (gap || 0);
 
   const carouselItems = loop ? [...items, ...items] : items;
@@ -52,6 +53,7 @@ const CarouselWrapper: FC<ICarouselWrapper> = ({
 
   const startDrag = () => {
     // html.style.touchAction = "none";
+    setIsDragging(true);
   };
 
   const endDrag: any = (
@@ -73,6 +75,7 @@ const CarouselWrapper: FC<ICarouselWrapper> = ({
       }
     }
 
+    setIsDragging(false);
     // html.style.touchAction = "auto";
   };
 
@@ -90,7 +93,7 @@ const CarouselWrapper: FC<ICarouselWrapper> = ({
         onDragStart={startDrag}
         animate={{ x }}
         dragConstraints={{ left: x, right: x, top: 0, bottom: 0 }}
-        {...carouselWrapper(gap, animationStyle)}
+        {...carouselWrapper(gap, animationStyle, isDragging)}
         {...props}
       >
         {renderItems}
