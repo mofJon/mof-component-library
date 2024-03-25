@@ -11,6 +11,7 @@ import {
 import { NavItemProps, NavInteractionType } from "../Nav.types";
 
 let resetTimeout: any;
+let exitTimeout: any;
 
 const NavItem: FC<NavItemProps> = ({
   data,
@@ -21,6 +22,7 @@ const NavItem: FC<NavItemProps> = ({
   const [isActive, setIsActive] = useState(false);
   const [showMegaNav, setShowMegaNav] = useState(false);
   const {
+    enableDesktopScrollLock,
     navState,
     setNavState,
     navSettings,
@@ -28,6 +30,7 @@ const NavItem: FC<NavItemProps> = ({
     setImgProps,
     setCurrTier,
     backButton,
+    scrollContainer,
     setBackButton,
     variant,
   } = useContext(NavContext);
@@ -43,18 +46,32 @@ const NavItem: FC<NavItemProps> = ({
   const router = useRouter();
   const hasChildren = navItems && navItems.length > 0;
 
+  const closeMegaNav = () => {
+    setIsActive(false);
+    resetTimeout = setTimeout(() => {
+      setShowMegaNav(false);
+    }, 500);
+  };
+
   const handleInteraction = useCallback(
     (event: MouseEvent, interaction: NavInteractionType) => {
       if (hasChildren) {
-        if (interaction === "hover" && persistOn === "hover") {
+        if (interaction === "hover" && persistOn.includes("hover")) {
           setIsActive(true);
           clearTimeout(resetTimeout);
+          clearTimeout(exitTimeout);
           setShowMegaNav(true);
-        } else if (interaction === "hoverOut" && persistOn === "hover") {
-          setIsActive(false);
-          resetTimeout = setTimeout(() => {
-            setShowMegaNav(false);
-          }, 500);
+        } else if (interaction === "hoverOut" && persistOn.includes("hover")) {
+          if (persistOn === "hoverDelay") {
+            exitTimeout = setTimeout(() => {
+              closeMegaNav();
+            }, 500);
+          } else {
+            closeMegaNav();
+          }
+        } else if (interaction === "click" && persistOn.includes("hover")) {
+          console.log("click", navItemLink);
+          navItemLink && router.push(navItemLink.href);
         }
 
         if (interaction === "click" && persistOn !== "hover") {
@@ -86,6 +103,13 @@ const NavItem: FC<NavItemProps> = ({
       setIsActive(false);
     }
   }, [isActiveInGroup]);
+
+  useEffect(() => {
+    if (scrollContainer && enableDesktopScrollLock) {
+      scrollContainer.style.overflow = showMegaNav ? "hidden" : "unset";
+      scrollContainer.style.touchAction = showMegaNav ? "none" : "auto";
+    }
+  }, [showMegaNav]);
 
   const isTotallyActive =
     persistOn === "click" ? isActive && isActiveInGroup : isActive;

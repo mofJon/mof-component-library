@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Button, Stack, Text } from "../../../components";
 import { getFormattedValue } from "../../../utils";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import {
   paginationWrapper,
   paginationStepsWrapper,
@@ -22,18 +22,30 @@ const Pagination: FC<any> = ({
   currentPage = 1,
   buttonVariants = buttonVars,
   paginationType = "leadingZeroNumbers",
+  showMoreText = "Show more",
   textStyles,
   motion,
 }) => {
-  const searchParams = new URLSearchParams(useSearchParams());
-  const router = useRouter();
+  const searchParams = useSearchParams();
 
   if (totalPages === 1) return;
 
   const handlePaginate = (nextPagenum: number) => {
-    searchParams.set("page", `${nextPagenum}`);
-    router.push(`?${searchParams}`);
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("page", `${nextPagenum}`);
+    window.history.pushState(null, "", `?${params.toString()}`);
   };
+
+  if (paginationType === "showMore") {
+    return (
+      <Text
+        text={showMoreText}
+        textStyle={textStyles?.showMore}
+        {...showMoreText(motion?.showMore)}
+        onClick={() => handlePaginate(currentPage + 1)}
+      />
+    );
+  }
 
   const renderStepButtons = [
     currentPage < totalPages - 2 || totalPages < 4

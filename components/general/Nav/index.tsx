@@ -1,4 +1,11 @@
-import { forwardRef, Ref, useLayoutEffect, useRef, useState } from "react";
+import {
+  forwardRef,
+  Ref,
+  useImperativeHandle,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import { navVars } from "./Nav.styles";
 import { NavProps } from "./Nav.types";
 import { NavContext, NavItem, NavWrapperRow } from "./chunks";
@@ -17,6 +24,8 @@ export const Nav: NavProps = forwardRef(
       isOpen = false,
       navProps,
       onBreakpointChange,
+      scrollContainer,
+      enableDesktopScrollLock = false,
       ...props
     }: NavProps,
     ref: Ref<NavProps>,
@@ -33,6 +42,8 @@ export const Nav: NavProps = forwardRef(
     const handleCollapseSiblings = (index: number) => {
       setActiveItemIndex(index);
     };
+
+    useImperativeHandle(ref, () => navRef.current as any);
 
     useLayoutEffect(() => {
       const newBreakpoint = breakpoint === "base" ? "sm" : breakpoint;
@@ -91,6 +102,7 @@ export const Nav: NavProps = forwardRef(
             itemsPerColumn,
             navState,
             setNavState,
+            enableDesktopScrollLock,
             images,
             imgProps,
             setImgProps,
@@ -102,6 +114,7 @@ export const Nav: NavProps = forwardRef(
             navSettings,
             setPanelWidth,
             panelWidth,
+            scrollContainer,
           }}
         >
           {renderItems}

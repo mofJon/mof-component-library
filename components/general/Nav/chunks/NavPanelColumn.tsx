@@ -1,7 +1,12 @@
-import { FC, useContext, useEffect, useRef } from "react";
+import { FC, useContext, useEffect, useRef, useState } from "react";
 import { Button, Stack } from "../../../../components";
 import { NavContext, NavItemRow } from "./";
-import { backButtonHeader, navPanelColumn } from "../Nav.styles";
+import Scrollbars from "react-scrollbars-custom";
+import {
+  backButtonHeader,
+  navPanelColumn,
+  scrollbarsWrapper,
+} from "../Nav.styles";
 import { useDimensions } from "../../../../hooks";
 
 const NavPanelColumn: FC<any> = ({
@@ -12,17 +17,31 @@ const NavPanelColumn: FC<any> = ({
   offset,
 }) => {
   const columnWrapperRef = useRef<any>(null);
+  const scrollWrapper = useRef<any>(null);
+  const [isHeightTruncated, setIsHeightTruncated] = useState(false);
   const { menuWidth, navSettings, panelWidth, setPanelWidth } =
     useContext(NavContext);
-  const { icon, attachTo, motion } = navSettings[panelNum + offset];
+  const { icon, attachTo, motion, scrollable } = navSettings[panelNum + offset];
   const { items, back } = data;
   const { width } = useDimensions(columnWrapperRef);
+  const {
+    height: scrollHeight,
+    y: scrollTop,
+    screenHeight,
+  } = useDimensions(scrollWrapper);
 
   useEffect(() => {
     if (panelNum === 0) {
       setPanelWidth(width);
     }
   }, [width, panelNum]);
+
+  useEffect(() => {
+    if (scrollTop && scrollHeight && screenHeight) {
+      const availableHeight = screenHeight - scrollTop;
+      setIsHeightTruncated(availableHeight < scrollHeight);
+    }
+  }, [scrollTop, scrollHeight, screenHeight]);
 
   if (!Array.isArray(items)) return null;
 
@@ -61,15 +80,27 @@ const NavPanelColumn: FC<any> = ({
     panelMotion = motion?.panel(currTier, motionWidth, offset);
   }
 
+  const isScrollable = scrollable && isHeightTruncated;
+
+  const itemRows = (
+    <Stack direction="column" ref={scrollWrapper}>
+      {renderItems}
+    </Stack>
+  );
+
   return (
     <Stack
       ref={columnWrapperRef}
       direction="column"
-      {...navPanelColumn(menuWidth, attachTo)}
+      {...navPanelColumn(menuWidth, attachTo, isScrollable)}
       {...panelMotion}
     >
       {backButton}
-      {renderItems}
+      {isScrollable ? (
+        <Scrollbars {...scrollbarsWrapper(scrollHeight)}>{itemRows}</Scrollbars>
+      ) : (
+        itemRows
+      )}
     </Stack>
   );
 };

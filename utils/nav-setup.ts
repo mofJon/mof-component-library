@@ -21,6 +21,7 @@ const defaultSettings = {
   },
   icon: {},
   imageSizes: "100vw",
+  scrollable: false,
 };
 
 /* 
@@ -76,7 +77,7 @@ const findHighestValue = (obj: any, key: string) => {
 below is code to traverse through a config settings object for the nav.
 The schema will be similar to the default settings above, but generally need to match a breakpoint, 
 so the nav knows how to structure itself at any given breakpoint. 
-it builds from the base up, so if you don't add a breakpoint for "md", it'll use the last provide breakpoint.
+it builds from the base up, so if you don't add a breakpoint for "md", it'll use the last provided breakpoint.
 */
 
 const getLatestValue = (level: number, props: any, key: string) => {
@@ -98,6 +99,7 @@ const modifyLevelLayout = (levelSettings: any, props: any, level: number) => {
   const newMotion = getLatestValue(level, props, "motion");
   const newIcon = getLatestValue(level, props, "icon");
   const newText = getLatestValue(level, props, "textStyle");
+  const newScrollable = getLatestValue(level, props, "scrollable");
 
   return {
     ...levelSettings, // last breakpoints settings, followed by next breakpoint overrides - (if exist)
@@ -107,6 +109,7 @@ const modifyLevelLayout = (levelSettings: any, props: any, level: number) => {
     ...newMotion,
     ...newIcon,
     ...newText,
+    ...newScrollable,
   };
 };
 

@@ -34,6 +34,7 @@ const headerConfig = {
           },
         },
       ],
+      scrollable: [true],
     },
     md: {
       attachTo: ["stackRow"],
@@ -54,12 +55,14 @@ const headerConfig = {
           },
         },
       ],
+      scrollable: [true],
       imageSizes: "80vw",
     },
     lg: {
       direction: ["row", "column"],
       attachTo: ["bottom", "stackRow"],
-      persistOn: ["hover", "click"],
+      persistOn: ["hoverDelay", "click"],
+      scrollable: [false],
       motion: [
         {
           panel: headerMotion.navItem,
@@ -102,6 +105,7 @@ const headerConfig = {
     logo: <ZahaLogo />,
   },
   moduleAnims: headerMotion,
+  enableDesktopScrollLock: true,
 };
 
 export default headerConfig;

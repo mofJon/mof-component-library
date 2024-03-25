@@ -28,3 +28,8 @@ export const paginationDivider = (motion: any) => ({
   className: "pagination-divider",
   ...motion,
 });
+
+export const paginationShowMore = (motion: any) => ({
+  className: "pagination-show-more",
+  ...motion,
+});

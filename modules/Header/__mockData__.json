@@ -20,7 +20,12 @@
     },
     {
       "navItemText": "Expertise",
-      "navItemLink": null,
+      "navItemLink": {
+        "text": "Expertise",
+        "href": "/expertise",
+        "linkType": "Content",
+        "target": ""
+      },
       "navItems": [
         {
           "navItemText": "View all expertise",

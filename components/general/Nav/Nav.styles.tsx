@@ -124,14 +124,20 @@ export const navPanelWrapperRow = {
   className: "nav-panel-wrapper-row",
 };
 
-export const navPanelColumn = (width: number, attach: string) => {
+export const navPanelColumn = (
+  width: number,
+  attach: string,
+  isScrollable: boolean,
+) => {
   let panelWidth = {};
   if (attach === "slide") {
     panelWidth = { width };
   }
 
   return {
-    className: classNames("nav-panel-column", [camelToHyphen(attach)]),
+    className: classNames("nav-panel-column", [camelToHyphen(attach)], {
+      scrollable: isScrollable,
+    }),
     style: {
       ...panelWidth,
     },
@@ -145,3 +151,11 @@ export const backButtonHeader = {
 export const megaNavWrapper = {
   className: "meganav-wrapper",
 };
+
+export const scrollbarsWrapper = (minHeight: number) => ({
+  className: classNames("scrollbars-wrapper"),
+  noScrollX: true,
+  // style: {
+  //   minHeight,
+  // },
+});

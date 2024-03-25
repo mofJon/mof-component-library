@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import { Box, Media, Nav, Stack } from "../../components";
 import {
   headerWrapper,
@@ -16,11 +16,40 @@ const Header: FC<any> = ({
   moduleAnims,
   variant,
   icons,
+  scrollContainer = window.document.documentElement,
+  enableDesktopScrollLock = false,
   ...props
 }) => {
   const router = useRouter();
+  const navRef = useRef(null);
+  const toggleRef = useRef(null);
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [currBreakpoint, setCurrBreakpoint] = useState("base");
+
+  useEffect(() => {
+    window.addEventListener("click", closeIfClickedOutside);
+    return () => {
+      window.removeEventListener("click", closeIfClickedOutside);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (scrollContainer) {
+      scrollContainer.style.overflow = isNavOpen ? "hidden" : "unset";
+      scrollContainer.style.touchAction = isNavOpen ? "none" : "auto";
+    }
+  }, [isNavOpen]);
+
+  const closeIfClickedOutside = (e: MouseEvent) => {
+    const nav: any = navRef.current;
+    const toggle: any = toggleRef.current;
+
+    if (!nav || !toggle) return;
+
+    if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+      setIsNavOpen(false);
+    }
+  };
 
   const handleLogoClick = () => {
     router.push("/");
@@ -68,14 +97,20 @@ const Header: FC<any> = ({
         <LogoComponent />
         {/* @ts-ignore */}
         <Nav
+          ref={navRef}
           data={data.mainNavItems}
           variant={variant}
           navProps={navProps}
           onBreakpointChange={handleBreakpointChange}
           isOpen={isNavOpen}
+          scrollContainer={scrollContainer}
+          enableDesktopScrollLock={enableDesktopScrollLock}
           {...showHideMotion}
         />
-        <Box {...navToggleButtons(isNavOpen, moduleAnims?.toggleWrapper)}>
+        <Box
+          ref={toggleRef}
+          {...navToggleButtons(isNavOpen, moduleAnims?.toggleWrapper)}
+        >
           <Box {...navOpen(moduleAnims?.toggleOpen)} onClick={toggleNav}>
             {icons?.navOpen}
           </Box>

@@ -114,6 +114,8 @@
     &-wrapper-row {
       @apply w-full
       h-full
+      max-h-[calc(100vh-4rem)]
+      shrink-0
       !items-stretch;
     }
     &-column {
@@ -121,6 +123,14 @@
       shrink-0
       gap-2
       p-4;
+
+      &.scrollable {
+        @apply h-[calc(100vh-5.5rem)];
+      }
+
+      button {
+        @apply shrink-0;
+      }
 
       &.stack-row {
         @apply w-[initial] 

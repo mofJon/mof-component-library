@@ -2,15 +2,15 @@ import React, { useState, useEffect } from "react";
 import { DropdownFilter, Stack } from "../../../components";
 import { filterWrapper } from "./SearchFilters.styles";
 import { arrayFromStringList } from "../../../utils";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
-const SearchFilters = ({ filters, onChange, textStyles, icons, ...props }) => {
+const SearchFilters = ({ filters, onChange, textStyles, icons }) => {
   const [selectedFilters, setSelectedFilters] = useState([]);
-  const searchParams = new URLSearchParams(useSearchParams());
-  const router = useRouter();
+  const searchParams = useSearchParams();
 
   useEffect(() => {
-    const filters = searchParams.get("filterid");
+    const params = new URLSearchParams(searchParams.toString());
+    const filters = params.get("filterid");
     const filterArray = arrayFromStringList(filters);
     setSelectedFilters(filterArray);
   }, []);
@@ -21,9 +21,10 @@ const SearchFilters = ({ filters, onChange, textStyles, icons, ...props }) => {
 
   const handleOnChange = (fieldName, selected) => {
     if (selected !== selectedFilters) {
-      // searchParams.delete("filterid");
-      // selected.forEach((id) => searchParams.append("filterid", id));
-      // router.push(`?${searchParams}`);
+      const params = new URLSearchParams(searchParams.toString());
+      params.delete("filterid");
+      selected.forEach((id) => params.append("filterid", id));
+      window.history.pushState(null, "", `?${params.toString()}`);
       setSelectedFilters(selected);
       const filterCategory = filters.filter((f) => f.filterValue === fieldName);
       const filterCategoryGuIds = filterCategory[0].filters.map(

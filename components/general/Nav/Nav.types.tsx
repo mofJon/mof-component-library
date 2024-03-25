@@ -1,11 +1,5 @@
-import { ReactNode } from "react";
 import { type VariantProps } from "class-variance-authority";
-import {
-  StackProps,
-  BoxProps,
-  ButtonProps,
-  TextProps,
-} from "../../../components";
+import { StackProps, BoxProps, ButtonProps } from "../../../components";
 import { nav } from "./Nav.styles";
 
 export interface NavProps extends StackProps, VariantProps<typeof nav> {
@@ -16,6 +10,8 @@ export interface NavProps extends StackProps, VariantProps<typeof nav> {
   itemsPerColumn?: number;
   displayName?: string;
   onBreakpointChange?: (breakpoint: string) => {};
+  scrollContainer?: HTMLElement;
+  enableDesktopScrollLock?: boolean;
 }
 
 export type NavVars = (
