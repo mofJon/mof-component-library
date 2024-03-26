@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { Button, Stack } from "../../../components";
 import { popoverContent, popoverWrapper } from "./Popover.styles";
 
+let exitTimeout = null;
+
 const Popover = ({ title, placement, icons, children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const wrapper = useRef();
@@ -23,11 +25,23 @@ const Popover = ({ title, placement, icons, children }) => {
     setIsOpen(!isOpen);
   };
 
+  const handleEnter = () => {
+    clearTimeout(exitTimeout);
+  };
+
+  const handleLeave = () => {
+    exitTimeout = setTimeout(() => {
+      setIsOpen(false);
+    }, 400);
+  };
+
   return (
     <Stack
       ref={wrapper}
       direction="column"
       {...popoverWrapper(placement, isOpen)}
+      onMouseEnter={handleEnter}
+      onMouseLeave={handleLeave}
     >
       <Button
         text={title}

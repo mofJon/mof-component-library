@@ -20,6 +20,8 @@ const CardListingGridModule: FC<CardListingGridModuleProps> = ({
   icons,
   paginationButtonVariants,
   searchParams,
+  paginationType,
+  showMoreText,
   ...props
 }) => {
   if (!data || !data?.filtersAndCards) return null;
@@ -120,6 +122,8 @@ const CardListingGridModule: FC<CardListingGridModuleProps> = ({
           totalPages={totalPages}
           currentPage={currentPage}
           buttonVariants={paginationButtonVariants}
+          paginationType={paginationType}
+          showMoreText={showMoreText}
         />
       </Stack>
     </ModuleBase>

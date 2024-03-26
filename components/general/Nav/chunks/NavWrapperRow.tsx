@@ -10,11 +10,30 @@ const NavWrapperRow: FC<any> = ({ data, isOpen, offset = 0 }) => {
   const { motion, attachTo } = navSettings[currTier + offset];
 
   const handleUpdatePanels = (data?: any) => {
+    const currentPanels = [...panels];
+    const newData = { ...data };
+
     if (data?.items) {
-      setPanels([...panels, data]);
+      const latest = currentPanels[currentPanels.length - 1];
+      for (let i = 0; i < latest.items.length; i++) {
+        latest.items[i].isActive = i === data?.activeIndex;
+      }
+      for (let i = 0; i < newData.items.length; i++) {
+        newData.items[i].isActive = false;
+      }
+
+      setPanels([...currentPanels, newData]);
     } else {
-      let newPanels = [...panels];
+      let newPanels = [...currentPanels];
       newPanels.pop();
+
+      const last = newPanels[newPanels.length - 1];
+      if (last) {
+        for (let i = 0; i < last.items.length; i++) {
+          last.items[i].isActive = false;
+        }
+      }
+
       setPanels(newPanels);
     }
   };
@@ -23,6 +42,9 @@ const NavWrapperRow: FC<any> = ({ data, isOpen, offset = 0 }) => {
     if (!isOpen) {
       setTimeout(() => {
         const newPanels = panels.slice(0, 1);
+        for (let i = 0; i < newPanels[0].items.length; i++) {
+          newPanels[0].items[i].isActive = false;
+        }
         setPanels(newPanels);
       }, 500);
     }
@@ -32,6 +54,7 @@ const NavWrapperRow: FC<any> = ({ data, isOpen, offset = 0 }) => {
     return (
       <NavPanelColumn
         key={`navPanel${i}`}
+        activeIndex={val.activeIndex}
         data={val}
         panelNum={i}
         updatePanels={handleUpdatePanels}

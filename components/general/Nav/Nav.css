@@ -151,7 +151,8 @@
       cursor-pointer
       relative;
       > .stack {
-        @apply justify-center;
+        @apply justify-center
+        pointer-events-none;
       }
 
       svg {

@@ -1,4 +1,4 @@
-import { FC, useCallback, useEffect, useContext, useState } from "react";
+import { FC, useCallback, useContext } from "react";
 import { Button } from "../../../../components";
 import { useRouter } from "next/navigation";
 import { NavContext } from "./";
@@ -11,6 +11,7 @@ const NavItemRow: FC<any> = ({
   updatePanels,
   panelNum,
   offset,
+  isActive,
 }) => {
   const {
     navState,
@@ -18,7 +19,7 @@ const NavItemRow: FC<any> = ({
     navSettings,
     navItemAnimations,
     setImgProps,
-    isOpen,
+    setIsOpen,
   } = useContext(NavContext);
   const { navItemText, navItemLink, navItems, navStyle, level, colour, image } =
     data;
@@ -30,12 +31,7 @@ const NavItemRow: FC<any> = ({
     textStyle,
   } = navSettings[panelNum + offset];
   const router = useRouter();
-  const [isActive, setIsActive] = useState(false);
   const hasChildren = navItems && navItems.length > 0;
-
-  useEffect(() => {
-    setIsActive(false);
-  }, [isOpen]);
 
   const handleInteraction = useCallback(
     (event: MouseEvent, interaction: NavInteractionType) => {
@@ -47,7 +43,9 @@ const NavItemRow: FC<any> = ({
             activeIndex: itemIndex,
           });
         } else if (interaction === "hoverOut" && persistOn === "hover") {
-          updatePanels();
+          updatePanels({
+            activeIndex: -1,
+          });
         }
 
         if (interaction === "click" && persistOn !== "hover") {
@@ -57,10 +55,10 @@ const NavItemRow: FC<any> = ({
             back: navItemText,
             activeIndex: itemIndex,
           });
-          attach === "stackRow" && setIsActive(true);
         }
       } else if (interaction === "click") {
         navItemLink && router.push(navItemLink.href);
+        setIsOpen(false);
       }
     },
     [navState, setNavState, data, router, persistOn],
@@ -92,7 +90,14 @@ const NavItemRow: FC<any> = ({
       variant="nav"
       iconPre={iconPre}
       iconPost={iconPost}
-      {...navItem(isActive, icon, navStyle, data.index, navItemAnimations)}
+      {...navItem(
+        isActive,
+        icon,
+        navStyle,
+        data.index,
+        navItemAnimations,
+        hasChildren,
+      )}
       textStyle={textStyle?.textStyle}
       {...motion?.item}
       // {...props}

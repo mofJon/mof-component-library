@@ -52,7 +52,7 @@ const NavPanelColumn: FC<any> = ({
         variant="nav"
         text={back}
         iconPre={icon?.iconBack?.icon}
-        onClick={updatePanels}
+        onClick={() => updatePanels({ activeIndex: -1 })}
         {...backButtonHeader}
       />
     );
@@ -64,7 +64,7 @@ const NavPanelColumn: FC<any> = ({
         key={`mainNav${i}`}
         data={val}
         itemIndex={i}
-        isActive={data.activeIndex === i}
+        isActive={val.isActive}
         updatePanels={updatePanels}
         panelNum={panelNum}
         navSettings={navSettings}

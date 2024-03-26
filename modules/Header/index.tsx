@@ -46,7 +46,12 @@ const Header: FC<any> = ({
 
     if (!nav || !toggle) return;
 
-    if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+    if (
+      !nav.contains(e.target) &&
+      !toggle.contains(e.target) &&
+      // @ts-ignore
+      !e?.target?.classList.contains("nav-panel-back")
+    ) {
       setIsNavOpen(false);
     }
   };
@@ -103,6 +108,7 @@ const Header: FC<any> = ({
           navProps={navProps}
           onBreakpointChange={handleBreakpointChange}
           isOpen={isNavOpen}
+          setIsOpen={setIsNavOpen}
           scrollContainer={scrollContainer}
           enableDesktopScrollLock={enableDesktopScrollLock}
           {...showHideMotion}

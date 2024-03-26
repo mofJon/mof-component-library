@@ -58,7 +58,11 @@ const NavPanel: FC<NavPanelProps> = ({
           direction={itemsPerColumn ? "row" : "column"}
           {...navPanel(isActive, attach, motion?.panel)}
         >
-          {back}
+          <Button
+            text={backButton[level]}
+            iconPre={icon?.iconBack}
+            onClick={handleBack}
+          />
           <NavPanelContent data={data} />
         </Stack>
         {level === 0 && <NavImages images={images} />}

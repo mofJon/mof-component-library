@@ -6,6 +6,7 @@ export interface NavProps extends StackProps, VariantProps<typeof nav> {
   data?: any;
   navProps?: any;
   isOpen?: boolean;
+  setIsOpen?: (isOpen: boolean) => void;
   isActive?: boolean;
   itemsPerColumn?: number;
   displayName?: string;

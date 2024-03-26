@@ -50,7 +50,7 @@ const NavItem: FC<NavItemProps> = ({
     setIsActive(false);
     resetTimeout = setTimeout(() => {
       setShowMegaNav(false);
-    }, 500);
+    }, 300);
   };
 
   const handleInteraction = useCallback(
@@ -62,13 +62,7 @@ const NavItem: FC<NavItemProps> = ({
           clearTimeout(exitTimeout);
           setShowMegaNav(true);
         } else if (interaction === "hoverOut" && persistOn.includes("hover")) {
-          // if (persistOn === "hoverDelay") {
-          //   exitTimeout = setTimeout(() => {
-          //     closeMegaNav();
-          //   }, 500);
-          // } else {
           closeMegaNav();
-          // }
         } else if (interaction === "click" && persistOn.includes("hover")) {
           navItemLink && router.push(navItemLink.href);
         }
@@ -139,6 +133,7 @@ const NavItem: FC<NavItemProps> = ({
         navStyle,
         data.index,
         navItemAnimations,
+        hasChildren,
       )}
       textStyle={textStyle?.textStyle}
       {...motion?.item}
