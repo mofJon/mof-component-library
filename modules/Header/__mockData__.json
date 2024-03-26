@@ -161,6 +161,148 @@
       ]
     },
     {
+      "navItemText": "Architecture",
+      "navItemLink": {
+        "text": "Expertise",
+        "href": "/expertise",
+        "linkType": "Content",
+        "target": ""
+      },
+      "navItems": [
+        {
+          "navItemText": "View all expertise",
+          "navItemLink": {
+            "text": "Expertise",
+            "href": "/expertise",
+            "linkType": "Content",
+            "target": ""
+          },
+          "navItems": [],
+          "image": null
+        },
+        {
+          "navItemText": "Architecture",
+          "navItemLink": {
+            "text": "Architecture",
+            "href": "/expertise/architecture",
+            "linkType": "Content",
+            "target": ""
+          },
+          "navItems": [
+            {
+              "navItemText": "View all Architecture",
+              "navItemLink": {
+                "text": "Architecture",
+                "href": "/expertise/architecture",
+                "linkType": "Content",
+                "target": ""
+              },
+              "image": {
+                "imageUrl": "https://zhweb-qa-f-app.azurewebsites.net/media/nm4aowig/zha_1.jpg",
+                "caption": "",
+                "imageAlt": "",
+                "mediaId": 1201,
+                "isSvg": false,
+                "isVideo": false
+              },
+              "colour": null
+            },
+            {
+              "navItemText": "Culture",
+              "navItemLink": {
+                "text": "Culture",
+                "href": "/expertise/architecture/culture",
+                "linkType": "Content",
+                "target": ""
+              },
+              "image": {
+                "imageUrl": "https://zhweb-qa-f-app.azurewebsites.net/media/wotgyell/adrian-cuj-o_9ymcy0bag-unsplash.jpg",
+                "caption": "First",
+                "imageAlt": "",
+                "mediaId": 1267,
+                "isSvg": false,
+                "isVideo": false
+              },
+              "colour": "#4d3894"
+            },
+            {
+              "navItemText": "Civic",
+              "navItemLink": {
+                "text": "Civic",
+                "href": "/expertise/architecture/civic",
+                "linkType": "Content",
+                "target": ""
+              },
+              "image": null,
+              "colour": "#66258d"
+            },
+            {
+              "navItemText": "Offices",
+              "navItemLink": {
+                "text": "Offices",
+                "href": "/expertise/architecture/education",
+                "linkType": "Content",
+                "target": ""
+              },
+              "image": {
+                "imageUrl": "https://zhweb-qa-f-app.azurewebsites.net/media/2ilnx0wu/zha_3.jpg",
+                "caption": "",
+                "imageAlt": "",
+                "mediaId": 1225,
+                "isSvg": false,
+                "isVideo": false
+              },
+              "colour": "#334a9b"
+            }
+          ],
+          "image": {
+            "imageUrl": "https://zhweb-qa-f-app.azurewebsites.net/media/nm4aowig/zha_1.jpg",
+            "caption": "",
+            "imageAlt": "",
+            "mediaId": 1201,
+            "isSvg": false,
+            "isVideo": false
+          }
+        },
+        {
+          "navItemText": "Interior Architecture",
+          "navItemLink": {
+            "text": "Interior Architecture",
+            "href": "/expertise/interior-architecture",
+            "linkType": "Content",
+            "target": ""
+          },
+          "navItems": [],
+          "image": {
+            "imageUrl": "https://zhweb-qa-f-app.azurewebsites.net/media/wjynwnvn/arturo-castaneyra-o-dkysvidb4-unsplash.jpg",
+            "caption": "Duis aute irure dolor in reprehenderit in voluptate velit 45",
+            "imageAlt": "",
+            "mediaId": 1252,
+            "isSvg": false,
+            "isVideo": false
+          }
+        },
+        {
+          "navItemText": "Masterplans",
+          "navItemLink": {
+            "text": "Masterplans",
+            "href": "/expertise/masterplans",
+            "linkType": "Content",
+            "target": ""
+          },
+          "navItems": [],
+          "image": {
+            "imageUrl": "https://zhweb-qa-f-app.azurewebsites.net/media/53kgzguw/refargotohp-1azkcg0c38a-unsplash.jpg",
+            "caption": "Duis aute irure velit 7436",
+            "imageAlt": "",
+            "mediaId": 1257,
+            "isSvg": false,
+            "isVideo": false
+          }
+        }
+      ]
+    },
+    {
       "navItemText": "People",
       "navItemLink": {
         "text": "People",

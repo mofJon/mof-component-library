@@ -62,15 +62,14 @@ const NavItem: FC<NavItemProps> = ({
           clearTimeout(exitTimeout);
           setShowMegaNav(true);
         } else if (interaction === "hoverOut" && persistOn.includes("hover")) {
-          if (persistOn === "hoverDelay") {
-            exitTimeout = setTimeout(() => {
-              closeMegaNav();
-            }, 500);
-          } else {
-            closeMegaNav();
-          }
+          // if (persistOn === "hoverDelay") {
+          //   exitTimeout = setTimeout(() => {
+          //     closeMegaNav();
+          //   }, 500);
+          // } else {
+          closeMegaNav();
+          // }
         } else if (interaction === "click" && persistOn.includes("hover")) {
-          console.log("click", navItemLink);
           navItemLink && router.push(navItemLink.href);
         }
 

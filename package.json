@@ -1,6 +1,6 @@
 {
   "name": "mof-component-library",
-  "version": "0.1.222",
+  "version": "0.1.223",
   "main": "./index.js",
   "types": "./index.d.ts",
   "scripts": {
