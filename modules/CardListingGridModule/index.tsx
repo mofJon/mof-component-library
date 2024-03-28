@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef, useState } from "react";
+import { FC, useRef, useEffect, useState } from "react";
 import {
   ListingGrid,
   ModuleBase,
@@ -10,6 +10,7 @@ import { HeadingSideModule } from "../../modules";
 import { gridWrapper, moduleWrapper } from "./CardListingGridModule.styles";
 import { CardListingGridModuleProps } from "./CardListingGridModule.types";
 import { getCardListingData } from "./CardListingFetchData";
+import { useSearchParams } from "next/navigation";
 
 const CardListingGridModule: FC<CardListingGridModuleProps> = ({
   data,
@@ -26,17 +27,14 @@ const CardListingGridModule: FC<CardListingGridModuleProps> = ({
 }) => {
   if (!data || !data?.filtersAndCards) return null;
   const fetchController = useRef(null);
-  const [selectedFilters, setSelectedFilters] = useState<any>([]);
-  // const searchParams = new URLSearchParams(useSearchParams());
-  const currentPage = Number(searchParams?.page) || 1;
-
-  const [isInit, setIsInit] = useState(true);
+  const updatedParams = useSearchParams();
 
   const {
     cards,
     cardType,
-    // currentPage,
+    currentPage = Number(searchParams?.page) || 1,
     displayFilters,
+    filter,
     totalCount,
     totalPages,
     pageSize,
@@ -59,16 +57,37 @@ const CardListingGridModule: FC<CardListingGridModuleProps> = ({
   }
 
   useEffect(() => {
-    if (isInit) return;
+    const currentPage = updatedParams.get("page") || "1";
+    const allFilters = updatedParams.getAll("filterid");
+
+    console.log(currentPage, allFilters);
+
+    const filters = filter
+      .map((category: any) => {
+        const fieldGuIds = category.filters
+          .filter((f: any) => allFilters?.includes(f.filterGuid))
+          .map((f: any) => f.filterGuid);
+
+        if (fieldGuIds.length > 0) {
+          return {
+            fieldName: category.filterValue,
+            fieldGuIds,
+          };
+        }
+        return null;
+      })
+      .filter((f: any) => f !== null);
 
     const { query, fetchUrl } = getQueryData(
-      selectedFilters,
+      filters,
       currentPage,
       cardType,
       pageSize,
       displayFilters,
       sortByOptions,
     );
+
+    console.log(query, fetchUrl);
 
     const fetchData = async () => {
       await getCardListingData(fetchController, query, fetchUrl).then((res) => {
@@ -77,17 +96,9 @@ const CardListingGridModule: FC<CardListingGridModuleProps> = ({
     };
 
     fetchData().catch(console.error);
-  }, [selectedFilters, currentPage]);
+  }, [updatedParams]);
 
-  const handleFilterChange = (value: any) => {
-    setIsInit(false);
-    const newSelectedFilters = [...selectedFilters];
-    const cleanedFilters = newSelectedFilters.filter(
-      (filter) => filter.fieldName !== value.fieldName,
-    );
-
-    setSelectedFilters([...cleanedFilters, value]);
-  };
+  const updateQuery = () => {};
 
   const headingData = {
     description: data?.description,
@@ -110,7 +121,7 @@ const CardListingGridModule: FC<CardListingGridModuleProps> = ({
         {displayFilters && (
           <SearchFilters
             filters={data?.filtersAndCards?.filter}
-            onChange={handleFilterChange}
+            onChange={updateQuery}
             icons={icons}
             textStyles={textStyles}
           />
@@ -124,6 +135,7 @@ const CardListingGridModule: FC<CardListingGridModuleProps> = ({
           buttonVariants={paginationButtonVariants}
           paginationType={paginationType}
           showMoreText={showMoreText}
+          onChange={updateQuery}
         />
       </Stack>
     </ModuleBase>

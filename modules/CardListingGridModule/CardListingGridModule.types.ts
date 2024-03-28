@@ -4,7 +4,7 @@ export type CardListingGridModuleProps = {
   getItems?: (items?: any, isGroup?: boolean) => any;
   getQueryData?: (
     filters: any,
-    pageNumber: number,
+    currentPage: string,
     cardsType: string,
     pageSize: number,
     displayFilters: boolean,

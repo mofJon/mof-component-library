@@ -16,8 +16,8 @@ const renderCards = (data: any, isGroup?: boolean) => {
 };
 
 const getQueryData = (
-  filters: any,
-  pageNumber: number,
+  currentPage: string,
+  filterIds: any[],
   cardsType: string,
   pageSize = 10,
   displayFilters = true,

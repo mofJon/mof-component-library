@@ -8,6 +8,7 @@ import {
   paginationNext,
 } from "./Pagination.styles";
 import { PaginationShowMore, PaginationSteps } from "./chunks";
+import { on } from "events";
 
 const buttonVars = {
   back: "iconBack",
@@ -23,6 +24,7 @@ const Pagination: FC<any> = ({
   showMoreText = "Show more",
   textStyles,
   motion,
+  onChange,
 }) => {
   const searchParams = useSearchParams();
 
@@ -32,6 +34,7 @@ const Pagination: FC<any> = ({
     const params = new URLSearchParams(searchParams.toString());
     params.set("page", `${nextPagenum}`);
     window.history.pushState(null, "", `?${params.toString()}`);
+    onChange(nextPagenum);
   };
 
   const paginationProps = {

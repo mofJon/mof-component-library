@@ -34,6 +34,7 @@ const SearchFilters = ({ filters, onChange, textStyles, icons }) => {
       //   filterCategoryGuIds.includes(f),
       // );
       // onChange({ fieldName, fieldGuIds });
+      onChange();
     }
   };
 
