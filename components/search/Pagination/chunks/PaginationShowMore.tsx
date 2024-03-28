@@ -10,12 +10,12 @@ const PaginationShowMore: FC<any> = ({
   motion,
   onChange,
 }) => {
-  if (totalPages === currentPage) return null;
+  if (totalPages <= currentPage) return null;
 
   return (
     <Text
       text={showMoreText}
-      textStyle={textStyles?.showMore}
+      {...textStyles}
       {...paginationShowMore(motion?.showMore)}
       onClick={() => onChange(currentPage + 1)}
     />

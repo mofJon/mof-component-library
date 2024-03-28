@@ -18,6 +18,7 @@ const buttonVars = {
 
 const Pagination: FC<any> = ({
   totalPages = 1,
+  totalCount = 1,
   currentPage = 1,
   buttonVariants = buttonVars,
   paginationType = "leadingZeroNumbers",
@@ -34,11 +35,12 @@ const Pagination: FC<any> = ({
     const params = new URLSearchParams(searchParams.toString());
     params.set("page", `${nextPagenum}`);
     window.history.pushState(null, "", `?${params.toString()}`);
-    onChange(nextPagenum);
+    onChange && onChange(nextPagenum);
   };
 
   const paginationProps = {
     totalPages,
+    totalCount,
     currentPage,
     textStyles,
     motion,
@@ -47,7 +49,11 @@ const Pagination: FC<any> = ({
 
   if (paginationType === "showMore") {
     return (
-      <PaginationShowMore showMoreText={showMoreText} {...paginationProps} />
+      <PaginationShowMore
+        showMoreText={showMoreText}
+        {...paginationProps}
+        textStyles={textStyles?.showMore}
+      />
     );
   }
 

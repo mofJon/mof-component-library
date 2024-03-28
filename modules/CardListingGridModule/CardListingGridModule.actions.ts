@@ -5,6 +5,7 @@ export const getCardListingData = async (
   queryData: any,
   fetchUrl = "/umbraco/api/CardListingFilter/GetCards",
 ) => {
+  "use server";
   if (fetchController.current) {
     fetchController.current.abort();
   }

@@ -9,7 +9,7 @@ import {
 import { HeadingSideModule } from "../../modules";
 import { gridWrapper, moduleWrapper } from "./CardListingGridModule.styles";
 import { CardListingGridModuleProps } from "./CardListingGridModule.types";
-import { getCardListingData } from "./CardListingFetchData";
+import { getCardListingData } from "./CardListingGridModule.actions";
 import { useSearchParams } from "next/navigation";
 
 const CardListingGridModule: FC<CardListingGridModuleProps> = ({
@@ -41,6 +41,9 @@ const CardListingGridModule: FC<CardListingGridModuleProps> = ({
     sortByOptions,
   } = data?.filtersAndCards;
   const [filteredCards, setFilteredCards] = useState<any[]>(cards);
+  const [currPage, setCurrPage] = useState<number>(currentPage);
+  const [currFilters, setCurrFilters] = useState<any>([]);
+  const [currTotal, setCurrTotal] = useState<number>(totalPages);
 
   const isGroup = cards[0].moduleName.includes("Group");
   let renderCardContent = null;
@@ -57,10 +60,16 @@ const CardListingGridModule: FC<CardListingGridModuleProps> = ({
   }
 
   useEffect(() => {
-    const currentPage = updatedParams.get("page") || "1";
     const allFilters = updatedParams.getAll("filterid");
+    const currentPage: number = parseInt(updatedParams.get("page") || "1");
 
-    console.log(currentPage, allFilters);
+    let fetchPage = currentPage;
+    if (
+      allFilters.length !== currFilters.length &&
+      paginationType === "showMore"
+    ) {
+      fetchPage = 1;
+    }
 
     const filters = filter
       .map((category: any) => {
@@ -80,25 +89,30 @@ const CardListingGridModule: FC<CardListingGridModuleProps> = ({
 
     const { query, fetchUrl } = getQueryData(
       filters,
-      currentPage,
+      fetchPage,
       cardType,
       pageSize,
       displayFilters,
       sortByOptions,
     );
 
-    console.log(query, fetchUrl);
-
     const fetchData = async () => {
       await getCardListingData(fetchController, query, fetchUrl).then((res) => {
-        setFilteredCards(res.cards);
+        // if load more and pageNumber++ append cards to list, otherwise replace
+        if (paginationType === "showMore" && currPage < currentPage) {
+          const updatedCards = [...filteredCards, ...res.cards];
+          setFilteredCards(updatedCards);
+        } else {
+          setFilteredCards(res.cards);
+        }
+        setCurrPage(currentPage);
+        setCurrFilters(allFilters);
+        setCurrTotal(res.totalPages);
       });
     };
 
     fetchData().catch(console.error);
   }, [updatedParams]);
-
-  const updateQuery = () => {};
 
   const headingData = {
     description: data?.description,
@@ -121,7 +135,6 @@ const CardListingGridModule: FC<CardListingGridModuleProps> = ({
         {displayFilters && (
           <SearchFilters
             filters={data?.filtersAndCards?.filter}
-            onChange={updateQuery}
             icons={icons}
             textStyles={textStyles}
           />
@@ -130,12 +143,12 @@ const CardListingGridModule: FC<CardListingGridModuleProps> = ({
         <Pagination
           totalCount={totalCount}
           pageSize={pageSize}
-          totalPages={totalPages}
-          currentPage={currentPage}
+          totalPages={currTotal}
+          currentPage={currPage}
           buttonVariants={paginationButtonVariants}
           paginationType={paginationType}
           showMoreText={showMoreText}
-          onChange={updateQuery}
+          textStyles={textStyles}
         />
       </Stack>
     </ModuleBase>

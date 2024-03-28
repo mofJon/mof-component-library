@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { FC, useState } from "react";
 import { Popover, Stack, Text } from "../../../components";
 import { getOptionLabel } from "../../../utils";
 import { dropdownOption } from "./DropdownFilter.styles";
 
-const DropdownFilter = ({
+const DropdownFilter: FC<any> = ({
   filter,
   value,
   selectedFilters,
@@ -15,7 +15,7 @@ const DropdownFilter = ({
   const options = filter?.filters || [];
   const [isChecked, setIsChecked] = useState(false);
 
-  const handleOnChange = (checked, selectedValue) => {
+  const handleOnChange = (checked: boolean, selectedValue: string) => {
     let newSelected = selectedFilters ? [...selectedFilters] : [];
 
     checked
@@ -30,7 +30,7 @@ const DropdownFilter = ({
 
   return (
     <Popover title={title} icons={icons} {...props}>
-      {options.map((option) => {
+      {options.map((option: any) => {
         const isChecked = selectedFilters.includes(option.filterGuid);
         return (
           <Stack
