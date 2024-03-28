@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import CardCarouselGenericModule from "./";
+import { MediaCarouselModule } from "../";
 // @ts-ignore
 import Arrow from "../../assets/icons/zhaArrow.svg";
 import data from "./__mockdata__.json";
@@ -10,8 +10,8 @@ declare const window: {
   removeEventListener: any;
 };
 
-const meta: Meta<typeof CardCarouselGenericModule> = {
-  component: CardCarouselGenericModule,
+const meta: Meta<typeof MediaCarouselModule> = {
+  component: MediaCarouselModule,
   tags: ["autodocs"],
   parameters: {
     layout: "fullscreen",
@@ -22,9 +22,9 @@ const meta: Meta<typeof CardCarouselGenericModule> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof CardCarouselGenericModule>;
+type Story = StoryObj<typeof MediaCarouselModule>;
 
-export const MediaCarouselModule: Story = {
+export const MediaCarousel: Story = {
   args: {
     data,
     carouselProps: {

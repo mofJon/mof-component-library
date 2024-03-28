@@ -1,10 +1,16 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { FC, useState, useEffect, useRef } from "react";
 import { Button, Stack } from "../../../components";
 import { popoverContent, popoverWrapper } from "./Popover.styles";
 
-let exitTimeout = null;
+let exitTimeout: any = null;
 
-const Popover = ({ title, placement, icons, children }) => {
+const Popover: FC<any> = ({
+  variant = "popover",
+  title,
+  placement,
+  icons,
+  children,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const wrapper = useRef();
 
@@ -15,13 +21,15 @@ const Popover = ({ title, placement, icons, children }) => {
     };
   }, []);
 
-  const closeIfClickedOutside = (e) => {
-    if (!wrapper.current?.contains(e.target)) {
+  const closeIfClickedOutside = (e: MouseEvent) => {
+    const wrapperEl: any = wrapper.current;
+
+    if (!wrapperEl?.contains(e.target)) {
       setIsOpen(false);
     }
   };
 
-  const toggleOpen = (e) => {
+  const toggleOpen = (e: MouseEvent) => {
     setIsOpen(!isOpen);
   };
 
@@ -39,13 +47,13 @@ const Popover = ({ title, placement, icons, children }) => {
     <Stack
       ref={wrapper}
       direction="column"
-      {...popoverWrapper(placement, isOpen)}
+      {...popoverWrapper(placement, isOpen, variant)}
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
     >
       <Button
         text={title}
-        variant="popover"
+        variant={variant}
         iconPost={icons?.dropdown}
         onClick={toggleOpen}
       />

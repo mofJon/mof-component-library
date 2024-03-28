@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Component from ".";
+import { BannerFullBleedModule } from "../";
 
 const data: any = {
   tag: "Section Title",
@@ -50,8 +50,8 @@ const data: any = {
   paddingBottom: "",
 };
 
-const meta: Meta<typeof Component> = {
-  component: Component,
+const meta: Meta<typeof BannerFullBleedModule> = {
+  component: BannerFullBleedModule,
   tags: ["autodocs"],
   parameters: {
     layout: "fullscreen",
@@ -62,9 +62,9 @@ const meta: Meta<typeof Component> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof Component>;
+type Story = StoryObj<typeof BannerFullBleedModule>;
 
-export const BannerFullBleedModule: Story = {
+export const BannerFullBleed: Story = {
   args: {
     data,
   },

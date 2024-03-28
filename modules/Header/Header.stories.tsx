@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Header from "./";
+import { Header } from "../";
 import data from "./__mockData__.json";
 import navConfig from "./Header.config";
 

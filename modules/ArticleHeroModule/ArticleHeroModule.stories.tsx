@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Component from ".";
+import { ArticleHeroModule } from "../";
 import data from "./__mockData__.json";
 
-const meta: Meta<typeof Component> = {
-  component: Component,
+const meta: Meta<typeof ArticleHeroModule> = {
+  component: ArticleHeroModule,
   tags: ["autodocs"],
   parameters: {
     layout: "fullscreen",
@@ -14,7 +14,7 @@ const meta: Meta<typeof Component> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof Component>;
+type Story = StoryObj<typeof ArticleHeroModule>;
 
 export const RichTextAndOneMediaModule: Story = {
   args: {

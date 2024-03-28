@@ -26,14 +26,14 @@ const SearchFilters = ({ filters, onChange, textStyles, icons }) => {
       selected.forEach((id) => params.append("filterid", id));
       window.history.pushState(null, "", `?${params.toString()}`);
       setSelectedFilters(selected);
-      const filterCategory = filters.filter((f) => f.filterValue === fieldName);
-      const filterCategoryGuIds = filterCategory[0].filters.map(
-        (f) => f.filterGuid,
-      );
-      const fieldGuIds = selected.filter((f) =>
-        filterCategoryGuIds.includes(f),
-      );
-      onChange({ fieldName, fieldGuIds });
+      // const filterCategory = filters.filter((f) => f.filterValue === fieldName);
+      // const filterCategoryGuIds = filterCategory[0].filters.map(
+      //   (f) => f.filterGuid,
+      // );
+      // const fieldGuIds = selected.filter((f) =>
+      //   filterCategoryGuIds.includes(f),
+      // );
+      // onChange({ fieldName, fieldGuIds });
     }
   };
 

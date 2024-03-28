@@ -12,4 +12,6 @@ export interface RichTextAndTwoMediaModuleProps {
     media?: any;
   };
   variant?: string;
+  backgroundImageSizes?: any;
+  backgroundImageQuality?: any;
 }

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Component from ".";
+import { HeadingVerticalModule } from "../";
 
 const data: any = {
   headingTitle: {
@@ -24,8 +24,8 @@ const data: any = {
   paddingBottom: "small",
 };
 
-const meta: Meta<typeof Component> = {
-  component: Component,
+const meta: Meta<typeof HeadingVerticalModule> = {
+  component: HeadingVerticalModule,
   tags: ["autodocs"],
   parameters: {
     layout: "fullscreen",
@@ -36,9 +36,9 @@ const meta: Meta<typeof Component> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof Component>;
+type Story = StoryObj<typeof HeadingVerticalModule>;
 
-export const HeadingVerticallyStackedModule: Story = {
+export const HeadingVertical: Story = {
   args: {
     data,
   },

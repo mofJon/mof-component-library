@@ -7,6 +7,7 @@ export interface ButtonGroupProps
     VariantProps<typeof buttonGroup> {
   primaryProps?: any;
   secondaryProps?: any;
+  shareData?: any;
 }
 
 export type ButtonGroupVars = (

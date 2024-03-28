@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Component from ".";
+import { HeroLeftAlignedModule } from "../";
 
 const data: any = {
   headingTitle: {
@@ -40,8 +40,8 @@ const data: any = {
   ]
 */
 
-const meta: Meta<typeof Component> = {
-  component: Component,
+const meta: Meta<typeof HeroLeftAlignedModule> = {
+  component: HeroLeftAlignedModule,
   tags: ["autodocs"],
   parameters: {
     layout: "fullscreen",
@@ -52,9 +52,9 @@ const meta: Meta<typeof Component> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof Component>;
+type Story = StoryObj<typeof HeroLeftAlignedModule>;
 
-export const HeroLeftAlignedModule: Story = {
+export const HeroLeftAligned: Story = {
   args: {
     data,
   },

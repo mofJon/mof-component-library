@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import data from "./__mockdata__.json";
 
-import Component from ".";
+import { BreadcrumbsModule } from "../";
 
-const meta: Meta<typeof Component> = {
-  component: Component,
+const meta: Meta<typeof BreadcrumbsModule> = {
+  component: BreadcrumbsModule,
   tags: ["autodocs"],
   parameters: {
     backgrounds: {
@@ -14,9 +14,9 @@ const meta: Meta<typeof Component> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof Component>;
+type Story = StoryObj<typeof BreadcrumbsModule>;
 
-export const BreadcrumbsModule: Story = {
+export const Breadcrumbs: Story = {
   args: {
     data,
   },

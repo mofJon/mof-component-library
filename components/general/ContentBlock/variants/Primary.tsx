@@ -38,6 +38,7 @@ const PrimaryContentBlock: FC<ContentBlockContentProps> = ({
 
   const hasButtons = data?.primaryCta || data?.secondaryCta || data?.cta;
   const primaryCta = data?.primaryCta || data?.cta || {};
+  const shareData = data?.sharingLinksModel || {};
 
   return (
     <Stack direction="column" {...allProps}>
@@ -66,6 +67,7 @@ const PrimaryContentBlock: FC<ContentBlockContentProps> = ({
             ...renderButton("secondaryCta"),
             ...data?.secondaryCta,
           }}
+          {...shareData}
         />
       )}
     </Stack>

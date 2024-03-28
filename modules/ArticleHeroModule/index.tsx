@@ -8,6 +8,7 @@ const ArticleHeroModule: FC<ArticleHeroModuleProps> = ({
   moduleAnims,
   imageSizes,
   variant = "articleHero",
+  children,
   ...props
 }) => {
   const newData = Object.assign(data, {
@@ -27,6 +28,7 @@ const ArticleHeroModule: FC<ArticleHeroModuleProps> = ({
         variant={variant}
         backgroundImageSizes={imageSizes}
         childAnims={moduleAnims?.card}
+        children={children}
       />
     </ModuleBase>
   );

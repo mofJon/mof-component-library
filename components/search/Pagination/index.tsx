@@ -1,15 +1,13 @@
 import { FC } from "react";
-import { Button, Stack, Text } from "../../../components";
-import { getFormattedValue } from "../../../utils";
+import { Button, Stack } from "../../../components";
 import { useSearchParams } from "next/navigation";
 import {
   paginationWrapper,
   paginationStepsWrapper,
   paginationBack,
-  paginationDivider,
   paginationNext,
-  paginationStep,
 } from "./Pagination.styles";
+import { PaginationShowMore, PaginationSteps } from "./chunks";
 
 const buttonVars = {
   back: "iconBack",
@@ -36,53 +34,19 @@ const Pagination: FC<any> = ({
     window.history.pushState(null, "", `?${params.toString()}`);
   };
 
+  const paginationProps = {
+    totalPages,
+    currentPage,
+    textStyles,
+    motion,
+    onChange: handlePaginate,
+  };
+
   if (paginationType === "showMore") {
     return (
-      <Text
-        text={showMoreText}
-        textStyle={textStyles?.showMore}
-        {...showMoreText(motion?.showMore)}
-        onClick={() => handlePaginate(currentPage + 1)}
-      />
+      <PaginationShowMore showMoreText={showMoreText} {...paginationProps} />
     );
   }
-
-  const renderStepButtons = [
-    currentPage < totalPages - 2 || totalPages < 4
-      ? currentPage
-      : currentPage - 2,
-    currentPage + 1 < totalPages - 1 || totalPages < 4
-      ? currentPage + 1
-      : currentPage - 1,
-    currentPage + 2 < totalPages || totalPages < 4
-      ? currentPage + 2
-      : currentPage,
-    0,
-    totalPages,
-  ].map((val: number, index: number) => {
-    if ((val - 2 > totalPages || totalPages <= index) && index < 3) return;
-    if ((totalPages < 4 || currentPage >= totalPages) && index > 2) return;
-
-    if (index === 3)
-      return (
-        <Text
-          key={`paginationDivider`}
-          text="..."
-          {...textStyles}
-          {...paginationDivider(motion?.paginationChild)}
-        />
-      );
-
-    return (
-      <Button
-        key={`paginationStepButton${val}`}
-        variant="paginate"
-        text={getFormattedValue(val - 1, paginationType) as string}
-        onClick={() => handlePaginate(val)}
-        {...paginationStep(val === currentPage, motion?.paginationChild)}
-      />
-    );
-  });
 
   return (
     <Stack direction="row" {...paginationWrapper(motion?.paginationWrapper)}>
@@ -94,7 +58,7 @@ const Pagination: FC<any> = ({
         />
       )}
       <Stack direction="row" {...paginationStepsWrapper}>
-        {renderStepButtons}
+        <PaginationSteps {...paginationProps} paginationType={paginationType} />
       </Stack>
       {currentPage <= totalPages - 1 && (
         <Button

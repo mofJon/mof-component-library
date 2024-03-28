@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Component from ".";
+import { RichTextAndOneMediaModule } from "../";
 import data from "./__mockData__.json";
 import dataYT from "./__mockDataYouTube__.json";
 import dataSrc from "./__mockDataSrc__.json";
 
-const meta: Meta<typeof Component> = {
-  component: Component,
+const meta: Meta<typeof RichTextAndOneMediaModule> = {
+  component: RichTextAndOneMediaModule,
   tags: ["autodocs"],
   parameters: {
     layout: "fullscreen",
@@ -16,7 +16,7 @@ const meta: Meta<typeof Component> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof Component>;
+type Story = StoryObj<typeof RichTextAndOneMediaModule>;
 
 export const RichTextAndOneMediaVimeo: Story = {
   args: {

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import AccordionModule from "./";
+import { AccordionModule } from "../";
 // @ts-ignore
 import Close from "../../assets/icons/close.svg";
 import {

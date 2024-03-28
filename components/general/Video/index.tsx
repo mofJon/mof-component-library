@@ -31,10 +31,14 @@ const Video: FC<any> = ({
       const viewerWidth = viewer?.getBoundingClientRect()?.width;
 
       if (vidContainer) {
-        vidContainer.style.width = "100%";
+        vidContainer.style.width = "102%";
         vidContainer.style.height = `${width * 3}px`;
-        if (height >= width * aspect || (viewerWidth || width) < width) {
-          vidContainer.style.height = "100%";
+        if (
+          height >=
+          width * aspect
+          // (viewerWidth || width) < width
+        ) {
+          vidContainer.style.height = "102%";
           vidContainer.style.width = `${height * 3}px`;
         }
       }
@@ -73,7 +77,7 @@ const Video: FC<any> = ({
           : 390;
       }
 
-      setAspect(vidHeight / vidWidth);
+      setAspect(vidHeight / vidWidth + 0.07);
 
       if (container) {
         setViewer(container);

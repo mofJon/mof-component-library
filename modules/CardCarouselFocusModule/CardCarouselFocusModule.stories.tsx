@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import CardCarouselFocusModule from "./";
+import { CardCarouselFocusModule } from "../";
 // @ts-ignore
 import Arrow from "../../assets/icons/zhaArrow.svg";
 import data from "./__mockdata__.json";

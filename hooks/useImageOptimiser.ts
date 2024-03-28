@@ -1,6 +1,7 @@
 import { useDimensions } from "./";
 import { stripQueryString } from "../utils";
 import { useDevicePixelRatio } from "use-device-pixel-ratio";
+import { getBase64 } from "../components/base/Image/Image.actions";
 
 const dprQuality = [70, 30, 20];
 
@@ -50,13 +51,18 @@ export default function useImageOptimiser(
     fallbackWidth * dpr
   }&quality=${quality}&format=auto`;
 
+  // blurURL
+  const blurURL = `${stripQueryString(url)}?width=10&quality=10&format=auto`;
+
   const isAbsolute = url && url.includes("http");
   const hasLoader = isAbsolute ? { loader: imageLoader } : {};
+  // const blurDataURL = blurURL ? getBase64(blurURL) : "";
 
   return {
     src: isAbsolute ? fallbackURL : stripQueryString(url),
     ...(responsive ? responsiveProps : staticProps),
-    // placeholder: "blur",
+    // placeholder: blurDataURL ? "blur" : null,
+    // blurDataURL,
     quality,
     ...hasLoader,
   };

@@ -23,6 +23,7 @@ export const Card = forwardRef(
       imageQuality,
       backgroundImageQuality,
       richText = false,
+      children,
       ...props
     }: CardProps,
     ref: Ref<CardProps>,
@@ -77,6 +78,7 @@ export const Card = forwardRef(
           variant={variant}
           richText={richText}
         />
+        {children}
       </Grid>
     );
   },

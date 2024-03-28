@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import CardListingGridModule from "./";
+import { CardListingGridModule } from "../";
 import dataTeam from "./__mockdata__.json";
 import dataExpertise from "./__mockDataExpertise__.json";
 import dataProducts from "./__mockDataProducts__.json";
@@ -31,6 +31,7 @@ type Story = StoryObj<typeof CardListingGridModule>;
 export const CardListingGridTeam: Story = {
   args: {
     data: dataTeam,
+    paginationType: "showMore",
     ...moduleConfig,
   },
 };

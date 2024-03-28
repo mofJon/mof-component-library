@@ -41,6 +41,7 @@ export interface ContentBlockContentProps extends HTMLAndMotionProps {
     primaryCta?: any;
     secondaryCta?: any;
     cta?: any;
+    sharingLinksModel?: any;
     infoTags?: string[] | string;
   };
   childAnims?: ContentBlockMotionTypes;

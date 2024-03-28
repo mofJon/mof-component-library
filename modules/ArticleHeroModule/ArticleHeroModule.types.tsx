@@ -8,4 +8,5 @@ export interface ArticleHeroModuleProps {
   };
   imageSizes?: string;
   variant?: string;
+  children?: any;
 }
