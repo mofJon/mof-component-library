@@ -6,20 +6,20 @@ export const getCardListingData = async (
   fetchUrl = "/umbraco/api/CardListingFilter/GetCards",
 ) => {
   "use server";
-  if (fetchController.current) {
-    fetchController.current.abort();
+  if (fetchController) {
+    fetchController.abort();
   }
   const controller = new AbortController();
-  fetchController.current = controller;
+  fetchController = controller;
 
-  console.log("fetch", queryData);
+  console.log("getlistingdata", fetchUrl);
 
   const dataRes = await fetch(fetchUrl, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    signal: fetchController.current?.signal,
+    signal: fetchController.signal,
     body: JSON.stringify(queryData),
   }).catch(console.error);
 

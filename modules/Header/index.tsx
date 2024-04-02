@@ -16,7 +16,7 @@ const Header: FC<any> = ({
   moduleAnims,
   variant,
   icons,
-  scrollContainer = window.document.documentElement,
+  scrollContainer,
   enableDesktopScrollLock = false,
   ...props
 }) => {
@@ -34,9 +34,10 @@ const Header: FC<any> = ({
   }, []);
 
   useEffect(() => {
-    if (scrollContainer) {
-      scrollContainer.style.overflow = isNavOpen ? "hidden" : "unset";
-      scrollContainer.style.touchAction = isNavOpen ? "none" : "auto";
+    const scrollCont = scrollContainer || window?.document?.documentElement;
+    if (scrollCont) {
+      scrollCont.style.overflow = isNavOpen ? "hidden" : "unset";
+      scrollCont.style.touchAction = isNavOpen ? "none" : "auto";
     }
   }, [isNavOpen]);
 

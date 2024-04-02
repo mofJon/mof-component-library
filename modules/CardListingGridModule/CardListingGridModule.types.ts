@@ -2,14 +2,7 @@ export type CardListingGridModuleProps = {
   data: any;
   moduleAnims?: any;
   getItems?: (items?: any, isGroup?: boolean) => any;
-  getQueryData?: (
-    filters: any,
-    currentPage: number,
-    cardsType: string,
-    pageSize: number,
-    displayFilters: boolean,
-    orderBy: any[],
-  ) => any;
+  getQueryData?: (props: Record<any, any>) => Record<any, any>;
   textStyles?: any;
   icons?: any;
   searchParams?: any;
