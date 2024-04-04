@@ -9,4 +9,5 @@ export type CardListingGridModuleProps = {
   paginationButtonVariants?: any;
   paginationType?: any;
   showMoreText?: any;
+  dropdownVariant?: string;
 };

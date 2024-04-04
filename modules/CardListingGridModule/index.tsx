@@ -11,8 +11,7 @@ import { HeadingSideModule } from "../../modules";
 import { gridWrapper, moduleWrapper } from "./CardListingGridModule.styles";
 import { CardListingGridModuleProps } from "./CardListingGridModule.types";
 import { useSearchParams } from "next/navigation";
-
-export const dynamic = "force-dynamic";
+import { areArraysEqual } from "../../utils";
 
 const CardListingGridModule: FC<CardListingGridModuleProps> = ({
   data,
@@ -24,17 +23,19 @@ const CardListingGridModule: FC<CardListingGridModuleProps> = ({
   paginationButtonVariants,
   paginationType,
   showMoreText,
+  dropdownVariant,
   ...props
 }) => {
-  if (!data || !data?.filtersAndCards) return null;
   const searchParams = useSearchParams();
+
+  if (!data || !data?.filtersAndCards) return null;
 
   const {
     cards,
     cardType,
     currentPage = 1,
     displayFilters,
-    filter,
+    filter = [],
     totalCount,
     totalPages,
     pageSize,
@@ -45,7 +46,7 @@ const CardListingGridModule: FC<CardListingGridModuleProps> = ({
   const [currFilters, setCurrFilters] = useState<any>([]);
   const [currTotal, setCurrTotal] = useState<number>(totalPages);
 
-  const isGroup = cards[0].moduleName.includes("Group");
+  const isGroup = cards[0]?.moduleName?.includes("Group");
   let renderCardContent = null;
   if (filteredCards && filteredCards.length > 0) {
     renderCardContent = isGroup ? (
@@ -63,29 +64,35 @@ const CardListingGridModule: FC<CardListingGridModuleProps> = ({
     const allFilters = searchParams.getAll("filterid");
     const currentPage: number = parseInt(searchParams.get("page") || "1");
 
+    const doFiltersMatch = areArraysEqual(currFilters, allFilters);
+
+    // if no new card info, bail fetch
+    if (doFiltersMatch && currPage === currentPage) return;
+
     let fetchPage = currentPage;
-    if (
-      allFilters.length !== currFilters.length &&
-      paginationType === "showMore"
-    ) {
+    if (!doFiltersMatch && paginationType === "showMore") {
       fetchPage = 1;
     }
 
-    const filters = filter
-      .map((category: any) => {
-        const fieldGuIds = category.filters
-          .filter((f: any) => allFilters?.includes(f.filterGuid))
-          .map((f: any) => f.filterGuid);
+    const hasFilters = displayFilters && filter && filter.length > 0;
 
-        if (fieldGuIds.length > 0) {
-          return {
-            fieldName: category.filterValue,
-            fieldGuIds,
-          };
-        }
-        return null;
-      })
-      .filter((f: any) => f !== null);
+    const filters = hasFilters
+      ? filter
+          .map((category: any) => {
+            const fieldGuIds = category.filters
+              .filter((f: any) => allFilters?.includes(f.filterGuid))
+              .map((f: any) => f.filterGuid);
+
+            if (fieldGuIds.length > 0) {
+              return {
+                fieldName: category.filterValue,
+                fieldGuIds,
+              };
+            }
+            return null;
+          })
+          .filter((f: any) => f !== null)
+      : null;
 
     const fetchData = async () => {
       const queryData = {

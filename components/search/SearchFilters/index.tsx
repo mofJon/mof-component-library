@@ -1,17 +1,21 @@
 import { FC, useState, useEffect } from "react";
 import { DropdownFilter, Stack } from "../../../components";
 import { filterWrapper } from "./SearchFilters.styles";
-import { arrayFromStringList } from "../../../utils";
 import { useSearchParams } from "next/navigation";
 
-const SearchFilters: FC<any> = ({ filters, onChange, textStyles, icons }) => {
+const SearchFilters: FC<any> = ({
+  dropdownVariant,
+  filters,
+  onChange,
+  textStyles,
+  icons,
+}) => {
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
   const searchParams = useSearchParams();
 
   useEffect(() => {
     const params = new URLSearchParams(searchParams.toString());
     const filters: string[] = params.getAll("filterid") || [];
-    // const arrayString = arrayFromStringList(filters)
     setSelectedFilters(filters);
   }, []);
 
@@ -31,7 +35,7 @@ const SearchFilters: FC<any> = ({ filters, onChange, textStyles, icons }) => {
     }
   };
 
-  if (!filters) return;
+  if (!filters || filters.length < 1) return;
   return (
     <Stack {...filterWrapper}>
       {filters.map((filter: any, index: number) => (
@@ -42,6 +46,7 @@ const SearchFilters: FC<any> = ({ filters, onChange, textStyles, icons }) => {
           onChange={handleOnChange}
           icons={icons}
           textStyles={textStyles}
+          variant={dropdownVariant}
         />
       ))}
     </Stack>

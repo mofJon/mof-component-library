@@ -10,6 +10,7 @@ const Popover: FC<any> = ({
   placement,
   icons,
   children,
+  isDirty = false,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const wrapper = useRef();
@@ -47,7 +48,7 @@ const Popover: FC<any> = ({
     <Stack
       ref={wrapper}
       direction="column"
-      {...popoverWrapper(placement, isOpen, variant)}
+      {...popoverWrapper(placement, isOpen, variant, isDirty)}
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
     >

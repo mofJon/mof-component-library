@@ -7,9 +7,9 @@ const ListingGrid: FC<any> = ({ data, type, motion }) => {
   if (!data || (data && data.length === 0)) return null;
 
   return (
-    <AnimatePresence>
-      <Box {...listingGrid(type, motion)}>{data}</Box>
-    </AnimatePresence>
+    <Box {...listingGrid(type, motion)}>
+      <AnimatePresence>{data}</AnimatePresence>
+    </Box>
   );
 };
 

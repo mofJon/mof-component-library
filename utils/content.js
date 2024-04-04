@@ -158,3 +158,7 @@ export const getValueAtBreakpoint = (values, breakpoint, percentageOf) => {
 
   return value;
 };
+
+export const areArraysEqual = (a, b) => {
+  return JSON.stringify(a.sort()) === JSON.stringify(b.sort());
+};

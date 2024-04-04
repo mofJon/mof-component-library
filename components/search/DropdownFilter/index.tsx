@@ -10,7 +10,7 @@ const DropdownFilter: FC<any> = ({
   onChange,
   icons,
   textStyles,
-  ...props
+  variant,
 }) => {
   const options = filter?.filters || [];
   const [isChecked, setIsChecked] = useState(false);
@@ -26,10 +26,13 @@ const DropdownFilter: FC<any> = ({
     setIsChecked(checked);
   };
 
-  const title = getOptionLabel(filter.filterName, options, selectedFilters);
+  const title =
+    variant === "selectedInTitle"
+      ? getOptionLabel(filter.filterName, options, selectedFilters)
+      : filter.filterName;
 
   return (
-    <Popover title={title} icons={icons} {...props}>
+    <Popover title={title} icons={icons} isDirty={isChecked}>
       {options.map((option: any) => {
         const isChecked = selectedFilters.includes(option.filterGuid);
         return (
