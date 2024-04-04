@@ -12,8 +12,10 @@ const DropdownFilter: FC<any> = ({
   textStyles,
   variant,
 }) => {
-  const options = filter?.filters || [];
   const [isChecked, setIsChecked] = useState(false);
+
+  const options = filter?.filters || [];
+  if (options.length < 1) return null;
 
   const handleOnChange = (checked: boolean, selectedValue: string) => {
     let newSelected = selectedFilters ? [...selectedFilters] : [];
