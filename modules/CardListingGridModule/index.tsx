@@ -1,36 +1,38 @@
 "use client";
-import { FC, useState } from "react";
-import { ModuleBase, Pagination, SearchFilters, Stack } from "../../components";
-import { CardListingFetcher } from "./chunks";
+import { FC, useEffect, useState } from "react";
+import {
+  ListingGrid,
+  ModuleBase,
+  Pagination,
+  SearchFilters,
+  Stack,
+} from "../../components";
 import { HeadingSideModule } from "../../modules";
 import { gridWrapper, moduleWrapper } from "./CardListingGridModule.styles";
 import { CardListingGridModuleProps } from "./CardListingGridModule.types";
-// import { getCardListingData } from "./CardListingGridModule.actions";
 import { useSearchParams } from "next/navigation";
+
+export const dynamic = "force-dynamic";
 
 const CardListingGridModule: FC<CardListingGridModuleProps> = ({
   data,
   moduleAnims,
   getItems = (items?: any) => [],
-  getQueryData = (props: Record<any, any>) => {},
+  getQueryData = ({}) => {},
   textStyles,
   icons,
   paginationButtonVariants,
-  // searchParams,
   paginationType,
   showMoreText,
   ...props
 }) => {
   if (!data || !data?.filtersAndCards) return null;
-  // const fetchController = useRef(null);
   const searchParams = useSearchParams();
-
-  console.log("saerchParams", searchParams);
 
   const {
     cards,
     cardType,
-    currentPage = Number(searchParams?.page) || 1,
+    currentPage = 1,
     displayFilters,
     filter,
     totalCount,
@@ -44,13 +46,77 @@ const CardListingGridModule: FC<CardListingGridModuleProps> = ({
   const [currTotal, setCurrTotal] = useState<number>(totalPages);
 
   const isGroup = cards[0].moduleName.includes("Group");
+  let renderCardContent = null;
+  if (filteredCards && filteredCards.length > 0) {
+    renderCardContent = isGroup ? (
+      getItems(filteredCards, isGroup)
+    ) : (
+      <ListingGrid
+        data={getItems(filteredCards, isGroup)}
+        type={filteredCards[0].moduleName}
+        {...moduleAnims?.listingGrid}
+      />
+    );
+  }
 
-  const handleUpdateFromServer = (data: any) => {
-    setFilteredCards(data?.cards);
-    setCurrPage(data?.currentPage);
-    setCurrFilters(data?.currFilters);
-    setCurrTotal(data?.totalPages);
-  };
+  useEffect(() => {
+    const allFilters = searchParams.getAll("filterid");
+    const currentPage: number = parseInt(searchParams.get("page") || "1");
+
+    let fetchPage = currentPage;
+    if (
+      allFilters.length !== currFilters.length &&
+      paginationType === "showMore"
+    ) {
+      fetchPage = 1;
+    }
+
+    const filters = filter
+      .map((category: any) => {
+        const fieldGuIds = category.filters
+          .filter((f: any) => allFilters?.includes(f.filterGuid))
+          .map((f: any) => f.filterGuid);
+
+        if (fieldGuIds.length > 0) {
+          return {
+            fieldName: category.filterValue,
+            fieldGuIds,
+          };
+        }
+        return null;
+      })
+      .filter((f: any) => f !== null);
+
+    const fetchData = async () => {
+      const queryData = {
+        filters,
+        cardsType: cardType,
+        pageSize,
+        displayFilters,
+        sortByOptions,
+        pageNumber: fetchPage,
+      };
+
+      try {
+        await getQueryData({ queryData }).then((result: any) => {
+          // if load more and pageNumber++ append cards to list, otherwise replace
+          let updatedCards = result?.cards || [];
+          if (paginationType === "showMore" && currPage < currentPage) {
+            updatedCards = [...filteredCards, ...result.cards];
+          }
+
+          setFilteredCards(updatedCards);
+          setCurrPage(currentPage);
+          setCurrFilters(allFilters);
+          setCurrTotal(result?.totalPages || 1);
+        });
+      } catch (error) {
+        console.warn(error);
+      }
+    };
+
+    fetchData();
+  }, [searchParams]);
 
   const headingData = {
     description: data?.description,
@@ -77,22 +143,7 @@ const CardListingGridModule: FC<CardListingGridModuleProps> = ({
             textStyles={textStyles}
           />
         )}
-        <CardListingFetcher
-          moduleAnims={moduleAnims}
-          searchParams={searchParams}
-          cardType={cardType}
-          isGroup={isGroup}
-          filter={filter}
-          paginationType={paginationType}
-          currFilters={currFilters}
-          currPage={currPage}
-          pageSize={pageSize}
-          displayFilters={displayFilters}
-          sortByOptions={sortByOptions}
-          getQueryData={getQueryData}
-          items={getItems(filteredCards, isGroup)}
-          onUpdate={handleUpdateFromServer}
-        />
+        {renderCardContent}
         <Pagination
           totalCount={totalCount}
           pageSize={pageSize}
