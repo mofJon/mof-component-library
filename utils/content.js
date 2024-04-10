@@ -162,3 +162,8 @@ export const getValueAtBreakpoint = (values, breakpoint, percentageOf) => {
 export const areArraysEqual = (a, b) => {
   return JSON.stringify(a.sort()) === JSON.stringify(b.sort());
 };
+
+export const hasHTMLTags = (str) => {
+  const regex = /<[^>]+>/;
+  return regex.test(str);
+};

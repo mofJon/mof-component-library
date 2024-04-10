@@ -77,6 +77,7 @@ export const navItem = (
   index = 0,
   navItemAnimations?: any,
   hasChildren?: boolean,
+  colourCode?: string,
 ) => {
   const animProps = navItemAnimations ? navItemAnimations(index) : {};
 
@@ -88,6 +89,7 @@ export const navItem = (
       { "with-icon-pre": itemIcons?.iconPre || itemIcons?.subIconPre },
       { "with-icon-post": itemIcons?.iconPost || itemIcons?.subIconPost },
       { "has-children": hasChildren },
+      [colourCode],
     ),
     ...animProps,
     whileHover: "hovered",

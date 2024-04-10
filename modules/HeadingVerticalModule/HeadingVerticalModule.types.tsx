@@ -6,4 +6,7 @@ export interface HeadingVerticalModuleProps extends BoxProps {
     module: Record<string, any>;
     content: ContentBlockMotionTypes;
   };
+  imageSizes?: string;
+  imageQuality?: number;
+  imagePriority?: boolean;
 }

@@ -29,14 +29,14 @@ export const Media = forwardRef(
     let variant: any = (
       <Image
         {...hasImageSizes}
-        src={data.imageUrl}
-        alt={data.imageAlt}
+        src={data?.imageUrl}
+        alt={data?.imageAlt}
         responsive={responsive}
         priority={priority}
         quality={imageQuality}
       />
     );
-    if (data.coverImage) {
+    if (data?.coverImage) {
       variant = (
         <Video
           onAutoPlayStarted={onAutoPlayStarted}
@@ -58,7 +58,11 @@ export const Media = forwardRef(
     return (
       <Box {...props} {...mediaHolder(size, align, orientation, props)}>
         {variant}
-        <Text text={data.caption} {...caption()} />
+        {data?.title && <Text text={data?.title} {...caption("title")} />}
+        {data?.photographer && (
+          <Text text={data?.photographer} {...caption("photographer")} />
+        )}
+        <Text text={data?.caption} {...caption("")} />
       </Box>
     );
   },

@@ -6,6 +6,9 @@ import { headingVertical } from "./HeadingVerticalModule.styles";
 const HeadingVerticalModule: FC<HeadingVerticalModuleProps> = ({
   data,
   moduleAnims,
+  imageSizes,
+  imageQuality,
+  imagePriority,
   ...props
 }) => {
   return (
@@ -15,7 +18,14 @@ const HeadingVerticalModule: FC<HeadingVerticalModuleProps> = ({
       {...props}
       {...moduleAnims?.module}
     >
-      <Card data={data} variant="headingVertical" childAnims={moduleAnims} />
+      <Card
+        data={data}
+        variant="headingVertical"
+        childAnims={moduleAnims}
+        imageSizes={imageSizes}
+        priority={imagePriority}
+        imageQuality={imageQuality}
+      />
     </ModuleBase>
   );
 };

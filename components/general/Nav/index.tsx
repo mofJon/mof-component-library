@@ -19,6 +19,7 @@ export const Nav: NavProps = forwardRef(
       className,
       variant = "primary",
       data,
+      defaultImage,
       itemsPerColumn,
       isActive = false,
       isOpen = false,
@@ -117,6 +118,7 @@ export const Nav: NavProps = forwardRef(
             setPanelWidth,
             panelWidth,
             scrollContainer,
+            defaultImage,
           }}
         >
           {renderItems}

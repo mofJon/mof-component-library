@@ -104,7 +104,8 @@ const Header: FC<any> = ({
         {/* @ts-ignore */}
         <Nav
           ref={navRef}
-          data={data.mainNavItems}
+          data={data?.mainNavItems}
+          defaultImage={data?.defaultImage}
           variant={variant}
           navProps={navProps}
           onBreakpointChange={handleBreakpointChange}

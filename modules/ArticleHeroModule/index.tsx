@@ -6,7 +6,9 @@ import { articleHero } from "./ArticleHeroModule.styles";
 const ArticleHeroModule: FC<ArticleHeroModuleProps> = ({
   data,
   moduleAnims,
-  imageSizes,
+  backgroundImageSizes,
+  backgroundImageQuality,
+  imagePriority,
   variant = "articleHero",
   children,
   ...props
@@ -16,17 +18,20 @@ const ArticleHeroModule: FC<ArticleHeroModuleProps> = ({
     primaryCta: data.cta || data.primaryCta,
   });
 
+  const colourString = data?.colourCodes && data?.colourCodes.join("-");
+
   return (
     <ModuleBase
-      {...articleHero(props)}
+      {...articleHero(props, data?.backgroundImage, colourString)}
       data={newData}
-      {...props}
       {...moduleAnims?.module}
     >
       <Card
         data={data}
         variant={variant}
-        backgroundImageSizes={imageSizes}
+        backgroundImageSizes={backgroundImageSizes}
+        backgroundImageQuality={backgroundImageQuality}
+        priority={imagePriority}
         childAnims={moduleAnims?.card}
         children={children}
       />

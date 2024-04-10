@@ -8,6 +8,7 @@ const HeroLeftAlignedModule: FC<HeroLeftAlignedModuleProps> = ({
   moduleAnims,
   backgroundImageSizes,
   backgroundImageQuality,
+  imagePriority,
   ...props
 }) => {
   return (
@@ -22,6 +23,7 @@ const HeroLeftAlignedModule: FC<HeroLeftAlignedModuleProps> = ({
         variant="heroLeftAligned"
         backgroundImageSizes={backgroundImageSizes}
         backgroundImageQuality={backgroundImageQuality}
+        priority={imagePriority}
         childAnims={moduleAnims}
       />
     </ModuleBase>

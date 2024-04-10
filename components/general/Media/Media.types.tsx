@@ -12,4 +12,5 @@ export interface MediaProps {
   onAutoPlayStarted?: any;
   onPlayerReady?: any;
   imageQuality?: any;
+  className?: string;
 }

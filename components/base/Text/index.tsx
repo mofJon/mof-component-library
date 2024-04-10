@@ -62,6 +62,7 @@ export const Text = forwardRef(
     if (typeof textStyle === "string" && textStyle.match(/h[1-6]/)) {
       textTag = seoTag || textStyle;
     }
+    if (rich) textTag = "div";
 
     return createElement(
       // if motion props exist on component, make this component animatable, otherwise render static Text
@@ -87,6 +88,7 @@ const getMotionTag = (tag: any) => {
     span: motion.span,
     a: motion.a,
     button: motion.button,
+    div: motion.div,
   };
 
   return tags[tag] || motion.p;

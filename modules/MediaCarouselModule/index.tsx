@@ -7,7 +7,7 @@ const MediaCarouselModule: FC<any> = ({
   moduleAnims,
   imageSizes,
   imageQuality,
-  priority = false,
+  imagePriority = false,
   ...props
 }) => {
   if (!data) return null;
@@ -20,7 +20,7 @@ const MediaCarouselModule: FC<any> = ({
         data={val}
         imageSizes={imageSizes}
         imageQuality={imageQuality}
-        priority={priority}
+        priority={imagePriority}
       />
     );
   });

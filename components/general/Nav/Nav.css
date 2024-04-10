@@ -182,8 +182,8 @@
       overflow-hidden;
 
       .nav-image {
-        @apply opacity-0;
-        transition: 0.2s opacity ease-out;
+        @apply opacity-0 z-10;
+        transition: 0.3s 0.2s opacity ease-out;
 
         .caption {
           @apply absolute
@@ -214,6 +214,13 @@
           .caption {
             @apply opacity-100;
           }
+        }
+      }
+      .media-holder {
+        &.default {
+          @apply absolute
+          inset-0
+          opacity-100;
         }
       }
     }

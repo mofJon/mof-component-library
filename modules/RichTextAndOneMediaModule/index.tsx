@@ -8,6 +8,7 @@ const RichTextAndOneMediaModule: FC<RichTextAndOneMediaModuleProps> = ({
   moduleAnims,
   imageSizes,
   imageQuality,
+  imagePriority = false,
   ...props
 }) => {
   return (
@@ -22,6 +23,7 @@ const RichTextAndOneMediaModule: FC<RichTextAndOneMediaModuleProps> = ({
         childAnims={moduleAnims}
         imageSizes={imageSizes}
         imageQuality={imageQuality}
+        priority={imagePriority}
       />
     </ModuleBase>
   );

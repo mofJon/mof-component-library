@@ -8,4 +8,5 @@ export interface RichTextAndTwoMediaStackedModuleProps extends BoxProps {
   imageQuality?: any;
   backgroundImageSizes?: any;
   backgroundImageQuality?: any;
+  imagePriority?: boolean;
 }

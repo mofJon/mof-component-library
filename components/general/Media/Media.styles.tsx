@@ -18,18 +18,18 @@ export const mediaHolder = (
       [size],
       [align],
       [orientation],
-      props.className,
+      [props.className],
     ),
   };
 };
 
-export const caption = () => {
+export const caption = (captionVariant: any) => {
   const textStyles = contentProps?.[contentVariant]?.textStyles?.caption || {
     textStyle: "p-sm",
   };
 
   return {
-    className: "caption",
+    className: classNames("caption", [captionVariant]),
     ...textStyles,
   };
 };

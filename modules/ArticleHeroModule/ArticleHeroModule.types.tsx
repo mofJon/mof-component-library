@@ -6,7 +6,9 @@ export interface ArticleHeroModuleProps {
     module: Record<string, any>;
     card: ContentBlockMotionTypes;
   };
-  imageSizes?: string;
+  backgroundImageSizes?: string;
   variant?: string;
   children?: any;
+  backgroundImageQuality?: number;
+  imagePriority?: boolean;
 }

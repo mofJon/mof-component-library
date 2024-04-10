@@ -39,7 +39,7 @@ export default function useImageOptimiser(
     sizes: sizes || `${width || fallbackWidth}px`, // px value locks it from responding
   };
 
-  // generates our responsive, width based srcset from the CND
+  // generates our responsive, width based srcset from the CDN
   const imageLoader = ({ width }: any) => {
     return `${stripQueryString(
       url,

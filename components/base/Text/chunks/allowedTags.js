@@ -25,5 +25,10 @@ export default {
     "img",
     "figure",
     "figcaption",
+    "i",
+    "em",
+    "sub",
+    "sup",
+    "hr",
   ],
 };

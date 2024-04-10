@@ -4,21 +4,24 @@ import { NavContext } from "./";
 import { navImageWrapper, navImage } from "../Nav.styles";
 
 const NavImages: FC<any> = ({ images, ...props }) => {
-  const { imgProps, navSettings } = useContext(NavContext);
-  const { imageSizes } = navSettings[0];
+  const { defaultImage, imgProps, navSettings } = useContext(NavContext);
+  const {
+    imageSizes = "100vw",
+    imageQuality = 80,
+    imagePriority = true,
+  } = navSettings[0];
 
   const renderImages = images.map((image: any, i: number) => {
-    const isActive =
-      (imgProps.image && imgProps.image.mediaId === image.mediaId) ||
-      (i === 0 && !imgProps.image);
+    const isActive = imgProps.image && imgProps.image.mediaId === image.mediaId;
 
     return (
       <Box key={`navImage${i}`} {...navImage(isActive)}>
         <Media
           key={`${image.mediaId} `}
           data={image}
-          imageSizes={imageSizes || "100vw"}
-          priority
+          imageSizes={imageSizes}
+          imageQuality={imageQuality}
+          priority={imagePriority}
         />
       </Box>
     );
@@ -30,6 +33,13 @@ const NavImages: FC<any> = ({ images, ...props }) => {
       {...props}
     >
       {renderImages}
+      <Media
+        data={defaultImage}
+        imageSizes={imageSizes}
+        imageQuality={imageQuality}
+        priority={imagePriority}
+        className="default"
+      />
     </Box>
   );
 };

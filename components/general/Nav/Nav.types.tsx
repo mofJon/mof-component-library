@@ -13,6 +13,7 @@ export interface NavProps extends StackProps, VariantProps<typeof nav> {
   onBreakpointChange?: (breakpoint: string) => {};
   scrollContainer?: HTMLElement;
   enableDesktopScrollLock?: boolean;
+  defaultImage?: any;
 }
 
 export type NavVars = (

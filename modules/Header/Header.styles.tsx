@@ -1,7 +1,7 @@
 import classNames from "classnames";
 
 export const headerWrapper = (props: any, isOpen: boolean) => ({
-  className: classNames(["", props.className], { open: isOpen }),
+  className: classNames([props?.className], { open: isOpen }),
 });
 
 export const headerContent = {

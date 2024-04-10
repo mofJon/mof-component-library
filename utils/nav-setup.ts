@@ -21,6 +21,8 @@ const defaultSettings = {
   },
   icon: {},
   imageSizes: "100vw",
+  imageQuality: 80,
+  imagePriority: false,
   scrollable: false,
 };
 
@@ -100,6 +102,15 @@ const modifyLevelLayout = (levelSettings: any, props: any, level: number) => {
   const newIcon = getLatestValue(level, props, "icon");
   const newText = getLatestValue(level, props, "textStyle");
   const newScrollable = getLatestValue(level, props, "scrollable");
+  const newImageSizes = props?.imageSizes
+    ? { imageSizes: props.imageSizes }
+    : {};
+  const newImageQuality = props?.imageQuality
+    ? { imageQuality: props.imageQuality }
+    : {};
+  const newImagePriority = props?.imagePriority
+    ? { imagePriority: props.imagePriority }
+    : {};
 
   return {
     ...levelSettings, // last breakpoints settings, followed by next breakpoint overrides - (if exist)
@@ -110,6 +121,9 @@ const modifyLevelLayout = (levelSettings: any, props: any, level: number) => {
     ...newIcon,
     ...newText,
     ...newScrollable,
+    ...newImageSizes,
+    ...newImageQuality,
+    ...newImagePriority,
   };
 };
 

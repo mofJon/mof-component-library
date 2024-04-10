@@ -94,9 +94,10 @@ const NavItemRow: FC<any> = ({
         isActive,
         icon,
         navStyle,
-        data.index,
+        data?.index,
         navItemAnimations,
         hasChildren,
+        data?.colourCode,
       )}
       textStyle={textStyle?.textStyle}
       {...motion?.item}

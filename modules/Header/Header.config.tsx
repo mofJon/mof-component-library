@@ -96,7 +96,9 @@ const headerConfig = {
           textStyle: "p-sm",
         },
       ],
-      imagesSizes: "70vw",
+      imagesSizes: "50vw",
+      imageQuality: 50,
+      imagePriority: true,
     },
   },
   icons: {

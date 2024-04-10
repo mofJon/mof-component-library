@@ -6,6 +6,8 @@ import { BannerFullBleedMedia } from "./BannerFullBleedModule.styles";
 const BannerFullBleedModule: FC<BannerFullBleedModuleProps> = ({
   data,
   backgroundImageSizes,
+  backgroundImageQuality,
+  imagePriority,
   moduleAnims,
   cardVariant = "bannerFullBleed",
   ...props
@@ -22,6 +24,8 @@ const BannerFullBleedModule: FC<BannerFullBleedModuleProps> = ({
         size="full"
         childAnims={moduleAnims}
         {...backgroundImageSizes}
+        imageQuality={backgroundImageQuality}
+        priority={imagePriority}
       />
     </ModuleBase>
   );

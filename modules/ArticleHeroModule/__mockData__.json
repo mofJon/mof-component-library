@@ -28,6 +28,7 @@
     "isSvg": false,
     "isVideo": false
   },
+  "colourCodes": ["tallBuildings", "civic"],
   "anchor": "",
   "anchorDisplayName": "",
   "paddingTop": "",

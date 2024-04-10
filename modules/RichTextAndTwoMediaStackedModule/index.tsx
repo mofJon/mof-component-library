@@ -12,6 +12,7 @@ const RichTextAndTwoMediaStackedModule: FC<
   imageQuality,
   backgroundImageSizes,
   backgroundImageQuality,
+  imagePriority = false,
   smallImageSizes,
   ...props
 }) => {
@@ -29,6 +30,7 @@ const RichTextAndTwoMediaStackedModule: FC<
         imageSizes={imageSizes}
         backgroundImageQuality={backgroundImageQuality}
         backgroundImageSizes={backgroundImageSizes}
+        priority={imagePriority}
       />
     </ModuleBase>
   );
