@@ -10,6 +10,7 @@ const CardCarouselGenericModule: FC<CardCarouselGenericModuleProps> = ({
   moduleAnims,
   getItems = () => ["No content found. Please connect a config."],
   textStyles,
+  getColumnNumber = () => null,
   ...props
 }) => {
   if (!data) return null;
@@ -18,12 +19,17 @@ const CardCarouselGenericModule: FC<CardCarouselGenericModuleProps> = ({
   const renderCarouselRows = getCards.map((val: any, i: number) => {
     const { cards } = val.props;
 
+    const propOverrideColumnNumber = getColumnNumber(cards[0].moduleName)
+      ? { columns: getColumnNumber(cards[0].moduleName) }
+      : {};
+
     return (
       <Carousel
         key={`carousel${i}`}
         items={getItems(cards)}
         {...carouselProps}
         {...moduleAnims?.carousel}
+        {...propOverrideColumnNumber}
       />
     );
   });

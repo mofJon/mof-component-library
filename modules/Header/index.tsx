@@ -118,13 +118,10 @@ const Header: FC<any> = ({
         <Box
           ref={toggleRef}
           {...navToggleButtons(isNavOpen, moduleAnims?.toggleWrapper)}
+          onClick={toggleNav}
         >
-          <Box {...navOpen(moduleAnims?.toggleOpen)} onClick={toggleNav}>
-            {icons?.navOpen}
-          </Box>
-          <Box {...navClose(moduleAnims?.toggleClose)} onClick={toggleNav}>
-            {icons?.navClose}
-          </Box>
+          <Box {...navOpen(moduleAnims?.toggleOpen)}>{icons?.navOpen}</Box>
+          <Box {...navClose(moduleAnims?.toggleClose)}>{icons?.navClose}</Box>
         </Box>
       </Stack>
     </Box>

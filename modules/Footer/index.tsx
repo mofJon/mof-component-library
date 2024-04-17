@@ -35,6 +35,7 @@ const Footer: FC<FooterProps> = ({
           {...logoWrapper(moduleAnims?.logo)}
           responsive
           priority={logoPriority}
+          disablePlaceholder
         />
         <FooterTopLinks
           data={data?.upperLinks}

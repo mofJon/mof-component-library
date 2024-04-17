@@ -20,6 +20,21 @@
           opacity: 1;
         }
       }
+      &.autoplay {
+        .video-controls {
+          @apply hidden;
+        }
+      }
+      &.fullscreen-enabled {
+        > div:first-child {
+          @apply hidden;
+        }
+      }
+      &.fullscreen-active {
+        > div:first-child {
+          @apply flex pointer-events-auto;
+        }
+      }
     }
     &-controls {
       @apply absolute

@@ -3,9 +3,11 @@ import { Box, Image, Stack, Text } from "../../../components";
 import localImage from "../../../assets/images/zhaCarousel1.jpg";
 
 const imageUrlWithQuery =
-  "https://media.idorchester.com/api/v1/media/ox4khfi1/le-meurice-facade-5.jpg?width=696&height=464&format=webp";
+  "https://cdn-zhweb-qa-media.azureedge.net/api/v1/media/53kgzguw/refargotohp-1azkcg0c38a-unsplash.jpg?width=696&format=webp";
 const imageUrlWithoutQuery =
-  "https://media.idorchester.com/api/v1/media/ox4khfi1/le-meurice-facade-5.jpg";
+  "https://cdn-zhweb-qa-media.azureedge.net/api/v1/media/53kgzguw/refargotohp-1azkcg0c38a-unsplash.jpg";
+const imageUrlWithFocalPoint =
+  "https://qa-api.zaha-hadid.com/media/bwzfe0he/01667_cp_n101337.jpg?rxy=0.8771146616541353,0.20592004721792143";
 
 const meta: Meta<typeof Image> = {
   component: Image,
@@ -55,6 +57,23 @@ export const FillContainer: Story = {
 export const Responsive: Story = {
   args: {
     src: imageUrlWithQuery,
+    priority: true,
+    responsive: true,
+  },
+};
+
+export const FocalPoint: Story = {
+  decorators: [
+    (Story) => {
+      return (
+        <Box className="w-[800px] h-[1000px] bg-gray-200 relative">
+          <Story />
+        </Box>
+      );
+    },
+  ],
+  args: {
+    src: imageUrlWithFocalPoint,
     priority: true,
     responsive: true,
   },

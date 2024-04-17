@@ -1,9 +1,12 @@
+"use client";
 import { useEffect, useRef, FC, useState } from "react";
 import { Box, Button, Image } from "../../";
-import ReactPlayer from "react-player/lazy";
 import screenfull from "screenfull";
 import { videoWrapper, videoControls } from "./Video.styles";
 import { useDimensions } from "../../../hooks";
+
+import dynamic from "next/dynamic";
+const ReactPlayer = dynamic(() => import("react-player/lazy"), { ssr: false });
 
 const Video: FC<any> = ({
   data,
@@ -13,10 +16,11 @@ const Video: FC<any> = ({
   onAutoPlayStarted = () => {},
   imageQuality,
 }: any) => {
-  const player = useRef<any>(null);
   const videoWrapperRef = useRef<HTMLDivElement>(null);
+  const [isClient, setIsClient] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
   const [viewer, setViewer] = useState<HTMLIFrameElement | HTMLVideoElement>();
   const [init, setInit] = useState(true);
   const [aspect, setAspect] = useState(1);
@@ -31,14 +35,14 @@ const Video: FC<any> = ({
       const viewerWidth = viewer?.getBoundingClientRect()?.width;
 
       if (vidContainer) {
-        vidContainer.style.width = "102%";
+        vidContainer.style.width = "105%";
         vidContainer.style.height = `${width * 3}px`;
         if (
           height >=
           width * aspect
           // (viewerWidth || width) < width
         ) {
-          vidContainer.style.height = "102%";
+          vidContainer.style.height = "105%";
           vidContainer.style.width = `${height * 3}px`;
         }
       }
@@ -46,8 +50,17 @@ const Video: FC<any> = ({
   };
 
   useEffect(() => {
+    setIsClient(true);
+    document.addEventListener("fullscreenchange", onFullscreenChange);
+
+    return () => {
+      document.removeEventListener("fullscreenchange", onFullscreenChange);
+    };
+  }, []);
+
+  useEffect(() => {
     resizeVideo();
-  }, [width, height, player.current, viewer, init]);
+  }, [width, height, viewer, init]);
 
   if (!data) {
     return null;
@@ -83,7 +96,7 @@ const Video: FC<any> = ({
         setViewer(container);
         if (data?.autoPlay) {
           setInit(false);
-          setIsPlaying(true);
+          setIsPlaying(!data?.allowFullScreen);
         }
       }
     }
@@ -92,8 +105,20 @@ const Video: FC<any> = ({
   const handleFullscreen = (e?: any) => {
     if (!data?.allowFullScreen) return;
 
+    setIsMuted(false);
+    setIsFullscreen(true);
+    setIsPlaying(true);
+
     e && e.stopPropagation();
     viewer && screenfull.request(viewer);
+  };
+
+  const onFullscreenChange = () => {
+    if (!screenfull.isFullscreen) {
+      setIsMuted(true);
+      setIsFullscreen(false);
+      setIsPlaying(false);
+    }
   };
 
   const togglePlay = (e: any) => {
@@ -104,6 +129,9 @@ const Video: FC<any> = ({
     }
 
     setIsPlaying(!isPlaying);
+    if (data?.allowFullScreen) {
+      handleFullscreen();
+    }
   };
 
   const toggleMute = (e: any) => {
@@ -114,27 +142,39 @@ const Video: FC<any> = ({
   return (
     <Box
       ref={videoWrapperRef}
-      {...videoWrapper(isPlaying, data?.autoPlay, init)}
+      {...videoWrapper(
+        isPlaying,
+        data?.autoPlay,
+        data?.allowFullScreen,
+        isFullscreen,
+        init,
+      )}
       onClick={handleFullscreen}
     >
-      <ReactPlayer
-        ref={player}
-        url={vidSrc}
-        playing={isPlaying}
-        onReady={handleReady}
-        controls={data?.allowControls}
-        muted={isMuted}
-        autoPlay={data?.autoPlay && viewer}
-        playsinline
-        loop={data?.loop}
-        config={{
-          youtube: {
-            playerVars: {
-              videoControls: data?.allowControls,
-            },
-          },
-        }}
-      />
+      {isClient && (
+        <ReactPlayer
+          url={vidSrc}
+          playing={isPlaying}
+          onReady={handleReady}
+          controls={data?.allowControls || data?.allowFullScreen}
+          muted={isMuted}
+          autoPlay={data?.autoPlay && viewer && !data?.allowFullScreen}
+          playsinline={!data?.allowFullScreen}
+          loop={data?.loop}
+          // config={{
+          //   youtube: {
+          //     playerVars: {
+          //       controls: 1,
+          //     },
+          //   },
+          //   vimeo: {
+          //     playerOptions: {
+          //       controls: isFullscreen,
+          //     },
+          //   },
+          // }}
+        />
+      )}
       {cover && (
         <Image
           sizes={imageSizes}
@@ -145,7 +185,7 @@ const Video: FC<any> = ({
           quality={imageQuality}
         />
       )}
-      {vidSrc && (
+      {vidSrc && isClient && (
         <Box {...videoControls(isPlaying, !init)}>
           <Button onClick={toggleMute} variant="videoMute" />
           <Button onClick={togglePlay} variant="videoPlay" />

@@ -1,11 +1,12 @@
-import { forwardRef, Ref, useRef } from "react";
+import { forwardRef, Ref, useEffect, useRef, useState } from "react";
 import { Box } from "../../../components";
 import NextImage from "next/image";
 import { ImageProps } from "./Image.types";
-import { spacer } from "./Image.styles";
+import { focalPointSettings, spacer } from "./Image.styles";
 import { motion } from "framer-motion";
 import { containsMotionProps } from "../../../utils";
 import { useImageOptimiser } from "../../../hooks";
+import { getBase64 } from "./Image.actions";
 
 export const Image = forwardRef(
   (
@@ -18,12 +19,21 @@ export const Image = forwardRef(
       placeholder,
       sizes,
       quality,
+      disablePlaceholder,
       ...props
     }: ImageProps,
     ref: Ref<any>,
   ): any => {
+    const [blurData, setBlurData] = useState({});
     const imageRef = useRef<any>();
     const isAnimated = containsMotionProps(props);
+
+    // get focal point
+    const queryString = propSrc.split("?")[1];
+    const searchParams = new URLSearchParams(queryString);
+    const focalPoint = searchParams.get("rxy");
+    const imageHeight = searchParams.get("height");
+
     const optimiserProps = useImageOptimiser(
       propSrc,
       (propWidth = 0),
@@ -32,7 +42,22 @@ export const Image = forwardRef(
       sizes,
       imageRef,
       quality,
+      imageHeight,
+      focalPoint,
     );
+
+    useEffect(() => {
+      const getBlurImage = async () => {
+        const blurDataURL = await getBase64(propSrc, imageHeight, focalPoint);
+        if (blurDataURL) {
+          setBlurData({
+            placeholder: "blur",
+            blurDataURL,
+          });
+        }
+      };
+      if (!disablePlaceholder) getBlurImage();
+    }, []);
 
     // this works out parent dimensions
     if (
@@ -46,6 +71,7 @@ export const Image = forwardRef(
       alt,
       ...props,
       ...optimiserProps,
+      ...blurData,
     };
 
     return isAnimated ? (

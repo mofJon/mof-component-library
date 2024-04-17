@@ -8,8 +8,15 @@ export const getQueryByName = (str: string, key: string) => {
   return matched ? matched[1] : "";
 };
 
-export const stripQueryString = (str: string = "") => {
-  const url = str.replace(/\?.*$/, "");
+export const stripQueryString = (
+  str: string = "",
+  andRemoveFirstSlash = false,
+) => {
+  const urlWithoutParams = str.replace(/\?.*$/, "");
+  let url = urlWithoutParams;
+  if (andRemoveFirstSlash && urlWithoutParams[0] === "/") {
+    url = urlWithoutParams.substring(1);
+  }
   return url;
 };
 

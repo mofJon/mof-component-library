@@ -7,7 +7,7 @@ const NavWrapperRow: FC<any> = ({ data, isOpen, offset = 0 }) => {
   const { images, menuWidth, navSettings } = useContext(NavContext);
   const [panels, setPanels] = useState([{ items: data, back: null }]);
   const currTier = panels.length - 1 || 0;
-  const { motion, attachTo } = navSettings[currTier + offset];
+  const { motion = {}, attachTo = "bottom" } = navSettings[currTier + offset];
 
   const handleUpdatePanels = (data?: any) => {
     const currentPanels = [...panels];

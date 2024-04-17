@@ -3,12 +3,16 @@ import classNames from "classnames";
 export const videoWrapper = (
   isPlaying: boolean,
   isAutoPlay: boolean,
+  allowFullScreen: boolean,
+  isFullscreen: boolean,
   init: boolean,
 ) => ({
   className: classNames(
     "video-wrapper",
     { playing: isPlaying },
-    { autoplay: isAutoPlay },
+    { autoplay: isAutoPlay && !allowFullScreen },
+    { "fullscreen-enabled": allowFullScreen },
+    { "fullscreen-active": isFullscreen },
     { started: !init },
   ),
   style: {

@@ -3,6 +3,7 @@ import { RichTextAndOneMediaModule } from "../";
 import data from "./__mockData__.json";
 import dataYT from "./__mockDataYouTube__.json";
 import dataSrc from "./__mockDataSrc__.json";
+import dataAuto from "./__mockDataAutoplay__.json";
 
 const meta: Meta<typeof RichTextAndOneMediaModule> = {
   component: RichTextAndOneMediaModule,
@@ -33,5 +34,11 @@ export const RichTextAndOneMediaYoutube: Story = {
 export const RichTextAndOneMediaSrc: Story = {
   args: {
     data: dataSrc,
+  },
+};
+
+export const RichTextAndOneMediaVimeoAutoplay: Story = {
+  args: {
+    data: dataAuto,
   },
 };

@@ -9,7 +9,10 @@ const NavImages: FC<any> = ({ images, ...props }) => {
     imageSizes = "100vw",
     imageQuality = 80,
     imagePriority = true,
+    disableImages = false,
   } = navSettings[0];
+
+  if (disableImages) return null;
 
   const renderImages = images.map((image: any, i: number) => {
     const isActive = imgProps.image && imgProps.image.mediaId === image.mediaId;

@@ -21,22 +21,27 @@ export const navToggleButtons = (isNavOpen: boolean, motion: any) => ({
 
 export const navOpen = (motion: any) => ({
   className: "nav-toggle-open",
-  closed: {
-    opacity: 1,
+  variants: {
+    closed: {
+      opacity: 1,
+    },
+    open: {
+      opacity: 0,
+    },
   },
-  open: {
-    opacity: 0,
-  },
+
   ...motion,
 });
 
 export const navClose = (motion: any) => ({
   className: "nav-toggle-close",
-  closed: {
-    opacity: 0,
-  },
-  open: {
-    opacity: 1,
+  variants: {
+    closed: {
+      opacity: 0,
+    },
+    open: {
+      opacity: 1,
+    },
   },
   ...motion,
 });

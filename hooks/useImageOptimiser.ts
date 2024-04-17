@@ -1,7 +1,7 @@
 import { useDimensions } from "./";
 import { stripQueryString } from "../utils";
 import { useDevicePixelRatio } from "use-device-pixel-ratio";
-import { getBase64 } from "../components/base/Image/Image.actions";
+import { focalPointSettings } from "../components/base/Image/Image.styles";
 
 const dprQuality = [70, 30, 20];
 
@@ -13,6 +13,8 @@ export default function useImageOptimiser(
   sizes?: string,
   ref?: any,
   propsQuality?: any,
+  imageHeight?: any,
+  focalPoint?: any,
 ): any {
   const dimensions = useDimensions(ref);
   const dpr = useDevicePixelRatio();
@@ -31,6 +33,7 @@ export default function useImageOptimiser(
     sizes: sizes || "100vw",
     style: {
       objectFit: "cover",
+      ...focalPointSettings(focalPoint),
     },
   };
   const staticProps = {
@@ -41,18 +44,18 @@ export default function useImageOptimiser(
 
   // generates our responsive, width based srcset from the CDN
   const imageLoader = ({ width }: any) => {
+    const hasFocalPoint = focalPoint ? `&rxy=${focalPoint}` : "";
+    const hasHeight = imageHeight ? `&height=${imageHeight}` : "";
+
     return `${stripQueryString(
       url,
-    )}?width=${width}&quality=${quality}&format=webp`;
+    )}?width=${width}&quality=${quality}&format=webp${hasFocalPoint}${hasHeight}`;
   };
 
   // jpg fallback for older browsers
   const fallbackURL = `${stripQueryString(url)}?width=${
     fallbackWidth * dpr
   }&quality=${quality}&format=auto`;
-
-  // blurURL
-  const blurURL = `${stripQueryString(url)}?width=10&quality=10&format=auto`;
 
   const isAbsolute = url && url.includes("http");
   const hasLoader = isAbsolute ? { loader: imageLoader } : {};

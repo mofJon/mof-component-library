@@ -10,5 +10,6 @@ export type CardCarouselGenericModuleProps = CarouselProps & {
   data: any;
   carouselProps?: CarouselProps;
   getItems: (cards: any) => any;
+  getColumnNumber?: (number: any) => any;
   textStyles?: Record<string, any>;
 };

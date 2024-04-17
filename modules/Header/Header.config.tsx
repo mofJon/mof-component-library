@@ -35,6 +35,8 @@ const headerConfig = {
         },
       ],
       scrollable: [true],
+      disableImages: true,
+      imageSizes: "30w",
     },
     md: {
       attachTo: ["stackRow"],
@@ -56,7 +58,9 @@ const headerConfig = {
         },
       ],
       scrollable: [true],
-      imageSizes: "80vw",
+      imageSizes: "50vw",
+      imagePriority: true,
+      disableImages: false,
     },
     lg: {
       direction: ["row", "column"],
@@ -96,7 +100,7 @@ const headerConfig = {
           textStyle: "p-sm",
         },
       ],
-      imagesSizes: "50vw",
+      imageSizes: "50vw",
       imageQuality: 50,
       imagePriority: true,
     },

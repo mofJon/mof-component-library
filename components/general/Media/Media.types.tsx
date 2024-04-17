@@ -13,4 +13,5 @@ export interface MediaProps {
   onPlayerReady?: any;
   imageQuality?: any;
   className?: string;
+  disablePlaceholder?: boolean;
 }
