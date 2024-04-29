@@ -39,7 +39,11 @@ export const Media = forwardRef(
       />
     );
     if (data?.coverImage) {
-      if (data?.coverImage?.isVideo) {
+      if (
+        data?.vimeoId !== "" ||
+        data?.youtubeId !== "" ||
+        data?.videoFromGallery
+      ) {
         variant = (
           <Suspense>
             <Video

@@ -38,6 +38,8 @@ export const Text = forwardRef(
     if (typeof window !== "undefined") {
       cleanedText = DOMPurify.sanitize(currentText, {
         ALLOWED_TAGS: rich ? allowedTags.rich : allowedTags.default,
+        ALLOWED_ATTR: ["class", "id"],
+        FORBID_ATTR: ["style", "align", "color", ""],
       });
     }
 
