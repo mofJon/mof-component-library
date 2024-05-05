@@ -48,12 +48,22 @@ export const button = cva("button", {
 });
 
 // Button Props
-export const buttonVars: ButtonVars = (variant, size, linkType, classes) => {
+export const buttonVars: ButtonVars = (
+  variant,
+  size,
+  linkType,
+  classes,
+  isLoading,
+) => {
   return {
     className: button({
       variant,
       size,
-      className: classNames(classes, { external: linkType === "External" }),
+      className: classNames(
+        classes,
+        { external: linkType === "External" },
+        { loading: isLoading },
+      ),
     }),
   };
 };

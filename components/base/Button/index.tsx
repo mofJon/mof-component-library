@@ -22,6 +22,9 @@ export const Button = forwardRef(
       href,
       target,
       textStyle,
+      isLoading = false,
+      disabled = false,
+      loadingState = "Loading...",
       ...props
     }: ButtonProps,
     ref: Ref<any>,
@@ -56,8 +59,10 @@ export const Button = forwardRef(
     );
 
     const allProps = {
-      ...buttonVars(variant, size, linkType, className), // pass all styling defaults to decoupled styles file to future-proof modularity
+      ...buttonVars(variant, size, linkType, className, isLoading), // pass all styling defaults to decoupled styles file to future-proof modularity
       onClick: (e: any) => handleClick(e),
+      ...(variant === "submit" && { type: "submit" as const }),
+      disabled,
       ...props, // pass down remaining props
     };
 
@@ -78,6 +83,10 @@ export const Button = forwardRef(
           {iconPost}
         </Stack>
       );
+    }
+
+    if (isLoading) {
+      buttonContent = loadingState;
     }
 
     return createElement(

@@ -18,6 +18,9 @@ export interface ButtonProps
   target?: string;
   textStyle?: TextProps["textStyle"];
   motion?: boolean;
+  isLoading?: boolean;
+  disabled?: boolean;
+  loadingState?: any;
 }
 
 export type ButtonVars = (
@@ -25,4 +28,5 @@ export type ButtonVars = (
   size: ButtonProps["size"],
   linkType: ButtonProps["linkType"],
   className: ButtonProps["className"],
+  isLoading: ButtonProps["isLoading"],
 ) => Record<any, any>;

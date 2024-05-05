@@ -30,7 +30,7 @@ const NavPanel: FC<NavPanelProps> = ({
     setCurrTier(currTier - 1);
   };
 
-  let back = null;
+  let back: any = null;
   if (backButton && backButton[level]) {
     back = (
       <Button
