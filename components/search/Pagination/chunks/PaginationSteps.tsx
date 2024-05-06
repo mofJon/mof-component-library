@@ -3,7 +3,16 @@ import { Button, Text } from "../../../../components";
 import { getFormattedValue } from "../../../../utils";
 import { paginationDivider, paginationStep } from "../Pagination.styles";
 
-const PaginationSteps: FC<any> = ({
+interface IPaginationSteps {
+  totalPages: number;
+  currentPage: number;
+  paginationType?: any;
+  textStyles?: any;
+  motion?: any;
+  onChange?: (val: any) => void;
+}
+
+const PaginationSteps: FC<IPaginationSteps> = ({
   totalPages = 1,
   currentPage = 1,
   paginationType = "leadingZeroNumbers",
@@ -12,7 +21,7 @@ const PaginationSteps: FC<any> = ({
   onChange,
 }) => {
   const renderStepButtons = () => {
-    let paginationSteps = [];
+    let paginationSteps: number[] = [];
 
     if (totalPages > 4 && currentPage > totalPages - 2) {
       paginationSteps = [totalPages - 2, totalPages - 1, totalPages];
@@ -47,7 +56,7 @@ const PaginationSteps: FC<any> = ({
           key={`paginationStepButton${val}`}
           variant="paginate"
           text={getFormattedValue(val - 1, paginationType) as string}
-          onClick={() => onChange(val)}
+          onClick={() => onChange && onChange(val)}
           {...paginationStep(val === currentPage, motion?.paginationChild)}
         />
       );

@@ -6,8 +6,6 @@ import {
   Text,
   CMSModule,
 } from "../../components";
-import { MagicMotion, MagicExit } from "react-magic-motion";
-import { cardsHolder } from "./TeamMemberListingGroup.styles";
 
 const TeamMemberListingGroup: FC<any> = ({
   data,
