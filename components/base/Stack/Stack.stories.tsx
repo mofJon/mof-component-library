@@ -6,7 +6,7 @@ import {
   fadeInLeft,
   fadeInUp,
   springIn,
-} from "../../../theme/motion";
+} from "../../../theme/animations";
 
 const mockCopy =
   "Example of a block of copy. Have added 'my-10' to this block to get more aesthetical spacing above and below, but generally you'd set the gap on the encasing stack for consistency.";

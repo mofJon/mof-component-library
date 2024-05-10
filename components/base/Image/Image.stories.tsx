@@ -8,6 +8,8 @@ const imageUrlWithoutQuery =
   "https://cdn-zhweb-qa-media.azureedge.net/api/v1/media/53kgzguw/refargotohp-1azkcg0c38a-unsplash.jpg";
 const imageUrlWithFocalPoint =
   "https://qa-api.zaha-hadid.com/media/bwzfe0he/01667_cp_n101337.jpg?rxy=0.8771146616541353,0.20592004721792143";
+const svgSrc =
+  "http://localhost:8055/assets/3b2af8a6-035d-4ef1-ad8c-fe584689ed0f";
 
 const meta: Meta<typeof Image> = {
   component: Image,
@@ -85,5 +87,12 @@ export const StaticallyImportedImage: Story = {
     width: localImage.width,
     height: localImage.height,
     sizes: "(min-width: 808px) 50vw, 100vw",
+  },
+};
+
+export const SVG: Story = {
+  args: {
+    src: svgSrc,
+    className: "w-80 h-80 text-grey",
   },
 };
