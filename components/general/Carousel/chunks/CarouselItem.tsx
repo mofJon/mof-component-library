@@ -74,7 +74,6 @@ const CarouselItem: FC<ICarouselItem> = ({
   const allProps = {
     ...itemHolder(width / columnNum, offset, (props as any).style, loop),
     ...props,
-    bgSrc: typeof item === "string" ? item : "",
     // @ts-ignore
     ...itemAnimation[variant],
   };

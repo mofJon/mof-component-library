@@ -22,7 +22,7 @@ const RichTextModule: FC<RichTextModuleProps> = ({
         variant="richText"
         richText
         childAnims={moduleAnims?.card}
-        {...imageSizes}
+        imageSizes={imageSizes}
       />
     </ModuleBase>
   );

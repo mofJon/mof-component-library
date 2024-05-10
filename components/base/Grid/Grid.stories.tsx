@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Box, Grid } from "../../../components";
-import { animControllerInView, fadeInUp } from "../../../theme/animations";
+import { animControllerInView, fadeInUp } from "../../../theme/motion";
 
 const meta: Meta<typeof Grid> = {
   component: Grid,
@@ -27,7 +27,7 @@ const renderMockSquares = ["blue", "pink", "purple", "teal"].map(
         className={`rounded-3xl h-40 bg-${color}-500`}
       />
     );
-  },
+  }
 );
 
 export const SimpleGrid: Story = {
@@ -48,7 +48,7 @@ const renderAnimatedMockSquares = ["blue", "pink", "purple", "teal"].map(
         {...fadeInUp}
       />
     );
-  },
+  }
 );
 
 export const AnimatedGrid: Story = {
@@ -130,7 +130,7 @@ const renderMockSpannedSquares = ["blue", "pink", "purple", "teal", "blue"].map(
         className={`rounded-3xl ${cellHeight} bg-${color}-500 ${rowSpan} ${colSpan}`}
       />
     );
-  },
+  }
 );
 
 export const SpannedRowAndColGrid: Story = {
