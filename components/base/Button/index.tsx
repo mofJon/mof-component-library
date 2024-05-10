@@ -1,3 +1,4 @@
+"use client";
 import { createElement, forwardRef, ReactNode, Ref, useCallback } from "react";
 import { ButtonProps } from "./Button.types";
 import { buttonVars } from "./Button.styles";
@@ -52,7 +53,10 @@ export const Button = forwardRef(
         }
 
         if (href) {
-          router.push(href);
+          target === "_blank"
+            ? // @ts-ignore
+              window.open(href, "_blank")
+            : router.push(href);
         }
       },
       [onClick],

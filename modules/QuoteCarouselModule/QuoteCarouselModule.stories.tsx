@@ -3,6 +3,7 @@ import { QuoteCarouselModule } from "../";
 // @ts-ignore
 import Arrow from "../../assets/icons/zhaArrow.svg";
 import data from "./__mockdata__.json";
+import item from "./__mockdataOneItem__.json";
 
 const meta: Meta<typeof QuoteCarouselModule> = {
   component: QuoteCarouselModule,
@@ -21,6 +22,29 @@ type Story = StoryObj<typeof QuoteCarouselModule>;
 export const QuoteCarousel: Story = {
   args: {
     data,
+    carouselProps: {
+      controls: {
+        show: true,
+        directionComponent: <Arrow />,
+      },
+      showPagination: true,
+      paginationType: "leadingZeroNumbers",
+      animationStyle: "elegant",
+      paginationStyle: {
+        textStyle: "i-xs",
+      },
+    },
+    textStyles: {
+      quote: {
+        textStyle: "h3",
+      },
+    },
+  },
+};
+
+export const QuoteCarouselOnItem: Story = {
+  args: {
+    data: item,
     carouselProps: {
       controls: {
         show: true,
