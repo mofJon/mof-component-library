@@ -1,4 +1,4 @@
-import { createElement, forwardRef, Ref, useEffect, useState } from "react";
+import { createElement, forwardRef, Ref } from "react";
 import { TextProps } from "./Text.types";
 import { textVars } from "./Text.styles";
 import DOMPurify from "isomorphic-dompurify";
@@ -21,27 +21,19 @@ export const Text = forwardRef(
     }: TextProps,
     ref: Ref<TextProps>,
   ) => {
-    const [clientReady, setClientReady] = useState<boolean>(false);
-
     const isAnimated = containsMotionProps(props); //contains framer motion props?
 
-    useEffect(() => {
-      setClientReady(true);
-    }, []);
-
-    if ((!text && !link.text) || !clientReady) return null;
+    if (!text && !link.text) return null;
 
     // HTML string - unwanted tags stripping
     const currentText = link?.text || (text as string);
     let cleanedText = currentText;
-    // @ts-ignore
-    if (typeof window !== "undefined") {
-      cleanedText = DOMPurify.sanitize(currentText, {
-        ALLOWED_TAGS: rich ? allowedTags.rich : allowedTags.default,
-        ALLOWED_ATTR: ["class", "id"],
-        FORBID_ATTR: ["style", "align", "color", ""],
-      });
-    }
+
+    cleanedText = DOMPurify.sanitize(currentText, {
+      ALLOWED_TAGS: rich ? allowedTags.rich : allowedTags.default,
+      ALLOWED_ATTR: ["class", "id"],
+      FORBID_ATTR: ["style", "align", "color", ""],
+    });
 
     if (textStyle === "button" && variant !== "popover") {
       return text;
