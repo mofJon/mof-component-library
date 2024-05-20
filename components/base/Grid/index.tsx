@@ -9,19 +9,19 @@ import {
   useEffect,
   useRef,
   useState,
-} from 'react';
-import { GridProps } from './Grid.types';
-import { gridVars } from './Grid.styles';
-import { motion, useMotionValue } from 'framer-motion';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { containsMotionProps } from '../../../utils';
+} from "react";
+import { GridProps } from "./Grid.types";
+import { gridVars } from "./Grid.styles";
+import { motion, useMotionValue } from "framer-motion";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { containsMotionProps } from "../../../utils";
 
 const ScrollTriggerContext = createContext({} as any);
 const scrollTriggerDefaults = {
-  start: 'top bottom',
-  end: 'bottom top',
-  toggleActions: 'restart none none none',
+  start: "top bottom",
+  end: "bottom top",
+  toggleActions: "restart none none none",
 };
 
 export const Grid = forwardRef(
@@ -82,33 +82,33 @@ export const Grid = forwardRef(
             },
             onEnter: () => {
               if (onEnter || animateOnScrollDown) {
-                setMotionState(animateOnScrollDown ? 'active' : onEnter);
+                setMotionState(animateOnScrollDown ? "active" : onEnter);
               }
-              setScrollState('enter');
+              setScrollState("enter");
             },
             onEnterBack: () => {
               if (onEnterBack || animateOnScrollDown) {
-                setMotionState(animateOnScrollDown ? 'active' : onEnterBack);
+                setMotionState(animateOnScrollDown ? "active" : onEnterBack);
               }
-              setScrollState('enterBack');
+              setScrollState("enterBack");
             },
             onLeave: () => {
               if (onLeave || animateOnScrollDown) {
-                setMotionState(animateOnScrollDown ? 'active' : onLeave);
+                setMotionState(animateOnScrollDown ? "active" : onLeave);
               }
-              setScrollState('leave');
+              setScrollState("leave");
             },
             onLeaveBack: () => {
-              if (onLeaveBack) {
-                setMotionState(onLeaveBack);
+              if (onLeaveBack || animateOnScrollDown) {
+                setMotionState(animateOnScrollDown ? "inactive" : onLeaveBack);
               }
-              setScrollState('leaveBack');
+              setScrollState("leaveBack");
             },
             onRefresh: () => {
               if (onRefresh) {
                 setMotionState(onRefresh);
               }
-              setScrollState('refresh');
+              setScrollState("refresh");
             },
             onToggle: (self) => {
               setInView(self.isActive);
@@ -133,7 +133,7 @@ export const Grid = forwardRef(
     ]);
 
     return createElement(
-      isAnimated ? motion.div : 'div', // if motion props exist on component, make this component animatable, otherwise render static Grid
+      isAnimated ? motion.div : "div", // if motion props exist on component, make this component animatable, otherwise render static Grid
       { ...allProps, ref: innerRef },
       <ScrollTriggerContext.Provider
         value={{ inView, motionState, progress, scrollState }}
@@ -144,7 +144,7 @@ export const Grid = forwardRef(
   },
 );
 
-Grid.displayName = 'Grid';
+Grid.displayName = "Grid";
 
 export const useScrollTriggerGrid = () => useContext(ScrollTriggerContext);
 

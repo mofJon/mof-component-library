@@ -23,6 +23,7 @@ export * from "./general/Nav";
 export { default as Popover } from "./general/Popover";
 export { default as ShareTooltip } from "./general/ShareTooltip";
 export { default as ShowJSON } from "./general/ShowJSON";
+export { default as SmoothScroll } from "./general/SmoothScroll";
 export { default as Video } from "./general/Video";
 
 // search components

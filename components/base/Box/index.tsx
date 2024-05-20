@@ -9,26 +9,26 @@ import {
   useEffect,
   useRef,
   useState,
-} from 'react';
-import { BoxProps } from './Box.types';
-import { boxVars } from './Box.styles';
-import { motion, useMotionValue } from 'framer-motion';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { containsMotionProps } from '../../../utils';
+} from "react";
+import { BoxProps } from "./Box.types";
+import { boxVars } from "./Box.styles";
+import { motion, useMotionValue } from "framer-motion";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { containsMotionProps } from "../../../utils";
 
 const ScrollTriggerContext = createContext({} as any);
 const scrollTriggerDefaults = {
-  start: 'top bottom',
-  end: 'bottom top',
-  toggleActions: 'restart none none none',
+  start: "top bottom",
+  end: "bottom top",
+  toggleActions: "restart none none none",
 };
 
 export const Box = forwardRef(
   (
     {
       className,
-      variant = 'flex',
+      variant = "flex",
       scrollTrigger,
       debug = false,
       onEnter,
@@ -81,33 +81,33 @@ export const Box = forwardRef(
             },
             onEnter: () => {
               if (onEnter || animateOnScrollDown) {
-                setMotionState(animateOnScrollDown ? 'active' : onEnter);
+                setMotionState(animateOnScrollDown ? "active" : onEnter);
               }
-              setScrollState('enter');
+              setScrollState("enter");
             },
             onEnterBack: () => {
               if (onEnterBack || animateOnScrollDown) {
-                setMotionState(animateOnScrollDown ? 'active' : onEnterBack);
+                setMotionState(animateOnScrollDown ? "active" : onEnterBack);
               }
-              setScrollState('enterBack');
+              setScrollState("enterBack");
             },
             onLeave: () => {
               if (onLeave || animateOnScrollDown) {
-                setMotionState(animateOnScrollDown ? 'active' : onLeave);
+                setMotionState(animateOnScrollDown ? "active" : onLeave);
               }
-              setScrollState('leave');
+              setScrollState("leave");
             },
             onLeaveBack: () => {
-              if (onLeaveBack) {
-                setMotionState(onLeaveBack);
+              if (onLeaveBack || animateOnScrollDown) {
+                setMotionState(animateOnScrollDown ? "inactive" : onLeaveBack);
               }
-              setScrollState('leaveBack');
+              setScrollState("leaveBack");
             },
             onRefresh: () => {
               if (onRefresh) {
                 setMotionState(onRefresh);
               }
-              setScrollState('refresh');
+              setScrollState("refresh");
             },
             onToggle: (self) => {
               setInView(self.isActive);
@@ -131,9 +131,9 @@ export const Box = forwardRef(
       gsapRegistered,
     ]);
 
-    const tagType: any = ['section', 'footer', 'header'].includes(`${variant}`)
+    const tagType: any = ["section", "footer", "header"].includes(`${variant}`)
       ? variant
-      : 'div';
+      : "div";
 
     return createElement(
       isAnimated ? getMotionTag(tagType) : tagType, // if motion props exist on component, make this component animatable, otherwise render static div
@@ -147,7 +147,7 @@ export const Box = forwardRef(
   },
 );
 
-Box.displayName = 'Box';
+Box.displayName = "Box";
 
 const getMotionTag = (tag: any) => {
   const tags: any = {
