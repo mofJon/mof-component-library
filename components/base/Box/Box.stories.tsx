@@ -217,3 +217,38 @@ export const ScrollTriggerAnimateOnScrollDown: Story = {
     },
   },
 };
+
+const InViewChild = () => {
+  const { inView } = useScrollTrigger();
+
+  return (
+    <Stack direction="column" className="fixed inset-0">
+      <Text text={`In View: ${inView}`} textStyle="h1" />
+      <Text
+        text="need to add scrollTrigger prop to parent component in order for it to trigger"
+        textStyle="p"
+      />
+    </Stack>
+  );
+};
+
+export const ScrollTriggerInView: Story = {
+  decorators: [
+    (Story) => {
+      return (
+        <>
+          <Stack direction="column" className="py-[1000px]">
+            <Story />
+          </Stack>
+          <SmoothScroll />
+        </>
+      );
+    },
+  ],
+  args: {
+    className: "rounded-3xl w-40 h-40 bg-blue-500 relative",
+    debug: true,
+    children: <InViewChild />,
+    scrollTrigger: true,
+  },
+};
