@@ -2,7 +2,7 @@ import { forwardRef, Ref, useEffect, useRef, useState } from "react";
 import { Box } from "../../../components";
 import NextImage from "next/image";
 import { ImageProps } from "./Image.types";
-import { focalPointSettings, spacer } from "./Image.styles";
+import { spacer } from "./Image.styles";
 import { motion } from "framer-motion";
 import { containsMotionProps } from "../../../utils";
 import { useImageOptimiser } from "../../../hooks";
@@ -20,6 +20,7 @@ export const Image = forwardRef(
       sizes,
       quality,
       disablePlaceholder,
+      priority = false,
       ...props
     }: ImageProps,
     ref: Ref<any>,
@@ -69,6 +70,7 @@ export const Image = forwardRef(
 
     const allProps = {
       alt,
+      priority,
       ...props,
       ...optimiserProps,
       ...blurData,

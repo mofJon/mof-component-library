@@ -27,6 +27,7 @@ export const moduleBase: any = (data: any, props?: any, variant?: string) => {
     className,
     style: {
       backgroundColor,
+      ...props?.style,
     },
   };
 };
