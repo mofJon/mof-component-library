@@ -27,6 +27,12 @@ export default {
       },
       text: "PLAY",
     },
+    videoFullscreen: {
+      icons: {
+        iconPost: <Arrow />,
+      },
+      text: "Fullscreen",
+    },
     linkWithIcon: {
       icons: {
         iconPost: <Arrow />,

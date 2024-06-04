@@ -16,3 +16,26 @@ export const getFormattedValue = (value: number, type: string) => {
   }
   return value + 1;
 };
+
+export const secondsToHMS = (seconds: number) => {
+  const hours = Math.floor(seconds / 3600);
+  const minutes = Math.floor((seconds % 3600) / 60);
+  const remainingSeconds = Math.round(seconds % 60);
+
+  if (!seconds) return "00:00";
+
+  if (seconds < 3600) {
+    return (
+      `${minutes.toString().padStart(2, "0")}:${remainingSeconds
+        .toString()
+        .padStart(2, "0")}` || "00:00"
+    );
+  }
+
+  return (
+    `${hours.toString().padStart(2, "0")}:${minutes
+      .toString()
+      .padStart(2, "0")}:${remainingSeconds.toString().padStart(2, "0")}` ||
+    "00:00:00"
+  );
+};
