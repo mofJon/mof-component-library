@@ -68,6 +68,7 @@ const PrimaryContentBlock: FC<ContentBlockContentProps> = ({
             ...data?.secondaryCta,
           }}
           {...shareData}
+          {...childAnims?.buttonGroup}
         />
       )}
     </Stack>

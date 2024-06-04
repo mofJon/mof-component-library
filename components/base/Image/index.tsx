@@ -29,6 +29,8 @@ export const Image = forwardRef(
     const imageRef = useRef<any>();
     const isAnimated = containsMotionProps(props);
 
+    if (!propSrc) return null;
+
     // get focal point
     const queryString = propSrc.split("?")[1];
     const searchParams = new URLSearchParams(queryString);
@@ -70,10 +72,10 @@ export const Image = forwardRef(
 
     const allProps = {
       alt,
-      priority,
       ...props,
       ...optimiserProps,
       ...blurData,
+      priority,
     };
 
     return isAnimated ? (

@@ -19,6 +19,7 @@ export type ContentBlockMotionTypes = {
   headingTitle?: Record<string, any>;
   subHeading?: Record<string, any>;
   description?: Record<string, any>;
+  buttonGroup?: Record<string, any>;
   primaryCta?: Record<string, any>;
   secondaryCta?: Record<string, any>;
 };

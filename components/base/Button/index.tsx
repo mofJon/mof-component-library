@@ -32,8 +32,6 @@ export const Button = forwardRef(
   ) => {
     const router = useRouter();
 
-    const isAnimated = containsMotionProps(props); //contains framer motion props?
-
     // set icon from config, unless overrideen by props
     const iconPre =
       propsIconPre || mofConfig?.button?.[variant as "primary"]?.icons?.iconPre;
@@ -68,7 +66,10 @@ export const Button = forwardRef(
       ...(variant === "submit" && { type: "submit" as const }),
       disabled,
       ...props, // pass down remaining props
+      ...mofConfig?.button?.[variant as "primary"], // mofConfig overrides
     };
+
+    const isAnimated = containsMotionProps(allProps); //contains framer motion props?
 
     const buttonMain = renderText ? (
       <Text

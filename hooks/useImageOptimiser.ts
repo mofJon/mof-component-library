@@ -59,13 +59,10 @@ export default function useImageOptimiser(
 
   const isAbsolute = url && url.includes("http");
   const hasLoader = isAbsolute ? { loader: imageLoader } : {};
-  // const blurDataURL = blurURL ? getBase64(blurURL) : "";
 
   return {
     src: isAbsolute ? fallbackURL : stripQueryString(url),
     ...(responsive ? responsiveProps : staticProps),
-    // placeholder: blurDataURL ? "blur" : null,
-    // blurDataURL,
     quality,
     ...hasLoader,
   };
