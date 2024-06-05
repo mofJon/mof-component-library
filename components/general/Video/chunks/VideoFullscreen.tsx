@@ -1,9 +1,9 @@
-'use client';
-import { FC, useContext, useEffect } from 'react';
-import { Box } from '../../../';
-import { VideoContext, VideoPlayer } from './';
-import { videoFullscreen } from '../Video.styles';
-import { createPortal } from 'react-dom';
+"use client";
+import { FC, Suspense, useContext, useEffect } from "react";
+import { Box } from "../../../";
+import { VideoContext, VideoPlayer } from "./";
+import { videoFullscreen } from "../Video.styles";
+import { createPortal } from "react-dom";
 
 const VideoFullscreen: FC<any> = () => {
   const { isFullscreen, setIsFullscreen } = useContext(VideoContext);
@@ -15,16 +15,18 @@ const VideoFullscreen: FC<any> = () => {
   };
 
   useEffect(() => {
-    document.addEventListener('keydown', handleEsc);
+    document.addEventListener("keydown", handleEsc);
     return () => {
-      document.removeEventListener('keydown', handleEsc);
+      document.removeEventListener("keydown", handleEsc);
     };
   }, []);
 
   return isFullscreen
     ? createPortal(
         <Box {...videoFullscreen} layoutId="videoPlayer">
-          <VideoPlayer isInline={false} />
+          <Suspense fallback={null}>
+            <VideoPlayer isInline={false} />
+          </Suspense>
         </Box>,
         document.body,
       )

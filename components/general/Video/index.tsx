@@ -1,19 +1,19 @@
-'use client';
-import { useRef, FC, useState } from 'react';
-import { Box } from '../../';
-import { videoWrapper } from './Video.styles';
+"use client";
+import { useRef, FC, Suspense, useState } from "react";
+import { Box } from "../../";
+import { videoWrapper } from "./Video.styles";
 import {
   VideoContext,
   VideoCoverImage,
   VideoFullscreen,
   VideoPlayer,
-} from './chunks';
-import './Video.css';
+} from "./chunks";
+import "./Video.css";
 
 const Video: FC<any> = ({
   data,
   imageSizes,
-  priority = 'false',
+  priority = "false",
   onPlayerReady,
   onAutoPlayStarted,
   imageQuality,
@@ -70,7 +70,9 @@ const Video: FC<any> = ({
           wrapper: videoWrapperRef,
         }}
       >
-        <VideoPlayer />
+        <Suspense fallback={null}>
+          <VideoPlayer />
+        </Suspense>
         <VideoCoverImage
           data={cover}
           sizes={imageSizes}

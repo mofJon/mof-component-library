@@ -27,22 +27,6 @@ export const Media = forwardRef(
 
     const hasImageSizes = imageSizes ? { sizes: imageSizes } : {};
 
-    const remappedVideoData = {
-      image: {
-        src: data?.coverImage?.imageUrl,
-        alt: data?.coverImage?.imageAlt,
-      },
-      video: {
-        src: data?.vimeoId || data?.youtubeId || data?.videoFromGallery,
-        type: getVideoType(data),
-        autoPlay: data?.autoPlay,
-        loop: data?.loop,
-        allowFullscreen: data?.allowFullScreen,
-        allowControls: data?.allowControls || true,
-        allowSound: data?.allowSound || true,
-      },
-    };
-
     let variant: any = (
       <Image
         {...hasImageSizes}
@@ -55,6 +39,22 @@ export const Media = forwardRef(
       />
     );
     if (data?.coverImage) {
+      const remappedVideoData = {
+        image: {
+          src: data?.coverImage?.imageUrl,
+          alt: data?.coverImage?.imageAlt,
+        },
+        video: {
+          src: data?.vimeoId || data?.youtubeId || data?.videoFromGallery,
+          type: getVideoType(data),
+          autoPlay: data?.autoPlay,
+          loop: data?.loop,
+          allowFullscreen: data?.allowFullScreen,
+          allowControls: data?.allowControls || true,
+          allowSound: data?.allowSound || true,
+        },
+      };
+
       if (
         data?.vimeoId !== "" ||
         data?.youtubeId !== "" ||
@@ -109,8 +109,8 @@ export const Media = forwardRef(
 
 const getVideoType = (data: any) => {
   let vidType;
-  if (data?.vimeoId.length > 0) vidType = "vimeo";
-  if (data?.youtubeId.length > 0) vidType = "youtube";
+  if (data?.vimeoId && data?.vimeoId.length > 0) vidType = "vimeo";
+  if (data?.youtubeId && data?.youtubeId.length > 0) vidType = "youtube";
 
   return vidType;
 };
