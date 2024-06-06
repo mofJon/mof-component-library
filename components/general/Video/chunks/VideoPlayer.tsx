@@ -39,8 +39,6 @@ const VideoPlayer: FC<any> = ({ isInline = true }: any) => {
   if (vidType === "youtube")
     vidSrc = `https://www.youtube.com/watch?v=${data?.vidSrc}`;
 
-  console.log("vidWrapper", vidWrapper, "playerRef", playerRef);
-
   useEffect(() => {
     handleResize();
   }, [vidWrapper, width, height, inlineViewer]);
@@ -68,8 +66,6 @@ const VideoPlayer: FC<any> = ({ isInline = true }: any) => {
 
   const handleReady = () => {
     onPlayerReady && onPlayerReady();
-
-    console.log("player ready");
 
     if (vidWrapper && isInline) {
       const container: any = vidWrapper.getElementsByTagName("iframe")[0];

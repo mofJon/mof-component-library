@@ -200,6 +200,15 @@ const spanRow = (currTier: number, navWidth: number, offset: number) => {
           stiffness: 200,
         },
       },
+      exit: {
+        opacity: 0,
+        width: 0,
+        transition: {
+          type: "spring",
+          damping: 30,
+          stiffness: 200,
+        },
+      },
     },
   };
 };

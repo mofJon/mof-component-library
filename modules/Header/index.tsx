@@ -51,7 +51,9 @@ const Header: FC<any> = ({
       !nav.contains(e.target) &&
       !toggle.contains(e.target) &&
       // @ts-ignore
-      !e?.target?.classList.contains("nav-panel-back")
+      !Array.from(e?.target?.classList).some((className: string) =>
+        className?.includes("nav"),
+      )
     ) {
       setIsNavOpen(false);
     }

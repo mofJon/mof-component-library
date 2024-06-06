@@ -21,8 +21,7 @@ const NavItemRow: FC<any> = ({
     setImgProps,
     setIsOpen,
   } = useContext(NavContext);
-  const { navItemText, navItemLink, navItems, navStyle, level, colour, image } =
-    data;
+  const { navItemText, navItemLink, navItems, navStyle, level, image } = data;
   const {
     attachTo: attach,
     persistOn,
@@ -42,12 +41,7 @@ const NavItemRow: FC<any> = ({
             back: navItemText,
             activeIndex: itemIndex,
           });
-        } else if (interaction === "hoverOut" && persistOn === "hover") {
-          updatePanels({
-            activeIndex: -1,
-          });
         }
-
         if (interaction === "click" && persistOn !== "hover") {
           event.preventDefault();
           updatePanels({
@@ -59,6 +53,11 @@ const NavItemRow: FC<any> = ({
       } else if (interaction === "click") {
         navItemLink && router.push(navItemLink.href);
         setIsOpen(false);
+      } else if (interaction === "hover" && persistOn === "hover") {
+        updatePanels({
+          items: null,
+          activeIndex: itemIndex,
+        });
       }
     },
     [navState, setNavState, data, router, persistOn],
@@ -98,6 +97,7 @@ const NavItemRow: FC<any> = ({
         navItemAnimations,
         hasChildren,
         data?.colourCode,
+        data?.hideOnDesktop,
       )}
       textStyle={textStyle?.textStyle}
       {...motion?.item}

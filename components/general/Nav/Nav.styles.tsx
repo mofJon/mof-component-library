@@ -78,6 +78,7 @@ export const navItem = (
   navItemAnimations?: any,
   hasChildren?: boolean,
   colourCode?: string,
+  hideOnDesktop?: boolean,
 ) => {
   const animProps = navItemAnimations ? navItemAnimations(index) : {};
 
@@ -89,6 +90,7 @@ export const navItem = (
       { "with-icon-pre": itemIcons?.iconPre || itemIcons?.subIconPre },
       { "with-icon-post": itemIcons?.iconPost || itemIcons?.subIconPost },
       { "has-children": hasChildren },
+      { "hide-on-desktop": hideOnDesktop },
       [colourCode],
     ),
     ...animProps,

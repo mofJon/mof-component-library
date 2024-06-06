@@ -31,6 +31,7 @@ const VideoControls: FC<any> = ({
     isPlaying,
     setIsFullscreen,
     setIsMuted,
+    setIsPlaying,
   } = useContext(VideoContext);
   const timelineRef = useRef(null);
   const { x, width } = useDimensions(timelineRef);
@@ -40,6 +41,7 @@ const VideoControls: FC<any> = ({
   const handleClose = () => {
     setIsFullscreen(false);
     setIsMuted(true);
+    setIsPlaying(false);
   };
 
   const handleSeek = (e: any) => {

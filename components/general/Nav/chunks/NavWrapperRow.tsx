@@ -2,6 +2,7 @@ import { FC, useContext, useEffect, useState } from "react";
 import { Stack } from "../../../../components";
 import { NavContext, NavPanelColumn, NavImages } from "./";
 import { navPanelWrapperRow } from "../Nav.styles";
+import { AnimatePresence } from "framer-motion";
 
 const NavWrapperRow: FC<any> = ({ data, isOpen, offset = 0 }) => {
   const { images, menuWidth, navSettings } = useContext(NavContext);
@@ -25,15 +26,22 @@ const NavWrapperRow: FC<any> = ({ data, isOpen, offset = 0 }) => {
       setPanels([...currentPanels, newData]);
     } else {
       let newPanels = [...currentPanels];
-      newPanels.pop();
 
-      const last = newPanels[newPanels.length - 1];
-      if (last) {
-        for (let i = 0; i < last.items.length; i++) {
-          last.items[i].isActive = false;
-        }
+      const latest = newPanels[newPanels.length - 1];
+      for (let i = 0; i < latest.items.length; i++) {
+        latest.items[i].isActive = i === data?.activeIndex;
       }
 
+      if (attachTo === "slide") {
+        newPanels.pop();
+
+        const last = newPanels[newPanels.length - 1];
+        if (last) {
+          for (let i = 0; i < last.items.length; i++) {
+            last.items[i].isActive = false;
+          }
+        }
+      }
       setPanels(newPanels);
     }
   };
@@ -71,7 +79,7 @@ const NavWrapperRow: FC<any> = ({ data, isOpen, offset = 0 }) => {
 
   return (
     <Stack {...panelMotion} {...navPanelWrapperRow}>
-      {renderColumns}
+      <AnimatePresence>{renderColumns}</AnimatePresence>
       {attachTo !== "slide" && <NavImages images={images} />}
     </Stack>
   );
