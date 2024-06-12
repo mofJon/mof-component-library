@@ -109,8 +109,8 @@ export const Media = forwardRef(
 
 const getVideoType = (data: any) => {
   let vidType;
-  if (data?.vimeoId.length > 0) vidType = "vimeo";
-  if (data?.youtubeId.length > 0) vidType = "youtube";
+  if (data?.vimeoId && data?.vimeoId?.length > 0) vidType = "vimeo";
+  if (data?.youtubeId && data?.youtubeId?.length > 0) vidType = "youtube";
 
   return vidType;
 };
