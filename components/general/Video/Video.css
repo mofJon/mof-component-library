@@ -10,12 +10,13 @@
           translate-x-[-50%]
           translate-y-[-50%]
           opacity-0;
-      transition: 0.3s opacity;
+      transition: 0.8s;
     }
     &.started,
     &.playing {
       #backgroundPlayer {
-        opacity: 1;
+        @apply opacity-100;
+        transition: 0.8s 0.5s opacity;
       }
     }
     &.autoplay {
@@ -125,7 +126,7 @@ body {
             h-5
             left-0
             right-0;
-          content: '';
+          content: "";
         }
       }
 

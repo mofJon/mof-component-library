@@ -131,7 +131,8 @@
             "target": ""
           },
           "image": null,
-          "colourCode": null
+          "colourCode": null,
+          "hideOnDesktop": true
         },
         {
           "navItems": [
@@ -153,7 +154,8 @@
                 "isSvg": false,
                 "isVideo": false
               },
-              "colourCode": "architecture"
+              "colourCode": "architecture",
+              "hideOnDesktop": true
             },
             {
               "navItemText": "Culture",
@@ -626,7 +628,8 @@
             "target": ""
           },
           "image": null,
-          "colourCode": null
+          "colourCode": null,
+          "hideOnDesktop": true
         },
         {
           "navItems": [

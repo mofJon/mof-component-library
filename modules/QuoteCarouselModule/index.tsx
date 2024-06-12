@@ -22,22 +22,8 @@ const QuoteCarouselModule: FC<QuoteCarouselModuleProps> = ({
       >
         <Stack {...styles.quoteWrapper}>
           <Text
-            text="&ldquo;"
-            {...styles.quoteLeft(
-              moduleAnims?.quoteLeft,
-              textStyles?.quoteMarks,
-            )}
-          />
-          <Text
-            text={val.quote}
+            text={`<span class="quote-left">&ldquo;</span>${val.quote}<span class="quote-right">&rdquo;</span>`}
             {...styles.quoteMain(moduleAnims?.quoteMain, textStyles?.quote)}
-          />
-          <Text
-            text="&rdquo;"
-            {...styles.quoteRight(
-              moduleAnims?.quoteRight,
-              textStyles?.quoteMarks,
-            )}
           />
         </Stack>
         <Stack {...styles.quoteFooter(moduleAnims?.footer)}>

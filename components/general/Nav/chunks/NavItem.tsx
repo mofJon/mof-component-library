@@ -134,6 +134,7 @@ const NavItem: FC<NavItemProps> = ({
         data.index,
         navItemAnimations,
         hasChildren,
+        data?.hideOnDesktop,
       )}
       textStyle={textStyle?.textStyle}
       {...motion?.item}

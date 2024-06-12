@@ -1,9 +1,9 @@
-'use client';
-import { FC, useContext, useRef } from 'react';
-import { Box, Button, Stack, Text } from '../../../';
-import { VideoContext } from './';
-import { secondsToHMS } from '../../../../utils';
-import { useDimensions } from '../../../../hooks';
+"use client";
+import { FC, useContext, useRef } from "react";
+import { Box, Button, Stack, Text } from "../../../";
+import { VideoContext } from "./";
+import { secondsToHMS } from "../../../../utils";
+import { useDimensions } from "../../../../hooks";
 import {
   videoControls,
   videoControlsToolbar,
@@ -12,8 +12,8 @@ import {
   videoProgress,
   videoTimeline,
   videoTimer,
-} from '../Video.styles';
-import { isMobile } from 'react-device-detect';
+} from "../Video.styles";
+import { isMobile } from "react-device-detect";
 
 const VideoControls: FC<any> = ({
   toggleMute,
@@ -30,6 +30,8 @@ const VideoControls: FC<any> = ({
     isMuted,
     isPlaying,
     setIsFullscreen,
+    setIsMuted,
+    setIsPlaying,
   } = useContext(VideoContext);
   const timelineRef = useRef(null);
   const { x, width } = useDimensions(timelineRef);
@@ -38,6 +40,8 @@ const VideoControls: FC<any> = ({
 
   const handleClose = () => {
     setIsFullscreen(false);
+    setIsMuted(true);
+    setIsPlaying(false);
   };
 
   const handleSeek = (e: any) => {
@@ -63,16 +67,16 @@ const VideoControls: FC<any> = ({
               onClick={togglePlay}
               variant={
                 isMobile
-                  ? 'videoFullscreenPlay'
+                  ? "videoFullscreenPlay"
                   : isPlaying
-                    ? 'videoFullscreenPause'
-                    : 'videoFullscreenPlay'
+                    ? "videoFullscreenPause"
+                    : "videoFullscreenPlay"
               }
             />
             <Button
               onClick={toggleMute}
               variant={
-                isMuted ? 'videoFullscreenMute' : 'videoFullscreenUnMute'
+                isMuted ? "videoFullscreenMute" : "videoFullscreenUnMute"
               }
             />
             <Text
@@ -89,11 +93,11 @@ const VideoControls: FC<any> = ({
     <Box {...videoControls(isPlaying, !init)}>
       <Button
         onClick={toggleMute}
-        variant={isMuted ? 'videoUnMute' : 'videoMute'}
+        variant={isMuted ? "videoUnMute" : "videoMute"}
       />
       <Button
         onClick={togglePlay}
-        variant={isPlaying ? 'videoPause' : 'videoPlay'}
+        variant={isPlaying ? "videoPause" : "videoPlay"}
       />
       <Button onClick={handleFullscreen} variant="videoFullscreen" />
     </Box>

@@ -1,9 +1,8 @@
-'use client';
-import { FC, useEffect, useContext, useRef, useState } from 'react';
-import { VideoContext, VideoControls } from './';
-import { useDimensions } from '../../../../hooks';
-import ReactPlayer from 'react-player/lazy';
-import { isMobile } from 'react-device-detect';
+"use client";
+import { FC, useEffect, useContext, useRef, useState } from "react";
+import { VideoContext, VideoControls } from "./";
+import { useDimensions } from "../../../../hooks";
+import ReactPlayer from "react-player/lazy";
 
 const VideoPlayer: FC<any> = ({ isInline = true }: any) => {
   const {
@@ -36,8 +35,8 @@ const VideoPlayer: FC<any> = ({ isInline = true }: any) => {
 
   let vidSrc = data?.src;
   const vidType = data?.type;
-  if (vidType === 'vimeo') vidSrc = `https://vimeo.com/${vidSrc}`;
-  if (vidType === 'youtube')
+  if (vidType === "vimeo") vidSrc = `https://vimeo.com/${vidSrc}`;
+  if (vidType === "youtube")
     vidSrc = `https://www.youtube.com/watch?v=${data?.vidSrc}`;
 
   useEffect(() => {
@@ -47,7 +46,7 @@ const VideoPlayer: FC<any> = ({ isInline = true }: any) => {
   const handleResize = () => {
     if (vidWrapper) {
       const { aspect } = playerDimensions;
-      const vidHolder = vidWrapper.querySelector('#backgroundPlayer');
+      const vidHolder = vidWrapper.querySelector("#backgroundPlayer");
 
       let containerWidth = width;
       let containerHeight = width * 10;
@@ -69,7 +68,7 @@ const VideoPlayer: FC<any> = ({ isInline = true }: any) => {
     onPlayerReady && onPlayerReady();
 
     if (vidWrapper && isInline) {
-      const container: any = vidWrapper.getElementsByTagName('iframe')[0];
+      const container: any = vidWrapper.getElementsByTagName("iframe")[0];
       const vidWidth = container?.width;
       const vidHeight = container?.height;
 
@@ -89,8 +88,8 @@ const VideoPlayer: FC<any> = ({ isInline = true }: any) => {
         }
       }
     } else {
-      const fullPlayer = document.getElementById('fullPlayer');
-      const container = fullPlayer?.getElementsByTagName('iframe')[0];
+      const fullPlayer = document.getElementById("fullPlayer");
+      const container = fullPlayer?.getElementsByTagName("iframe")[0];
       setFullViewer(container);
     }
   };
@@ -121,13 +120,13 @@ const VideoPlayer: FC<any> = ({ isInline = true }: any) => {
     setIsMuted(!isMuted);
   };
 
-  const skipRender = !data || !wrapper.current || (isFullscreen && isInline);
+  const skipRender = !vidSrc || (isFullscreen && isInline);
 
   return skipRender ? null : (
     <>
       <ReactPlayer
         ref={playerRef}
-        id={isInline ? 'backgroundPlayer' : 'fullPlayer'}
+        id={isInline ? "backgroundPlayer" : "fullPlayer"}
         url={vidSrc}
         playing={isPlaying}
         onReady={handleReady}
@@ -139,7 +138,7 @@ const VideoPlayer: FC<any> = ({ isInline = true }: any) => {
         playsinline={isInline}
         progressInterval={isInline ? 2000 : 100}
         loop={data?.loop}
-        volume={1}
+        volume={isMuted ? 0 : 1}
         width="100%"
         height="100%"
         config={{

@@ -80,18 +80,15 @@ export const Button = forwardRef(
     ) : null;
     let buttonContent: ReactNode | any[] = buttonMain;
 
-    if (iconPre || iconPost) {
+    if (iconPre || iconPost || loadingState) {
       buttonContent = (
         <Stack>
           {iconPre}
           {buttonMain}
           {iconPost}
+          {isLoading && loadingState}
         </Stack>
       );
-    }
-
-    if (isLoading) {
-      buttonContent = loadingState;
     }
 
     return createElement(

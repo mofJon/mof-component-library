@@ -65,7 +65,7 @@ const headerConfig = {
     lg: {
       direction: ["row", "column"],
       attachTo: ["bottom", "stackRow"],
-      persistOn: ["hoverDelay", "click"],
+      persistOn: ["hoverDelay", "hover", "click"],
       scrollable: [false],
       motion: [
         {
