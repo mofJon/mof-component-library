@@ -1,9 +1,9 @@
-'use client';
-import { useRef, useEffect } from 'react';
-import Lenis from 'lenis';
-import { isMobile } from 'react-device-detect';
+"use client";
+import { FC, useRef, useEffect } from "react";
+import Lenis from "lenis";
+import { isMobile } from "react-device-detect";
 
-export const SmoothScroll = () => {
+export const SmoothScroll: FC<any> = ({ onLoaded, ...props }) => {
   const lenisRef = useRef<Lenis | undefined>(undefined);
   const rafHandleRef = useRef<number | null>(null);
 
@@ -12,7 +12,8 @@ export const SmoothScroll = () => {
 
     // Initialize Lenis on the first render
     if (!lenisRef.current) {
-      lenisRef.current = new Lenis();
+      onLoaded(lenisRef.current);
+      lenisRef.current = new Lenis(props);
       const raf = (time: number) => {
         lenisRef.current?.raf(time);
         rafHandleRef.current = requestAnimationFrame(raf);
