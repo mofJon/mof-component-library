@@ -4,7 +4,10 @@ import Lenis from "lenis";
 import { isMobile } from "react-device-detect";
 import { SmoothScrollProps } from "./SmoothScroll.types";
 
-export const SmoothScroll: FC<SmoothScrollProps> = ({ onLoaded, ...props }) => {
+export const SmoothScroll: FC<SmoothScrollProps> = ({
+  onLoaded = () => {},
+  ...props
+}) => {
   const lenisRef = useRef<Lenis | undefined>(undefined);
   const rafHandleRef = useRef<number | null>(null);
 
