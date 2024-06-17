@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import classNames from "classnames";
 
 export const videoWrapper = (
   isPlaying: boolean,
@@ -8,70 +8,70 @@ export const videoWrapper = (
   init: boolean,
 ) => ({
   className: classNames(
-    'video-wrapper',
+    "video-wrapper",
     { playing: isPlaying },
     { autoplay: isAutoPlay && !allowFullscreen },
-    { 'fullscreen-enabled': allowFullscreen },
-    { 'fullscreen-active': isFullscreen },
+    { "fullscreen-enabled": allowFullscreen },
+    { "fullscreen-active": isFullscreen },
     { started: !init },
   ),
   style: {
-    width: '100%',
-    height: '100%',
+    width: "100%",
+    height: "100%",
   },
 });
 
 export const videoControls = (isPlaying: boolean, hasStarted: boolean) => ({
   className: classNames(
-    'video-controls',
+    "video-controls",
     { playing: isPlaying },
     { started: hasStarted },
   ),
 });
 
 export const videoControlsToolbar = {
-  className: classNames('video-controls-toolbar'),
+  className: classNames("video-controls-toolbar"),
 };
 
 export const videoControlsToolbarButtons = {
-  className: classNames('video-controls-toolbar-buttons'),
+  className: classNames("video-controls-toolbar-buttons"),
 };
 
 export const videoFullscreen = {
-  id: 'video-fullscreen',
+  id: "video-fullscreen",
 };
 
 export const videoTimeline = {
-  className: classNames('video-timeline'),
+  className: classNames("video-timeline"),
 };
 
 export const videoProgress = (progress: number) => ({
-  className: classNames('video-timeline-progress'),
+  className: classNames("video-timeline-progress"),
   style: {
     width: `${progress * 100}%`,
   },
-  layoutId: 'video-timeline-progress',
-  transition: {
-    type: 'spring',
-    stiffness: 500,
-    damping: 50,
-  },
+  // layoutId: 'video-timeline-progress',
+  // transition: {
+  //   type: 'spring',
+  //   stiffness: 500,
+  //   damping: 50,
+  // },
 });
 
 export const videoLoadedProgress = (progress: number) => ({
-  className: classNames('video-timeline-loaded'),
+  className: classNames("video-timeline-loaded"),
 
   style: {
     width: `${progress * 100}%`,
   },
-  layoutId: 'video-timeline-loaded',
-  transition: {
-    type: 'spring',
-    stiffness: 500,
-    damping: 50,
-  },
+  // layoutId: 'video-timeline-loaded',
+  // transition: {
+  //   type: 'spring',
+  //   stiffness: 500,
+  //   damping: 50,
+  // },
 });
 
 export const videoTimer = {
-  className: classNames('video-timer'),
+  className: classNames("video-timer"),
 };

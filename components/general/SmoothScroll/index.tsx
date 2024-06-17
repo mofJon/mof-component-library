@@ -6,6 +6,7 @@ import { SmoothScrollProps } from "./SmoothScroll.types";
 
 export const SmoothScroll: FC<SmoothScrollProps> = ({
   onLoaded = () => {},
+  main = true,
   ...props
 }) => {
   const lenisRef = useRef<Lenis | undefined>(undefined);
@@ -16,8 +17,14 @@ export const SmoothScroll: FC<SmoothScrollProps> = ({
 
     // Initialize Lenis on the first render
     if (!lenisRef.current) {
-      onLoaded(lenisRef.current);
       lenisRef.current = new Lenis(props);
+      onLoaded(lenisRef.current);
+
+      if (typeof window !== undefined && main) {
+        // @ts-ignore
+        window.mainScroll = lenisRef.current;
+      }
+
       const raf = (time: number) => {
         lenisRef.current?.raf(time);
         rafHandleRef.current = requestAnimationFrame(raf);

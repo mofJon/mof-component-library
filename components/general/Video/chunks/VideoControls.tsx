@@ -80,7 +80,11 @@ const VideoControls: FC<any> = ({
               }
             />
             <Text
-              text={`<span class="timer-elapsed">${secondsToHMS(progress?.playedSeconds)}</span> / <span class="timer-duration">${secondsToHMS(duration)}</span>`}
+              text={`<span class="timer-elapsed">${secondsToHMS(
+                progress?.playedSeconds,
+              )}</span> / <span class="timer-duration">${secondsToHMS(
+                duration,
+              )}</span>`}
               {...videoTimer}
             />
           </Stack>

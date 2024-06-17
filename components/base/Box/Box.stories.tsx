@@ -119,9 +119,9 @@ const ProgressChild = () => {
   const { progress, inView, scrollState, motionState } = useScrollTrigger();
   const [percent, setPercent] = useState(0);
 
-  const progressSpring = useSpring(progress, { stiffness: 100, damping: 40 });
-  const x = useTransform(progressSpring, [0, 1], [0, 300]);
-  const width = useTransform(progressSpring, [0, 1], [0, 600]);
+  // const progressSpring = useSpring(progress, { stiffness: 100, damping: 40 });
+  const x = useTransform(progress, [0, 1], [0, 300]);
+  const width = useTransform(progress, [0, 1], [0, 600]);
 
   useMotionValueEvent(progress, "change", (x: number) => {
     setPercent(Math.round(x * 100));
@@ -235,12 +235,16 @@ const InViewChild = () => {
 export const ScrollTriggerInView: Story = {
   decorators: [
     (Story) => {
+      const handleLoaded = (scroll: any) => {
+        console.log("scroll", scroll, window);
+      };
+
       return (
         <>
           <Stack direction="column" className="py-[1000px]">
             <Story />
           </Stack>
-          <SmoothScroll />
+          <SmoothScroll onLoaded={handleLoaded} />
         </>
       );
     },

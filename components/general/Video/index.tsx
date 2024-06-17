@@ -47,8 +47,6 @@ const Video: FC<any> = ({
         isFullscreen,
         init,
       )}
-      layoutId="videoPlayer"
-      layout
     >
       <VideoContext.Provider
         value={{
