@@ -94,14 +94,8 @@ export const Media = forwardRef(
 
     if (!variant) return null;
 
-    const layoutProps = data?.coverImage ? { layoutId: "videoPlayer" } : {};
-
     return (
-      <Box
-        {...props}
-        {...layoutProps}
-        {...mediaHolder(size, align, orientation, props)}
-      >
+      <Box {...props} {...mediaHolder(size, align, orientation, props)}>
         {variant}
         {data?.title && <Text text={data?.title} {...caption("title")} />}
         {data?.photographer && (
