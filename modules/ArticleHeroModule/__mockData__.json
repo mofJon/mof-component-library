@@ -1,36 +1,24 @@
 {
-  "tag": "Research & Technology",
-  "headingTitle": {
-    "heading": "<p>How we stay ahead of the curve</p>",
-    "htag": ""
-  },
-  "description": "<p>Description goes here lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec vestibulum eros. Curabitur ac libero malesuada, feugiat ligula quis, sodales diam. Morbi cursus mauris id bibendum commodo.</p>",
-  "primaryCta": {
-    "text": "People",
-    "href": "https://qa-api.zaha-hadid.com/people",
-    "linkType": "Content",
-    "target": ""
-  },
-  "secondaryCta": {
-    "text": "Projects",
-    "href": "https://qa-api.zaha-hadid.com/projects",
-    "linkType": "Content",
-    "target": ""
-  },
-  "mediaAlignment": "Right",
-  "mediaOrientation": "Portrait",
-  "image": {
-    "imageUrl": "https://zhweb-qa-f-app.azurewebsites.net/media/wotgyell/adrian-cuj-o_9ymcy0bag-unsplash.jpg",
-    "title": "",
-    "description": "",
+  "title": "Leeza SOHO",
+  "description": "Located on Lize Road in southwest Beijing, Leeza SOHO tower anchors the new Fengtai business district; a growing financial and transport hub between the city centre and the recently opened Beijing Daxing International Airport to the south. ",
+  "infoTags": ["Beijing, China", "2015 - 2019", "SOHO China Ltd."],
+  "backgroundImage": {
+    "imageUrl": "https://qa-api.zaha-hadid.com/media/il5d3o14/02000_cp_hc_nov19_n265589.jpg",
+    "mediaId": 11755,
+    "caption": "",
     "imageAlt": "",
-    "mediaId": 1229,
+    "imageCredit": "Photograph by Hufton + Crow",
+    "photographer": "Hufton + Crow",
     "isSvg": false,
     "isVideo": false
   },
-  "colourCodes": ["tallBuildings", "civic"],
-  "anchor": "",
-  "anchorDisplayName": "",
-  "paddingTop": "",
-  "paddingBottom": ""
+  "colourCodes": ["tallBuildings", "offices"],
+  "sharingLinksModel": {
+    "emailSharingSubject": "",
+    "linkedInSharingLink": "https://www.linkedin.com/shareArticle?mini=true&url=http://qa.zaha-hadid.com/projects/architecture/leeza-soho&title=Leeza SOHO",
+    "facebookSharingLink": "https://www.facebook.com/sharer/sharer.php?u=http://qa.zaha-hadid.com/projects/architecture/leeza-soho",
+    "twitterSharingLink": "https://twitter.com/intent/tweet?url=http://qa.zaha-hadid.com/projects/architecture/leeza-soho&hashtags=&text=Located on Lize Road in southwest Beijing, Leeza SOHO tower anchors the new Fengtai business district; a growing financial and transport hub between the city centre and the recently opened Beijing Daxing International Airport to the south. ",
+    "emailSharingLink": "mailto:?subject=Leeza SOHO&body=Located on Lize Road in southwest Beijing, Leeza SOHO tower anchors the new Fengtai business district; a growing financial and transport hub between the city centre and the recently opened Beijing Daxing International Airport to the south.  http://qa.zaha-hadid.com/projects/architecture/leeza-soho",
+    "pinterestSharingLink": "https://pinterest.com/pin/create/button/?url=http://qa.zaha-hadid.com/projects/architecture/leeza-soho&media=/media/il5d3o14/02000_cp_hc_nov19_n265589.jpg&description=Located on Lize Road in southwest Beijing, Leeza SOHO tower anchors the new Fengtai business district; a growing financial and transport hub between the city centre and the recently opened Beijing Daxing International Airport to the south. "
+  }
 }

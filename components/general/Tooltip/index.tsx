@@ -1,15 +1,23 @@
-import { FC, useState } from 'react';
-import { Box, Text } from '../../../components';
-import { tooltipBubble, tooltipWrapper } from './Tooltip.styles';
+import { FC, useState } from "react";
+import { Box, Text } from "../../../components";
+import { tooltipBubble, tooltipWrapper } from "./Tooltip.styles";
+import "./Tooltip.css";
 
 const Tooltip: FC<any> = ({
-  anchor = 'top',
+  anchor = "top",
   children,
-  text,
+  content,
   className,
   motion,
 }) => {
   const [show, setShow] = useState(false);
+
+  const renderContent = () => {
+    if (typeof content === "string") {
+      return <Text text={content} {...tooltipBubble(anchor, motion)} />;
+    }
+    return <Box {...tooltipBubble(anchor, motion)}>{content}</Box>;
+  };
 
   return (
     <Box
@@ -17,7 +25,7 @@ const Tooltip: FC<any> = ({
       onMouseEnter={() => setShow(true)}
       onMouseLeave={() => setShow(false)}
     >
-      <Text text={text} {...tooltipBubble(anchor, motion)} />
+      {renderContent()}
       {children}
     </Box>
   );

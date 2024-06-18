@@ -34,8 +34,13 @@ const NavItemRow: FC<any> = ({
 
   const handleInteraction = useCallback(
     (event: MouseEvent, interaction: NavInteractionType) => {
+      if (interaction === "click" && persistOn !== "click") {
+        navItemLink && router.push(navItemLink.href);
+        setIsOpen(false);
+      }
+
       if (hasChildren) {
-        if (interaction === "hover" && persistOn === "hover") {
+        if (interaction === "hover" && persistOn.includes("hover")) {
           updatePanels({
             items: data.navItems,
             back: navItemText,
@@ -50,9 +55,6 @@ const NavItemRow: FC<any> = ({
             activeIndex: itemIndex,
           });
         }
-      } else if (interaction === "click") {
-        navItemLink && router.push(navItemLink.href);
-        setIsOpen(false);
       } else if (interaction === "hover" && persistOn === "hover") {
         updatePanels({
           items: null,

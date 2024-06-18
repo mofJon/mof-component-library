@@ -14,7 +14,7 @@ export const ButtonGroup = forwardRef(
     }: ButtonGroupProps,
     ref: Ref<ButtonGroupProps>,
   ) => {
-    if (!primaryProps?.href && !secondaryProps?.href) return null;
+    if (!primaryProps?.href && !secondaryProps?.href && !shareData) return null;
 
     const allProps = {
       ...buttonGroupVars(direction, props.className),
@@ -26,7 +26,7 @@ export const ButtonGroup = forwardRef(
       <Stack {...allProps}>
         {primaryProps?.href && <Button {...primaryProps} />}
         {secondaryProps?.href && <Button {...secondaryProps} />}
-        {shareData && <ShareTooltip {...shareData} />}
+        {shareData && <ShareTooltip data={shareData} />}
       </Stack>
     );
   },

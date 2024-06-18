@@ -19,7 +19,7 @@ export const Card = forwardRef(
       backgroundImageSizes,
       data,
       childAnims = emptyContentBlockAnim,
-      priority,
+      priority = false,
       imageQuality,
       backgroundImageQuality,
       richText = false,
@@ -53,7 +53,7 @@ export const Card = forwardRef(
           imageSizes={imageSizes}
           {...mediaHolder(size)}
           responsive
-          priority
+          priority={priority}
           align={data?.mediaAlignment && data?.mediaAlignment?.toLowerCase()}
           orientation={
             data?.mediaOrientation && data?.mediaOrientation?.toLowerCase()
@@ -67,7 +67,7 @@ export const Card = forwardRef(
           imageSizes={backgroundImageSizes}
           {...backgroundMediaHolder}
           responsive
-          priority
+          priority={priority}
           cardVariant={variant}
           imageQuality={backgroundImageQuality}
         />

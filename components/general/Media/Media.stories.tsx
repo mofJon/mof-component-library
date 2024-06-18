@@ -46,21 +46,22 @@ const meta: Meta<typeof Media> = {
 export default meta;
 type Story = StoryObj<typeof Media>;
 
-// export const MediaImage: Story = {
-//   decorators: [
-//     (Story) => {
-//       return (
-//         <Box className="w-[calc(100vw/2)] h-[calc(100vh/2)] bg-gray-500 [&>*:first-child]:w-full relative">
-//           <Story />
-//         </Box>
-//       );
-//     },
-//   ],
-//   args: {
-//     data: imageProps,
-//     responsive: true,
-//   },
-// };
+export const MediaImage: Story = {
+  decorators: [
+    (Story) => {
+      return (
+        <Box className="w-[calc(100vw/2)] h-[calc(100vh/2)] bg-gray-500 [&>*:first-child]:w-full relative">
+          <Story />
+        </Box>
+      );
+    },
+  ],
+  args: {
+    data: videoProps?.coverImage,
+    responsive: true,
+    imageSizes: "50vw",
+  },
+};
 
 export const MediaVideoInline: Story = {
   decorators: [

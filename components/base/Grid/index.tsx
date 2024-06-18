@@ -115,13 +115,6 @@ export const Grid = forwardRef(
             },
           },
         });
-
-        // tie scrolltrigger to smoothscroll if it exists
-        if (window && window?.mainScroll && refTimeline.current) {
-          const scroll = window?.mainScroll;
-          const scrollTrigger: any = refTimeline.current.scrollTrigger;
-          scroll.on("scroll", scrollTrigger.update);
-        }
       }
 
       return () => {

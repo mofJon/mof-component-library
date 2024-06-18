@@ -1,33 +1,63 @@
 import { FC } from "react";
-import { Box, Popover } from "../../../components";
-import { useRouter } from "next/navigation";
+import { Box, Button, Tooltip } from "../../../components";
 import { shareLink } from "./ShareTooltip.styles";
+// @ts-ignore - mof overrides
+import mofConfig from "/mofConfig";
 
-const ShareTooltip: FC<any> = ({ data, title = "Share" }) => {
-  const router = useRouter();
+const shareIcons = mofConfig.shareIcons || {};
 
+const ShareTooltip: FC<any> = ({ data }) => {
   const handleGetLink = (link: string, id: string) => {
-    if (id.includes("Subject")) {
-      console.log("this is where we'd mail withd subject:", link);
+    let newLink = link;
+    if (
+      id === "email" &&
+      !link.includes("subject=") &&
+      data?.emailSharingSubject
+    ) {
+      newLink = link.replace("?", `?subject=${data?.emailSharingSubject}`);
+    }
+
+    if (id === "copy" && navigator) {
+      navigator.clipboard.writeText(link);
     } else {
-      return router.push(link);
+      if (typeof window !== "undefined") {
+        window.open(newLink, "_blank");
+      }
     }
   };
 
-  const renderShareLinks = Object.entries(data).map(([key, value]) => {
+  const availLinks = Object.entries(data).filter(([key]) => {
+    return key?.includes("SharingLink");
+  });
+
+  if (shareIcons?.copy) {
+    const hasCopySharingLink = availLinks.some(
+      ([key]) => key === "copySharingLink",
+    );
+    if (!hasCopySharingLink) {
+      availLinks.push(["copySharingLink", window.location.href]);
+    }
+  }
+
+  const renderShareLinks = availLinks.map(([key, value]) => {
+    const shareKey = key.replace("SharingLink", "");
+    const icon = shareIcons[shareKey];
+
     return (
       <Box
         key={`shareLink_${key}`}
-        onClick={() => handleGetLink(value as string, key)}
-        {...shareLink(key)}
-      />
+        onClick={() => handleGetLink(value as string, shareKey)}
+        {...shareLink(shareKey)}
+      >
+        {icon}
+      </Box>
     );
   });
 
   return (
-    <Popover variant="share" title={title}>
-      {renderShareLinks}
-    </Popover>
+    <Tooltip content={renderShareLinks}>
+      <Button variant="share" text={data?.shareTitle || "Share"} />
+    </Tooltip>
   );
 };
 

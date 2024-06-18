@@ -24,6 +24,7 @@
     text-center
     hidden
     m-0;
+    animation: fadeIn 0.4s;
 
     &:after {
       @apply absolute
@@ -31,7 +32,7 @@
         h-0
         border
         border-transparent;
-      content: '';
+      content: "";
     }
     &.anchor-top,
     &.anchor-bottom {
@@ -60,6 +61,14 @@
         @apply border-t-[0.5rem]
         top-full
         border-t-white;
+        content: "";
+      }
+      &:before {
+        @apply absolute
+        inset-0
+        z-[-1]
+        h-[300%];
+        content: "";
       }
     }
     &.anchor-bottom {
@@ -86,5 +95,14 @@
         border-r-white;
       }
     }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

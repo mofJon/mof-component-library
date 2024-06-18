@@ -48,6 +48,7 @@ export const CardGeneric: Story = {
   args: {
     data,
     variant: "generic",
+    imageSizes: "40vw",
   },
 };
 

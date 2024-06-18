@@ -36,9 +36,8 @@ const PrimaryContentBlock: FC<ContentBlockContentProps> = ({
     ? { htag: data?.headingTitle?.htag }
     : {};
 
-  const hasButtons = data?.primaryCta || data?.secondaryCta || data?.cta;
   const primaryCta = data?.primaryCta || data?.cta || {};
-  const shareData = data?.sharingLinksModel || {};
+  const shareData = data?.sharingLinksModel;
 
   return (
     <Stack direction="column" {...allProps}>
@@ -57,20 +56,18 @@ const PrimaryContentBlock: FC<ContentBlockContentProps> = ({
         rich={richText}
         {...renderText("description")}
       />
-      {hasButtons && (
-        <ButtonGroup
-          primaryProps={{
-            ...renderButton("primaryCta"),
-            ...primaryCta,
-          }}
-          secondaryProps={{
-            ...renderButton("secondaryCta"),
-            ...data?.secondaryCta,
-          }}
-          {...shareData}
-          {...childAnims?.buttonGroup}
-        />
-      )}
+      <ButtonGroup
+        primaryProps={{
+          ...renderButton("primaryCta"),
+          ...primaryCta,
+        }}
+        secondaryProps={{
+          ...renderButton("secondaryCta"),
+          ...data?.secondaryCta,
+        }}
+        shareData={shareData}
+        {...childAnims?.buttonGroup}
+      />
     </Stack>
   );
 };

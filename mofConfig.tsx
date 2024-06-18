@@ -1,5 +1,10 @@
+// @ts-nocheck
 import Arrow from "./assets/icons/arrow.svg";
 import Close from "./assets/icons/close.svg";
+import Email from "./assets/icons/mail.svg";
+import Facebook from "./assets/icons/facebook.svg";
+import LinkedIn from "./assets/icons/linkedin.svg";
+import Twitter from "./assets/icons/twitter.svg";
 // MOF component library presets and overrides
 
 export default {
@@ -52,6 +57,11 @@ export default {
     },
     paginate: {
       textStyle: "i-sm",
+    },
+    share: {
+      icons: {
+        iconPost: <Arrow />,
+      },
     },
   },
   contentProps: {
@@ -189,6 +199,13 @@ export default {
         },
       },
     },
+  },
+  shareIcons: {
+    facebook: <Facebook />,
+    twitter: <Twitter />,
+    linkedIn: <LinkedIn />,
+    email: <Email />,
+    copy: <Arrow />,
   },
   text: {
     variant: {

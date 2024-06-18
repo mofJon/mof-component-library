@@ -114,13 +114,6 @@ export const Box = forwardRef(
             },
           },
         });
-
-        // tie scrolltrigger to smoothscroll if it exists
-        if (window && window?.mainScroll && refTimeline.current) {
-          const scroll = window?.mainScroll;
-          const scrollTrigger = refTimeline.current.scrollTrigger;
-          scroll.on("scroll", scrollTrigger.update);
-        }
       }
 
       return () => {

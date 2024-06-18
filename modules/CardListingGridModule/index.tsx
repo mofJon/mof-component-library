@@ -42,6 +42,7 @@ const CardListingGridModule: FC<CardListingGridModuleProps> = ({
     sortByOptions,
   } = data?.filtersAndCards;
   const [filteredCards, setFilteredCards] = useState<any[]>(cards);
+  const [searchFilters, setSearchFilters] = useState<any[]>(filter);
   const [currPage, setCurrPage] = useState<number>(currentPage);
   const [currFilters, setCurrFilters] = useState<any>([]);
   const [currTotal, setCurrTotal] = useState<number>(totalPages);
@@ -108,11 +109,13 @@ const CardListingGridModule: FC<CardListingGridModuleProps> = ({
         await getQueryData({ queryData }).then((result: any) => {
           // if load more and pageNumber++ append cards to list, otherwise replace
           let updatedCards = result?.cards || [];
+          let updatedSearchFilters = result?.filters || [];
           if (paginationType === "showMore" && currPage < currentPage) {
             updatedCards = [...filteredCards, ...result.cards];
           }
 
           setFilteredCards(updatedCards);
+          setSearchFilters(updatedSearchFilters);
           setCurrPage(currentPage);
           setCurrFilters(allFilters);
           setCurrTotal(result?.totalPages || 1);
@@ -145,7 +148,7 @@ const CardListingGridModule: FC<CardListingGridModuleProps> = ({
       <Stack direction="column" {...gridWrapper(moduleAnims?.gridWrapper)}>
         {displayFilters && (
           <SearchFilters
-            filters={data?.filtersAndCards?.filter}
+            filters={searchFilters}
             icons={icons}
             textStyles={textStyles}
           />

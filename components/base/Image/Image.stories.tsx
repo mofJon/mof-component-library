@@ -96,3 +96,11 @@ export const SVG: Story = {
     className: "w-80 h-80 text-grey",
   },
 };
+
+export const Lazy: Story = {
+  args: {
+    src: imageUrlWithQuery,
+    priority: false,
+    responsive: true,
+  },
+};
