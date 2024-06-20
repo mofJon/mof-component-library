@@ -109,7 +109,7 @@ const CardListingGridModule: FC<CardListingGridModuleProps> = ({
         await getQueryData({ queryData }).then((result: any) => {
           // if load more and pageNumber++ append cards to list, otherwise replace
           let updatedCards = result?.cards || [];
-          let updatedSearchFilters = result?.filters || [];
+          let updatedSearchFilters = result?.filter || [];
           if (paginationType === "showMore" && currPage < currentPage) {
             updatedCards = [...filteredCards, ...result.cards];
           }

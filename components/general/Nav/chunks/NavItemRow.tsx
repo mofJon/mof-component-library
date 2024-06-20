@@ -55,6 +55,9 @@ const NavItemRow: FC<any> = ({
             activeIndex: itemIndex,
           });
         }
+      } else if (interaction === "click") {
+        navItemLink && router.push(navItemLink.href);
+        setIsOpen(false);
       } else if (interaction === "hover" && persistOn === "hover") {
         updatePanels({
           items: null,
