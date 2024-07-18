@@ -13,6 +13,7 @@ const DropdownFilter: FC<any> = ({
   variant,
 }) => {
   const [isChecked, setIsChecked] = useState(false);
+  const [isDirty, setIsDirty] = useState(false);
 
   const options = filter?.filters || [];
   if (options.length < 1) return null;
@@ -26,6 +27,7 @@ const DropdownFilter: FC<any> = ({
 
     onChange(filter?.filterValue, newSelected);
     setIsChecked(checked);
+    setIsDirty(newSelected.length > 0);
   };
 
   const title =
@@ -34,7 +36,7 @@ const DropdownFilter: FC<any> = ({
       : filter.filterName;
 
   return (
-    <Popover title={title} icons={icons} isDirty={isChecked}>
+    <Popover title={title} icons={icons} isDirty={isDirty}>
       {options.map((option: any) => {
         const isChecked = selectedFilters.includes(option.filterGuid);
         return (

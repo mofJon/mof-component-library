@@ -1,3 +1,4 @@
+"use client";
 import { FC } from "react";
 import { Box, Button, Tooltip } from "../../../components";
 import { shareLink } from "./ShareTooltip.styles";
@@ -20,7 +21,7 @@ const ShareTooltip: FC<any> = ({ data }) => {
     if (id === "copy" && navigator) {
       navigator.clipboard.writeText(link);
     } else {
-      if (typeof window !== "undefined") {
+      if (typeof window !== undefined) {
         window.open(newLink, "_blank");
       }
     }
